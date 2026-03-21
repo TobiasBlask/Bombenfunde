@@ -977,6 +977,7 @@ const HISTORICAL_IMAGE_STATE = Object.fromEntries(
     },
   ])
 );
+const calibrationState = {name:null, handles:[], guide:null};
 
 const AREA_LAYER_CONFIG = {
   direct: {
@@ -1199,7 +1200,6 @@ const overlayMaps = {};
 const layerControl = L.control.layers({"Satellit":sat,"OpenStreetMap":osm,"Topographie":topo}, overlayMaps, {position:"topright"}).addTo(map);
 const historicalLayers = {};
 const calibrationLayer = L.layerGroup().addTo(map);
-const calibrationState = {name:null, handles:[], guide:null};
 let currentHistoricalOpacity = 0.6;
 L.control.scale({imperial:false}).addTo(map);
 
