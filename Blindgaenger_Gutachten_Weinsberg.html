@@ -751,6 +751,19 @@ function renderSidebarPanels() {
       <div class="audit-note">
         <strong>Ebenen vorhanden:</strong> 24.12.1944, 19.03.1945 und 09.04.1945 sind als transparente Preview-Overlays im Layer-Control oben rechts eingebunden. Diese dienen der visuellen Luftbildkontrolle im Kartenraum; für amtlich belastbare Lageaussagen bleibt die vollständige TIFF-Georeferenzierung und Überlagerungsprüfung in QGIS der saubere Endschritt.
       </div>
+      <div style="margin-top:10px; font-size:.68rem; color:#9aa2aa; line-height:1.5;">
+        <strong style="color:#ddd;">Kalibrierhilfe:</strong> Halbautomatische Nachführung der Overlay-Ecken direkt in der Karte. Geeignet für schnelle Preview-Korrekturen, nicht als Ersatz für eine vollständige QGIS-Georeferenzierung.
+      </div>
+      <select id="calibrationSelect" style="width:100%; margin-top:8px; background:#1c1c20; color:#ddd; border:1px solid #2a2a2e; border-radius:4px; padding:6px;">
+        ${HISTORICAL_IMAGE_LAYERS.map((item) => `<option value="${escapeHtml(item.name)}">${escapeHtml(item.name)}</option>`).join("")}
+      </select>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:8px;">
+        <button id="startCalibrationBtn" style="background:#2980b9;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Kalibrieren</button>
+        <button id="stopCalibrationBtn" style="background:#2c3e50;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Beenden</button>
+        <button id="resetCalibrationBtn" style="background:#7f8c8d;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Zurücksetzen</button>
+        <button id="exportCalibrationBtn" style="background:#16a085;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Corner export</button>
+      </div>
+      <textarea id="calibrationOutput" readonly style="width:100%; min-height:92px; margin-top:8px; background:#11161d; color:#cbd5e1; border:1px solid #2a2a2e; border-radius:4px; padding:8px; font-size:.64rem; line-height:1.45; resize:vertical;"></textarea>
     </div>
 
     <div class="sb">
@@ -783,6 +796,12 @@ function renderSidebarPanels() {
   document.getElementById("exportBtn").addEventListener("click", exportGeoJSON);
   document.getElementById("exportGcpBtn").addEventListener("click", exportGcpCsv);
   document.getElementById("exportSchemaBtn").addEventListener("click", exportQgisSchema);
+  document.getElementById("startCalibrationBtn").addEventListener("click", startHistoricalCalibration);
+  document.getElementById("stopCalibrationBtn").addEventListener("click", stopHistoricalCalibration);
+  document.getElementById("resetCalibrationBtn").addEventListener("click", resetHistoricalCalibration);
+  document.getElementById("exportCalibrationBtn").addEventListener("click", exportHistoricalCalibration);
+  document.getElementById("calibrationSelect").addEventListener("change", updateCalibrationOutput);
+  updateCalibrationOutput();
 }
 
 function exportGeoJSON() {
@@ -948,6 +967,16 @@ const HISTORICAL_IMAGE_LAYERS = [
     note:"fruehe Nachkriegsnaehe, gute Gesamtabdeckung",
   },
 ];
+const HISTORICAL_IMAGE_STATE = Object.fromEntries(
+  HISTORICAL_IMAGE_LAYERS.map((item) => [
+    item.name,
+    {
+      ...item,
+      originalCorners: item.corners.map((corner) => [...corner]),
+      corners: item.corners.map((corner) => [...corner]),
+    },
+  ])
+);
 
 const AREA_LAYER_CONFIG = {
   direct: {
@@ -1169,17 +1198,39 @@ const topo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",{max
 const overlayMaps = {};
 const layerControl = L.control.layers({"Satellit":sat,"OpenStreetMap":osm,"Topographie":topo}, overlayMaps, {position:"topright"}).addTo(map);
 const historicalLayers = {};
+const calibrationLayer = L.layerGroup().addTo(map);
+const calibrationState = {name:null, handles:[], guide:null};
+let currentHistoricalOpacity = 0.6;
 L.control.scale({imperial:false}).addTo(map);
 
+function createHistoricalLayer(item) {
+  return L.imageOverlay.rotated(
+    encodeURI(item.file),
+    item.corners[0],
+    item.corners[1],
+    item.corners[2],
+    {opacity: currentHistoricalOpacity, interactive:false}
+  );
+}
+
+function replaceHistoricalLayer(name) {
+  if (!(L.imageOverlay && typeof L.imageOverlay.rotated === "function")) return;
+  const state = HISTORICAL_IMAGE_STATE[name];
+  const oldLayer = historicalLayers[name];
+  const wasVisible = oldLayer ? map.hasLayer(oldLayer) : false;
+  if (oldLayer) {
+    if (wasVisible) map.removeLayer(oldLayer);
+    if (typeof layerControl.removeLayer === "function") layerControl.removeLayer(oldLayer);
+  }
+  const layer = createHistoricalLayer(state);
+  historicalLayers[name] = layer;
+  layerControl.addOverlay(layer, name);
+  if (wasVisible) layer.addTo(map);
+}
+
 if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
-  HISTORICAL_IMAGE_LAYERS.forEach((item, index) => {
-    const layer = L.imageOverlay.rotated(
-      encodeURI(item.file),
-      item.corners[0],
-      item.corners[1],
-      item.corners[2],
-      {opacity: 0.6, interactive:false}
-    );
+  Object.values(HISTORICAL_IMAGE_STATE).forEach((item) => {
+    const layer = createHistoricalLayer(item);
     historicalLayers[item.name] = layer;
     layerControl.addOverlay(layer, item.name);
   });
@@ -1187,15 +1238,139 @@ if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
   const opacitySlider = document.getElementById("opacitySlider");
   if (opacitySlider) {
     opacitySlider.addEventListener("input", function(e) {
-      const val = parseFloat(e.target.value);
-      document.getElementById("opacityVal").textContent = Math.round(val * 100) + "%";
+      currentHistoricalOpacity = parseFloat(e.target.value);
+      document.getElementById("opacityVal").textContent = Math.round(currentHistoricalOpacity * 100) + "%";
       Object.values(historicalLayers).forEach(layer => {
         if (typeof layer.setOpacity === "function") {
-          layer.setOpacity(val);
+          layer.setOpacity(currentHistoricalOpacity);
         }
       });
     });
   }
+}
+
+function getSelectedHistoricalName() {
+  const select = document.getElementById("calibrationSelect");
+  return select ? select.value : HISTORICAL_IMAGE_LAYERS[0].name;
+}
+
+function getCalibrationLabel(index) {
+  return ["C1","C2","C3"][index] || `C${index + 1}`;
+}
+
+function createCalibrationMarker(index, corner) {
+  return L.marker(corner, {
+    draggable: true,
+    icon: L.divIcon({
+      className: "",
+      html: `<div style="background:#11161d;color:#ecf0f1;border:1px solid #3498db;border-radius:999px;padding:3px 7px;font-size:.68rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.35)">${getCalibrationLabel(index)}</div>`,
+      iconSize: [34, 24],
+      iconAnchor: [17, 12],
+    }),
+  });
+}
+
+function renderCalibrationGuide() {
+  if (calibrationState.guide) calibrationLayer.removeLayer(calibrationState.guide);
+  if (!calibrationState.handles.length) return;
+  const latlngs = calibrationState.handles.map((marker) => marker.getLatLng());
+  calibrationState.guide = L.polygon(latlngs, {
+    color: "#3498db",
+    weight: 1.6,
+    opacity: 0.9,
+    fillOpacity: 0.04,
+    dashArray: "6,4",
+  });
+  calibrationLayer.addLayer(calibrationState.guide);
+}
+
+function updateCalibrationOutput() {
+  const output = document.getElementById("calibrationOutput");
+  if (!output) return;
+  const name = calibrationState.name || getSelectedHistoricalName();
+  const state = HISTORICAL_IMAGE_STATE[name];
+  const corners = calibrationState.name === name && calibrationState.handles.length
+    ? calibrationState.handles.map((marker) => [marker.getLatLng().lat, marker.getLatLng().lng])
+    : state.corners;
+  output.value = [
+    `// ${name}`,
+    "corners:[",
+    ...corners.map((corner) => `  [${corner[0].toFixed(6)}, ${corner[1].toFixed(6)}],`),
+    "]",
+  ].join("\n");
+}
+
+function refreshCalibrationOverlay() {
+  if (!calibrationState.name || !calibrationState.handles.length) return;
+  const state = HISTORICAL_IMAGE_STATE[calibrationState.name];
+  state.corners = calibrationState.handles.map((marker) => {
+    const ll = marker.getLatLng();
+    return [ll.lat, ll.lng];
+  });
+  renderCalibrationGuide();
+  replaceHistoricalLayer(calibrationState.name);
+  if (historicalLayers[calibrationState.name] && !map.hasLayer(historicalLayers[calibrationState.name])) {
+    historicalLayers[calibrationState.name].addTo(map);
+  }
+  updateCalibrationOutput();
+}
+
+function stopHistoricalCalibration() {
+  calibrationLayer.clearLayers();
+  calibrationState.name = null;
+  calibrationState.handles = [];
+  calibrationState.guide = null;
+  updateCalibrationOutput();
+}
+
+function startHistoricalCalibration() {
+  const name = getSelectedHistoricalName();
+  const state = HISTORICAL_IMAGE_STATE[name];
+  if (!historicalLayers[name]) return;
+  if (!map.hasLayer(historicalLayers[name])) historicalLayers[name].addTo(map);
+  stopHistoricalCalibration();
+  calibrationState.name = name;
+  calibrationState.handles = state.corners.map((corner, index) => {
+    const marker = createCalibrationMarker(index, corner);
+    marker.on("drag", refreshCalibrationOverlay);
+    marker.on("dragend", refreshCalibrationOverlay);
+    calibrationLayer.addLayer(marker);
+    return marker;
+  });
+  renderCalibrationGuide();
+  updateCalibrationOutput();
+}
+
+function resetHistoricalCalibration() {
+  const name = calibrationState.name || getSelectedHistoricalName();
+  const state = HISTORICAL_IMAGE_STATE[name];
+  state.corners = state.originalCorners.map((corner) => [...corner]);
+  replaceHistoricalLayer(name);
+  if (calibrationState.name === name) {
+    calibrationState.handles.forEach((marker, index) => marker.setLatLng(state.corners[index]));
+    renderCalibrationGuide();
+  }
+  updateCalibrationOutput();
+}
+
+function exportHistoricalCalibration() {
+  const name = calibrationState.name || getSelectedHistoricalName();
+  const output = document.getElementById("calibrationOutput");
+  updateCalibrationOutput();
+  const payload = {
+    image: name,
+    corners: HISTORICAL_IMAGE_STATE[name].corners.map((corner) => ({
+      lat: Number(corner[0].toFixed(6)),
+      lon: Number(corner[1].toFixed(6)),
+    })),
+  };
+  if (navigator.clipboard && output) {
+    navigator.clipboard.writeText(output.value).catch(() => {});
+  }
+  const a = document.createElement("a");
+  a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
+  a.download = `${name.replace(/[^a-z0-9]+/gi, "_")}_corners.json`;
+  a.click();
 }
 
 const studyBoundaryRaw = [
