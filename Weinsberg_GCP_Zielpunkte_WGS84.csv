@@ -1,0 +1,7 @@
+"gcp_id","name","status","target_lat","target_lon","note"
+"GCP01","Marktplatz Weinsberg","used","49.1518076","9.2854796","als Affin-Anker verwendet"
+"GCP02","Burg Weibertreu","used","49.1539224","9.2829791","als Affin-Anker verwendet"
+"GCP03","Bahnhof Weinsberg","used","49.1482139","9.2862174","als Affin-Anker verwendet"
+"GCP04","Johanneskirche","recommended","49.1527027","9.2858491","empfohlener Zusatzanker fuer QGIS"
+"GCP05","Rathaus Weinsberg","recommended","49.1518781","9.2858971","empfohlener Zusatzanker fuer QGIS"
+"GCP06","Kernerhaus","recommended","49.1522932","9.2887481","oestlicher Zusatzanker"

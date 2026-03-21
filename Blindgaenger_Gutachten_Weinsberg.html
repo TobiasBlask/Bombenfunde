@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kampfmittel-Luftbildauswertung – Weinsberg | Audit v4 Punktprüfung</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/IvanSanchez/Leaflet.ImageOverlay.Rotated/Leaflet.ImageOverlay.Rotated.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #111; color: #ddd; height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+
+    /* HEADER */
+    header { background:#0a0a0c; border-bottom:3px solid #c0392b; padding:9px 18px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+    header h1 { font-size:1rem; font-weight:700; color:#fff; }
+    header .sub { font-size:0.7rem; color:#888; margin-top:2px; }
+    header .badge { background:#c0392b; color:#fff; font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:3px; margin-left:10px; }
+    header .meta { font-size:0.7rem; color:#666; text-align:right; line-height:1.6; }
+    header .meta strong { color:#ccc; }
+
+    /* LAYOUT */
+    .main { display:flex; flex:1; overflow:hidden; }
+
+    /* SIDEBAR */
+    .sidebar { width:340px; min-width:300px; background:#141416; border-right:1px solid #2a2a2e; overflow-y:auto; flex-shrink:0; }
+    .sb { border-bottom:1px solid #222; padding:12px 14px; }
+    .sb h2 { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#666; margin-bottom:9px; }
+
+    /* STATS */
+    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:6px; }
+    .sc { background:#1c1c20; border-radius:5px; padding:8px 6px; text-align:center; }
+    .sc .n { font-size:1.6rem; font-weight:700; line-height:1; }
+    .sc .l { font-size:0.62rem; color:#666; margin-top:2px; line-height:1.3; }
+    .n.orange { color:#e67e22; } .n.red { color:#c0392b; } .n.blue { color:#3498db; }
+    .n.green { color:#27ae60; } .n.gray { color:#95a5a6; }
+
+    /* GROUP FILTER */
+    .filters { display:flex; flex-wrap:wrap; gap:5px; }
+    .filter-btn { border:none; border-radius:3px; padding:4px 9px; font-size:0.7rem; font-weight:600; cursor:pointer; opacity:0.5; transition:opacity .15s; }
+    .filter-btn.on { opacity:1; }
+    .filter-btn:hover { opacity:.85; }
+
+    /* TABLE */
+    table { width:100%; border-collapse:collapse; font-size:0.7rem; }
+    thead th { background:#1c1c20; color:#888; padding:4px 6px; text-align:left; font-weight:600; position:sticky; top:0; z-index:2; }
+    tbody tr { cursor:pointer; }
+    tbody tr:hover td { background:#22222a; }
+    tbody td { padding:3px 6px; border-bottom:1px solid #1e1e22; white-space:nowrap; }
+
+    /* LEGEND */
+    .lg-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:0.73rem; }
+    .lg-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; }
+    .lg-text strong { display:block; color:#ccc; font-size:0.73rem; }
+    .lg-text span { color:#666; font-size:0.66rem; }
+    .pill { display:inline-block; border-radius:999px; padding:2px 7px; font-size:0.62rem; font-weight:700; letter-spacing:.02em; border:1px solid transparent; }
+    .pill.ok { color:#2ecc71; background:rgba(46,204,113,.12); border-color:rgba(46,204,113,.35); }
+    .pill.warn { color:#f39c12; background:rgba(243,156,18,.12); border-color:rgba(243,156,18,.35); }
+    .pill.bad { color:#95a5a6; background:rgba(149,165,166,.12); border-color:rgba(149,165,166,.35); }
+    .pill.direct { color:#3498db; background:rgba(52,152,219,.12); border-color:rgba(52,152,219,.35); }
+    .pill.base { color:#9b59b6; background:rgba(155,89,182,.12); border-color:rgba(155,89,182,.35); }
+    .pill.ctx { color:#e67e22; background:rgba(230,126,34,.12); border-color:rgba(230,126,34,.35); }
+    .src-list { display:flex; flex-direction:column; gap:6px; }
+    .src-item { display:flex; gap:8px; justify-content:space-between; align-items:flex-start; background:#1b1b1f; border-radius:4px; padding:7px 8px; }
+    .src-item .left { min-width:0; }
+    .src-item .left strong { display:block; color:#d5d5d5; font-size:.68rem; line-height:1.35; }
+    .src-item .left span { display:block; color:#666; font-size:.62rem; line-height:1.35; overflow-wrap:anywhere; }
+    .decision { border-radius:4px; padding:8px 10px; font-size:0.68rem; line-height:1.55; margin-bottom:7px; }
+    .decision strong { display:block; font-size:0.72rem; margin-bottom:2px; }
+    .decision.red { background:#1f1010; border-left:3px solid #c0392b; color:#d7b2af; }
+    .decision.yellow { background:#1f1808; border-left:3px solid #f39c12; color:#d8c39f; }
+    .decision.green { background:#0f1b12; border-left:3px solid #27ae60; color:#b8d9c1; }
+    .audit-note { background:#11161d; border-left:3px solid #3498db; padding:8px 10px; font-size:.68rem; color:#9fb5c9; line-height:1.5; }
+    .audit-note strong { color:#6fb2ff; }
+
+    /* NOTE */
+    .note { background:#1a1200; border-left:3px solid #f39c12; padding:7px 10px; font-size:0.68rem; color:#aaa; line-height:1.5; }
+    .note strong { color:#f39c12; }
+
+    /* MAP */
+    #map { flex:1; }
+
+    /* MAP controls */
+    .map-leg { max-width:360px; background:rgba(12,12,14,.9); border:1px solid #333; border-radius:4px; padding:8px 11px; font-size:.7rem; color:#bbb; line-height:1.7; box-shadow:0 6px 18px rgba(0,0,0,.35); }
+    .map-leg b { color:#fff; }
+    .map-leg-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:4px; }
+    .map-leg-toggle, .map-leg-reopen { border:none; border-radius:4px; cursor:pointer; font-weight:700; }
+    .map-leg-toggle { width:24px; height:24px; background:#1d1f24; color:#ddd; font-size:1rem; line-height:1; }
+    .map-leg-toggle:hover, .map-leg-reopen:hover { background:#2a2d33; }
+    .map-leg-reopen { display:none; padding:6px 10px; background:rgba(12,12,14,.94); color:#ddd; border:1px solid #333; box-shadow:0 6px 18px rgba(0,0,0,.3); }
+    .map-leg-line { display:block; color:#666; font-size:.65rem; line-height:1.45; overflow-wrap:anywhere; }
+    .map-leg.collapsed { background:transparent; border:none; padding:0; box-shadow:none; }
+    .map-leg.collapsed .map-leg-shell { display:none; }
+    .map-leg.collapsed .map-leg-reopen { display:inline-block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Kampfmittel-Luftbildauswertung – Weinsberg (Heilbronn-Kreis)
+      <span class="badge" id="badgeText">Audit v4 · Punktprüfung läuft</span></h1>
+    <div class="sub">Formales Template beibehalten · Punktinventar gegen TIFF-Serie geprüft · 4-stufige Flächenlogik ergänzt · 3-GCP-Affinkorrektur auf reale Weinsberg-Lage angewandt</div>
+  </div>
+  <div class="meta"><strong>Stand:</strong> 20.03.2026 &nbsp;|&nbsp; <strong>Geolage:</strong> 3-GCP affine Korrektur &nbsp;|&nbsp; <strong>Status:</strong> Audit der Punktdaten<br/>
+  <span id="metaText">Alle 15 TIFF-Dateien werden als Punktquelle, Baseline oder Kontextbild ausgewiesen.</span></div>
+</header>
+
+<div class="main">
+<div class="sidebar">
+
+  <!-- STATS -->
+  <div class="sb">
+    <h2>Auswertungsübersicht</h2>
+    <div class="stats">
+      <div class="sc"><div class="n orange" id="statTotal">0</div><div class="l">Kartierte Punkte</div></div>
+      <div class="sc"><div class="n green" id="statConfirmed">0</div><div class="l">Bestätigt</div></div>
+      <div class="sc"><div class="n blue" id="statPlausible">0</div><div class="l">Plausibel</div></div>
+      <div class="sc"><div class="n gray" id="statWeak">0</div><div class="l">Nicht hinr. belegt</div></div>
+      <div class="sc"><div class="n red" id="statOpenFiles">0</div><div class="l">Kontext-/Kontrollbilder</div></div>
+    </div>
+    <div class="audit-note" style="margin-top:8px;">
+      <strong>Audit-Hinweis:</strong> Die Vorarbeit ist formal gut strukturiert, die Punktdaten werden hier aber ausdrücklich als Hypothese behandelt. <span id="auditSummaryText">Die Nachweisqualität wird pro Punkt ausgewiesen.</span>
+    </div>
+  </div>
+
+  <!-- GROUP FILTER -->
+  <div class="sb">
+    <h2>Gruppen ein-/ausblenden</h2>
+    <div class="filters">
+      <button class="filter-btn on" data-grp="HL"  style="background:#c0392b;color:#fff;"  onclick="toggleGrp('HL',this)">● HL – Großkrater</button>
+      <button class="filter-btn on" data-grp="FE"  style="background:#27ae60;color:#fff;"  onclick="toggleGrp('FE',this)">● FE – Waldrand / Persistenz</button>
+      <button class="filter-btn on" data-grp="SE"  style="background:#f39c12;color:#fff;"  onclick="toggleGrp('SE',this)">● SE – Sep.1944 Rauch</button>
+      <button class="filter-btn on" data-grp="NW"  style="background:#e67e22;color:#fff;"  onclick="toggleGrp('NW',this)">● NW – Felder NW</button>
+      <button class="filter-btn on" data-grp="NE"  style="background:#9b59b6;color:#fff;"  onclick="toggleGrp('NE',this)">● NE – Felder NO</button>
+      <button class="filter-btn on" data-grp="W"   style="background:#e74c3c;color:#fff;"  onclick="toggleGrp('W', this)">● W – Bahnkorridor</button>
+      <button class="filter-btn on" data-grp="BHE" style="background:#1abc9c;color:#fff;"  onclick="toggleGrp('BHE',this)">● BHE – Bhf-Ost / Persistenz</button>
+      <button class="filter-btn on" data-grp="M"   style="background:#3498db;color:#fff;"  onclick="toggleGrp('M', this)">● M – Ortskernrand S</button>
+    </div>
+  </div>
+
+  <div class="sb">
+    <h2>Evidenz-Layer</h2>
+    <div class="filters">
+      <button class="filter-btn on" data-ev="primary" style="background:#16a085;color:#fff;" onclick="toggleEvidence('primary',this)">● Primärquellen</button>
+      <button class="filter-btn on" data-ev="comparison" style="background:#8e44ad;color:#fff;" onclick="toggleEvidence('comparison',this)">● Vergleich / Persistenz</button>
+      <button class="filter-btn on" data-gcp="on" style="background:#2c3e50;color:#fff;" onclick="toggleGcp(this)">● GCP-Anker</button>
+    </div>
+    <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
+      Kontext-/Kontrollbilder ohne eigene Punktzuweisung bleiben in der Quellabdeckung dokumentiert und werden nicht künstlich als Kartenelemente erzeugt. Historische Hauptaufnahmen lassen sich zusätzlich als transparente Bildlayer einblenden.
+    </div>
+  </div>
+
+  <div class="sb">
+    <h2>Verdachtsflächen</h2>
+    <div class="filters">
+      <button class="filter-btn on" data-area="direct" style="background:#c0392b;color:#fff;" onclick="toggleArea('direct',this)">● Direkte Trefferzonen</button>
+      <button class="filter-btn on" data-area="corridor" style="background:#e67e22;color:#fff;" onclick="toggleArea('corridor',this)">● Angriffskorridore</button>
+      <button class="filter-btn on" data-area="indirect" style="background:#f1c40f;color:#111;" onclick="toggleArea('indirect',this)">● Indirekter Verdacht</button>
+    </div>
+    <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
+      Direkte Trefferzonen basieren auf verdichteten Kraterclustern. Angriffskorridore bilden das rekonstruktive Trefferband. Indirekter Verdacht markiert Lücken- und Randbereiche, in denen ein Blindgänger eher flächenhaft als punktgenau zu vermuten ist.
+    </div>
+  </div>
+
+  <!-- IMPACT TABLE -->
+  <div class="sb" style="padding-bottom:0;padding-top:8px;">
+    <h2>Punkt-Auditliste (Klick → Karte)</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Gruppe</th><th>Audit</th><th>Quelle</th></tr></thead>
+      <tbody id="tbl"></tbody>
+    </table>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="sb">
+    <h2>Legende</h2>
+    <div class="lg-row"><div class="lg-dot" style="background:#c0392b;border:2px solid #922b21"></div><div class="lg-text"><strong>HL – Großkrater / Blockbuster</strong><span>Massiver Einschlag N/NE Altstadt, Blastwelle sichtbar</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#e67e22;border:2px solid #a05010"></div><div class="lg-text"><strong>NW – Streueinschläge Felder NW</strong><span>~15 Einzelkrater in Ackerflächen NW (1944_R1C1)</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#9b59b6;border:2px solid #6c3483"></div><div class="lg-text"><strong>NE – Einzelkrater Felder NO</strong><span>2–3 klare Einzelkrater NO, bestätigt 1945-04-09</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#e74c3c;border:2px solid #922b21"></div><div class="lg-text"><strong>W – Bahnkorridor West</strong><span>Primärziel Eisenbahn, mehrfach bombardiert</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#3498db;border:2px solid #1a5276"></div><div class="lg-text"><strong>M – Ortskernrand / Südbereich</strong><span>Einschläge S/SW der Bebauung, entlang Bahntrasse</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#27ae60;border:2px solid #1e8449"></div><div class="lg-text"><strong>FE – Waldrand / Persistenz</strong><span>Persistente Kraternarben am Waldrand, 1943↔1947 Vergleich</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#f39c12;border:2px solid #b7770d"></div><div class="lg-text"><strong>SE – September 1944 Rauch</strong><span>Frühangriff mit Rauch-/Brandmarken in der 1944-09-10-Aufnahme</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#1abc9c;border:2px solid #148f77"></div><div class="lg-text"><strong>BHE – Bahnhof-Ost / Persistenz</strong><span>Persistente Störzone östlich des Bahnhofs</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:rgba(192,57,43,.2);border:2px solid #c0392b;border-radius:3px"></div><div class="lg-text"><strong>Direkte Trefferzone</strong><span>Flächenhafte Verdichtung klarer Kratercluster oder persistenter Trefferzonen</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:rgba(230,126,34,.18);border:2px dashed #e67e22;border-radius:3px"></div><div class="lg-text"><strong>Angriffskorridor</strong><span>Rekonstruierte Abwurf- bzw. Trefferachse entlang des Primärziels</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:rgba(241,196,15,.12);border:2px dashed #f1c40f;border-radius:3px"></div><div class="lg-text"><strong>Indirekter / statistischer Verdacht</strong><span>Fehlstellen, Randlagen und Lücken innerhalb des Trefferbandes</span></div></div>
+    <div class="lg-row" style="margin-top:6px;">
+      <div class="lg-dot" style="background:rgba(192,57,43,.3);border:1.5px dashed #c0392b;border-radius:50%"></div>
+      <div class="lg-text"><strong>50m-Puffer</strong><span>Blindgänger-Suchradius je Einschlag</span></div>
+    </div>
+    <div class="lg-row"><span class="pill ok">bestätigt</span><div class="lg-text"><strong>Bestätigt</strong><span>Mehrdatig, persistierend oder morphologisch eindeutig</span></div></div>
+    <div class="lg-row"><span class="pill warn">plausibel</span><div class="lg-text"><strong>Plausibel, aber unsicher</strong><span>Einzelbildhinweis, Zielnähe oder Randlage ohne harte Zweitbestätigung</span></div></div>
+    <div class="lg-row"><span class="pill bad">schwach</span><div class="lg-text"><strong>Nicht hinreichend belegt</strong><span>Niedrige Konfidenz oder nur schwacher Streuhinweis</span></div></div>
+    <div class="lg-row"><span class="pill direct">Primärquellen</span><div class="lg-text"><strong>Primärquellen-Layer</strong><span>Punkte aus direkt treffersensitiven Aufnahmen 1944/1945</span></div></div>
+    <div class="lg-row"><span class="pill base">Vergleich / Persistenz</span><div class="lg-text"><strong>Vergleichs-/Persistenz-Layer</strong><span>Punkte, deren Tragfähigkeit aus Vor-/Nachvergleich oder Persistenz stammt</span></div></div>
+    <div class="lg-row"><span class="pill" style="color:#ecf0f1;background:rgba(44,62,80,.28);border-color:rgba(44,62,80,.55)">GCP</span><div class="lg-text"><strong>GCP-Anker</strong><span>Stabile Zielpunkte zur Georeferenzierung der historischen TIFFs</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:transparent;border:2px dashed #2ecc71;border-radius:3px"></div><div class="lg-text"><strong>Grüne Außenlinie</strong><span>Gesamter ausgewerteter Untersuchungsraum</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:transparent;border:2px dashed #3498db;border-radius:3px"></div><div class="lg-text"><strong>Blaue Innenlinie</strong><span>Siedlungsnaher Hauptprüfbereich / baulich relevanter Kernraum</span></div></div>
+  </div>
+
+  <!-- NOTE -->
+  <div class="sb">
+    <div class="note"><strong>Methodischer Hinweis:</strong> Diese Audit-Fassung trennt bewusst zwischen <strong>direkten Punktquellen</strong>, <strong>Baseline</strong> und <strong>Kontext-/Kontrollbildern ohne eigene Punktzuweisung</strong>. Neu hinzugekommen ist eine <strong>flächenhafte 4-Ebenen-Darstellung</strong>: rote Direktzonen, orange Angriffskorridore und gelbe indirekte Verdachtsflächen werden sauber von den Einzelpunkten getrennt. Zusätzlich wurde die bisherige Kartenlage über <strong>3 reale GCP-Anker</strong> (Marktplatz, Bahnhof, Burg Weibertreu) affinkorrigiert. Das verbessert die Lage deutlich, ersetzt aber keine vollständige TIFF-Georeferenzierung mit 4–6 manuell gesetzten GCPs in QGIS.</div>
+  </div>
+
+</div><!-- /sidebar -->
+
+<div id="map"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// IMPACT DATABASE – 49 individual impacts
+// Identified via systematic 3×3 grid analysis of:
+//   1944-12-24 M1:9000, 1945-03-19 M1:10000, 1945-04-09 M1:10000
+// Georeferencing: manual landmark anchoring (Burgberg + Altstadt)
+// Accuracy: ±100–200m
+// ═══════════════════════════════════════════════════════
+const IMPACTS = [
+
+  // ─── GROUP HL: Haupt-Großkrater / Blockbuster-Zone ───────────────────────
+  // Visible in 1944_R1C2 as massive dark oval with blast rings.
+  // Confirmed in 1945a_R2C3 as large disturbed crater zone.
+  // Location: N/NE of Altstadt, south edge of Weinsberger Wald.
+  // Likely a 4000lb HC bomb or tightly packed cluster.
+  {id:"HL01",grp:"HL",lat:49.1518,lon:9.3672,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Zentrum Großkrater"},
+  {id:"HL02",grp:"HL",lat:49.1524,lon:9.3660,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Großkrater NW-Rand"},
+  {id:"HL03",grp:"HL",lat:49.1512,lon:9.3665,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Großkrater S-Rand"},
+  {id:"HL04",grp:"HL",lat:49.1520,lon:9.3688,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Großkrater O-Rand"},
+  {id:"HL05",grp:"HL",lat:49.1528,lon:9.3675,conf:"mittel",src:"1944-12-24",             note:"Großkrater N-Rand"},
+  {id:"HL06",grp:"HL",lat:49.1508,lon:9.3680,conf:"mittel",src:"1945-03-19",             note:"Blastwelle SE"},
+  {id:"HL07",grp:"HL",lat:49.1532,lon:9.3658,conf:"mittel",src:"1944-12-24",             note:"Sekundäreinschlag N"},
+  {id:"HL08",grp:"HL",lat:49.1510,lon:9.3645,conf:"mittel",src:"1944-12-24, 1945-04-09",note:"Sekundäreinschlag SW"},
+  {id:"HL09",grp:"HL",lat:49.1525,lon:9.3648,conf:"niedrig",src:"1945-03-19",            note:"Streubereich W"},
+  {id:"HL10",grp:"HL",lat:49.1503,lon:9.3662,conf:"niedrig",src:"1945-04-09",            note:"Streubereich S"},
+
+  // ─── GROUP NW: Streueinschläge Felder NW ─────────────────────────────────
+  // Clearly visible in 1944_R1C1 as ~15 scattered small dark dots
+  // in agricultural strip-fields NW of Weinsberg.
+  // Pattern consistent with bombs falling short/left of railway target.
+  {id:"NW01",grp:"NW",lat:49.1572,lon:9.3478,conf:"hoch",  src:"1944-12-24",note:"Feld NW, Krater klar"},
+  {id:"NW02",grp:"NW",lat:49.1558,lon:9.3462,conf:"hoch",  src:"1944-12-24",note:"Feld NW, Krater klar"},
+  {id:"NW03",grp:"NW",lat:49.1565,lon:9.3495,conf:"hoch",  src:"1944-12-24",note:"Feld NW, Krater klar"},
+  {id:"NW04",grp:"NW",lat:49.1580,lon:9.3468,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
+  {id:"NW05",grp:"NW",lat:49.1548,lon:9.3472,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
+  {id:"NW06",grp:"NW",lat:49.1562,lon:9.3510,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
+  {id:"NW07",grp:"NW",lat:49.1575,lon:9.3490,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
+  {id:"NW08",grp:"NW",lat:49.1540,lon:9.3458,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
+  {id:"NW09",grp:"NW",lat:49.1585,lon:9.3455,conf:"mittel",src:"1944-12-24",note:"Feld NW äußerer Rand"},
+  {id:"NW10",grp:"NW",lat:49.1554,lon:9.3480,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
+  {id:"NW11",grp:"NW",lat:49.1568,lon:9.3505,conf:"niedrig",src:"1944-12-24",note:"Feld NW, unsicher"},
+  {id:"NW12",grp:"NW",lat:49.1590,lon:9.3475,conf:"niedrig",src:"1944-12-24",note:"Feld NW, äußerster Rand"},
+  {id:"NW13",grp:"NW",lat:49.1535,lon:9.3465,conf:"niedrig",src:"1944-12-24",note:"Feld NW, Übergangslage"},
+  {id:"NW14",grp:"NW",lat:49.1578,lon:9.3515,conf:"niedrig",src:"1944-12-24",note:"Feld NW"},
+  {id:"NW15",grp:"NW",lat:49.1545,lon:9.3490,conf:"niedrig",src:"1944-12-24",note:"Feld NW"},
+
+  // ─── GROUP NE: Einzelkrater Felder NE ────────────────────────────────────
+  // Clearly visible in 1945b_R1C3 as 2-3 distinct circular dark spots
+  // with lighter ejecta rings – unmistakable crater morphology.
+  // Location: fields NE of town, toward Ellhofen direction.
+  {id:"NE01",grp:"NE",lat:49.1538,lon:9.3765,conf:"hoch",  src:"1945-04-09",note:"Krater klar, klassische Morphologie"},
+  {id:"NE02",grp:"NE",lat:49.1522,lon:9.3748,conf:"hoch",  src:"1945-04-09",note:"Krater klar"},
+  {id:"NE03",grp:"NE",lat:49.1545,lon:9.3780,conf:"mittel",src:"1945-04-09",note:"Dritter Krater NE"},
+
+  // ─── GROUP W: Bahnkorridor West ───────────────────────────────────────────
+  // Primary bombing target: Kraichgau/Kocher railway through Weinsberg.
+  // Visible in 1944_R2C1, 1944_R3C3, 1945a/b_R2C1, 1945b_R1C1.
+  // Multiple attack sorties: Sep 1944, Dec 1944, Mar–Apr 1945.
+  {id:"W01",grp:"W",lat:49.1490,lon:9.3348,conf:"hoch",  src:"1944-09-10, 1945-03-19",note:"Bahn W, Einfahrt"},
+  {id:"W02",grp:"W",lat:49.1475,lon:9.3365,conf:"hoch",  src:"1945-03-19",             note:"Bahn W, S-Seite"},
+  {id:"W03",grp:"W",lat:49.1484,lon:9.3390,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Bahn W"},
+  {id:"W04",grp:"W",lat:49.1468,lon:9.3408,conf:"mittel",src:"1945-03-19",             note:"Bahn W, Feld S"},
+  {id:"W05",grp:"W",lat:49.1492,lon:9.3422,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"Bahn W"},
+  {id:"W06",grp:"W",lat:49.1478,lon:9.3440,conf:"mittel",src:"1945-03-19",             note:"Bahn W"},
+  {id:"W07",grp:"W",lat:49.1463,lon:9.3455,conf:"mittel",src:"1945-03-19",             note:"Bahn W, S-Rand"},
+  {id:"W08",grp:"W",lat:49.1495,lon:9.3468,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Bahnhofsvorfeld N"},
+  {id:"W09",grp:"W",lat:49.1480,lon:9.3482,conf:"hoch",  src:"1944-12-24",             note:"Bahnhof Bereich"},
+  {id:"W10",grp:"W",lat:49.1460,lon:9.3495,conf:"mittel",src:"1945-04-09",             note:"Bahnhof S-Rand"},
+  {id:"W11",grp:"W",lat:49.1488,lon:9.3510,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"Bahnhof Ostausfahrt"},
+  {id:"W12",grp:"W",lat:49.1500,lon:9.3528,conf:"mittel",src:"1945-03-19",             note:"Bahn O, Böschung N"},
+
+  // ─── GROUP M: Ortskernrand Süd / Bahntrasse O ─────────────────────────────
+  {id:"M01",grp:"M",lat:49.1468,lon:9.3538,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"S Bebauungsrand"},
+  {id:"M02",grp:"M",lat:49.1455,lon:9.3550,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"S Ortsrand"},
+  {id:"M03",grp:"M",lat:49.1474,lon:9.3562,conf:"mittel",src:"1945-04-09",             note:"S Zufahrt"},
+  {id:"M04",grp:"M",lat:49.1458,lon:9.3575,conf:"mittel",src:"1945-03-19, 1945-04-09",note:"S Garten-/Wiesenzone"},
+  {id:"M05",grp:"M",lat:49.1465,lon:9.3592,conf:"mittel",src:"1945-04-09",             note:"SO Ortsrand"},
+  {id:"M06",grp:"M",lat:49.1448,lon:9.3545,conf:"mittel",src:"1945-04-09",             note:"S äußerer Rand"},
+  {id:"M07",grp:"M",lat:49.1442,lon:9.3562,conf:"niedrig",src:"1945-04-09",            note:"S Streuung"},
+  {id:"M08",grp:"M",lat:49.1452,lon:9.3580,conf:"niedrig",src:"1945-04-09",            note:"S Streuung"},
+  {id:"M09",grp:"M",lat:49.1478,lon:9.3610,conf:"mittel",src:"1944-12-24",             note:"SO Rand Altstadt"},
+  {id:"M10",grp:"M",lat:49.1488,lon:9.3640,conf:"mittel",src:"1944-12-24, 1945-03-19",note:"O-Zufahrt Bahnhof"},
+  {id:"M11",grp:"M",lat:49.1502,lon:9.3655,conf:"mittel",src:"1945-03-19",             note:"NO Randbereich"},
+  {id:"M12",grp:"M",lat:49.1445,lon:9.3530,conf:"niedrig",src:"1945-04-09",            note:"SW Streubereich"},
+
+  // ─── GROUP FE: Waldrand – Persistente Kraternarben (NEU v3) ───────────────
+  // Confirmed by 1943↔1947 comparison: features at southern forest edge
+  // are NOT in 1943 reference but clearly visible in both 1947a_R1C2 and
+  // 1947b_R1C1 as persistent dark irregular depressions. Methodologically
+  // most reliable group – 2-year persistence proves genuine terrain alteration.
+  {id:"FE01",grp:"FE",lat:49.1558,lon:9.3625,conf:"hoch",  src:"1947-07-23 (beide), Vorher/Nachher bestätigt",note:"Persistente Narbe Waldrand, kein 1943-Äquivalent"},
+  {id:"FE02",grp:"FE",lat:49.1548,lon:9.3642,conf:"hoch",  src:"1947-07-23 (beide), Vorher/Nachher bestätigt",note:"Persistente Narbe Waldrand"},
+  {id:"FE03",grp:"FE",lat:49.1565,lon:9.3610,conf:"hoch",  src:"1947-07-23a_R1C2, bestätigt",                 note:"Persistente Narbe Waldrand N-Rand"},
+  {id:"FE04",grp:"FE",lat:49.1542,lon:9.3658,conf:"mittel",src:"1947-07-23b_R1C1",                            note:"Waldrand-Übergangszone"},
+  {id:"FE05",grp:"FE",lat:49.1572,lon:9.3598,conf:"mittel",src:"1947-07-23a_R1C2",                            note:"Waldrand äußerer N-Bereich"},
+
+  // ─── GROUP SE: September 1944 Frühangriff – Rauchfahnen (NEU v3) ──────────
+  // 1944-09-10 image (M1:14250) taken DURING or immediately after an attack.
+  // Active smoke/burn marks visible in tiles R2C2 and R2C3 in forest-field
+  // transition. Proves bombing started Sep 1944, 3 months before Christmas attack.
+  {id:"SE01",grp:"SE",lat:49.1538,lon:9.3668,conf:"hoch",  src:"1944-09-10 R2C2, aktiver Rauch sichtbar",note:"Frischer Einschlag Sep.1944, Rauch/Brandmark"},
+  {id:"SE02",grp:"SE",lat:49.1525,lon:9.3682,conf:"hoch",  src:"1944-09-10 R2C2+R2C3, Rauchfahne",       note:"Frischer Einschlag Sep.1944"},
+  {id:"SE03",grp:"SE",lat:49.1548,lon:9.3695,conf:"mittel",src:"1944-09-10 R2C3",                         note:"Sep.1944 Streueinschlag"},
+
+  // ─── GROUP BHE: Bahnhof-Ost – Persistente Störzone (NEU v3) ──────────────
+  // 1947b_R2C2 shows disturbed terrain east of the Bahnhof that is clean in
+  // the 1943 reference. Consistent with bomb damage to eastern rail approaches
+  // (Ausfahrt Richtung Öhringen). Still uncleared in 1947.
+  {id:"BHE01",grp:"BHE",lat:49.1508,lon:9.3572,conf:"mittel",src:"1947b_R2C2, 1943 clean, Persistenz best.",note:"Bhf-Ost, persistente Störzone"},
+  {id:"BHE02",grp:"BHE",lat:49.1495,lon:9.3558,conf:"mittel",src:"1947b_R2C2",                             note:"Bhf-Ost Südrand"},
+  {id:"BHE03",grp:"BHE",lat:49.1518,lon:9.3588,conf:"niedrig",src:"1947b_R2C2",                            note:"Bhf-Ost Nordrand"},
+];
+
+// ═══════════════════════════════════════════════════════
+// AUDIT CONFIG + DYNAMIC SUMMARY
+// ═══════════════════════════════════════════════════════
+const GROUP_ORDER = ["HL","FE","SE","NW","NE","W","BHE","M"];
+const GRP = {
+  HL:  {color:"#c0392b", fill:"rgba(192,57,43,.38)",  label:"HL – Großkrater"},
+  FE:  {color:"#27ae60", fill:"rgba(39,174,96,.34)",  label:"FE – Waldrand / Persistenz"},
+  SE:  {color:"#f39c12", fill:"rgba(243,156,18,.32)", label:"SE – September 1944 Rauch"},
+  NW:  {color:"#e67e22", fill:"rgba(230,126,34,.30)", label:"NW – Felder NW"},
+  NE:  {color:"#9b59b6", fill:"rgba(155,89,182,.30)", label:"NE – Felder NO"},
+  W:   {color:"#e74c3c", fill:"rgba(231,76,60,.30)",  label:"W – Bahnkorridor"},
+  BHE: {color:"#1abc9c", fill:"rgba(26,188,156,.30)", label:"BHE – Bahnhof-Ost / Persistenz"},
+  M:   {color:"#3498db", fill:"rgba(52,152,219,.30)", label:"M – Ortskernrand"},
+};
+const CONF_STAR = {hoch:"★★★",mittel:"★★☆",niedrig:"★☆☆"};
+const STATUS = {
+  confirmed: {label:"bestätigt", short:"bestätigt", className:"ok"},
+  plausible: {label:"plausibel, aber unsicher", short:"plausibel", className:"warn"},
+  weak: {label:"nicht hinreichend belegt", short:"schwach", className:"bad"},
+};
+const EVIDENCE = {
+  primary: {label:"Primärquellen", short:"primär", className:"direct"},
+  comparison: {label:"Vergleich / Persistenz", short:"vergleich", className:"base"},
+};
+const GEOREF_USED_ANCHORS = [
+  {id:"GCP01", name:"Marktplatz Weinsberg", raw:[49.1476,9.3628], target:[49.1518076,9.2854796], used:true, note:"zentraler Platz / Straßenraum"},
+  {id:"GCP02", name:"Burg Weibertreu", raw:[49.1487,9.3683], target:[49.1539224,9.2829791], used:true, note:"markanter Burgsporn"},
+  {id:"GCP03", name:"Bahnhof Weinsberg", raw:[49.1483,9.3513], target:[49.1482139,9.2862174], used:true, note:"Bahnhofsgebäude / Bahnsteiglage"},
+];
+const GEOREF_TARGETS = [
+  {id:"GCP01", name:"Marktplatz Weinsberg", lat:49.1518076, lon:9.2854796, type:"used", note:"als Affin-Anker verwendet"},
+  {id:"GCP02", name:"Burg Weibertreu", lat:49.1539224, lon:9.2829791, type:"used", note:"als Affin-Anker verwendet"},
+  {id:"GCP03", name:"Bahnhof Weinsberg", lat:49.1482139, lon:9.2862174, type:"used", note:"als Affin-Anker verwendet"},
+  {id:"GCP04", name:"Johanneskirche", lat:49.1527027, lon:9.2858491, type:"recommended", note:"empfohlener Zusatzanker für QGIS"},
+  {id:"GCP05", name:"Rathaus Weinsberg", lat:49.1518781, lon:9.2858971, type:"recommended", note:"empfohlener Zusatzanker für QGIS"},
+  {id:"GCP06", name:"Kernerhaus", lat:49.1522932, lon:9.2887481, type:"recommended", note:"östlicher Zusatzanker"},
+];
+const SERIES_FILES = [
+  {id:"base1943", label:"1943-10-13 Weinsberg E-365_2051", role:"baseline", matchers:["1943-10-13","1943 clean"]},
+  {id:"w19440527", label:"1944-05-27 Heilbronn bis Weinsberg 106G-0530_7017", role:"review", matchers:["1944-05-27"]},
+  {id:"w19440910", label:"1944-09-10 Weinsberg US7_3228_4035", role:"review", matchers:["1944-09-10"]},
+  {id:"w19440911a", label:"1944-09-11 Heilbronn Austraße 7 106G-2782_7011", role:"review", matchers:["1944-09-11","7011"]},
+  {id:"w19440911b", label:"1944-09-11 Heilbronn Austraße 7 106G-2782_7010", role:"review", matchers:["1944-09-11","7010"]},
+  {id:"w19441224", label:"1944-12-24 Weinsberg 106G-3896_3149", role:"review", matchers:["1944-12-24"]},
+  {id:"w19450302", label:"1945-03-02 Heilbronn Austraße 7 7-125A_8004", role:"review", matchers:["1945-03-02","8004"]},
+  {id:"w19450319", label:"1945-03-19 Weinsberg US34-3594_4160", role:"review", matchers:["1945-03-19"]},
+  {id:"w19450323a", label:"1945-03-23 Heilbronn Austraße 7 7-090B_7027", role:"review", matchers:["1945-03-23","7027"]},
+  {id:"w19450323b", label:"1945-03-23 Heilbronn Austraße 7 7-090B_7028", role:"review", matchers:["1945-03-23","7028"]},
+  {id:"w19450409", label:"1945-04-09 Weinsberg US34-3762_3166", role:"review", matchers:["1945-04-09"]},
+  {id:"w19450908a", label:"1945-09-08 Obersulm 422BS-4267-1-1 Nr 015", role:"review", matchers:["1945-09-08","Nr 015"]},
+  {id:"w19450908b", label:"1945-09-08 Weinsberg 4267-1-1_014", role:"review", matchers:["1945-09-08","LBDB 14"]},
+  {id:"w19470723a", label:"1947-07-23 Weinsberg 2-3675_3195", role:"review", matchers:["1947-07-23 (beide)","1947a","3195"]},
+  {id:"w19470723b", label:"1947-07-23 Weinsberg 2-3675_3196", role:"review", matchers:["1947-07-23 (beide)","1947b","3196"]},
+];
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function buildAffineTransform(anchors) {
+  const A = [];
+  const b = [];
+  anchors.forEach((anchor) => {
+    const [rawLat, rawLon] = anchor.raw;
+    const [targetLat, targetLon] = anchor.target;
+    A.push([rawLon, rawLat, 1, 0, 0, 0]);
+    b.push(targetLon);
+    A.push([0, 0, 0, rawLon, rawLat, 1]);
+    b.push(targetLat);
+  });
+
+  // Solves the 2D affine transform from three point pairs.
+  const params = solveLinearSystem(A, b);
+  return {
+    params,
+    apply(lat, lon) {
+      const targetLon = params[0] * lon + params[1] * lat + params[2];
+      const targetLat = params[3] * lon + params[4] * lat + params[5];
+      return [targetLat, targetLon];
+    },
+  };
+}
+
+function solveLinearSystem(A, b) {
+  const M = A.map((row, i) => [...row, b[i]]);
+  const n = M.length;
+  const m = A[0].length;
+
+  for (let col = 0; col < m; col += 1) {
+    let pivot = col;
+    for (let row = col + 1; row < n; row += 1) {
+      if (Math.abs(M[row][col]) > Math.abs(M[pivot][col])) pivot = row;
+    }
+    if (pivot !== col) [M[col], M[pivot]] = [M[pivot], M[col]];
+
+    const pivotVal = M[col][col];
+    for (let j = col; j <= m; j += 1) M[col][j] /= pivotVal;
+
+    for (let row = 0; row < n; row += 1) {
+      if (row === col) continue;
+      const factor = M[row][col];
+      for (let j = col; j <= m; j += 1) M[row][j] -= factor * M[col][j];
+    }
+  }
+
+  return M.slice(0, m).map((row) => row[m]);
+}
+
+const GEOREF = buildAffineTransform(GEOREF_USED_ANCHORS);
+
+function transformLatLon(lat, lon) {
+  return GEOREF.apply(lat, lon);
+}
+
+function transformPath(path) {
+  return path.map(([lat, lon]) => transformLatLon(lat, lon));
+}
+
+function transformPolygon(path) {
+  const ring = transformPath(path).map(([lat, lon]) => [lon, lat]);
+  if (ring.length) ring.push([...ring[0]]);
+  return [ring];
+}
+
+function extractIsoDates(text) {
+  return [...new Set((String(text).match(/19\d{2}-\d{2}-\d{2}/g) || []))].sort();
+}
+
+function buildTemporalProfile(sourceText, noteText = "") {
+  const haystack = `${sourceText} ${noteText}`.toLowerCase();
+  const dates = extractIsoDates(sourceText);
+  const firstSeen = dates[0] || "";
+  const lastSeen = dates[dates.length - 1] || "";
+  const persistent = /persisten|vorher\/nachher|1947|1943 clean|beide/.test(haystack);
+  const eventTrace = /rauch|brand|frisch|aktiver/.test(haystack);
+
+  let confidence = "niedrig";
+  let interpretation = "Einzelbildhinweis ohne belastbaren Zeitvergleich.";
+
+  if (persistent || dates.length >= 3) {
+    confidence = "hoch";
+    interpretation = persistent
+      ? "Persistente Veraenderung bzw. tragfaehiger Vorher-/Nachher-Befund ueber mehrere Bildjahre."
+      : "Mehrdatiger Befund ueber mehrere Aufnahmen; zeitliche Stabilitaet gut nachvollziehbar.";
+  } else if (dates.length === 2) {
+    confidence = "mittel";
+    interpretation = "Vorher-/Nachher- oder Zweidatumsbefund; zeitliche Entwicklung ist grundsaetzlich nachvollziehbar.";
+  } else if (eventTrace) {
+    confidence = "mittel";
+    interpretation = "Direkte Ereignisspur im Bild, aber ohne laengeren Zeitnachweis.";
+  }
+
+  return {
+    dates,
+    firstSeen,
+    lastSeen,
+    dateCount: dates.length,
+    persistent: persistent ? "ja" : "nein",
+    confidence,
+    interpretation,
+  };
+}
+
+function classifyImpact(imp) {
+  const haystack = `${imp.note} ${imp.src}`.toLowerCase();
+  const dates = [...new Set((imp.src.match(/19\d{2}-\d{2}-\d{2}/g) || []))];
+  const multiDate = dates.length >= 2 || /beide|vorher\/nachher|persistenz|r2c2\+r2c3/.test(haystack);
+  const strongMorphology = /klassische morphologie|krater klar|großkrater|persistente narbe|aktiver rauch|rauchfahne|zentrum großkrater/.test(haystack);
+  const baselineCheck = /1943 clean|1943-10-13/.test(haystack);
+
+  if ((multiDate && imp.conf !== "niedrig") || (strongMorphology && imp.conf === "hoch")) {
+    return {
+      key: "confirmed",
+      label: STATUS.confirmed.label,
+      short: STATUS.confirmed.short,
+      className: STATUS.confirmed.className,
+      reason: multiDate ? "Mehrdatige Bestätigung oder Persistenz über Vor-/Nachvergleich." : "Morphologie im Luftbild ist ungewöhnlich klar ausgeprägt."
+    };
+  }
+  if (imp.conf === "niedrig") {
+    return {
+      key: "weak",
+      label: STATUS.weak.label,
+      short: STATUS.weak.short,
+      className: STATUS.weak.className,
+      reason: "Niedrige Konfidenz oder Rand-/Streulage ohne tragfähige Zweitquelle."
+    };
+  }
+  return {
+    key: "plausible",
+    label: STATUS.plausible.label,
+    short: STATUS.plausible.short,
+    className: STATUS.plausible.className,
+    reason: baselineCheck
+      ? "Vor-/Nachvergleich ist angedeutet, aber punktuell noch nicht ausreichend verdichtet."
+      : "Einzelbildhinweis, Zielnähe oder Randlage ohne harte Zweitbestätigung."
+  };
+}
+
+function classifyEvidence(imp) {
+  const haystack = `${imp.note} ${imp.src}`.toLowerCase();
+  if (/1947|1943 clean|vorher\/nachher|persistenz/.test(haystack)) {
+    return {
+      key: "comparison",
+      label: EVIDENCE.comparison.label,
+      short: EVIDENCE.comparison.short,
+      className: EVIDENCE.comparison.className,
+      reason: "Tragfähigkeit wird wesentlich durch Vor-/Nachvergleich oder Persistenz gestützt.",
+    };
+  }
+  return {
+    key: "primary",
+    label: EVIDENCE.primary.label,
+    short: EVIDENCE.primary.short,
+    className: EVIDENCE.primary.className,
+    reason: "Punkt basiert primär auf direkt treffersensitiven Kriegsaufnahmen.",
+  };
+}
+
+function impactMatchesFile(imp, file) {
+  const haystack = `${imp.src} ${imp.note}`.toLowerCase();
+  return file.matchers.some((matcher) => haystack.includes(matcher.toLowerCase()));
+}
+
+function statusPill(status) {
+  return `<span class="pill ${status.className}">${status.short}</span>`;
+}
+
+function evidencePill(evidence) {
+  return `<span class="pill ${evidence.className}">${evidence.short}</span>`;
+}
+
+const AUDITED_IMPACTS = IMPACTS.map((imp) => ({
+  ...imp,
+  rawLat: imp.lat,
+  rawLon: imp.lon,
+  lat: transformLatLon(imp.lat, imp.lon)[0],
+  lon: transformLatLon(imp.lat, imp.lon)[1],
+  audit: classifyImpact(imp),
+  evidence: classifyEvidence(imp),
+  temporal: buildTemporalProfile(imp.src, imp.note),
+}));
+const groupCounts = GROUP_ORDER.reduce((acc, key) => {
+  acc[key] = AUDITED_IMPACTS.filter((imp) => imp.grp === key).length;
+  return acc;
+}, {});
+const evidenceCounts = AUDITED_IMPACTS.reduce((acc, imp) => {
+  acc[imp.evidence.key] += 1;
+  return acc;
+}, {primary:0, comparison:0});
+const auditCounts = AUDITED_IMPACTS.reduce((acc, imp) => {
+  acc[imp.audit.key] += 1;
+  return acc;
+}, {confirmed:0, plausible:0, weak:0});
+const fileAudit = SERIES_FILES.map((file) => {
+  const linkedImpacts = AUDITED_IMPACTS.filter((imp) => impactMatchesFile(imp, file));
+  const status = file.role === "baseline" ? "baseline" : (linkedImpacts.length ? "direct" : "context");
+  return {...file, status, linkedImpacts};
+});
+const summary = {
+  total: AUDITED_IMPACTS.length,
+  confirmed: auditCounts.confirmed,
+  plausible: auditCounts.plausible,
+  weak: auditCounts.weak,
+  openFiles: fileAudit.filter((file) => file.status === "context").length,
+  directFiles: fileAudit.filter((file) => file.status === "direct").length,
+  baselineFiles: fileAudit.filter((file) => file.status === "baseline").length
+};
+
+document.title = `Kampfmittel-Luftbildauswertung – Weinsberg | Audit v4 · ${summary.total} Punkte`;
+document.getElementById("badgeText").textContent = `Audit v4 · ${summary.total} Punkte · Flächenlogik`;
+document.getElementById("metaText").textContent = `${summary.directFiles}/15 TIFF-Dateien sind direkte Punktquellen, ${summary.baselineFiles}/15 dienen als Baseline und ${summary.openFiles}/15 als Kontext-/Kontrollbilder. Die Kartenlage wird per 3-GCP-Affinkorrektur stabilisiert.`;
+document.getElementById("statTotal").textContent = summary.total;
+document.getElementById("statConfirmed").textContent = summary.confirmed;
+document.getElementById("statPlausible").textContent = summary.plausible;
+document.getElementById("statWeak").textContent = summary.weak;
+document.getElementById("statOpenFiles").textContent = summary.openFiles;
+document.getElementById("auditSummaryText").innerHTML = `${summary.confirmed} Punkte sind <strong>bestätigt</strong>, ${summary.plausible} <strong>plausibel</strong> und ${summary.weak} <strong>nicht hinreichend belegt</strong>. ${evidenceCounts.primary} Punkte liegen im <strong>Primärquellen-Layer</strong>, ${evidenceCounts.comparison} im <strong>Vergleichs-/Persistenz-Layer</strong>.`;
+
+function renderSidebarPanels() {
+  const contextFiles = fileAudit
+    .filter((file) => file.status === "context")
+    .map((file) => file.label)
+    .join(" · ");
+  const qgisLayerHtml = QGIS_SCHEMA.layers.map((layer) => `
+      <div class="src-item">
+        <div class="left">
+          <strong>${escapeHtml(layer.name)}</strong>
+          <span>${escapeHtml(layer.geometry)} · ${escapeHtml(layer.purpose)}</span>
+          <span>${escapeHtml(layer.classes.join(" · "))}</span>
+        </div>
+      </div>`).join("");
+  const qgisFieldHtml = QGIS_SCHEMA.sharedFields.map((field) => `
+      <div style="margin-bottom:7px;">
+        <strong style="color:#ddd;">${escapeHtml(field.name)}</strong>
+        <span style="color:#6f7b87;"> (${escapeHtml(field.type)})</span><br/>
+        <span>${escapeHtml(field.note)}</span>
+      </div>`).join("");
+  const qgisNotesHtml = QGIS_SCHEMA.notes.map((note) => `
+      <div style="margin-bottom:7px;">• ${escapeHtml(note)}</div>`).join("");
+
+  const coverageHtml = fileAudit.map((file) => {
+    const pillClass = file.status === "direct" ? "direct" : (file.status === "baseline" ? "base" : "ctx");
+    const pillLabel = file.status === "direct" ? "direkt" : (file.status === "baseline" ? "Baseline" : "Kontext");
+    const meta = file.status === "direct"
+      ? `${file.linkedImpacts.length} Punkt${file.linkedImpacts.length === 1 ? "" : "e"} verknüpft`
+      : (file.status === "baseline" ? `${file.linkedImpacts.length} Verweis${file.linkedImpacts.length === 1 ? "" : "e"} auf Vorzustand` : "berücksichtigt als Kontroll- oder Kontextbild");
+    return `
+      <div class="src-item">
+        <div class="left">
+          <strong>${escapeHtml(file.label)}</strong>
+          <span>${escapeHtml(meta)}</span>
+        </div>
+        <span class="pill ${pillClass}">${pillLabel}</span>
+      </div>`;
+  }).join("");
+
+  document.querySelector(".sidebar").insertAdjacentHTML("beforeend", `
+    <div class="sb">
+      <h2>Quellabdeckung TIFF-Serie</h2>
+      <div class="src-list">${coverageHtml}</div>
+    </div>
+
+    <div class="sb">
+      <h2>Vorläufige Bauentscheidung</h2>
+      <div class="decision red">
+        <strong>Rot – nicht ohne Kampfmitteluntersuchung bauen</strong>
+        Großkrater N/NE, Bahnhofsvorfeld und westlicher Bahnkorridor, klar ausgeprägte NO-Krater sowie die belastbaren Persistenzzonen am Waldrand. Diese Lagen sind als direkte Trefferzonen zusammengefasst.
+      </div>
+      <div class="decision yellow">
+        <strong>Gelb – weitere Prüfung erforderlich</strong>
+        Südlicher Ortsrand, Bahnhof-Ost, die rekonstruierten Angriffskorridore und alle indirekten Verdachtsflächen. Hier folgt der Verdacht eher aus Trefferband, Fehlstellen und Zielnähe als aus einem harten Einzelkrater.
+      </div>
+      <div class="decision green">
+        <strong>Grün – keine konkreten Luftbildanhalte</strong>
+        Nur außerhalb der markierten 50m-Puffer, außerhalb der Angriffskorridore und außerhalb der verdichteten Randstörzonen. Die Aussage bleibt zonenhaft und nicht parzellenscharf.
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Darstellungslogik</h2>
+      <div class="audit-note">
+        <strong>Methodisch sauber getrennt:</strong> Sichtbare Krater und persistente Bodenstörungen bleiben als Einzelpunkte und rote Direktzonen dargestellt. Typische Bombenlauf- bzw. Trefferbänder entlang der Bahn und am Waldrand werden als orange Korridore geführt. Dort, wo das Muster eine Fortsetzung nahelegt, im Bild aber kein sicherer Krater erkennbar ist, wird nur ein gelber <strong>indirekter / statistischer Blindgängerverdacht</strong> ausgewiesen, ausdrücklich nicht ein harter Punkt.
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Geolokalisierung</h2>
+      <div class="audit-note">
+        <strong>Verbesserung umgesetzt, aber noch nicht abschließend:</strong> Die Vorversion war nur grob manuell auf die moderne Karte gesetzt. Diese Fassung nutzt eine affine 3-GCP-Korrektur über Marktplatz, Bahnhof Weinsberg und Burg Weibertreu. Zusätzlich sind drei historische Hauptaufnahmen als transparente Bildlayer an die korrigierte Lage angenähert. Eine belastbare lagegenaue Einschätzung ist damit jedoch noch nicht erreicht; dafür müssten die historischen Luftbilder vollständig in QGIS georeferenziert und gegeneinander geprüft werden.
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Methodische Grenze</h2>
+      <div class="audit-note">
+        <strong>Aktueller Stand:</strong> Die vorliegende HTML-/Kartenfassung erlaubt derzeit nur eine <strong>orientierende luftbildgestützte Vorbewertung</strong>. Eine belastbare lagegenaue Einschätzung der Verdachtsflächen ist noch nicht möglich, da die historischen Luftbilder bislang weder vollständig in einem identischen Koordinatensystem georeferenziert noch systematisch im Zeitvergleich übereinandergelegt wurden.
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Für den Vollausbau erforderlich</h2>
+      <div style="font-size:.68rem;line-height:1.6;color:#9aa2aa;">
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">1. Temporale Auswertung:</strong> nicht nur Analyse von Einzelbildern, sondern systematische Vorher-/Nachher-Prüfung der gesamten Bildserie auf Veränderungen, Persistenz und neu auftretende Bodenstörungen.</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">2. Objektklassen definieren:</strong> klare Kategorien für Sprengbombentrichter, Blindgängerverdacht, Artillerietreffer, Schützengräben, Verteidigungswerke, Löschteiche, Brand-/Rauchspuren und sonstige kriegsbedingte Bodenveränderungen.</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">3. Einheitliches Koordinatensystem:</strong> alle Eingaben und Ausgaben müssen raster- und vektorseitig auf dieselbe geodätische Grundlage gelegt werden, damit Bildlagen, Befunde und spätere Bauflächen deckungsgleich geprüft werden können.</div>
+        <div><strong style="color:#ddd;">4. Nachgelagerter QGIS-Workflow:</strong> georeferenzierte Raster, standardisierte Vektorlayer, Attributschema, Quellenbezug und Nachweisstatus je Befund müssen strukturiert in QGIS weitergeführt werden.</div>
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Temporale Bewertungslogik</h2>
+      <div class="audit-note">
+        <strong>Nicht nur Einzelbilddeutung:</strong> dieselbe Stelle muss moeglichst ueber die gesamte Serie gelesen werden. Der Zeitverlauf trennt echte kriegsbedingte Bodenveraenderungen besser von Landwirtschaft, Schatten, Feuchtigkeit oder Bildartefakten.
+      </div>
+      <div style="font-size:.68rem;line-height:1.6;color:#9aa2aa;margin-top:8px;">
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">1. Vorherzustand:</strong> War die Struktur im Referenzbild 1943 bereits vorhanden oder noch nicht?</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">2. Erstauftreten:</strong> Taucht sie erst 1944/1945 passend zu den Angriffen auf?</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">3. Direkte Ereignisspur:</strong> Gibt es Rauch, Brand, frische Auswurfkante, offenen Krater oder neue Zerstörung?</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">4. Persistenz:</strong> Ist die Stoerung 1945 oder 1947 noch sichtbar? Das spricht deutlich fuer reale Geländeveraenderung.</div>
+        <div><strong style="color:#ddd;">5. Ueberpraegung:</strong> Wurde die Stelle spaeter eingeebnet, ueberbaut oder landwirtschaftlich wieder genutzt?</div>
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Projektlogik</h2>
+      <div style="font-size:.68rem;line-height:1.6;color:#9aa2aa;">
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">Schritt 1:</strong> Georeferenzierung aller relevanten Luftbilder in QGIS.</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">Schritt 2:</strong> temporale und objektklassenbasierte Luftbildauswertung.</div>
+        <div><strong style="color:#ddd;">Schritt 3:</strong> Verknüpfung der visuellen Befunde mit textlichen Quellen wie Zeitzeugenberichten, Akten oder Angriffsdokumentationen.</div>
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>QGIS-Datenstandard</h2>
+      <div class="audit-note">
+        <strong>Projekt-CRS:</strong> ${escapeHtml(QGIS_SCHEMA.projectCrsLabel)} (${escapeHtml(QGIS_SCHEMA.projectCrs)}). <strong>Austausch/Web:</strong> ${escapeHtml(QGIS_SCHEMA.exchangeCrsLabel)} (${escapeHtml(QGIS_SCHEMA.exchangeCrs)}) nur für HTML, GeoJSON und schnelle Plausibilisierung.
+      </div>
+      <div style="font-size:.68rem;line-height:1.55;color:#9aa2aa;margin-top:8px;">
+        ${qgisNotesHtml}
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Empfohlene QGIS-Layer</h2>
+      <div class="src-list">${qgisLayerHtml}</div>
+    </div>
+
+    <div class="sb">
+      <h2>Attributschema Kern</h2>
+      <div style="font-size:.68rem;line-height:1.55;color:#9aa2aa;">
+        ${qgisFieldHtml}
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Historische Bildlayer</h2>
+      <div class="audit-note">
+        <strong>Ebenen vorhanden:</strong> 24.12.1944, 19.03.1945 und 09.04.1945 sind als transparente Preview-Overlays im Layer-Control oben rechts eingebunden. Diese dienen der visuellen Luftbildkontrolle im Kartenraum; für amtlich belastbare Lageaussagen bleibt die vollständige TIFF-Georeferenzierung und Überlagerungsprüfung in QGIS der saubere Endschritt.
+      </div>
+    </div>
+
+    <div class="sb">
+      <h2>Qualität der Vorarbeit</h2>
+      <div class="audit-note">
+        <strong>Form gut, Vollständigkeit konservativ gelöst:</strong> Die bisherige HTML-Struktur eignet sich als Präsentationsoberfläche. Inhaltlich wurden hier die Widersprüche zu Zählstand, Quellenumfang und Punktnachweis offengelegt. Als Kontext-/Kontrollbilder berücksichtigt sind derzeit: ${escapeHtml(contextFiles)}.
+      </div>
+    </div>
+
+    <div class="sb" style="background:#0d1a0d;">
+      <h2 style="color:#27ae60">Export / QGIS</h2>
+      <button id="exportBtn" style="background:#27ae60;color:#fff;border:none;border-radius:3px;padding:7px 14px;font-size:.75rem;font-weight:700;cursor:pointer;width:100%;margin-bottom:6px;">
+        ⬇ GeoJSON exportieren (${summary.total} Punkte + ${AREA_FEATURES.length} Flächen)
+      </button>
+      <button id="exportGcpBtn" style="background:#2c3e50;color:#fff;border:none;border-radius:3px;padding:7px 14px;font-size:.75rem;font-weight:700;cursor:pointer;width:100%;margin-bottom:6px;">
+        ⬇ GCP-Zielpunkte exportieren
+      </button>
+      <button id="exportSchemaBtn" style="background:#7f8c8d;color:#fff;border:none;border-radius:3px;padding:7px 14px;font-size:.75rem;font-weight:700;cursor:pointer;width:100%;margin-bottom:6px;">
+        ⬇ QGIS-Schema exportieren
+      </button>
+      <div style="font-size:.65rem;color:#555;line-height:1.5;">
+        GeoJSON enthält korrigierte und rohe Koordinaten. Die GCP-Datei liefert moderne WGS84-Zielpunkte für die manuelle Georeferenzierung der TIFFs in QGIS. Der Schema-Export dokumentiert Layernamen, Objektklassen und das empfohlene Attributmodell.
+      </div>
+      <div style="font-size:.65rem;color:#6d8ba7;line-height:1.5;margin-top:6px;">
+        Verwendete Affin-Anker: Marktplatz, Bahnhof Weinsberg, Burg Weibertreu.
+      </div>
+    </div>
+  `);
+
+  document.getElementById("exportBtn").addEventListener("click", exportGeoJSON);
+  document.getElementById("exportGcpBtn").addEventListener("click", exportGcpCsv);
+  document.getElementById("exportSchemaBtn").addEventListener("click", exportQgisSchema);
+}
+
+function exportGeoJSON() {
+  const pointFeatures = AUDITED_IMPACTS.map((imp) => ({
+    type: "Feature",
+    properties: {
+      feature_type: "impact_point",
+      qgis_layer_target: "10_befund_punkte",
+      id: imp.id,
+      objektklasse: inferPointObjectClass(imp),
+      gruppe: imp.grp,
+      gruppe_label: GRP[imp.grp].label,
+      konfidenz: imp.conf,
+      audit_status: imp.audit.label,
+      audit_begruendung: imp.audit.reason,
+      evidenz_layer: imp.evidence.label,
+      evidenz_begruendung: imp.evidence.reason,
+      bildquellen: imp.src,
+      datierungen: imp.temporal.dates.join(", "),
+      erstsichtbar_am: imp.temporal.firstSeen,
+      letztmals_sichtbar_am: imp.temporal.lastSeen,
+      anzahl_datierungen: imp.temporal.dateCount,
+      persistenz: imp.temporal.persistent,
+      zeitstatus: imp.temporal.confidence,
+      zeitinterpretation: imp.temporal.interpretation,
+      notiz: imp.note,
+      raw_lat: imp.rawLat,
+      raw_lon: imp.rawLon,
+      puffer_m: 50,
+      genauigkeit_m: 150,
+      analysedatum: "2026-03-20",
+      methode: "Audit v4 der vorhandenen Punktdaten gegen verfügbare TIFF-Serie mit 3-GCP-Affinkorrektur"
+    },
+    geometry: { type:"Point", coordinates:[imp.lon, imp.lat] }
+  }));
+  const areaFeatures = AREA_FEATURES.map((area) => {
+    const temporal = buildTemporalProfile(area.source, area.note);
+    return {
+      type: "Feature",
+      properties: {
+        feature_type: "assessment_area",
+        qgis_layer_target: "11_verdachtsflaechen",
+        id: area.id,
+        objektklasse: inferAreaObjectClass(area),
+        darstellungsebene: AREA_LAYER_CONFIG[area.type].label,
+        klasse: area.type,
+        label: area.label,
+        bildquellen: area.source,
+        datierungen: temporal.dates.join(", "),
+        erstsichtbar_am: temporal.firstSeen,
+        letztmals_sichtbar_am: temporal.lastSeen,
+        anzahl_datierungen: temporal.dateCount,
+        persistenz: temporal.persistent,
+        zeitstatus: temporal.confidence,
+        zeitinterpretation: temporal.interpretation,
+        herleitung: area.note,
+        analysedatum: "2026-03-20",
+        methode: "Flächenhafte Ableitung aus Punktclustern, Angriffskorridoren und indirekten Verdachtsbereichen"
+      },
+      geometry: {
+        type:"Polygon",
+        coordinates: transformPolygon(area.rawPath)
+      }
+    };
+  });
+  const features = [...pointFeatures, ...areaFeatures];
+  const gj = JSON.stringify({
+    type:"FeatureCollection",
+    crs:{type:"name",properties:{name:"urn:ogc:def:crs:OGC:1.3:CRS84"}},
+    metadata:{
+      title:"Kampfmittel-Luftbildauswertung Weinsberg – Audit v4 mit Flächenlogik",
+      count: features.length,
+      point_features: pointFeatures.length,
+      area_features: areaFeatures.length,
+      created:"2026-03-20",
+      direct_files: summary.directFiles,
+      context_files: summary.openFiles,
+      qgis_project_crs: QGIS_SCHEMA.projectCrs,
+      qgis_exchange_crs: QGIS_SCHEMA.exchangeCrs,
+      georef:"3-GCP affine Korrektur aus Marktplatz, Bahnhof und Burg Weibertreu",
+      disclaimer:"Audit-Fassung – kein amtliches Gutachten. Punkte und Flächen sind fachliche Vorbewertung; Geolage gegenüber der Vorversion verbessert, aber keine vollständige TIFF-Georeferenzierung."
+    },
+    features
+  }, null, 2);
+  const a = document.createElement("a");
+  a.href = "data:application/json;charset=utf-8," + encodeURIComponent(gj);
+  a.download = "Weinsberg_Einschlaege_und_Flaechen_Audit_v4.geojson";
+  a.click();
+}
+
+function exportGcpCsv() {
+  const rows = [
+    ["gcp_id","name","status","target_lat","target_lon","note"],
+    ...GEOREF_TARGETS.map((gcp) => [gcp.id, gcp.name, gcp.type, gcp.lat, gcp.lon, gcp.note]),
+  ];
+  const csv = rows.map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(",")).join("\n");
+  const a = document.createElement("a");
+  a.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csv);
+  a.download = "Weinsberg_GCP_Zielpunkte_WGS84.csv";
+  a.click();
+}
+
+function exportQgisSchema() {
+  const payload = {
+    title: "Weinsberg QGIS-Datenstandard",
+    created: "2026-03-20",
+    project_crs: QGIS_SCHEMA.projectCrs,
+    project_crs_label: QGIS_SCHEMA.projectCrsLabel,
+    exchange_crs: QGIS_SCHEMA.exchangeCrs,
+    exchange_crs_label: QGIS_SCHEMA.exchangeCrsLabel,
+    layers: QGIS_SCHEMA.layers,
+    shared_fields: QGIS_SCHEMA.sharedFields,
+    notes: QGIS_SCHEMA.notes,
+  };
+  const a = document.createElement("a");
+  a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
+  a.download = "Weinsberg_QGIS_Datenstandard.json";
+  a.click();
+}
+
+function inferPointObjectClass(imp) {
+  if (["HL","NW","NE","W","M"].includes(imp.grp)) return "sprengbombenkrater";
+  if (["FE","BHE"].includes(imp.grp)) return "sonstige_bodenstoerung";
+  if (imp.grp === "SE") return "brand_rauchspur";
+  return "sonstige_punktanomalie";
+}
+
+function inferAreaObjectClass(area) {
+  if (area.type === "direct") return "direkte_trefferzone";
+  if (area.type === "corridor") return "angriffskorridor";
+  return "blindgaengerverdacht_flaeche";
+}
+
+const HISTORICAL_IMAGE_LAYERS = [
+  {
+    name:"Historisch 1944-12-24",
+    file:"1944-12-24 Weinsberg 106G-3896_3149 M900_preview.png",
+    corners:[
+      [49.1580,9.2742],
+      [49.1577,9.2913],
+      [49.1436,9.2745],
+    ],
+    note:"dichte Winteraufnahme, Ortskern zentral",
+  },
+  {
+    name:"Historisch 1945-03-19",
+    file:"1945-03-19 Weinsberg US34-3594_4160 M100_preview.png",
+    corners:[
+      [49.1590,9.2669],
+      [49.1587,9.2922],
+      [49.1421,9.2672],
+    ],
+    note:"breite Westabdeckung, Ortslage rechts",
+  },
+  {
+    name:"Historisch 1945-04-09",
+    file:"1945-04-09 Weinsberg US34-3762_3166 M100_preview.png",
+    corners:[
+      [49.1588,9.2724],
+      [49.1585,9.2930],
+      [49.1415,9.2727],
+    ],
+    note:"fruehe Nachkriegsnaehe, gute Gesamtabdeckung",
+  },
+];
+
+const AREA_LAYER_CONFIG = {
+  direct: {
+    label:"Direkte Trefferzonen",
+    color:"#c0392b",
+    fillColor:"rgba(192,57,43,.18)",
+    dashArray:"10,4",
+    weight:2.2,
+  },
+  corridor: {
+    label:"Angriffskorridore",
+    color:"#e67e22",
+    fillColor:"rgba(230,126,34,.12)",
+    dashArray:"14,6",
+    weight:2.0,
+  },
+  indirect: {
+    label:"Indirekter / statistischer Blindgängerverdacht",
+    color:"#f1c40f",
+    fillColor:"rgba(241,196,15,.10)",
+    dashArray:"6,6",
+    weight:1.8,
+  },
+};
+
+const AREA_FEATURES = [
+  {
+    id:"DZ-01",
+    type:"direct",
+    label:"Direkte Trefferzone Nordost / Waldrand",
+    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09, 1947-07-23",
+    note:"Verdichteter Cluster aus HL-, SE- und FE-Befunden mit klarer Krater- und Persistenzlage am südlichen Waldrand.",
+    rawPath:[
+      [49.1578,9.3592],[49.1582,9.3660],[49.1565,9.3714],[49.1532,9.3726],
+      [49.1502,9.3700],[49.1499,9.3644],[49.1522,9.3594],[49.1556,9.3588]
+    ],
+  },
+  {
+    id:"DZ-02",
+    type:"direct",
+    label:"Direkte Trefferzone Felder Nordwest",
+    source:"1944-12-24",
+    note:"Zusammenhängender Streukrater-Cluster westlich/nordwestlich des Bahnkorridors mit dichter Punktlage in den Ackerstreifen.",
+    rawPath:[
+      [49.1596,9.3447],[49.1598,9.3522],[49.1567,9.3530],[49.1532,9.3520],
+      [49.1529,9.3457],[49.1561,9.3440]
+    ],
+  },
+  {
+    id:"DZ-03",
+    type:"direct",
+    label:"Direkte Trefferzone Bahnhof / Westanschnitt",
+    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09",
+    note:"Verdichtete Trefferlage am Primärziel Bahn mit mehrfach belegten Einschlägen im Bahnhofsvorfeld und westlichen Zulauf.",
+    rawPath:[
+      [49.1503,9.3394],[49.1505,9.3536],[49.1479,9.3547],[49.1455,9.3524],
+      [49.1456,9.3421],[49.1474,9.3380]
+    ],
+  },
+  {
+    id:"DZ-04",
+    type:"direct",
+    label:"Direkte Trefferzone Felder Nordost",
+    source:"1945-04-09",
+    note:"Kleiner, aber klarer Einzelkrater-Cluster in den nordöstlichen Freiflächen Richtung Ellhofen.",
+    rawPath:[
+      [49.1552,9.3740],[49.1554,9.3788],[49.1536,9.3792],[49.1515,9.3781],
+      [49.1513,9.3743],[49.1528,9.3734]
+    ],
+  },
+  {
+    id:"AK-01",
+    type:"corridor",
+    label:"Angriffskorridor Bahnlinie West–Bahnhof–Ost",
+    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09",
+    note:"Rekonstruiertes Trefferband entlang des Primärziels Eisenbahn. Dient der flächenhaften Einordnung von Punktlücken innerhalb des Bombenlaufs.",
+    rawPath:[
+      [49.1509,9.3326],[49.1512,9.3544],[49.1506,9.3624],[49.1493,9.3661],[49.1465,9.3658],
+      [49.1438,9.3620],[49.1437,9.3520],[49.1449,9.3332],[49.1469,9.3318]
+    ],
+  },
+  {
+    id:"AK-02",
+    type:"corridor",
+    label:"Angriffskorridor Nordkante / Waldrand",
+    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09, 1947-07-23",
+    note:"Nordöstliches Streu- und Weiterlaufband zwischen NW-Streuung, Waldrandtreffern und den nordöstlichen Einzelkratern.",
+    rawPath:[
+      [49.1594,9.3496],[49.1596,9.3595],[49.1578,9.3689],[49.1550,9.3753],[49.1526,9.3796],
+      [49.1514,9.3789],[49.1518,9.3704],[49.1534,9.3604],[49.1556,9.3490]
+    ],
+  },
+  {
+    id:"IV-01",
+    type:"indirect",
+    label:"Indirekter Verdacht Südrand / Bahnhof-Ost",
+    source:"1944-12-24, 1945-03-19, 1945-04-09, 1947-07-23",
+    note:"Lücken- und Randzone zwischen M- und BHE-Befunden. Hier ist eher ein flächenhafter Blindgängerverdacht als ein harter Einzelpunkt anzunehmen.",
+    rawPath:[
+      [49.1504,9.3520],[49.1507,9.3596],[49.1496,9.3654],[49.1458,9.3662],
+      [49.1435,9.3621],[49.1437,9.3550],[49.1450,9.3514],[49.1480,9.3508]
+    ],
+  },
+  {
+    id:"IV-02",
+    type:"indirect",
+    label:"Indirekter Verdacht Nordzentrum zwischen NW und HL",
+    source:"1944-12-24, 1945-03-19",
+    note:"Zwischenraum zweier direkter Cluster mit plausibler Weiterführung des Trefferbandes, aber ohne gleich dichte Punktlage.",
+    rawPath:[
+      [49.1585,9.3515],[49.1588,9.3592],[49.1577,9.3638],[49.1547,9.3640],
+      [49.1529,9.3610],[49.1531,9.3540],[49.1552,9.3504]
+    ],
+  },
+  {
+    id:"IV-03",
+    type:"indirect",
+    label:"Indirekter Verdacht Ostanschluss Richtung NE-Felder",
+    source:"1945-03-19, 1945-04-09, 1947-07-23",
+    note:"Östlicher Übergangsraum zwischen Bahnhof-Ost, südlichem Ortsrand und den nordöstlichen Kratern; geeignet als separater Prüf-Layer für spätere Baufelder.",
+    rawPath:[
+      [49.1532,9.3590],[49.1538,9.3664],[49.1536,9.3792],[49.1504,9.3795],
+      [49.1482,9.3710],[49.1487,9.3612],[49.1506,9.3585]
+    ],
+  },
+];
+
+const areaCounts = AREA_FEATURES.reduce((acc, area) => {
+  acc[area.type] += 1;
+  return acc;
+}, {direct:0, corridor:0, indirect:0});
+
+const QGIS_SCHEMA = {
+  projectCrs: "EPSG:25832",
+  projectCrsLabel: "ETRS89 / UTM Zone 32N",
+  exchangeCrs: "EPSG:4326",
+  exchangeCrsLabel: "WGS84",
+  layers: [
+    {
+      name: "01_raster_historisch",
+      geometry: "Raster",
+      classes: ["historisches_luftbild", "preview_overlay", "georeferenzierte_hauptaufnahme"],
+      purpose: "Georeferenzierte TIFFs und daraus erzeugte Kontroll-Previews je Datum.",
+    },
+    {
+      name: "02_gcp_anker",
+      geometry: "Point",
+      classes: ["used_gcp", "recommended_gcp"],
+      purpose: "Fixpunkte zur Bildgeoreferenzierung und Qualitätskontrolle.",
+    },
+    {
+      name: "10_befund_punkte",
+      geometry: "Point",
+      classes: ["sprengbombenkrater", "artillerietreffer", "blindgaengerverdacht_punkt", "brand_rauchspur", "sonstige_punktanomalie"],
+      purpose: "Einzelbefunde mit punktförmiger Geometrie und eindeutiger Quellenreferenz.",
+    },
+    {
+      name: "11_verdachtsflaechen",
+      geometry: "Polygon",
+      classes: ["direkte_trefferzone", "angriffskorridor", "blindgaengerverdacht_flaeche", "unsicherheitszone"],
+      purpose: "Flächenhafte Zusammenfassung direkter Trefferzonen, Korridore und indirekter Verdachtslagen.",
+    },
+    {
+      name: "12_linearstrukturen",
+      geometry: "LineString",
+      classes: ["schuetzengraben", "verteidigungswerk_linear", "bombenlaufachse", "bahnlinie_ziel"],
+      purpose: "Lineare historische Strukturen, Zielachsen und Bombenlaufrekonstruktionen.",
+    },
+    {
+      name: "13_sonstige_flaechen",
+      geometry: "Polygon",
+      classes: ["verteidigungswerk_flaeche", "loeschteich", "rauch_brandflaeche", "truemmerflaeche", "sonstige_bodenstoerung"],
+      purpose: "Nicht punktförmige Kriegsfolgestrukturen außerhalb des Blindgänger-Kerninventars.",
+    },
+    {
+      name: "90_quellenindex",
+      geometry: "Tabelle",
+      classes: ["tif_source", "text_source", "oral_history", "archivakte"],
+      purpose: "Quellenregister für Luftbilder, Akten, Zeitzeugenberichte und Sekundärdokumente.",
+    },
+  ],
+  sharedFields: [
+    {name:"obj_id", type:"TEXT", note:"eindeutige Objekt-ID"},
+    {name:"objektklasse", type:"TEXT", note:"standardisierte Objektklasse"},
+    {name:"subklasse", type:"TEXT", note:"optionale Unterkategorie"},
+    {name:"nachweisstatus", type:"TEXT", note:"bestätigt | plausibel | schwach"},
+    {name:"evidenztyp", type:"TEXT", note:"direkt | vergleich | indirekt | textquelle"},
+    {name:"quelle_primary", type:"TEXT", note:"wichtigste Primärquelle"},
+    {name:"quellen_all", type:"TEXT", note:"alle referenzierten Quellen"},
+    {name:"datum_von", type:"TEXT", note:"frühestes relevantes Datum"},
+    {name:"datum_bis", type:"TEXT", note:"spätestes relevantes Datum"},
+    {name:"erstsichtbar_am", type:"TEXT", note:"erstes im Zeitvergleich belegtes Auftreten"},
+    {name:"letztmals_sichtbar_am", type:"TEXT", note:"letztes im Zeitvergleich belegtes Auftreten"},
+    {name:"anzahl_datierungen", type:"INTEGER", note:"Anzahl datierter Bildbelege"},
+    {name:"persistenz", type:"TEXT", note:"ja | nein"},
+    {name:"zeitstatus", type:"TEXT", note:"hoch | mittel | niedrig"},
+    {name:"zeitinterpretation", type:"TEXT", note:"fachliche Deutung des Zeitverlaufs"},
+    {name:"lagegenau_m", type:"INTEGER", note:"geschätzte Lagegenauigkeit in Metern"},
+    {name:"pruefbedarf", type:"TEXT", note:"z. B. Sondierung, Archivcheck, Feldprüfung"},
+    {name:"bemerkung", type:"TEXT", note:"freie fachliche Erläuterung"},
+  ],
+  notes: [
+    "Alle Raster und Vektorlayer sind im Projektstandard in EPSG:25832 zu führen.",
+    "WGS84 / EPSG:4326 dient nur als Austausch- und Webformat für HTML, GeoJSON und schnelle Prüfung.",
+    "Jeder Befund erhält mindestens eine Primärquelle, einen Nachweisstatus und einen Lagegenauigkeitswert.",
+    "Zeitverlauf ist als eigener Bewertungsstrang zu führen: Vorzustand, Erstauftreten, Persistenz und Überprägung.",
+  ],
+};
+
+renderSidebarPanels();
+
+// ═══════════════════════════════════════════════════════
+// MAP INIT
+// ═══════════════════════════════════════════════════════
+const map = L.map("map",{center:[49.1518,9.2855],zoom:14});
+const sat = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"© Esri"}).addTo(map);
+const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OSM"});
+const topo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",{maxZoom:17,attribution:"© OpenTopoMap"});
+const overlayMaps = {};
+const layerControl = L.control.layers({"Satellit":sat,"OpenStreetMap":osm,"Topographie":topo}, overlayMaps, {position:"topright"}).addTo(map);
+const historicalLayers = {};
+L.control.scale({imperial:false}).addTo(map);
+
+if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
+  HISTORICAL_IMAGE_LAYERS.forEach((item, index) => {
+    const layer = L.imageOverlay.rotated(
+      encodeURI(item.file),
+      item.corners[0],
+      item.corners[1],
+      item.corners[2],
+      {opacity:index === 2 ? 0.62 : 0.54, interactive:false}
+    );
+    historicalLayers[item.name] = layer;
+    layerControl.addOverlay(layer, item.name);
+  });
+}
+
+const studyBoundaryRaw = [
+  [49.1604,9.3335],[49.1608,9.3452],[49.1600,9.3588],[49.1569,9.3717],[49.1518,9.3790],
+  [49.1456,9.3786],[49.1414,9.3718],[49.1411,9.3608],[49.1428,9.3489],[49.1460,9.3386],
+  [49.1516,9.3331],[49.1579,9.3330]
+];
+const coreBoundaryRaw = [
+  [49.1574,9.3388],[49.1576,9.3496],[49.1558,9.3602],[49.1518,9.3695],[49.1466,9.3710],
+  [49.1439,9.3660],[49.1436,9.3552],[49.1452,9.3440],[49.1489,9.3389],[49.1537,9.3390]
+];
+const studyBoundary = transformPath(studyBoundaryRaw);
+const coreBoundary = transformPath(coreBoundaryRaw);
+L.polygon(studyBoundary,{color:"#2ecc71",weight:2.4,opacity:.95,fillOpacity:.03,dashArray:"10,6"}).addTo(map)
+  .bindTooltip("Ausgewerteter Untersuchungsraum",{sticky:true});
+L.polygon(coreBoundary,{color:"#3498db",weight:2.1,opacity:.95,fillOpacity:.02,dashArray:"8,5"}).addTo(map)
+  .bindTooltip("Siedlungsnaher Hauptprüfbereich",{sticky:true});
+
+// ═══════════════════════════════════════════════════════
+// LAYER GROUPS + MARKERS
+// ═══════════════════════════════════════════════════════
+const layers = {};
+Object.keys(GRP).forEach((g) => { layers[g] = L.layerGroup().addTo(map); });
+const activeGroups = new Set(Object.keys(GRP));
+const activeEvidence = new Set(Object.keys(EVIDENCE));
+const areaLayers = {};
+Object.keys(AREA_LAYER_CONFIG).forEach((key) => { areaLayers[key] = L.layerGroup().addTo(map); });
+const activeAreas = new Set(Object.keys(AREA_LAYER_CONFIG));
+const markers = {};
+const pointEntries = [];
+
+AREA_FEATURES.forEach((area) => {
+  const cfg = AREA_LAYER_CONFIG[area.type];
+  const polygon = L.polygon(transformPath(area.rawPath), {
+    color: cfg.color,
+    weight: cfg.weight,
+    opacity: 0.92,
+    fillColor: cfg.fillColor,
+    fillOpacity: area.type === "direct" ? 0.28 : (area.type === "corridor" ? 0.16 : 0.12),
+    dashArray: cfg.dashArray,
+  }).bindPopup(`<div style="font-size:.82rem;min-width:240px">
+      <b style="color:${cfg.color};font-size:.92rem">${escapeHtml(area.id)} · ${escapeHtml(area.label)}</b><br/>
+      <span style="color:#888;font-size:.72rem">${escapeHtml(cfg.label)}</span>
+      <hr style="margin:6px 0;border-color:#333"/>
+      <b>Bildquellen:</b> ${escapeHtml(area.source)}<br/>
+      <b>Herleitung:</b> ${escapeHtml(area.note)}<br/>
+      <span style="color:#cfa33b;font-size:.68rem">Flächenhafte Vorbewertung; kein punktgenauer Blindgängernachweis.</span>
+    </div>`)
+    .bindTooltip(area.label, {sticky:true});
+  polygon.addTo(areaLayers[area.type]);
+});
+
+function syncAreaVisibility(areaKey) {
+  if (activeAreas.has(areaKey) && !map.hasLayer(areaLayers[areaKey])) map.addLayer(areaLayers[areaKey]);
+  if (!activeAreas.has(areaKey) && map.hasLayer(areaLayers[areaKey])) map.removeLayer(areaLayers[areaKey]);
+}
+
+function syncPointVisibility(entry) {
+  const groupLayer = layers[entry.imp.grp];
+  const visible = activeGroups.has(entry.imp.grp) && activeEvidence.has(entry.imp.evidence.key);
+  const hasLayer = groupLayer.hasLayer(entry.container);
+  if (visible && !hasLayer) groupLayer.addLayer(entry.container);
+  if (!visible && hasLayer) groupLayer.removeLayer(entry.container);
+}
+
+function syncAllPoints() {
+  pointEntries.forEach(syncPointVisibility);
+}
+
+function focusPoint(imp) {
+  if (!activeGroups.has(imp.grp)) {
+    activeGroups.add(imp.grp);
+    const btn = document.querySelector(`[data-grp="${imp.grp}"]`);
+    if (btn) btn.classList.add("on");
+  }
+  if (!activeEvidence.has(imp.evidence.key)) {
+    activeEvidence.add(imp.evidence.key);
+    const btn = document.querySelector(`[data-ev="${imp.evidence.key}"]`);
+    if (btn) btn.classList.add("on");
+  }
+  syncAllPoints();
+  map.setView(markers[imp.id].ll,17);
+  markers[imp.id].dot.openPopup();
+}
+
+AUDITED_IMPACTS.forEach((imp) => {
+  const c = GRP[imp.grp];
+  const ll = [imp.lat, imp.lon];
+  const fillOpacity = imp.audit.key === "confirmed" ? 0.42 : (imp.audit.key === "plausible" ? 0.28 : 0.14);
+  const dashArray = imp.audit.key === "confirmed" ? "4,2" : (imp.audit.key === "plausible" ? "4,4" : "1,6");
+  const radius = imp.audit.key === "weak" ? 4.3 : 5.6;
+
+  const buf = L.circle(ll, {
+    radius:50,
+    color:c.color,
+    weight:1.5,
+    opacity:.85,
+    fillColor:c.fill,
+    fillOpacity,
+    dashArray
+  });
+
+  const dot = L.circleMarker(ll, {
+    radius,
+    color:imp.audit.key === "weak" ? "#95a5a6" : "rgba(0,0,0,.45)",
+    weight:1.1,
+    fillColor:c.color,
+    fillOpacity:0.96
+  });
+
+  const popup = `<div style="font-size:.82rem;min-width:210px">
+    <b style="color:${c.color};font-size:.92rem">${escapeHtml(imp.id)}</b>
+    <span style="float:right;color:#aaa;font-size:.7rem">${CONF_STAR[imp.conf]}</span><br/>
+    <span style="color:#888;font-size:.72rem">${escapeHtml(c.label)} · ${escapeHtml(imp.note)}</span>
+    <div style="margin:6px 0 4px 0;">${statusPill(imp.audit)} ${evidencePill(imp.evidence)}</div>
+    <div style="color:#9aa2aa;font-size:.68rem;line-height:1.45">${escapeHtml(imp.audit.reason)} ${escapeHtml(imp.evidence.reason)}</div>
+    <hr style="margin:6px 0;border-color:#333"/>
+    <b>Bildquellen:</b> ${escapeHtml(imp.src)}<br/>
+    <b>Koordinaten:</b> ${imp.lat.toFixed(4)}°N, ${imp.lon.toFixed(4)}°E<br/>
+    <b>Suchradius:</b> 50m (≈ 7.850 m²)<br/>
+    <span style="color:#c0392b;font-size:.68rem">⚠ Audit-Fassung, keine amtliche Freigabe, Lagegenauigkeit ±100–200m</span>
+  </div>`;
+
+  dot.bindPopup(popup);
+  const container = L.layerGroup([buf, dot]);
+  const entry = {imp, container};
+  pointEntries.push(entry);
+  markers[imp.id] = {dot, ll, imp};
+  syncPointVisibility(entry);
+});
+
+// ═══════════════════════════════════════════════════════
+// REFERENCE MARKERS
+// ═══════════════════════════════════════════════════════
+const refIcon = (txt) => L.divIcon({
+  className:"",
+  html:`<div style="background:rgba(10,10,15,.85);color:#ddd;border:1px solid #555;border-radius:3px;padding:2px 7px;font-size:.65rem;font-weight:600;white-space:nowrap;box-shadow:0 2px 4px rgba(0,0,0,.5)">${escapeHtml(txt)}</div>`,
+  iconSize:[120,18], iconAnchor:[60,9]
+});
+L.marker([49.1518076,9.2854796],{icon:refIcon("⊕ Marktplatz Weinsberg")}).addTo(map);
+L.marker([49.1539224,9.2829791],{icon:refIcon("▲ Burg Weibertreu")}).addTo(map);
+L.marker([49.1482139,9.2862174],{icon:refIcon("⊞ Bahnhof Weinsberg")}).addTo(map);
+
+// ═══════════════════════════════════════════════════════
+// RAILWAY OVERLAY
+// ═══════════════════════════════════════════════════════
+const railRaw = [[49.1490,9.3230],[49.1487,9.3330],[49.1484,9.3420],[49.1481,9.3513],[49.1479,9.3615],[49.1476,9.3720],[49.1473,9.3820]];
+const rail = transformPath(railRaw);
+L.polyline(rail,{color:"#f1c40f",weight:2.5,opacity:.6,dashArray:"7,4"}).addTo(map)
+  .bindTooltip("Eisenbahnlinie (Primärziel)",{sticky:true,direction:"top"});
+L.polyline(rail,{color:"#c0392b",weight:22,opacity:.08}).addTo(map);
+
+// ═══════════════════════════════════════════════════════
+// GCP LAYER
+// ═══════════════════════════════════════════════════════
+const gcpLayer = L.layerGroup().addTo(map);
+GEOREF_TARGETS.forEach((gcp) => {
+  const color = gcp.type === "used" ? "#2c3e50" : "#7f8c8d";
+  const marker = L.circleMarker([gcp.lat, gcp.lon], {
+    radius: gcp.type === "used" ? 7 : 5.5,
+    color: "#ecf0f1",
+    weight: 1.2,
+    fillColor: color,
+    fillOpacity: 0.95,
+  });
+  marker.bindPopup(`<div style="font-size:.8rem;min-width:210px">
+    <b style="color:${color}">${escapeHtml(gcp.id)} · ${escapeHtml(gcp.name)}</b><br/>
+    <span style="color:#888">${gcp.type === "used" ? "Verwendeter Affin-Anker" : "Empfohlener Zusatzanker für QGIS"}</span>
+    <hr style="margin:6px 0;border-color:#333"/>
+    <b>WGS84:</b> ${gcp.lat.toFixed(6)}°, ${gcp.lon.toFixed(6)}°<br/>
+    <b>Hinweis:</b> ${escapeHtml(gcp.note)}<br/>
+    <span style="color:#7f8c8d;font-size:.68rem">Für QGIS: historischen Bildpunkt manuell setzen und diesen Zielpunkt als Kartenkoordinate hinterlegen.</span>
+  </div>`);
+  marker.addTo(gcpLayer);
+});
+
+// ═══════════════════════════════════════════════════════
+// MAP LEGEND
+// ═══════════════════════════════════════════════════════
+const legCtrl = L.control({position:"bottomright"});
+legCtrl.onAdd = () => {
+  const d = L.DomUtil.create("div","map-leg");
+  d.innerHTML = `
+    <div class="map-leg-shell">
+      <div class="map-leg-head">
+        <b style="color:#eee">Auditkarte v4 · ${summary.total} Punkte</b>
+        <button type="button" class="map-leg-toggle" title="Legende ausblenden" aria-label="Legende ausblenden">×</button>
+      </div>
+      ${GROUP_ORDER.map((key) => `<span style="color:${GRP[key].color}">●</span> ${escapeHtml(key)} (${groupCounts[key]})`).join("<br/>")}
+      <hr style="margin:6px 0;border-color:#333"/>
+      <span class="pill ok">bestätigt ${summary.confirmed}</span>
+      <span class="pill warn">plausibel ${summary.plausible}</span>
+      <span class="pill bad">schwach ${summary.weak}</span><br/>
+      <span class="pill direct">primär ${evidenceCounts.primary}</span>
+      <span class="pill base">vergleich ${evidenceCounts.comparison}</span><br/>
+      <span style="color:#c0392b">▧</span> Direktzonen (${areaCounts.direct}) ·
+      <span style="color:#e67e22">▧</span> Korridore (${areaCounts.corridor}) ·
+      <span style="color:#f1c40f">▧</span> indirekt (${areaCounts.indirect})<br/>
+      <span style="color:#2c3e50">●</span> GCP-Anker (${GEOREF_TARGETS.length})<br/>
+      <span style="color:#2ecc71">╌</span> Außenraum ·
+      <span style="color:#3498db">╌</span> Hauptprüfbereich ·
+      <span style="color:#f1c40f">╌</span> Bahnlinie<br/>
+      <span class="map-leg-line">◌ = 50m Suchradius · rote Flächen = direkte Kratercluster · orange Flächen = Angriffskorridore · gelbe Flächen = indirekter Verdacht · ${summary.openFiles}/15 TIFF-Dateien als Kontext/Kontrolle berücksichtigt</span>
+    </div>
+    <button type="button" class="map-leg-reopen" title="Legende einblenden" aria-label="Legende einblenden">Legende</button>`;
+  const toggleBtn = d.querySelector(".map-leg-toggle");
+  const reopenBtn = d.querySelector(".map-leg-reopen");
+  const setCollapsed = (collapsed) => d.classList.toggle("collapsed", collapsed);
+  toggleBtn.addEventListener("click", () => setCollapsed(true));
+  reopenBtn.addEventListener("click", () => setCollapsed(false));
+  L.DomEvent.disableClickPropagation(d);
+  L.DomEvent.disableScrollPropagation(d);
+  return d;
+};
+legCtrl.addTo(map);
+
+// ═══════════════════════════════════════════════════════
+// TABLE
+// ═══════════════════════════════════════════════════════
+const tbl = document.getElementById("tbl");
+AUDITED_IMPACTS.forEach((imp) => {
+  const c = GRP[imp.grp];
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${c.color};margin-right:4px;vertical-align:middle"></span>${escapeHtml(imp.id)}</td>
+    <td style="color:${c.color};font-weight:600">${escapeHtml(imp.grp)}</td>
+    <td style="font-size:.66rem">${statusPill(imp.audit)} ${evidencePill(imp.evidence)}</td>
+    <td style="color:#666;font-size:.65rem">${escapeHtml(imp.src.split(",")[0])}</td>`;
+  tr.title = `${imp.note} | ${imp.audit.label} | ${imp.evidence.label}`;
+  tr.addEventListener("click", () => { focusPoint(imp); });
+  tbl.appendChild(tr);
+});
+
+// ═══════════════════════════════════════════════════════
+// GROUP TOGGLE
+// ═══════════════════════════════════════════════════════
+function toggleGrp(g, btn) {
+  btn.classList.toggle("on");
+  if (btn.classList.contains("on")) activeGroups.add(g);
+  else activeGroups.delete(g);
+  syncAllPoints();
+}
+
+function toggleEvidence(role, btn) {
+  btn.classList.toggle("on");
+  if (btn.classList.contains("on")) activeEvidence.add(role);
+  else activeEvidence.delete(role);
+  syncAllPoints();
+}
+
+function toggleGcp(btn) {
+  btn.classList.toggle("on");
+  if (btn.classList.contains("on")) map.addLayer(gcpLayer);
+  else map.removeLayer(gcpLayer);
+}
+
+function toggleArea(areaKey, btn) {
+  btn.classList.toggle("on");
+  if (btn.classList.contains("on")) activeAreas.add(areaKey);
+  else activeAreas.delete(areaKey);
+  syncAreaVisibility(areaKey);
+}
+</script>
+</body>
+</html>
