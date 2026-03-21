@@ -743,7 +743,11 @@ function renderSidebarPanels() {
     </div>
 
     <div class="sb">
-      <h2>Historische Bildlayer</h2>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <h2>Historische Bildlayer</h2>
+        <div style="font-size:0.7rem; color:#ccc;">Deckkraft: <span id="opacityVal">60%</span></div>
+      </div>
+      <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="0.6" style="width:100%; margin-bottom:4px; accent-color:#3498db; cursor:pointer;" title="Deckkraft der historischen Luftbilder anpassen" />
       <div class="audit-note">
         <strong>Ebenen vorhanden:</strong> 24.12.1944, 19.03.1945 und 09.04.1945 sind als transparente Preview-Overlays im Layer-Control oben rechts eingebunden. Diese dienen der visuellen Luftbildkontrolle im Kartenraum; für amtlich belastbare Lageaussagen bleibt die vollständige TIFF-Georeferenzierung und Überlagerungsprüfung in QGIS der saubere Endschritt.
       </div>
@@ -1174,11 +1178,24 @@ if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
       item.corners[0],
       item.corners[1],
       item.corners[2],
-      {opacity:index === 2 ? 0.62 : 0.54, interactive:false}
+      {opacity: 0.6, interactive:false}
     );
     historicalLayers[item.name] = layer;
     layerControl.addOverlay(layer, item.name);
   });
+
+  const opacitySlider = document.getElementById("opacitySlider");
+  if (opacitySlider) {
+    opacitySlider.addEventListener("input", function(e) {
+      const val = parseFloat(e.target.value);
+      document.getElementById("opacityVal").textContent = Math.round(val * 100) + "%";
+      Object.values(historicalLayers).forEach(layer => {
+        if (typeof layer.setOpacity === "function") {
+          layer.setOpacity(val);
+        }
+      });
+    });
+  }
 }
 
 const studyBoundaryRaw = [
