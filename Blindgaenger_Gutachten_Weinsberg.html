@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kampfmittel-Luftbildauswertung – Weinsberg | Audit v4 Punktprüfung</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/vendor.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/leaflet.distortableimage.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/vendor.js"></script>
+  <script src="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/leaflet.distortableimage.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/IvanSanchez/Leaflet.ImageOverlay.Rotated/Leaflet.ImageOverlay.Rotated.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -451,6 +455,17 @@ function transformPolygon(path) {
   return [ring];
 }
 
+function completeImageCorners(corners) {
+  if (corners.length >= 4) return corners.map((corner) => [...corner]);
+  const [c1, c2, c3] = corners;
+  return [
+    [...c1],
+    [...c2],
+    [...c3],
+    [c2[0] + c3[0] - c1[0], c2[1] + c3[1] - c1[1]],
+  ];
+}
+
 function extractIsoDates(text) {
   return [...new Set((String(text).match(/19\d{2}-\d{2}-\d{2}/g) || []))].sort();
 }
@@ -752,7 +767,7 @@ function renderSidebarPanels() {
         <strong>Ebenen vorhanden:</strong> 24.12.1944, 19.03.1945 und 09.04.1945 sind als transparente Preview-Overlays im Layer-Control oben rechts eingebunden. Diese dienen der visuellen Luftbildkontrolle im Kartenraum; für amtlich belastbare Lageaussagen bleibt die vollständige TIFF-Georeferenzierung und Überlagerungsprüfung in QGIS der saubere Endschritt.
       </div>
       <div style="margin-top:10px; font-size:.68rem; color:#9aa2aa; line-height:1.5;">
-        <strong style="color:#ddd;">Kalibrierhilfe:</strong> Halbautomatische Nachführung der Overlay-Ecken direkt in der Karte. Geeignet für schnelle Preview-Korrekturen, nicht als Ersatz für eine vollständige QGIS-Georeferenzierung.
+        <strong style="color:#ddd;">Kalibrierhilfe:</strong> Halbautomatische Nachführung der <strong>4 Overlay-Ecken</strong> direkt in der Karte. Geeignet für schnelle Preview-Korrekturen, nicht als Ersatz für eine vollständige QGIS-Georeferenzierung.
       </div>
       <select id="calibrationSelect" style="width:100%; margin-top:8px; background:#1c1c20; color:#ddd; border:1px solid #2a2a2e; border-radius:4px; padding:6px;">
         ${HISTORICAL_IMAGE_LAYERS.map((item) => `<option value="${escapeHtml(item.name)}">${escapeHtml(item.name)}</option>`).join("")}
@@ -762,6 +777,28 @@ function renderSidebarPanels() {
         <button id="stopCalibrationBtn" style="background:#2c3e50;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Beenden</button>
         <button id="resetCalibrationBtn" style="background:#7f8c8d;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Zurücksetzen</button>
         <button id="exportCalibrationBtn" style="background:#16a085;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Corner export</button>
+      </div>
+      <button id="autoApproxBtn" style="width:100%; margin-top:8px; background:#c0392b;color:#fff;border:none;border-radius:4px;padding:8px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Auto-Näherung</button>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; font-size:.66rem; color:#9aa2aa;">
+        <label>
+          <span style="display:block; margin-bottom:4px;">Verschieben (m)</span>
+          <input id="calibrationMoveStep" type="number" min="1" step="1" value="10" style="width:100%; background:#1c1c20; color:#ddd; border:1px solid #2a2a2e; border-radius:4px; padding:6px;" />
+        </label>
+        <label>
+          <span style="display:block; margin-bottom:4px;">Skalieren (%)</span>
+          <input id="calibrationScaleStep" type="number" min="0.1" step="0.1" value="2" style="width:100%; background:#1c1c20; color:#ddd; border:1px solid #2a2a2e; border-radius:4px; padding:6px;" />
+        </label>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:8px;">
+        <button id="moveNorthBtn" style="background:#34495e;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.78rem;font-weight:700;cursor:pointer;">↑</button>
+        <button id="moveWestBtn" style="background:#34495e;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.78rem;font-weight:700;cursor:pointer;">←</button>
+        <button id="moveEastBtn" style="background:#34495e;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.78rem;font-weight:700;cursor:pointer;">→</button>
+        <button id="moveSouthBtn" style="background:#34495e;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.78rem;font-weight:700;cursor:pointer;">↓</button>
+        <button id="scaleDownBtn" style="grid-column:span 2; background:#8e44ad;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.72rem;font-weight:700;cursor:pointer;">Kleiner</button>
+        <button id="scaleUpBtn" style="grid-column:span 2; background:#8e44ad;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.72rem;font-weight:700;cursor:pointer;">Größer</button>
+      </div>
+      <div style="margin-top:8px; font-size:.64rem; color:#7f8c8d; line-height:1.45;">
+        Auto-Näherung nutzt hinterlegte Bildlandmarken fuer Burg Weibertreu, Marktplatz und Bahnhof und rechnet daraus eine affine Startlage. Gut fuer einen ersten Sprung, nicht fuer die Endabnahme.
       </div>
       <textarea id="calibrationOutput" readonly style="width:100%; min-height:92px; margin-top:8px; background:#11161d; color:#cbd5e1; border:1px solid #2a2a2e; border-radius:4px; padding:8px; font-size:.64rem; line-height:1.45; resize:vertical;"></textarea>
     </div>
@@ -800,7 +837,14 @@ function renderSidebarPanels() {
   document.getElementById("stopCalibrationBtn").addEventListener("click", stopHistoricalCalibration);
   document.getElementById("resetCalibrationBtn").addEventListener("click", resetHistoricalCalibration);
   document.getElementById("exportCalibrationBtn").addEventListener("click", exportHistoricalCalibration);
+  document.getElementById("autoApproxBtn").addEventListener("click", applyHistoricalAutoApprox);
   document.getElementById("calibrationSelect").addEventListener("change", updateCalibrationOutput);
+  document.getElementById("moveNorthBtn").addEventListener("click", () => shiftHistoricalImage(0, getCalibrationMoveStep()));
+  document.getElementById("moveSouthBtn").addEventListener("click", () => shiftHistoricalImage(0, -getCalibrationMoveStep()));
+  document.getElementById("moveWestBtn").addEventListener("click", () => shiftHistoricalImage(-getCalibrationMoveStep(), 0));
+  document.getElementById("moveEastBtn").addEventListener("click", () => shiftHistoricalImage(getCalibrationMoveStep(), 0));
+  document.getElementById("scaleUpBtn").addEventListener("click", () => scaleHistoricalImage(1 + getCalibrationScaleStep() / 100));
+  document.getElementById("scaleDownBtn").addEventListener("click", () => scaleHistoricalImage(Math.max(0.01, 1 - getCalibrationScaleStep() / 100)));
   updateCalibrationOutput();
 }
 
@@ -943,6 +987,7 @@ const HISTORICAL_IMAGE_LAYERS = [
       [49.1580,9.2742],
       [49.1577,9.2913],
       [49.1436,9.2745],
+      [49.1433,9.2916],
     ],
     note:"dichte Winteraufnahme, Ortskern zentral",
   },
@@ -953,6 +998,7 @@ const HISTORICAL_IMAGE_LAYERS = [
       [49.1590,9.2669],
       [49.1587,9.2922],
       [49.1421,9.2672],
+      [49.1418,9.2925],
     ],
     note:"breite Westabdeckung, Ortslage rechts",
   },
@@ -963,6 +1009,7 @@ const HISTORICAL_IMAGE_LAYERS = [
       [49.1588,9.2724],
       [49.1585,9.2930],
       [49.1415,9.2727],
+      [49.1412,9.2933],
     ],
     note:"fruehe Nachkriegsnaehe, gute Gesamtabdeckung",
   },
@@ -972,11 +1019,40 @@ const HISTORICAL_IMAGE_STATE = Object.fromEntries(
     item.name,
     {
       ...item,
-      originalCorners: item.corners.map((corner) => [...corner]),
-      corners: item.corners.map((corner) => [...corner]),
+      originalCorners: completeImageCorners(item.corners),
+      corners: completeImageCorners(item.corners),
     },
   ])
 );
+const HISTORICAL_IMAGE_FITS = {
+  "Historisch 1944-12-24": {
+    width: 1800,
+    height: 1800,
+    anchors: [
+      {targetId:"GCP02", x:1000, y:602},
+      {targetId:"GCP01", x:932, y:816},
+      {targetId:"GCP03", x:1194, y:1202},
+    ],
+  },
+  "Historisch 1945-03-19": {
+    width: 1800,
+    height: 1800,
+    anchors: [
+      {targetId:"GCP02", x:1330, y:668},
+      {targetId:"GCP01", x:1048, y:910},
+      {targetId:"GCP03", x:1240, y:1214},
+    ],
+  },
+  "Historisch 1945-04-09": {
+    width: 1800,
+    height: 1800,
+    anchors: [
+      {targetId:"GCP02", x:1092, y:700},
+      {targetId:"GCP01", x:1050, y:918},
+      {targetId:"GCP03", x:1010, y:1266},
+    ],
+  },
+};
 const calibrationState = {name:null, handles:[], guide:null};
 
 const AREA_LAYER_CONFIG = {
@@ -1204,6 +1280,18 @@ let currentHistoricalOpacity = 0.6;
 L.control.scale({imperial:false}).addTo(map);
 
 function createHistoricalLayer(item) {
+  if (L.distortableImageOverlay) {
+    const corners = completeImageCorners(item.corners).map((corner) => L.latLng(corner[0], corner[1]));
+    const layer = L.distortableImageOverlay(encodeURI(item.file), {
+      corners,
+      editable: false,
+      selected: false,
+      suppressToolbar: true,
+      mode: "lock",
+    });
+    if (typeof layer.setOpacity === "function") layer.setOpacity(currentHistoricalOpacity);
+    return layer;
+  }
   return L.imageOverlay.rotated(
     encodeURI(item.file),
     item.corners[0],
@@ -1255,7 +1343,28 @@ function getSelectedHistoricalName() {
 }
 
 function getCalibrationLabel(index) {
-  return ["C1","C2","C3"][index] || `C${index + 1}`;
+  return ["C1","C2","C3","C4"][index] || `C${index + 1}`;
+}
+
+function getGeoTargetById(id) {
+  return GEOREF_TARGETS.find((target) => target.id === id);
+}
+
+function getCalibrationMoveStep() {
+  const input = document.getElementById("calibrationMoveStep");
+  const value = input ? parseFloat(input.value) : 10;
+  return Number.isFinite(value) && value > 0 ? value : 10;
+}
+
+function getCalibrationScaleStep() {
+  const input = document.getElementById("calibrationScaleStep");
+  const value = input ? parseFloat(input.value) : 2;
+  return Number.isFinite(value) && value > 0 ? value : 2;
+}
+
+function getActiveHistoricalState() {
+  const name = calibrationState.name || getSelectedHistoricalName();
+  return {name, state: HISTORICAL_IMAGE_STATE[name]};
 }
 
 function createCalibrationMarker(index, corner) {
@@ -1284,6 +1393,15 @@ function renderCalibrationGuide() {
   calibrationLayer.addLayer(calibrationState.guide);
 }
 
+function syncCalibrationHandlesFromState(name) {
+  if (calibrationState.name !== name || !calibrationState.handles.length) return;
+  const state = HISTORICAL_IMAGE_STATE[name];
+  calibrationState.handles.forEach((marker, index) => {
+    marker.setLatLng(state.corners[index]);
+  });
+  renderCalibrationGuide();
+}
+
 function updateCalibrationOutput() {
   const output = document.getElementById("calibrationOutput");
   if (!output) return;
@@ -1297,6 +1415,7 @@ function updateCalibrationOutput() {
     "corners:[",
     ...corners.map((corner) => `  [${corner[0].toFixed(6)}, ${corner[1].toFixed(6)}],`),
     "]",
+    "// Reihenfolge: C1=oben links, C2=oben rechts, C3=unten links, C4=unten rechts",
   ].join("\n");
 }
 
@@ -1311,6 +1430,95 @@ function refreshCalibrationOverlay() {
   replaceHistoricalLayer(calibrationState.name);
   if (historicalLayers[calibrationState.name] && !map.hasLayer(historicalLayers[calibrationState.name])) {
     historicalLayers[calibrationState.name].addTo(map);
+  }
+  updateCalibrationOutput();
+}
+
+function shiftHistoricalImage(dxMeters, dyMeters) {
+  const {name, state} = getActiveHistoricalState();
+  if (!state) return;
+  const avgLat = state.corners.reduce((sum, [lat]) => sum + lat, 0) / state.corners.length;
+  const latOffset = dyMeters / 111320;
+  const lonOffset = dxMeters / (111320 * Math.cos(avgLat * Math.PI / 180));
+  state.corners = state.corners.map(([lat, lon]) => [lat + latOffset, lon + lonOffset]);
+  replaceHistoricalLayer(name);
+  syncCalibrationHandlesFromState(name);
+  if (historicalLayers[name] && !map.hasLayer(historicalLayers[name])) historicalLayers[name].addTo(map);
+  updateCalibrationOutput();
+}
+
+function scaleHistoricalImage(factor) {
+  const {name, state} = getActiveHistoricalState();
+  if (!state) return;
+  const centerLat = state.corners.reduce((sum, [lat]) => sum + lat, 0) / state.corners.length;
+  const centerLon = state.corners.reduce((sum, [, lon]) => sum + lon, 0) / state.corners.length;
+  const latMeters = 111320;
+  const lonMeters = 111320 * Math.cos(centerLat * Math.PI / 180);
+  state.corners = state.corners.map(([lat, lon]) => {
+    const dx = (lon - centerLon) * lonMeters * factor;
+    const dy = (lat - centerLat) * latMeters * factor;
+    return [centerLat + dy / latMeters, centerLon + dx / lonMeters];
+  });
+  replaceHistoricalLayer(name);
+  syncCalibrationHandlesFromState(name);
+  if (historicalLayers[name] && !map.hasLayer(historicalLayers[name])) historicalLayers[name].addTo(map);
+  updateCalibrationOutput();
+}
+
+function computeHistoricalAutoApprox(name) {
+  const fit = HISTORICAL_IMAGE_FITS[name];
+  if (!fit || !fit.anchors || fit.anchors.length < 3) return null;
+  const anchors = fit.anchors.map((anchor) => {
+    const target = getGeoTargetById(anchor.targetId);
+    if (!target) return null;
+    const p = map.project(L.latLng(target.lat, target.lon), map.getZoom());
+    return {x: anchor.x, y: anchor.y, px: p.x, py: p.y};
+  }).filter(Boolean);
+  if (anchors.length < 3) return null;
+
+  const A = [];
+  const b = [];
+  anchors.slice(0, 3).forEach((anchor) => {
+    A.push([anchor.x, anchor.y, 1, 0, 0, 0]);
+    b.push(anchor.px);
+    A.push([0, 0, 0, anchor.x, anchor.y, 1]);
+    b.push(anchor.py);
+  });
+  const params = solveLinearSystem(A, b);
+  const project = (x, y) => L.point(
+    params[0] * x + params[1] * y + params[2],
+    params[3] * x + params[4] * y + params[5]
+  );
+  const cornersPx = [
+    [0, 0],
+    [fit.width, 0],
+    [0, fit.height],
+    [fit.width, fit.height],
+  ];
+  return cornersPx.map(([x, y]) => {
+    const ll = map.unproject(project(x, y), map.getZoom());
+    return [ll.lat, ll.lng];
+  });
+}
+
+function applyHistoricalAutoApprox() {
+  const {name, state} = getActiveHistoricalState();
+  if (!state) return;
+  const suggestedCorners = computeHistoricalAutoApprox(name);
+  if (!suggestedCorners) return;
+  const blend = 0.78;
+  state.corners = state.corners.map((corner, index) => ([
+    corner[0] * (1 - blend) + suggestedCorners[index][0] * blend,
+    corner[1] * (1 - blend) + suggestedCorners[index][1] * blend,
+  ]));
+  replaceHistoricalLayer(name);
+  syncCalibrationHandlesFromState(name);
+  if (historicalLayers[name] && !map.hasLayer(historicalLayers[name])) historicalLayers[name].addTo(map);
+  if (!calibrationState.name) {
+    const output = document.getElementById("calibrationOutput");
+    if (output) {
+      output.value = `// ${name}\n// Auto-Naeherung aus Burg/Marktplatz/Bahnhof angewandt\n` + output.value;
+    }
   }
   updateCalibrationOutput();
 }
