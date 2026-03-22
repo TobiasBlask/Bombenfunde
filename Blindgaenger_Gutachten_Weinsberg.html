@@ -439,6 +439,23 @@ function solveLinearSystem(A, b) {
   return M.slice(0, m).map((row) => row[m]);
 }
 
+function solveLeastSquares(A, b) {
+  const cols = A[0].length;
+  const normal = Array.from({length: cols}, () => Array(cols).fill(0));
+  const rhs = Array(cols).fill(0);
+
+  for (let r = 0; r < A.length; r += 1) {
+    for (let i = 0; i < cols; i += 1) {
+      rhs[i] += A[r][i] * b[r];
+      for (let j = 0; j < cols; j += 1) {
+        normal[i][j] += A[r][i] * A[r][j];
+      }
+    }
+  }
+
+  return solveLinearSystem(normal, rhs);
+}
+
 const GEOREF = buildAffineTransform(GEOREF_USED_ANCHORS);
 
 function transformLatLon(lat, lon) {
@@ -798,7 +815,7 @@ function renderSidebarPanels() {
         <button id="scaleUpBtn" style="grid-column:span 2; background:#8e44ad;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.72rem;font-weight:700;cursor:pointer;">Größer</button>
       </div>
       <div style="margin-top:8px; font-size:.64rem; color:#7f8c8d; line-height:1.45;">
-        Auto-Näherung nutzt hinterlegte Bildlandmarken fuer Burg Weibertreu, Marktplatz und Bahnhof und rechnet daraus eine affine Startlage. Gut fuer einen ersten Sprung, nicht fuer die Endabnahme.
+        Auto-Näherung nutzt hinterlegte Bildlandmarken fuer Burg Weibertreu, Marktplatz und Bahnhof und rechnet daraus eine <strong>formstabile Helmert-Startlage</strong> (Verschiebung, Rotation, einheitlicher Maßstab). Gut fuer einen ersten Sprung, nicht fuer die Endabnahme.
       </div>
       <textarea id="calibrationOutput" readonly style="width:100%; min-height:92px; margin-top:8px; background:#11161d; color:#cbd5e1; border:1px solid #2a2a2e; border-radius:4px; padding:8px; font-size:.64rem; line-height:1.45; resize:vertical;"></textarea>
     </div>
@@ -1478,16 +1495,16 @@ function computeHistoricalAutoApprox(name) {
 
   const A = [];
   const b = [];
-  anchors.slice(0, 3).forEach((anchor) => {
-    A.push([anchor.x, anchor.y, 1, 0, 0, 0]);
+  anchors.forEach((anchor) => {
+    A.push([anchor.x, -anchor.y, 1, 0]);
     b.push(anchor.px);
-    A.push([0, 0, 0, anchor.x, anchor.y, 1]);
+    A.push([anchor.y, anchor.x, 0, 1]);
     b.push(anchor.py);
   });
-  const params = solveLinearSystem(A, b);
+  const params = solveLeastSquares(A, b);
   const project = (x, y) => L.point(
-    params[0] * x + params[1] * y + params[2],
-    params[3] * x + params[4] * y + params[5]
+    params[0] * x - params[1] * y + params[2],
+    params[1] * x + params[0] * y + params[3]
   );
   const cornersPx = [
     [0, 0],
