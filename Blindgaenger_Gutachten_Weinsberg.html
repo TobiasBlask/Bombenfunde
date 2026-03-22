@@ -62,7 +62,7 @@
     header h1 { font-size:1.05rem; font-weight:700; color:var(--uxo-green); text-transform:uppercase; line-height:1.3; }
     header .sub { font-size:0.74rem; color:var(--uxo-muted); margin-top:4px; line-height:1.6; max-width:720px; }
     header .badge { background:var(--uxo-green); color:var(--uxo-bg); font-size:0.68rem; font-weight:700; padding:5px 11px; border-radius:999px; margin-left:10px; box-shadow:0 8px 18px rgba(53,104,89,.14); }
-    header .meta { font-size:0.72rem; color:var(--uxo-muted); text-align:right; line-height:1.7; padding-top:2px; }
+    header .meta { font-size:0.72rem; color:var(--uxo-muted); text-align:right; line-height:1.7; padding:10px 12px; border:1px solid rgba(217,212,203,.82); border-radius:16px; background:rgba(255,255,255,.64); box-shadow:var(--uxo-shadow-card); }
     header .meta strong { color:var(--uxo-green-dark); }
 
     /* LAYOUT */
@@ -176,7 +176,9 @@
     .role-btn:hover { transform:translateY(-1px); box-shadow:0 14px 28px rgba(38,59,54,.1); }
     .role-btn.active { border-color:var(--uxo-green); box-shadow:0 0 0 1px rgba(53,104,89,.16) inset, 0 14px 28px rgba(38,59,54,.1); background:#eef4f1; }
     .dash-wrap { min-height:100%; padding:28px 30px 34px; }
-    .dash-top { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:22px; padding:22px 24px; border:1px solid rgba(217,212,203,.82); border-radius:24px; background:linear-gradient(135deg, rgba(255,253,250,.98), rgba(248,245,239,.96)); box-shadow:var(--uxo-shadow-soft); }
+    .dash-top { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:22px; padding:24px 26px; border:1px solid rgba(217,212,203,.82); border-radius:28px; background:
+      radial-gradient(circle at top right, rgba(53,104,89,.08), transparent 24%),
+      linear-gradient(135deg, rgba(255,253,250,.98), rgba(248,245,239,.96)); box-shadow:var(--uxo-shadow-soft); }
     .dash-user { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
     .user-chip, .mini-chip { display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border-radius:999px; background:rgba(255,255,255,.86); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); font-size:.74rem; box-shadow:var(--uxo-shadow-card); }
     .dash-layout { display:grid; grid-template-columns:minmax(320px, 390px) 1fr; gap:20px; }
@@ -194,16 +196,23 @@
     .project-row strong { display:block; color:var(--uxo-green-dark); font-size:.88rem; }
     .project-row .meta { display:block; margin-top:4px; color:var(--uxo-muted); font-size:.72rem; line-height:1.5; }
     .project-row .statusline { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-    .kanban { display:grid; grid-template-columns:repeat(7, minmax(220px,1fr)); gap:14px; overflow:auto; padding-bottom:6px; }
-    .kanban-col { background:rgba(248,245,239,.98); border:1px solid #e3dbd0; border-radius:18px; min-height:360px; padding:13px; box-shadow:var(--uxo-shadow-card); }
+    .kanban { display:grid; grid-template-columns:repeat(7, minmax(220px,1fr)); gap:14px; overflow:auto; padding-bottom:6px; align-items:start; }
+    .kanban-col { background:rgba(248,245,239,.98); border:1px solid #e3dbd0; border-radius:20px; min-height:360px; padding:13px; box-shadow:var(--uxo-shadow-card); transition:border-color .14s ease, box-shadow .14s ease, transform .14s ease; }
     .kanban-col h3 { font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; color:var(--uxo-green); margin-bottom:8px; }
     .kanban-col .col-sub { font-size:.68rem; color:var(--uxo-muted); margin-bottom:12px; }
-    .kanban-stack { display:flex; flex-direction:column; gap:10px; }
-    .kanban-card { background:var(--uxo-surface); border:1px solid var(--uxo-border); border-radius:15px; padding:12px; box-shadow:0 8px 18px rgba(38,59,54,.06); transition:transform .12s ease, box-shadow .14s ease; }
+    .kanban-col.drag-over { border-color:rgba(236,83,42,.55); box-shadow:0 0 0 2px rgba(236,83,42,.12), 0 18px 30px rgba(38,59,54,.08); transform:translateY(-1px); }
+    .kanban-stack { display:flex; flex-direction:column; gap:10px; min-height:220px; }
+    .kanban-count { display:inline-flex; align-items:center; justify-content:center; min-width:28px; height:28px; padding:0 8px; border-radius:999px; background:rgba(53,104,89,.1); color:var(--uxo-green); font-size:.72rem; font-weight:700; }
+    .kanban-col-top { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:10px; }
+    .kanban-card { background:var(--uxo-surface); border:1px solid var(--uxo-border); border-radius:15px; padding:12px; box-shadow:0 8px 18px rgba(38,59,54,.06); transition:transform .12s ease, box-shadow .14s ease, opacity .14s ease; }
     .kanban-card:hover { transform:translateY(-1px); box-shadow:0 14px 24px rgba(38,59,54,.08); }
+    .kanban-card.draggable { cursor:grab; }
+    .kanban-card.dragging { opacity:.46; transform:scale(.985); box-shadow:0 8px 12px rgba(38,59,54,.04); }
     .kanban-card strong { display:block; color:var(--uxo-green-dark); font-size:.82rem; line-height:1.4; }
     .kanban-card .meta { margin-top:5px; font-size:.7rem; color:var(--uxo-muted); line-height:1.45; }
     .kanban-card .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .kanban-help { display:flex; align-items:center; gap:8px; grid-column:1 / -1; margin-top:2px; padding:10px 12px; background:rgba(255,255,255,.72); border:1px dashed rgba(217,212,203,.92); border-radius:16px; font-size:.72rem; color:var(--uxo-muted); line-height:1.55; }
+    .kanban-help strong { color:var(--uxo-green-dark); }
     .project-form { display:grid; gap:10px; margin-top:12px; }
     .project-form-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
     .stack { display:grid; gap:16px; }
@@ -227,9 +236,13 @@
     .workflow-badge::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--badge-color, #6fb2ff); }
     .header-action-btn { background:rgba(255,255,255,.84); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); border-radius:999px; min-height:38px; padding:8px 13px; font-size:.72rem; font-weight:700; cursor:pointer; text-transform:uppercase; letter-spacing:.08em; box-shadow:var(--uxo-shadow-card); transition:transform .12s ease, background .12s ease; }
     .header-action-btn:hover { background:#f1ece4; transform:translateY(-1px); }
+    .header-action-btn.back { background:var(--uxo-green); color:#fff; border-color:rgba(53,104,89,.9); }
+    .header-action-btn.back:hover { background:#2f5d4f; }
     .workspace-header-left { display:flex; align-items:flex-start; gap:12px; }
     .workspace-title-block { min-width:0; }
     .workspace-topline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .workspace-nav-hint { margin-top:8px; display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border-radius:999px; background:rgba(255,255,255,.76); border:1px solid var(--uxo-border); color:var(--uxo-muted); font-size:.71rem; box-shadow:var(--uxo-shadow-card); }
+    .workspace-nav-hint strong { color:var(--uxo-green-dark); }
     .brand-lockup { display:flex; align-items:center; gap:14px; }
     .brand-logo { width:auto; height:24px; display:block; }
     .brand-logo.large { height:28px; }
@@ -396,7 +409,7 @@
 <header>
   <div class="workspace-header-left">
     <div class="workspace-header-actions">
-      <button id="openDashboardBtn" class="header-action-btn">Projektuebersicht</button>
+      <button id="openDashboardBtn" class="header-action-btn back">← Zurueck zur Uebersicht</button>
       <button id="advanceStageBtn" class="header-action-btn">Workflow +1</button>
       <button id="releaseProjectBtn" class="header-action-btn">Freigeben</button>
       <button id="printProjectBtn" class="header-action-btn">PDF</button>
@@ -411,6 +424,7 @@
           <span class="badge" id="badgeText">Audit v4 · Punktprüfung läuft</span></h1>
       </div>
       <div class="sub" id="workspaceSubtitle">Digitale Luftbildauswertung, Projektsteuerung und Freigabe in einer Oberflaeche</div>
+      <div class="workspace-nav-hint" id="workspaceNavHint"><strong>Workspace aktiv</strong><span>Mit „Zurueck zur Uebersicht“ kommst du jederzeit ins Dashboard zurück.</span></div>
     </div>
   </div>
   <div class="meta"><strong>Projekt:</strong> <span id="workspaceProjectMeta">Weinsberg – Initialprojekt</span> &nbsp;|&nbsp; <strong>Workflow:</strong> <span id="workspaceStageMeta">Analyse</span><br/>
@@ -1520,7 +1534,7 @@ function renderProjectList(projects = roleScopedProjects(), role = currentRole()
           <select class="project-stage-select ${canEditProjectStages(role) ? "" : "hidden-panel"}" data-project-stage="${escapeHtml(project.id)}">
             ${WORKFLOW_STAGES.map((stage) => `<option value="${stage.id}" ${stage.id === project.stage ? "selected" : ""}>${escapeHtml(stage.label)}</option>`).join("")}
           </select>
-          <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Oeffnen</button>
+          <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Im Workspace</button>
           ${canAdvanceWorkflow(role) ? `<button class="app-btn ghost" data-advance-project="${escapeHtml(project.id)}">Weiter</button>` : ""}
         </div>
       </div>
@@ -1529,6 +1543,7 @@ function renderProjectList(projects = roleScopedProjects(), role = currentRole()
 
 function renderKanbanBoard(projects = roleScopedProjects(), role = currentRole()) {
   const board = document.getElementById("kanbanBoard");
+  const canDrag = canAdvanceWorkflow(role);
   const stages = role === "nutzer"
     ? WORKFLOW_STAGES.filter((stage) => ["intake","analysis","review","released"].includes(stage.id))
     : role === "gutachter"
@@ -1538,12 +1553,12 @@ function renderKanbanBoard(projects = roleScopedProjects(), role = currentRole()
     const items = projects.filter((project) => project.stage === stage.id);
     const cards = items.length
       ? items.map((project) => `
-          <div class="kanban-card">
+          <div class="kanban-card ${canDrag ? "draggable" : ""}" data-project-id="${escapeHtml(project.id)}" data-stage-id="${escapeHtml(project.stage)}" ${canDrag ? 'draggable="true"' : ""}>
             <strong>${escapeHtml(project.name)}</strong>
             <div class="meta">${escapeHtml(project.location)} · ${escapeHtml(project.scope)}</div>
             <div class="meta">${projectOutputSummary(project)}</div>
             <div class="actions">
-              <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Oeffnen</button>
+              <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Im Workspace</button>
               ${canAdvanceWorkflow(role) ? `<button class="app-btn ghost" data-advance-project="${escapeHtml(project.id)}">Weiter</button>` : ""}
             </div>
           </div>
@@ -1553,13 +1568,21 @@ function renderKanbanBoard(projects = roleScopedProjects(), role = currentRole()
           <div class="meta">${escapeHtml(stage.hint)}</div>
         </div>`;
     return `
-      <div class="kanban-col">
-        <h3>${escapeHtml(stage.label)}</h3>
-        <div class="col-sub">${escapeHtml(stage.hint)}</div>
+      <div class="kanban-col" data-stage-id="${escapeHtml(stage.id)}">
+        <div class="kanban-col-top">
+          <div>
+            <h3>${escapeHtml(stage.label)}</h3>
+            <div class="col-sub">${escapeHtml(stage.hint)}</div>
+          </div>
+          <span class="kanban-count">${items.length}</span>
+        </div>
         <div class="kanban-stack">${cards}</div>
       </div>
     `;
   }).join("");
+  if (canDrag) {
+    board.insertAdjacentHTML("beforeend", `<div class="kanban-help"><strong>Drag & Drop:</strong><span>Projekte koennen direkt zwischen den sichtbaren Workflow-Spalten verschoben werden. Öffnen bleibt fuer die Detailbearbeitung im Workspace.</span></div>`);
+  }
 }
 
 function renderDashboard() {
@@ -1575,7 +1598,9 @@ function renderDashboard() {
   document.getElementById("requestPanelTitle").textContent = roleMeta.requestTitle;
   document.getElementById("projectPanelTitle").textContent = roleMeta.projectTitle;
   document.getElementById("boardPanelTitle").textContent = roleMeta.boardTitle;
-  document.getElementById("boardPanelCopy").textContent = roleMeta.boardCopy;
+  document.getElementById("boardPanelCopy").textContent = canAdvanceWorkflow(role)
+    ? `${roleMeta.boardCopy} Projekte lassen sich direkt per Drag & Drop zwischen den sichtbaren Spalten verschieben.`
+    : roleMeta.boardCopy;
   document.getElementById("createProjectBtn").textContent = roleMeta.createButton;
   document.getElementById("handoffPanelTitle").textContent = role === "gutachter" ? "Paketimport" : "Lokale Übergabe";
   document.getElementById("handoffPanelCopy").textContent = role === "gutachter"
@@ -1660,6 +1685,15 @@ function setImportStatus(message, tone = "neutral") {
   node.style.color = tone === "error"
     ? "#b42318"
     : (tone === "success" ? "#356859" : "#6f7a76");
+}
+
+const kanbanDragState = { projectId: null, sourceStage: null };
+
+function clearKanbanDragState() {
+  kanbanDragState.projectId = null;
+  kanbanDragState.sourceStage = null;
+  document.querySelectorAll(".kanban-card.dragging").forEach((card) => card.classList.remove("dragging"));
+  document.querySelectorAll(".kanban-col.drag-over").forEach((col) => col.classList.remove("drag-over"));
 }
 
 function buildProjectFromManifest(manifest) {
@@ -1756,11 +1790,11 @@ function syncWorkspaceActions(role = currentRole()) {
   const releaseBtn = document.getElementById("releaseProjectBtn");
   const dashboardBtn = document.getElementById("openDashboardBtn");
   const printBtn = document.getElementById("printProjectBtn");
-  if (dashboardBtn) dashboardBtn.textContent = role === "nutzer" ? "Meine Uebersicht" : "Projektuebersicht";
+  if (dashboardBtn) dashboardBtn.textContent = role === "nutzer" ? "← Zurueck zu meinen Vorgängen" : "← Zurueck zur Uebersicht";
   if (advanceBtn) advanceBtn.textContent = role === "admin" ? "Status weiter" : "Bearbeitung weiter";
   if (advanceBtn) advanceBtn.style.display = canAdvanceWorkflow(role) ? "inline-flex" : "none";
   if (releaseBtn) releaseBtn.style.display = canReleaseProjects(role) ? "inline-flex" : "none";
-  if (printBtn) printBtn.textContent = role === "nutzer" ? "Gutachten PDF" : "PDF Export";
+  if (printBtn) printBtn.textContent = role === "nutzer" ? "Gutachten PDF" : "Report PDF";
 }
 
 function updateWorkspaceProjectContext(project) {
@@ -1771,6 +1805,9 @@ function updateWorkspaceProjectContext(project) {
   document.getElementById("workspaceProjectMeta").textContent = `${project.location} · ${project.scope}`;
   document.getElementById("workspaceStageMeta").textContent = stage.label;
   document.getElementById("badgeText").textContent = `${stage.label} · ${summary.total} Punkte · Flächenlogik`;
+  document.getElementById("workspaceNavHint").innerHTML = currentRole() === "nutzer"
+    ? `<strong>Gutachtenansicht</strong><span>Mit „Zurueck zu meinen Vorgängen“ kommst du jederzeit auf dein Dashboard zurueck.</span>`
+    : `<strong>Workspace aktiv</strong><span>Mit „Zurueck zur Uebersicht“ wechselst du jederzeit zurück ins Board und in die Projektliste.</span>`;
   document.title = `${project.name} | Blindgaenger-Gutachten Suite`;
   syncWorkspaceActions(role);
   const narrative = projectStageNarrative(project);
@@ -2133,13 +2170,13 @@ function renderWorkspaceDataPanel(project = currentProject()) {
   const artifacts = project.artifacts || [];
   const artifactHtml = artifacts.length
     ? `<div class="artifact-list">${artifacts.slice(0, 6).map((artifact) => {
-        const href = artifact.url || artifact.path;
-        const hrefAttr = href ? ` href="${escapeHtml(encodeURI(href))}" target="_blank" rel="noopener"` : "";
+        const href = resolveArtifactHref(project, artifact);
+        const hrefAttr = href ? ` href="${escapeHtml(href)}" target="_blank" rel="noopener"` : "";
         const meta = [artifact.kind, artifact.generatedAt, formatBytes(artifact.sizeBytes)].filter(Boolean).join(" · ");
         return `<div class="artifact-item">
           <strong>${escapeHtml(artifact.label)}</strong>
           <span>${escapeHtml(meta || "Artefakt")}</span>
-          ${href ? `<span><a${hrefAttr}>${escapeHtml(artifact.path || artifact.url)}</a></span>` : (artifact.path ? `<span>${escapeHtml(artifact.path)}</span>` : "")}
+          ${href ? `<span><a${hrefAttr}>${escapeHtml(artifact.path || artifact.url || href)}</a></span>` : (artifact.path ? `<span>${escapeHtml(artifact.path)}</span>` : "")}
           ${artifact.description ? `<span>${escapeHtml(artifact.description)}</span>` : ""}
         </div>`;
       }).join("")}</div>`
@@ -2163,6 +2200,194 @@ function renderWorkspaceDataPanel(project = currentProject()) {
     </div>
     ${artifactHtml}
   `;
+}
+
+function currentDocumentBaseHref() {
+  const href = window.location.href;
+  const index = href.lastIndexOf("/");
+  return index === -1 ? href : href.slice(0, index + 1);
+}
+
+function resolveArtifactHref(project, artifact) {
+  const candidate = artifact?.url || artifact?.path || "";
+  if (!candidate) return "";
+  if (/^(https?:|file:|data:|blob:)/i.test(candidate)) return candidate;
+  try {
+    if (candidate.startsWith("/")) return `file://${candidate}`;
+    const base = project?.localRoot && project.localRoot !== "./"
+      ? (/^(https?:|file:)/i.test(project.localRoot)
+          ? (project.localRoot.endsWith("/") ? project.localRoot : `${project.localRoot}/`)
+          : project.localRoot.startsWith("/")
+            ? `file://${project.localRoot.endsWith("/") ? project.localRoot : `${project.localRoot}/`}`
+            : new URL(project.localRoot.endsWith("/") ? project.localRoot : `${project.localRoot}/`, currentDocumentBaseHref()).href)
+      : currentDocumentBaseHref();
+    return new URL(candidate, base).href;
+  } catch (error) {
+    return candidate;
+  }
+}
+
+function pickReportPreviewArtifacts(project) {
+  const previews = (project?.artifacts || []).filter((artifact) => artifact.kind === "preview_image");
+  const overview = previews.find((artifact) => /contactsheet|master|1945-04-09/i.test(artifact.path || artifact.label || "")) || previews[0] || null;
+  const details = previews.filter((artifact) => artifact !== overview).slice(0, 3);
+  return { overview, details };
+}
+
+function buildPrintableReportHtml(project) {
+  const stage = getStageMeta(project.stage);
+  const role = currentRole();
+  const { overview, details } = pickReportPreviewArtifacts(project);
+  const overviewSrc = overview ? resolveArtifactHref(project, overview) : "";
+  const detailCards = details.map((artifact) => {
+    const src = resolveArtifactHref(project, artifact);
+    return src ? `
+      <figure class="detail-card">
+        <img src="${escapeHtml(src)}" alt="${escapeHtml(artifact.label)}"/>
+        <figcaption>${escapeHtml(artifact.label)}</figcaption>
+      </figure>` : "";
+  }).join("");
+  const artifactRows = (project.artifacts || []).slice(0, 10).map((artifact) => `
+    <tr>
+      <td>${escapeHtml(artifact.label)}</td>
+      <td>${escapeHtml(artifact.kind)}</td>
+      <td>${escapeHtml(artifact.path || artifact.url || "")}</td>
+      <td>${escapeHtml(formatBytes(artifact.sizeBytes) || "—")}</td>
+    </tr>`).join("");
+  const findingsCount = project.stats?.findingsPoints || summary.total;
+  const areaCount = project.stats?.areaFeatures || AREA_FEATURES.length;
+  const imageCount = project.stats?.imagesTotal || 0;
+  const georefCount = project.stats?.imagesGeoreferenced || 0;
+  return `<!DOCTYPE html>
+  <html lang="de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>${escapeHtml(project.name)} – Gutachten PDF</title>
+    <style>
+      :root { --green:#356859; --green-dark:#263b36; --orange:#ec532a; --line:#d8d3ca; --surface:#faf8f3; --muted:#6f7a76; }
+      * { box-sizing:border-box; }
+      body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--green-dark); background:#fff; }
+      .report { padding:28px 32px 40px; }
+      .cover { padding:24px 0 20px; border-bottom:2px solid var(--line); }
+      .kicker { color:var(--orange); font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; }
+      .title { margin:10px 0 0; font-size:34px; line-height:1.05; color:var(--green); text-transform:uppercase; }
+      .subtitle { margin:12px 0 0; color:var(--muted); line-height:1.6; max-width:780px; }
+      .meta-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px; margin-top:24px; }
+      .meta-card { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:14px 16px; }
+      .meta-card strong { display:block; font-size:22px; color:var(--green); }
+      .meta-card span { display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.4; }
+      .section { margin-top:26px; page-break-inside:avoid; }
+      .section h2 { margin:0 0 12px; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); }
+      .lede { color:var(--muted); line-height:1.7; margin-bottom:12px; }
+      .decision-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+      .decision-card { border:1px solid var(--line); border-radius:16px; padding:14px 15px; background:var(--surface); line-height:1.6; }
+      .decision-card strong { display:block; margin-bottom:8px; }
+      .decision-card.red strong { color:#a63f2b; }
+      .decision-card.yellow strong { color:#b26a12; }
+      .decision-card.green strong { color:#356859; }
+      .overview { margin-top:12px; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--surface); }
+      .overview img { display:block; width:100%; height:auto; }
+      .details { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin-top:14px; }
+      .detail-card { margin:0; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--surface); }
+      .detail-card img { display:block; width:100%; height:220px; object-fit:cover; background:#f3f2f0; }
+      .detail-card figcaption { padding:10px 12px; color:var(--muted); font-size:12px; line-height:1.45; }
+      table { width:100%; border-collapse:collapse; font-size:12px; }
+      th, td { border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top; }
+      th { color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.08em; font-size:11px; }
+      .footer-note { margin-top:24px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; line-height:1.7; }
+      @media print {
+        body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        .report { padding:18mm 16mm 20mm; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="report">
+      <section class="cover">
+        <div class="kicker">Uxo Pro Portal · Gutachtenexport</div>
+        <h1 class="title">${escapeHtml(project.name)}</h1>
+        <div class="subtitle">
+          ${escapeHtml(project.location)} · ${escapeHtml(project.scope)} · Workflow ${escapeHtml(stage.label)}. 
+          Dieses PDF ist ein kuratierter Reportexport aus der Arbeitsoberfläche und nicht der Ausdruck der laufenden App.
+        </div>
+        <div class="meta-grid">
+          <div class="meta-card"><strong>${escapeHtml(String(findingsCount))}</strong><span>kartierte Befunde</span></div>
+          <div class="meta-card"><strong>${escapeHtml(String(areaCount))}</strong><span>Verdachtsflächen</span></div>
+          <div class="meta-card"><strong>${escapeHtml(`${georefCount}/${imageCount || "0"}`)}</strong><span>georeferenzierte Bilder</span></div>
+          <div class="meta-card"><strong>${escapeHtml(project.pdfReady ? "bereit" : "Entwurf")}</strong><span>PDF-Status · Rolle ${escapeHtml(role)}</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Projektübersicht</h2>
+        <div class="lede">
+          <strong>Quelle:</strong> ${escapeHtml(projectSourceLabel(project))} ·
+          <strong>Import:</strong> ${escapeHtml(project.manifestImportedAt || "App-intern")} ·
+          <strong>Pipeline:</strong> ${escapeHtml(project.pipeline?.mode || "manual")} ·
+          <strong>Masterbild:</strong> ${escapeHtml(project.pipeline?.masterImage || project.pipeline?.master_image || WORKFLOW_MASTER_IMAGE)}.
+        </div>
+        <div class="lede">
+          <strong>Notiz:</strong> ${escapeHtml(project.note || "Keine zusätzliche Projektnotiz hinterlegt.")}
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Vorläufige Bewertung</h2>
+        <div class="decision-grid">
+          <div class="decision-card red">
+            <strong>Rot – nicht ohne Kampfmitteluntersuchung bauen</strong>
+            Großkrater N/NE, Bahnhofsvorfeld und westlicher Bahnkorridor, klar ausgeprägte NO-Krater sowie belastbare Persistenzzonen am Waldrand.
+          </div>
+          <div class="decision-card yellow">
+            <strong>Gelb – weitere Prüfung erforderlich</strong>
+            Südlicher Ortsrand, Bahnhof-Ost, rekonstruierte Angriffskorridore und indirekte Verdachtsflächen.
+          </div>
+          <div class="decision-card green">
+            <strong>Grün – keine konkreten Luftbildanhalte</strong>
+            Nur außerhalb der markierten Puffer, Korridore und verdichteten Randstörzonen; weiterhin keine amtliche Freigabe.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Karten und Ausschnitte</h2>
+        <div class="lede">Die Druckfassung verwendet lokale Vorschauartefakte des Projekts. Für die Fachbearbeitung bleiben die Original-TIFFs und QGIS-Dateien im lokalen Projektordner.</div>
+        ${overviewSrc ? `<div class="overview"><img src="${escapeHtml(overviewSrc)}" alt="${escapeHtml(overview?.label || "Kartenübersicht")}"/></div>` : `<div class="lede">Keine Vorschauartefakte vorhanden.</div>`}
+        ${detailCards ? `<div class="details">${detailCards}</div>` : ""}
+      </section>
+
+      <section class="section">
+        <h2>Artefaktliste</h2>
+        <table>
+          <thead>
+            <tr><th>Artefakt</th><th>Typ</th><th>Pfad</th><th>Größe</th></tr>
+          </thead>
+          <tbody>${artifactRows || `<tr><td colspan="4">Keine Artefakte hinterlegt.</td></tr>`}</tbody>
+        </table>
+      </section>
+
+      <section class="footer-note">
+        Exportiert am ${escapeHtml(todayIso())}. Methodischer Rahmen: lokale Georeferenzierung und Analyse, App als Rollen-, Review- und Freigabelayer. Die endgültige fachliche Aussage bleibt an den lokalen Projektstand gebunden.
+      </section>
+    </main>
+  </body>
+  </html>`;
+}
+
+function exportProjectPdfReport(project, existingWindow = null) {
+  const reportHtml = buildPrintableReportHtml(project);
+  const printWindow = existingWindow || window.open("", "_blank", "width=1200,height=900");
+  if (!printWindow) {
+    window.print();
+    return;
+  }
+  printWindow.document.open();
+  printWindow.document.write(reportHtml);
+  printWindow.document.close();
+  printWindow.focus();
+  setTimeout(() => {
+    printWindow.print();
+  }, 500);
 }
 
 function exportGeoJSON() {
@@ -3393,6 +3618,56 @@ document.getElementById("kanbanBoard").addEventListener("click", async (event) =
   if (advanceBtn) await advanceProjectStage(advanceBtn.getAttribute("data-advance-project"));
 });
 
+document.getElementById("kanbanBoard").addEventListener("dragstart", (event) => {
+  if (!canAdvanceWorkflow(currentRole())) return;
+  const card = event.target.closest(".kanban-card[data-project-id]");
+  if (!card) return;
+  kanbanDragState.projectId = card.getAttribute("data-project-id");
+  kanbanDragState.sourceStage = card.getAttribute("data-stage-id");
+  card.classList.add("dragging");
+  if (event.dataTransfer) {
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", kanbanDragState.projectId);
+  }
+});
+
+document.getElementById("kanbanBoard").addEventListener("dragover", (event) => {
+  if (!canAdvanceWorkflow(currentRole()) || !kanbanDragState.projectId) return;
+  const column = event.target.closest(".kanban-col[data-stage-id]");
+  if (!column) return;
+  event.preventDefault();
+  document.querySelectorAll(".kanban-col.drag-over").forEach((node) => {
+    if (node !== column) node.classList.remove("drag-over");
+  });
+  column.classList.add("drag-over");
+  if (event.dataTransfer) event.dataTransfer.dropEffect = "move";
+});
+
+document.getElementById("kanbanBoard").addEventListener("drop", async (event) => {
+  if (!canAdvanceWorkflow(currentRole()) || !kanbanDragState.projectId) return;
+  const column = event.target.closest(".kanban-col[data-stage-id]");
+  if (!column) return;
+  event.preventDefault();
+  const targetStage = column.getAttribute("data-stage-id");
+  const projectId = kanbanDragState.projectId;
+  const sourceStage = kanbanDragState.sourceStage;
+  clearKanbanDragState();
+  if (!targetStage || targetStage === sourceStage) return;
+  await setProjectStage(projectId, targetStage);
+});
+
+document.getElementById("kanbanBoard").addEventListener("dragend", () => {
+  clearKanbanDragState();
+});
+
+document.getElementById("kanbanBoard").addEventListener("dragleave", (event) => {
+  const column = event.target.closest(".kanban-col.drag-over");
+  if (!column) return;
+  const next = event.relatedTarget;
+  if (next && column.contains(next)) return;
+  column.classList.remove("drag-over");
+});
+
 document.getElementById("openDashboardBtn").addEventListener("click", showDashboard);
 
 document.getElementById("advanceStageBtn").addEventListener("click", async () => {
@@ -3409,13 +3684,17 @@ document.getElementById("releaseProjectBtn").addEventListener("click", async () 
 
 document.getElementById("printProjectBtn").addEventListener("click", async () => {
   const project = currentProject();
+  const printWindow = window.open("", "_blank", "width=1200,height=900");
   if (project) {
     appState.projects = appState.projects.map((item) => item.id === project.id ? {...item, pdfReady:true, updatedAt:todayIso()} : item);
     saveAppState();
     try { await upsertProjectToBackend(currentProject()); } catch (error) { console.error(error); }
     renderDashboard();
     updateWorkspaceProjectContext(currentProject());
+    exportProjectPdfReport(currentProject(), printWindow);
+    return;
   }
+  if (printWindow && !printWindow.closed) printWindow.close();
   window.print();
 });
 
