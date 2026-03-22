@@ -2259,7 +2259,7 @@ function renderSidebarPanels() {
   document.getElementById("exportProjectCalibrationBtn").addEventListener("click", exportProjectCalibrationPackage);
   document.getElementById("autoApproxBtn").addEventListener("click", applyHistoricalAutoApprox);
   document.getElementById("showAllHistoricalBtn").addEventListener("click", () => {
-    HISTORICAL_IMAGE_LAYERS.forEach((item) => setHistoricalLayerVisibility(item.name, true, {rebuildOnShow:true}));
+    HISTORICAL_IMAGE_LAYERS.forEach((item) => setHistoricalLayerVisibility(item.name, true));
     setWorkflowStatus("<strong>Historische Bildlayer aktiv:</strong> Alle Preview-Ebenen wurden wieder sichtbar geschaltet. Du kannst jetzt einzelne Bilder weiter vergleichen oder kalibrieren.", "#1f6feb", "#b8d7ff");
   });
   document.getElementById("hideAllHistoricalBtn").addEventListener("click", () => {
@@ -2972,7 +2972,8 @@ function createHistoricalLayer(item) {
     const corners = completeImageCorners(item.corners).map((corner) => L.latLng(corner[0], corner[1]));
     const layer = L.distortableImageOverlay(encodeURI(item.file), {
       corners,
-      editable: false,
+      editable: true,
+      interactive: true,
       selected: false,
       suppressToolbar: true,
       mode: "lock",
@@ -3035,7 +3036,7 @@ function renderHistoricalVisibilityControls() {
   host.querySelectorAll("[data-historical-toggle]").forEach((button) => {
     button.addEventListener("click", () => {
       const name = button.getAttribute("data-historical-toggle");
-      setHistoricalLayerVisibility(name, !historicalVisibilityState[name], {rebuildOnShow:true, focus:false});
+      setHistoricalLayerVisibility(name, !historicalVisibilityState[name], {focus:false});
     });
   });
   syncHistoricalVisibilityControls();
@@ -3052,6 +3053,7 @@ function setHistoricalLayerVisibility(name, visible, options = {}) {
       layer = historicalLayers[name];
     }
     if (!map.hasLayer(layer)) layer.addTo(map);
+    if (typeof layer.bringToFront === "function") layer.bringToFront();
     if (focus) selectHistoricalImage(name);
     if (fitBounds) map.fitBounds(L.latLngBounds(HISTORICAL_IMAGE_STATE[name].corners), {padding:[50,50]});
   } else {
@@ -3112,7 +3114,7 @@ function bindHistoricalLayerEditing(name, layer) {
 function applyDirectEditingToLayer(name = directEditState.name, mode = directEditState.mode) {
   const layer = historicalLayers[name];
   if (!supportsHistoricalDirectEditing(layer)) return false;
-  if (!map.hasLayer(layer)) layer.addTo(map);
+  setHistoricalLayerVisibility(name, true);
   layer.editing.enable();
   setHistoricalToolbarVisibility(layer, true);
   if (typeof layer.select === "function") layer.select();
