@@ -775,6 +775,26 @@ function renderSidebarPanels() {
     </div>
 
     <div class="sb">
+      <h2>Teilautomatischer Workflow</h2>
+      <div class="audit-note">
+        <strong>Empfohlenes Masterbild:</strong> <span style="color:#fff;">${escapeHtml(WORKFLOW_MASTER_IMAGE)}</span>. Diese Aufnahme ist fuer den App-Workflow derzeit die beste Basis, weil sie den Ortskern breit abdeckt und die stabilsten Anker fuer Burg, Marktplatz und Bahnhof bietet.
+      </div>
+      <div style="font-size:.68rem;line-height:1.58;color:#9aa2aa;margin-top:8px;">
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">1. Masterbild manuell setzen:</strong> Du hilfst nur bei einem Bild. In der App werden dafuer 4 Ecken, Verschieben und Skalieren genutzt.</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">2. Korrektur uebertragen:</strong> Die aus dem Masterbild abgeleitete Aehnlichkeitstransformation wird als Startlage auf die weiteren historischen Bilder uebertragen.</div>
+        <div><strong style="color:#ddd;">3. Feinkorrektur und Analyse:</strong> Folgebilder nur noch fein nachziehen, danach Zeitvergleich, Punktpruefung und Export.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
+        <button id="workflowMasterBtn" style="background:#1f6feb;color:#fff;border:none;border-radius:4px;padding:8px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">1. Masterbild laden</button>
+        <button id="workflowNextBtn" style="background:#374151;color:#fff;border:none;border-radius:4px;padding:8px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">2. Naechstes Bild</button>
+        <button id="workflowTransferBtn" style="grid-column:span 2;background:#b45309;color:#fff;border:none;border-radius:4px;padding:8px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">3. Master-Korrektur auf Auswahl</button>
+      </div>
+      <div id="workflowStatus" class="audit-note" style="margin-top:8px;border-left-color:#f39c12;color:#d5be8b;">
+        <strong style="color:#f7c66b;">Start:</strong> Lade zuerst das empfohlene Masterbild, richte es manuell aus und uebertrage die Korrektur danach auf die weiteren Bilder.
+      </div>
+    </div>
+
+    <div class="sb">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
         <h2>Historische Bildlayer</h2>
         <div style="font-size:0.7rem; color:#ccc;">Deckkraft: <span id="opacityVal">60%</span></div>
@@ -850,12 +870,16 @@ function renderSidebarPanels() {
   document.getElementById("exportBtn").addEventListener("click", exportGeoJSON);
   document.getElementById("exportGcpBtn").addEventListener("click", exportGcpCsv);
   document.getElementById("exportSchemaBtn").addEventListener("click", exportQgisSchema);
+  document.getElementById("workflowMasterBtn").addEventListener("click", activateWorkflowMaster);
+  document.getElementById("workflowNextBtn").addEventListener("click", selectNextWorkflowImage);
+  document.getElementById("workflowTransferBtn").addEventListener("click", applyMasterCorrectionToSelected);
   document.getElementById("startCalibrationBtn").addEventListener("click", startHistoricalCalibration);
   document.getElementById("stopCalibrationBtn").addEventListener("click", stopHistoricalCalibration);
   document.getElementById("resetCalibrationBtn").addEventListener("click", resetHistoricalCalibration);
   document.getElementById("exportCalibrationBtn").addEventListener("click", exportHistoricalCalibration);
   document.getElementById("autoApproxBtn").addEventListener("click", applyHistoricalAutoApprox);
   document.getElementById("calibrationSelect").addEventListener("change", updateCalibrationOutput);
+  document.getElementById("calibrationSelect").value = WORKFLOW_MASTER_IMAGE;
   document.getElementById("moveNorthBtn").addEventListener("click", () => shiftHistoricalImage(0, getCalibrationMoveStep()));
   document.getElementById("moveSouthBtn").addEventListener("click", () => shiftHistoricalImage(0, -getCalibrationMoveStep()));
   document.getElementById("moveWestBtn").addEventListener("click", () => shiftHistoricalImage(-getCalibrationMoveStep(), 0));
@@ -1070,7 +1094,14 @@ const HISTORICAL_IMAGE_FITS = {
     ],
   },
 };
+const WORKFLOW_MASTER_IMAGE = "Historisch 1945-04-09";
+const WORKFLOW_IMAGE_ORDER = [
+  WORKFLOW_MASTER_IMAGE,
+  "Historisch 1945-03-19",
+  "Historisch 1944-12-24",
+];
 const calibrationState = {name:null, handles:[], guide:null};
+const workflowState = {lastTarget:null};
 
 const AREA_LAYER_CONFIG = {
   direct: {
@@ -1359,12 +1390,77 @@ function getSelectedHistoricalName() {
   return select ? select.value : HISTORICAL_IMAGE_LAYERS[0].name;
 }
 
+function selectHistoricalImage(name) {
+  const select = document.getElementById("calibrationSelect");
+  if (select) select.value = name;
+  updateCalibrationOutput();
+}
+
 function getCalibrationLabel(index) {
   return ["C1","C2","C3","C4"][index] || `C${index + 1}`;
 }
 
 function getGeoTargetById(id) {
   return GEOREF_TARGETS.find((target) => target.id === id);
+}
+
+function setWorkflowStatus(html, accent = "#f39c12", textColor = "#d5be8b") {
+  const box = document.getElementById("workflowStatus");
+  if (!box) return;
+  box.innerHTML = html;
+  box.style.borderLeftColor = accent;
+  box.style.color = textColor;
+  const strong = box.querySelector("strong");
+  if (strong) strong.style.color = accent;
+}
+
+function showWorkflowLayerSet(activeName) {
+  Object.entries(historicalLayers).forEach(([name, layer]) => {
+    const shouldShow = name === WORKFLOW_MASTER_IMAGE || name === activeName;
+    if (shouldShow && !map.hasLayer(layer)) layer.addTo(map);
+    if (!shouldShow && map.hasLayer(layer)) map.removeLayer(layer);
+  });
+}
+
+function averageCornerShiftMeters(aCorners, bCorners) {
+  if (!aCorners || !bCorners || aCorners.length !== bCorners.length || !aCorners.length) return 0;
+  const total = aCorners.reduce((sum, corner, index) => (
+    sum + map.distance(L.latLng(corner[0], corner[1]), L.latLng(bCorners[index][0], bCorners[index][1]))
+  ), 0);
+  return total / aCorners.length;
+}
+
+function hasMasterCalibration() {
+  const state = HISTORICAL_IMAGE_STATE[WORKFLOW_MASTER_IMAGE];
+  return averageCornerShiftMeters(state.originalCorners, state.corners) > 6;
+}
+
+function buildSimilarityTransformFromCorners(sourceCorners, targetCorners) {
+  if (!sourceCorners || !targetCorners || sourceCorners.length !== targetCorners.length || sourceCorners.length < 2) return null;
+  const srcPts = sourceCorners.map((corner) => map.project(L.latLng(corner[0], corner[1]), map.getZoom()));
+  const dstPts = targetCorners.map((corner) => map.project(L.latLng(corner[0], corner[1]), map.getZoom()));
+  const A = [];
+  const b = [];
+  srcPts.forEach((p, index) => {
+    const q = dstPts[index];
+    A.push([p.x, -p.y, 1, 0]);
+    b.push(q.x);
+    A.push([p.y, p.x, 0, 1]);
+    b.push(q.y);
+  });
+  const params = solveLeastSquares(A, b);
+  if (!params.every((value) => Number.isFinite(value))) return null;
+  return {
+    apply(lat, lon) {
+      const p = map.project(L.latLng(lat, lon), map.getZoom());
+      const q = L.point(
+        params[0] * p.x - params[1] * p.y + params[2],
+        params[1] * p.x + params[0] * p.y + params[3]
+      );
+      const ll = map.unproject(q, map.getZoom());
+      return [ll.lat, ll.lng];
+    }
+  };
 }
 
 function getCalibrationMoveStep() {
@@ -1538,6 +1634,63 @@ function applyHistoricalAutoApprox() {
     }
   }
   updateCalibrationOutput();
+}
+
+function activateWorkflowMaster() {
+  selectHistoricalImage(WORKFLOW_MASTER_IMAGE);
+  showWorkflowLayerSet(WORKFLOW_MASTER_IMAGE);
+  const opacitySlider = document.getElementById("opacitySlider");
+  if (opacitySlider && Math.abs(currentHistoricalOpacity - 0.55) > 0.001) {
+    currentHistoricalOpacity = 0.55;
+    opacitySlider.value = String(currentHistoricalOpacity);
+    document.getElementById("opacityVal").textContent = Math.round(currentHistoricalOpacity * 100) + "%";
+    Object.values(historicalLayers).forEach((layer) => {
+      if (typeof layer.setOpacity === "function") layer.setOpacity(currentHistoricalOpacity);
+    });
+  }
+  startHistoricalCalibration();
+  map.fitBounds(L.latLngBounds(HISTORICAL_IMAGE_STATE[WORKFLOW_MASTER_IMAGE].corners), {padding:[50,50]});
+  setWorkflowStatus("<strong>Master aktiv:</strong> Das empfohlene Masterbild ist geladen. Richte jetzt dessen 4 Ecken sowie Verschieben/Skalieren manuell aus und nutze danach die Uebertragung fuer die Folgebilder.", "#1f6feb", "#b8d7ff");
+}
+
+function selectNextWorkflowImage() {
+  const targets = WORKFLOW_IMAGE_ORDER.filter((name) => name !== WORKFLOW_MASTER_IMAGE);
+  const current = getSelectedHistoricalName();
+  const currentIndex = targets.indexOf(current);
+  const nextName = currentIndex === -1 ? targets[0] : targets[(currentIndex + 1) % targets.length];
+  workflowState.lastTarget = nextName;
+  selectHistoricalImage(nextName);
+  showWorkflowLayerSet(nextName);
+  stopHistoricalCalibration();
+  map.fitBounds(L.latLngBounds(HISTORICAL_IMAGE_STATE[nextName].corners), {padding:[50,50]});
+  setWorkflowStatus(`<strong>Folgebild bereit:</strong> ${escapeHtml(nextName)} ist ausgewaehlt. Uebertrage jetzt die Master-Korrektur als Startlage und ziehe dieses Bild danach nur noch fein nach.`, "#6b7280", "#d1d5db");
+}
+
+function applyMasterCorrectionToSelected() {
+  const targetName = getSelectedHistoricalName();
+  if (targetName === WORKFLOW_MASTER_IMAGE) {
+    setWorkflowStatus("<strong>Hinweis:</strong> Das ausgewaehlte Bild ist bereits das Masterbild. Kalibriere zuerst dieses Bild und waehle dann ein anderes Datum fuer die Uebertragung.", "#f39c12", "#d5be8b");
+    return;
+  }
+  if (!hasMasterCalibration()) {
+    setWorkflowStatus("<strong>Master noch nicht tragfaehig:</strong> Die manuelle Korrektur des Masterbilds ist noch zu klein oder fehlt. Richte zuerst das Masterbild sichtbar an realen Ortsankern aus.", "#e74c3c", "#f0b3b3");
+    return;
+  }
+  const masterState = HISTORICAL_IMAGE_STATE[WORKFLOW_MASTER_IMAGE];
+  const targetState = HISTORICAL_IMAGE_STATE[targetName];
+  const transform = buildSimilarityTransformFromCorners(masterState.originalCorners, masterState.corners);
+  if (!transform) {
+    setWorkflowStatus("<strong>Uebertragung fehlgeschlagen:</strong> Aus der aktuellen Masterlage konnte keine stabile Aehnlichkeitstransformation berechnet werden.", "#e74c3c", "#f0b3b3");
+    return;
+  }
+  targetState.corners = targetState.originalCorners.map(([lat, lon]) => transform.apply(lat, lon));
+  replaceHistoricalLayer(targetName);
+  showWorkflowLayerSet(targetName);
+  selectHistoricalImage(targetName);
+  startHistoricalCalibration();
+  workflowState.lastTarget = targetName;
+  const delta = Math.round(averageCornerShiftMeters(targetState.originalCorners, targetState.corners));
+  setWorkflowStatus(`<strong>Startlage uebertragen:</strong> ${escapeHtml(targetName)} wurde aus der aktuellen Master-Korrektur angenaehert (${delta} m mittlere Eckverschiebung gegenueber der Rohlage). Jetzt dieses Bild fein nachziehen und danach zum naechsten Datum wechseln.`, "#b45309", "#f1c27d");
 }
 
 function stopHistoricalCalibration() {
