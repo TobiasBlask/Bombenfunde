@@ -8,6 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SCHEMA_VERSION = "uxopro.local-package.v1"
+WEB_CALIBRATION_SCHEMA_VERSION = "uxopro.web-calibration.v1"
+ANALYSIS_HANDOFF_SCHEMA_VERSION = "uxopro.analysis-handoff.v1"
 DEFAULT_STAGE = "sources"
 DEFAULT_MASTER_IMAGE = "Historisch 1945-04-09"
 DEFAULT_CONFIG_NAME = "uxopro-export.config.json"
@@ -18,6 +20,9 @@ ARTIFACT_RULES = [
     ("findings_geojson", lambda path: path.suffix.lower() in {".geojson", ".json"} and "find" in path.name.lower()),
     ("areas_geojson", lambda path: path.suffix.lower() in {".geojson", ".json"} and "area" in path.name.lower()),
     ("gcp_csv", lambda path: path.suffix.lower() == ".csv" and "gcp" in path.name.lower()),
+    ("web_calibration", lambda path: path.suffix.lower() == ".json" and ("web-calibration" in path.name.lower() or "web_calibration" in path.name.lower())),
+    ("analysis_handoff", lambda path: path.suffix.lower() == ".json" and ("analysis-job" in path.name.lower() or "analysis_job" in path.name.lower())),
+    ("analysis_summary", lambda path: path.suffix.lower() == ".json" and ("analysis-summary" in path.name.lower() or "analysis_summary" in path.name.lower())),
     ("preview_image", lambda path: path.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"} and ("preview" in path.name.lower() or "contactsheet" in path.name.lower())),
     ("qgis_project", lambda path: path.suffix.lower() in {".qgz", ".qgs"}),
 ]
@@ -47,6 +52,9 @@ def artifact_label(kind: str, path: Path) -> str:
         "findings_geojson": "Befunde GeoJSON",
         "areas_geojson": "Verdachtsflächen GeoJSON",
         "gcp_csv": "GCP-Zielpunkte",
+        "web_calibration": "Web-Kalibrierung",
+        "analysis_handoff": "Analyse-Handoff",
+        "analysis_summary": "Analyse-Zusammenfassung",
         "preview_image": f"Preview {path.stem}",
         "qgis_project": "QGIS Projekt",
     }
@@ -60,6 +68,9 @@ def artifact_role(kind: str) -> str:
         "findings_geojson": "analysis",
         "areas_geojson": "analysis",
         "gcp_csv": "georef",
+        "web_calibration": "georef",
+        "analysis_handoff": "analysis",
+        "analysis_summary": "analysis",
         "preview_image": "preview",
         "qgis_project": "analysis",
     }.get(kind, "artifact")
@@ -108,8 +119,11 @@ def detect_artifacts(root: Path) -> list[dict]:
         "findings_geojson": 2,
         "areas_geojson": 3,
         "gcp_csv": 4,
-        "preview_image": 5,
-        "qgis_project": 6,
+        "web_calibration": 5,
+        "analysis_handoff": 6,
+        "analysis_summary": 7,
+        "preview_image": 8,
+        "qgis_project": 9,
     }
     artifacts.sort(key=lambda item: (rank.get(item["kind"], 99), item["path"]))
     return artifacts
@@ -136,6 +150,48 @@ def load_config(root: Path, config_path: str) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def load_json_if_exists(path: Path) -> dict | None:
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+
+
+def find_first_artifact(artifacts: list[dict], kind: str) -> dict | None:
+    for artifact in artifacts:
+        if artifact["kind"] == kind:
+            return artifact
+    return None
+
+
+def load_web_calibration(root: Path, artifacts: list[dict]) -> dict | None:
+    artifact = find_first_artifact(artifacts, "web_calibration")
+    if not artifact:
+        return None
+    payload = load_json_if_exists(root / artifact["path"])
+    if not payload:
+        return None
+    schema_version = payload.get("schema_version") or payload.get("schemaVersion")
+    if schema_version and schema_version != WEB_CALIBRATION_SCHEMA_VERSION:
+        return None
+    return payload
+
+
+def load_analysis_handoff(root: Path, artifacts: list[dict]) -> dict | None:
+    artifact = find_first_artifact(artifacts, "analysis_handoff")
+    if not artifact:
+        return None
+    payload = load_json_if_exists(root / artifact["path"])
+    if not payload:
+        return None
+    schema_version = payload.get("schema_version") or payload.get("schemaVersion")
+    if schema_version and schema_version != ANALYSIS_HANDOFF_SCHEMA_VERSION:
+        return None
+    return payload
+
+
 def resolve_value(args: argparse.Namespace, config: dict, key: str, default=None):
     arg_value = getattr(args, key, None)
     if arg_value not in (None, ""):
@@ -150,6 +206,8 @@ def build_payload(args: argparse.Namespace) -> dict:
     root = Path(args.root).expanduser().resolve()
     config = load_config(root, args.config)
     artifacts = detect_artifacts(root)
+    web_calibration = load_web_calibration(root, artifacts)
+    analysis_handoff = load_analysis_handoff(root, artifacts)
     tif_count, georef_count = count_images(root)
     html_ready, pdf_ready = derive_flags(artifacts)
     name = resolve_value(args, config, "name")
@@ -165,12 +223,31 @@ def build_payload(args: argparse.Namespace) -> dict:
     note = resolve_value(args, config, "note", "Lokales QGIS-/Analyseprojekt fuer die App freigeben.")
     master_image = resolve_value(args, config, "master_image", DEFAULT_MASTER_IMAGE)
     georef_status = resolve_value(args, config, "georef_status", "in_progress")
+    web_calibration_status = resolve_value(args, config, "web_calibration_status", "available" if web_calibration else "pending")
+    web_calibration_exported_at = resolve_value(
+        args,
+        config,
+        "web_calibration_exported_at",
+        (web_calibration or {}).get("exported_at", ""),
+    )
     analysis_status = resolve_value(args, config, "analysis_status", "pending")
     export_status = resolve_value(args, config, "export_status", "pending")
     review_status = resolve_value(args, config, "review_status", "pending")
     pipeline_note = resolve_value(args, config, "pipeline_note", "Erzeugt mit dem lokalen Codex-Exporter.")
     findings_points = int(resolve_value(args, config, "findings_points", 0))
     area_features = int(resolve_value(args, config, "area_features", 0))
+    images_web_calibrated = int(
+        resolve_value(
+            args,
+            config,
+            "images_web_calibrated",
+            len(((web_calibration or {}).get("calibration", {}) or {}).get("images", [])),
+        )
+    )
+    if web_calibration:
+        calibration_info = web_calibration.get("calibration", {})
+        if calibration_info.get("master_image"):
+            master_image = calibration_info["master_image"]
     payload = {
         "schema_version": SCHEMA_VERSION,
         "exported_at": iso_now(),
@@ -192,6 +269,8 @@ def build_payload(args: argparse.Namespace) -> dict:
             "local_root": str(root),
             "master_image": master_image,
             "georef_status": georef_status,
+            "web_calibration_status": web_calibration_status,
+            "web_calibration_exported_at": web_calibration_exported_at,
             "analysis_status": analysis_status,
             "export_status": export_status,
             "review_status": review_status,
@@ -201,11 +280,14 @@ def build_payload(args: argparse.Namespace) -> dict:
         "stats": {
             "images_total": tif_count,
             "images_georeferenced": georef_count,
+            "images_web_calibrated": images_web_calibrated,
             "findings_points": findings_points,
             "area_features": area_features,
             "artifacts": len(artifacts),
         },
         "artifacts": artifacts,
+        "web_calibration": web_calibration,
+        "analysis_handoff": analysis_handoff,
     }
     return payload
 
@@ -219,20 +301,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--name", default="", help="Projektname")
     parser.add_argument("--location", default="", help="Ort")
     parser.add_argument("--scope", default="", help="Bereich / Flurstück / Untersuchungsraum")
-    parser.add_argument("--stage", default=DEFAULT_STAGE, help="Workflow-Stufe fuer die App")
+    parser.add_argument("--stage", default="", help="Workflow-Stufe fuer die App")
     parser.add_argument("--project-id", default="", help="Optionale Projekt-ID")
     parser.add_argument("--assigned-to", default="", help="Gutachter oder Bearbeiter")
     parser.add_argument("--created-by", default="", help="Antragsteller / Ersteller")
-    parser.add_argument("--visibility", default="internal", choices=["internal", "private", "public"], help="Sichtbarkeit in der App")
-    parser.add_argument("--master-image", default=DEFAULT_MASTER_IMAGE, help="Masterbild fuer Georeferenzierung")
-    parser.add_argument("--georef-status", default="in_progress", help="Status der Georeferenzierung")
-    parser.add_argument("--analysis-status", default="pending", help="Status der Analyse")
-    parser.add_argument("--export-status", default="pending", help="Status der Exporte")
-    parser.add_argument("--review-status", default="pending", help="Status des Reviews")
-    parser.add_argument("--findings-points", type=int, default=0, help="Anzahl kartierter Punktbefunde")
-    parser.add_argument("--area-features", type=int, default=0, help="Anzahl Verdachtsflaechen")
-    parser.add_argument("--note", default="Lokales QGIS-/Analyseprojekt fuer die App freigeben.", help="Projektnotiz")
-    parser.add_argument("--pipeline-note", default="Erzeugt mit dem lokalen Codex-Exporter.", help="Notiz zur lokalen Pipeline")
+    parser.add_argument("--visibility", default="", choices=["", "internal", "private", "public"], help="Sichtbarkeit in der App")
+    parser.add_argument("--master-image", default="", help="Masterbild fuer Georeferenzierung")
+    parser.add_argument("--georef-status", default="", help="Status der Georeferenzierung")
+    parser.add_argument("--web-calibration-status", default="", help="Status des aus der Web-App uebernommenen Kalibrierstandes")
+    parser.add_argument("--web-calibration-exported-at", default="", help="Zeitpunkt des letzten Web-Kalibrierungs-Exports")
+    parser.add_argument("--analysis-status", default="", help="Status der Analyse")
+    parser.add_argument("--export-status", default="", help="Status der Exporte")
+    parser.add_argument("--review-status", default="", help="Status des Reviews")
+    parser.add_argument("--images-web-calibrated", type=int, default=None, help="Anzahl der in der Web-App kalibrierten Bilder")
+    parser.add_argument("--findings-points", type=int, default=None, help="Anzahl kartierter Punktbefunde")
+    parser.add_argument("--area-features", type=int, default=None, help="Anzahl Verdachtsflaechen")
+    parser.add_argument("--note", default="", help="Projektnotiz")
+    parser.add_argument("--pipeline-note", default="", help="Notiz zur lokalen Pipeline")
     parser.add_argument("--out", default="", help="Ausgabedatei, Standard: <root>/uxopro-project-package.json")
     return parser.parse_args()
 

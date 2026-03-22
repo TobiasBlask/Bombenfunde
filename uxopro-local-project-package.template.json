@@ -15,6 +15,8 @@
     "local_root": "/Volumes/Projekte/Weinsberg-Nord",
     "master_image": "Historisch 1945-04-09",
     "georef_status": "in_progress",
+    "web_calibration_status": "imported",
+    "web_calibration_exported_at": "2026-03-22T08:30:00Z",
     "analysis_status": "pending",
     "export_status": "pending",
     "review_status": "pending",
@@ -24,6 +26,7 @@
   "stats": {
     "images_total": 15,
     "images_georeferenced": 0,
+    "images_web_calibrated": 3,
     "findings_points": 0,
     "area_features": 0,
     "artifacts": 4
@@ -51,11 +54,44 @@
       "description": "Punkt- und Flaechenbefunde fuer GIS"
     },
     {
+      "kind": "analysis_summary",
+      "label": "Analyse-Zusammenfassung",
+      "path": "exports/analysis-summary.json",
+      "role": "analysis",
+      "description": "Maschinenlesbare Zusammenfassung des lokalen Analyse-Runs"
+    },
+    {
+      "kind": "web_calibration",
+      "label": "Web-Kalibrierung",
+      "path": "handoff/web-calibration.json",
+      "role": "georef",
+      "description": "Aus der Web-App exportierter Kalibrierungsstand"
+    },
+    {
       "kind": "preview_image",
       "label": "Master Preview",
       "path": "preview/master.png",
       "role": "preview",
       "description": "Kleine Karten-Vorschau fuer die App"
     }
-  ]
+  ],
+  "web_calibration": {
+    "schema_version": "uxopro.web-calibration.v1",
+    "exported_at": "2026-03-22T08:30:00Z",
+    "source": "uxopro.web-app",
+    "project": {
+      "id": "gut-weinsberg-002",
+      "name": "Weinsberg - Baufeld Nord",
+      "location": "Weinsberg",
+      "scope": "Flst. 218/4, Bahnhofsnahe",
+      "local_root": "/Volumes/Projekte/Weinsberg-Nord"
+    },
+    "calibration": {
+      "master_image": "Historisch 1945-04-09",
+      "selected_image": "Historisch 1945-03-19",
+      "direct_mode": "drag",
+      "calibrated_images": 3,
+      "images": []
+    }
+  }
 }

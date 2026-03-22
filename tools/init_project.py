@@ -44,7 +44,11 @@ def build_config(args: argparse.Namespace) -> dict:
         "created_by": args.created_by,
         "visibility": "internal",
         "master_image": args.master_image,
+        "analysis_profile": "crater_v1",
         "georef_status": "pending",
+        "web_calibration_status": "pending",
+        "web_calibration_exported_at": "",
+        "images_web_calibrated": 0,
         "analysis_status": "pending",
         "export_status": "pending",
         "review_status": "pending",
@@ -66,12 +70,21 @@ def build_readme(args: argparse.Namespace, slug: str) -> str:
 
 ## Lokaler Ablauf
 1. TIFFs nach `inputs/`
-2. QGIS-Projekt nach `qgis/`
-3. Exporte nach `exports/`
-4. Previews nach `preview/`
-5. Paket exportieren:
+2. Web-Kalibrierung nach `handoff/web-calibration.json`
+3. QGIS-Projekt nach `qgis/`
+4. Exporte nach `exports/`
+5. Previews nach `preview/`
+6. Paket exportieren:
 
 ```bash
+python3 /Users/tobias-benediktblask/Downloads/Weinsberg/tools/import_web_calibration.py \
+  --root . \
+  --input handoff/web-calibration.json
+
+python3 /Users/tobias-benediktblask/Downloads/Weinsberg/tools/run_crater_analysis.py \
+  --root . \
+  --overwrite
+
 python3 /Users/tobias-benediktblask/Downloads/Weinsberg/tools/export_local_package.py --root .
 ```
 

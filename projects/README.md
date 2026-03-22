@@ -22,6 +22,7 @@ projects/
 <projekt>/
   inputs/
   qgis/
+  handoff/
   exports/
   preview/
   notes/
@@ -29,6 +30,19 @@ projects/
   uxopro-export.config.json
   uxopro-project-package.json
   README.md
+```
+
+## Übergang Web -> Lokal
+
+```text
+App-Kalibrierung exportieren
+-> <projekt>/handoff/web-calibration.json
+-> tools/import_web_calibration.py
+-> tools/run_crater_analysis.py
+-> lokaler Worker / QGIS / Codex
+-> exports/ + preview/
+-> tools/export_local_package.py
+-> Projektpaket wieder in die App importieren
 ```
 
 ## Erzeugung

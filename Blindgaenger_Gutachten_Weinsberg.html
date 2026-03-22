@@ -213,6 +213,11 @@
     .kanban-card .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
     .kanban-help { display:flex; align-items:center; gap:8px; grid-column:1 / -1; margin-top:2px; padding:10px 12px; background:rgba(255,255,255,.72); border:1px dashed rgba(217,212,203,.92); border-radius:16px; font-size:.72rem; color:var(--uxo-muted); line-height:1.55; }
     .kanban-help strong { color:var(--uxo-green-dark); }
+    .calibration-mode-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; margin-top:8px; }
+    .calibration-mode-btn { background:#20262d; color:#dbe4ea; border:1px solid #34424f; border-radius:8px; padding:7px 9px; font-size:.72rem; font-weight:700; cursor:pointer; transition:background .14s ease, border-color .14s ease, transform .12s ease; }
+    .calibration-mode-btn:hover { transform:translateY(-1px); border-color:#5b7390; }
+    .calibration-mode-btn.active { background:#1f6feb; border-color:#7fb1ff; color:#fff; box-shadow:0 0 0 1px rgba(127,177,255,.22); }
+    .calibration-mode-note { margin-top:8px; color:#9fb2c4; font-size:.68rem; line-height:1.55; }
     .project-form { display:grid; gap:10px; margin-top:12px; }
     .project-form-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
     .stack { display:grid; gap:16px; }
@@ -1011,6 +1016,7 @@ const WORKFLOW_STAGES = [
 ];
 const WORKFLOW_STAGE_INDEX = Object.fromEntries(WORKFLOW_STAGES.map((stage, index) => [stage.id, index]));
 const LOCAL_PACKAGE_SCHEMA_VERSION = "uxopro.local-package.v1";
+const WEB_CALIBRATION_SCHEMA_VERSION = "uxopro.web-calibration.v1";
 
 function todayIso() {
   return new Date().toISOString().slice(0, 10);
@@ -1034,6 +1040,8 @@ function normalizePipelineState(pipeline = {}) {
     localRoot: pipeline.localRoot || pipeline.local_root || "",
     masterImage: pipeline.masterImage || pipeline.master_image || "",
     georefStatus: pipeline.georefStatus || pipeline.georef_status || "offen",
+    webCalibrationStatus: pipeline.webCalibrationStatus || pipeline.web_calibration_status || "offen",
+    webCalibrationExportedAt: pipeline.webCalibrationExportedAt || pipeline.web_calibration_exported_at || "",
     analysisStatus: pipeline.analysisStatus || pipeline.analysis_status || "offen",
     exportStatus: pipeline.exportStatus || pipeline.export_status || "offen",
     reviewStatus: pipeline.reviewStatus || pipeline.review_status || "offen",
@@ -1047,6 +1055,7 @@ function normalizeProjectStats(stats = {}) {
   return {
     imagesTotal: asNumber(stats.imagesTotal ?? stats.images_total),
     imagesGeoreferenced: asNumber(stats.imagesGeoreferenced ?? stats.images_georeferenced),
+    imagesWebCalibrated: asNumber(stats.imagesWebCalibrated ?? stats.images_web_calibrated),
     findingsPoints: asNumber(stats.findingsPoints ?? stats.findings_points),
     areaFeatures: asNumber(stats.areaFeatures ?? stats.area_features),
     artifacts: asNumber(stats.artifacts ?? stats.artifact_count),
@@ -1068,6 +1077,43 @@ function normalizeArtifact(artifact = {}) {
 
 function normalizeArtifacts(artifacts = []) {
   return Array.isArray(artifacts) ? artifacts.map(normalizeArtifact) : [];
+}
+
+function normalizeWebCalibrationImage(image = {}) {
+  const normalizeCorners = (corners = []) => Array.isArray(corners)
+    ? corners.map((corner) => Array.isArray(corner)
+      ? [Number(corner[0]), Number(corner[1])]
+      : [Number(corner.lat), Number(corner.lon)])
+    : [];
+  return {
+    name: image.name || image.image || "Historisches Bild",
+    file: image.file || image.path || "",
+    note: image.note || "",
+    changed: Boolean(image.changed),
+    averageShiftMeters: Number.isFinite(Number(image.averageShiftMeters ?? image.average_shift_meters))
+      ? Number(image.averageShiftMeters ?? image.average_shift_meters)
+      : 0,
+    corners: normalizeCorners(image.corners),
+    originalCorners: normalizeCorners(image.originalCorners || image.original_corners),
+  };
+}
+
+function normalizeWebCalibrationPayload(payload = null) {
+  if (!payload || typeof payload !== "object") return null;
+  const inner = payload.webCalibration || payload.web_calibration || payload.calibration || payload;
+  const images = Array.isArray(inner.images) ? inner.images.map(normalizeWebCalibrationImage) : [];
+  return {
+    schemaVersion: payload.schema_version || payload.schemaVersion || WEB_CALIBRATION_SCHEMA_VERSION,
+    exportedAt: payload.exported_at || payload.exportedAt || inner.exportedAt || "",
+    source: inner.source || payload.source || "web-app",
+    masterImage: inner.masterImage || inner.master_image || "",
+    selectedImage: inner.selectedImage || inner.selected_image || "",
+    directMode: inner.directMode || inner.direct_mode || "",
+    calibratedImages: Number.isFinite(Number(inner.calibratedImages ?? inner.calibrated_images))
+      ? Number(inner.calibratedImages ?? inner.calibrated_images)
+      : images.filter((image) => image.changed).length,
+    images,
+  };
 }
 
 function inferDocumentReady(artifacts, type) {
@@ -1096,6 +1142,7 @@ function buildLocalPackageTemplate(project = {}) {
       local_root: "/Volumes/Projektordner/Weinsberg",
       master_image: WORKFLOW_MASTER_IMAGE,
       georef_status: "in_progress",
+      web_calibration_status: "pending",
       analysis_status: "pending",
       export_status: "pending",
       review_status: "pending",
@@ -1105,6 +1152,7 @@ function buildLocalPackageTemplate(project = {}) {
     stats: {
       images_total: 15,
       images_georeferenced: 0,
+      images_web_calibrated: 0,
       findings_points: 0,
       area_features: 0,
       artifacts: 3,
@@ -1114,6 +1162,7 @@ function buildLocalPackageTemplate(project = {}) {
       {kind:"report_pdf", label:"PDF Gutachten", path:"exports/report.pdf", role:"release"},
       {kind:"findings_geojson", label:"Befunde GeoJSON", path:"exports/findings.geojson", role:"analysis"},
     ],
+    web_calibration: null,
   };
 }
 
@@ -1142,6 +1191,8 @@ function createDefaultProjects() {
         mode: "local-desktop",
         masterImage: "Historisch 1945-04-09",
         georefStatus: "teilweise",
+        webCalibrationStatus: "vorhanden",
+        webCalibrationExportedAt: todayIso(),
         analysisStatus: "audit-v4",
         exportStatus: "html-bereit",
         reviewStatus: "intern",
@@ -1151,6 +1202,7 @@ function createDefaultProjects() {
       stats: {
         imagesTotal: 15,
         imagesGeoreferenced: 3,
+        imagesWebCalibrated: HISTORICAL_IMAGE_LAYERS.length,
         findingsPoints: summary.total,
         areaFeatures: 9,
         artifacts: 4,
@@ -1161,6 +1213,24 @@ function createDefaultProjects() {
         {kind:"preview_image", label:"Preview 1945-04-09", path:"1945-04-09 Weinsberg US34-3762_3166 M100_preview.png", role:"preview", generatedAt:todayIso()},
         {kind:"preview_image", label:"Preview 1945-03-19", path:"1945-03-19 Weinsberg US34-3594_4160 M100_preview.png", role:"preview", generatedAt:todayIso()},
       ],
+      webCalibration: {
+        schemaVersion: WEB_CALIBRATION_SCHEMA_VERSION,
+        exportedAt: todayIso(),
+        source: "embedded-demo",
+        masterImage: WORKFLOW_MASTER_IMAGE,
+        selectedImage: WORKFLOW_MASTER_IMAGE,
+        directMode: "",
+        calibratedImages: HISTORICAL_IMAGE_LAYERS.length,
+        images: HISTORICAL_IMAGE_LAYERS.map((item) => ({
+          name: item.name,
+          file: item.file,
+          note: item.note,
+          changed: true,
+          averageShiftMeters: 0,
+          corners: completeImageCorners(item.corners),
+          originalCorners: completeImageCorners(item.corners),
+        })),
+      },
     }
   ];
 }
@@ -1188,11 +1258,13 @@ function normalizeProject(project) {
     pipeline: normalizePipelineState(),
     stats: normalizeProjectStats(),
     artifacts: [],
+    webCalibration: null,
   };
   const merged = {...base, ...project};
   merged.pipeline = normalizePipelineState(project?.pipeline || merged.pipeline);
   merged.stats = normalizeProjectStats(project?.stats || merged.stats);
   merged.artifacts = normalizeArtifacts(project?.artifacts || merged.artifacts);
+  merged.webCalibration = normalizeWebCalibrationPayload(project?.webCalibration || project?.web_calibration || merged.webCalibration);
   merged.htmlReady = typeof project?.htmlReady === "boolean" ? project.htmlReady : (merged.htmlReady || inferDocumentReady(merged.artifacts, "html"));
   merged.pdfReady = typeof project?.pdfReady === "boolean" ? project.pdfReady : (merged.pdfReady || inferDocumentReady(merged.artifacts, "pdf"));
   merged.sourceMode = project?.sourceMode || merged.sourceMode;
@@ -1200,6 +1272,12 @@ function normalizeProject(project) {
   merged.manifestImportedAt = project?.manifestImportedAt || merged.manifestImportedAt;
   merged.localRoot = project?.localRoot || merged.localRoot || merged.pipeline.localRoot || "";
   if (!merged.stats.artifacts) merged.stats.artifacts = merged.artifacts.length;
+  if (!merged.stats.imagesWebCalibrated && merged.webCalibration?.calibratedImages) {
+    merged.stats.imagesWebCalibrated = merged.webCalibration.calibratedImages;
+  }
+  if ((!merged.pipeline.masterImage || merged.pipeline.masterImage === "") && merged.webCalibration?.masterImage) {
+    merged.pipeline.masterImage = merged.webCalibration.masterImage;
+  }
   if (!WORKFLOW_STAGE_INDEX.hasOwnProperty(merged.stage)) merged.stage = "intake";
   return merged;
 }
@@ -1306,6 +1384,7 @@ function projectToSupabaseRow(project) {
       pipeline: project.pipeline || normalizePipelineState(),
       stats: project.stats || normalizeProjectStats(),
       artifacts: project.artifacts || [],
+      webCalibration: project.webCalibration || null,
     },
   };
 }
@@ -1333,6 +1412,7 @@ function projectFromSupabaseRow(row) {
     pipeline: row.payload?.pipeline || {},
     stats: row.payload?.stats || {},
     artifacts: row.payload?.artifacts || [],
+    webCalibration: row.payload?.webCalibration || null,
   });
 }
 
@@ -1459,6 +1539,7 @@ function projectSourceLabel(project) {
 function projectPipelineSummary(project) {
   const bits = [];
   if (project.stats.imagesTotal) bits.push(`${project.stats.imagesGeoreferenced || 0}/${project.stats.imagesTotal} Bilder`);
+  if (project.stats.imagesWebCalibrated) bits.push(`${project.stats.imagesWebCalibrated} web-kalibriert`);
   if (project.stats.findingsPoints) bits.push(`${project.stats.findingsPoints} Befunde`);
   if (project.stats.areaFeatures) bits.push(`${project.stats.areaFeatures} Flächen`);
   if (project.artifacts.length) bits.push(`${project.artifacts.length} Artefakte`);
@@ -1707,6 +1788,7 @@ function buildProjectFromManifest(manifest) {
   const info = manifest.project || {};
   if (!info.name) throw new Error("Im Projektpaket fehlt `project.name`.");
   const artifacts = normalizeArtifacts(manifest.artifacts || manifest.outputs || []);
+  const webCalibration = normalizeWebCalibrationPayload(manifest.web_calibration || manifest.webCalibration || null);
   const project = normalizeProject({
     id: info.id || makeProjectId(),
     name: info.name,
@@ -1726,6 +1808,7 @@ function buildProjectFromManifest(manifest) {
     pipeline: manifest.pipeline || {},
     stats: manifest.stats || manifest.metrics || {artifacts: artifacts.length},
     artifacts,
+    webCalibration,
     htmlReady: typeof info.htmlReady === "boolean" ? info.htmlReady : inferDocumentReady(artifacts, "html"),
     pdfReady: typeof info.pdfReady === "boolean" ? info.pdfReady : inferDocumentReady(artifacts, "pdf"),
   });
@@ -2050,7 +2133,7 @@ function renderSidebarPanels() {
         <strong>Empfohlenes Masterbild:</strong> <span style="color:#fff;">${escapeHtml(WORKFLOW_MASTER_IMAGE)}</span>. Diese Aufnahme ist fuer den App-Workflow derzeit die beste Basis, weil sie den Ortskern breit abdeckt und die stabilsten Anker fuer Burg, Marktplatz und Bahnhof bietet.
       </div>
       <div style="font-size:.68rem;line-height:1.58;color:#9aa2aa;margin-top:8px;">
-        <div style="margin-bottom:8px;"><strong style="color:#ddd;">1. Masterbild manuell setzen:</strong> Du hilfst nur bei einem Bild. In der App werden dafuer 4 Ecken, Verschieben und Skalieren genutzt.</div>
+        <div style="margin-bottom:8px;"><strong style="color:#ddd;">1. Masterbild manuell setzen:</strong> Du hilfst nur bei einem Bild. In der App kann dieses Bild jetzt direkt auf der Karte gezogen, skaliert oder über 4 Ecken nachgeführt werden; die Panel-Steuerung bleibt als Feinkorrektur erhalten.</div>
         <div style="margin-bottom:8px;"><strong style="color:#ddd;">2. Korrektur uebertragen:</strong> Die aus dem Masterbild abgeleitete Aehnlichkeitstransformation wird als Startlage auf die weiteren historischen Bilder uebertragen.</div>
         <div><strong style="color:#ddd;">3. Feinkorrektur und Analyse:</strong> Folgebilder nur noch fein nachziehen, danach Zeitvergleich, Punktpruefung und Export.</div>
       </div>
@@ -2086,6 +2169,7 @@ function renderSidebarPanels() {
         <button id="exportCalibrationBtn" style="background:#16a085;color:#fff;border:none;border-radius:4px;padding:7px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Corner export</button>
       </div>
       <button id="autoApproxBtn" style="width:100%; margin-top:8px; background:#c0392b;color:#fff;border:none;border-radius:4px;padding:8px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Auto-Näherung</button>
+      <button id="exportProjectCalibrationBtn" style="width:100%; margin-top:8px; background:#1f6feb;color:#fff;border:none;border-radius:4px;padding:8px 10px;font-size:.72rem;font-weight:700;cursor:pointer;">Web-Kalibrierung für lokalen Worker exportieren</button>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; font-size:.66rem; color:#9aa2aa;">
         <label>
           <span style="display:block; margin-bottom:4px;">Verschieben (m)</span>
@@ -2103,6 +2187,15 @@ function renderSidebarPanels() {
         <button id="moveSouthBtn" style="background:#34495e;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.78rem;font-weight:700;cursor:pointer;">↓</button>
         <button id="scaleDownBtn" style="grid-column:span 2; background:#8e44ad;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.72rem;font-weight:700;cursor:pointer;">Kleiner</button>
         <button id="scaleUpBtn" style="grid-column:span 2; background:#8e44ad;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.72rem;font-weight:700;cursor:pointer;">Größer</button>
+      </div>
+      <div class="calibration-mode-grid">
+        <button id="directDragBtn" class="calibration-mode-btn">Auf Karte ziehen</button>
+        <button id="directScaleBtn" class="calibration-mode-btn">Auf Karte skalieren</button>
+        <button id="directDistortBtn" class="calibration-mode-btn">4 Ecken direkt</button>
+        <button id="directOffBtn" class="calibration-mode-btn">Direktmodus aus</button>
+      </div>
+      <div class="calibration-mode-note">
+        Das ausgewählte historische Bild kann direkt auf der Karte angefasst werden. Ziehen verschiebt das komplette Overlay, Skalieren ändert die Größe, 4 Ecken erlaubt das direkte Nachziehen der Ecken im Kartenraum.
       </div>
       <div style="margin-top:8px; font-size:.64rem; color:#7f8c8d; line-height:1.45;">
         Auto-Näherung nutzt hinterlegte Bildlandmarken fuer Burg Weibertreu, Marktplatz und Bahnhof und rechnet daraus eine <strong>formstabile Helmert-Startlage</strong> (Verschiebung, Rotation, einheitlicher Maßstab). Gut fuer einen ersten Sprung, nicht fuer die Endabnahme.
@@ -2147,8 +2240,16 @@ function renderSidebarPanels() {
   document.getElementById("stopCalibrationBtn").addEventListener("click", stopHistoricalCalibration);
   document.getElementById("resetCalibrationBtn").addEventListener("click", resetHistoricalCalibration);
   document.getElementById("exportCalibrationBtn").addEventListener("click", exportHistoricalCalibration);
+  document.getElementById("exportProjectCalibrationBtn").addEventListener("click", exportProjectCalibrationPackage);
   document.getElementById("autoApproxBtn").addEventListener("click", applyHistoricalAutoApprox);
-  document.getElementById("calibrationSelect").addEventListener("change", updateCalibrationOutput);
+  document.getElementById("calibrationSelect").addEventListener("change", () => {
+    updateCalibrationOutput();
+    if (directEditState.mode) {
+      startHistoricalDirectEditing(directEditState.mode);
+      return;
+    }
+    if (calibrationState.name) startHistoricalCalibration();
+  });
   document.getElementById("calibrationSelect").value = WORKFLOW_MASTER_IMAGE;
   document.getElementById("moveNorthBtn").addEventListener("click", () => shiftHistoricalImage(0, getCalibrationMoveStep()));
   document.getElementById("moveSouthBtn").addEventListener("click", () => shiftHistoricalImage(0, -getCalibrationMoveStep()));
@@ -2156,6 +2257,14 @@ function renderSidebarPanels() {
   document.getElementById("moveEastBtn").addEventListener("click", () => shiftHistoricalImage(getCalibrationMoveStep(), 0));
   document.getElementById("scaleUpBtn").addEventListener("click", () => scaleHistoricalImage(1 + getCalibrationScaleStep() / 100));
   document.getElementById("scaleDownBtn").addEventListener("click", () => scaleHistoricalImage(Math.max(0.01, 1 - getCalibrationScaleStep() / 100)));
+  document.getElementById("directDragBtn").addEventListener("click", () => startHistoricalDirectEditing("drag"));
+  document.getElementById("directScaleBtn").addEventListener("click", () => startHistoricalDirectEditing("scale"));
+  document.getElementById("directDistortBtn").addEventListener("click", () => startHistoricalDirectEditing("distort"));
+  document.getElementById("directOffBtn").addEventListener("click", () => {
+    stopHistoricalCalibration();
+    setWorkflowStatus("<strong>Direktmodus beendet:</strong> Die Overlay-Bearbeitung auf der Karte ist ausgeschaltet. Du kannst weiter über die Pfeile, Skalierung oder Export arbeiten.", "#6b7280", "#d1d5db");
+  });
+  setDirectModeButtonState(null);
   updateCalibrationOutput();
 }
 
@@ -2193,6 +2302,9 @@ function renderWorkspaceDataPanel(project = currentProject()) {
       <div class="kv-row"><span>Importiert</span><strong>${escapeHtml(project.manifestImportedAt || "noch nicht")}</strong></div>
       <div class="kv-row"><span>Lokaler Root</span><strong>${escapeHtml(project.localRoot || "nicht hinterlegt")}</strong></div>
       <div class="kv-row"><span>Pipeline</span><strong>${escapeHtml(project.pipeline.mode || "manual")}</strong></div>
+      <div class="kv-row"><span>Web-Kalibrierung</span><strong>${escapeHtml(project.pipeline.webCalibrationStatus || "offen")}</strong></div>
+      <div class="kv-row"><span>Masterbild</span><strong>${escapeHtml(project.pipeline.masterImage || project.webCalibration?.masterImage || WORKFLOW_MASTER_IMAGE)}</strong></div>
+      <div class="kv-row"><span>Web-kalibrierte Bilder</span><strong>${escapeHtml(String(project.stats.imagesWebCalibrated || project.webCalibration?.calibratedImages || 0))}</strong></div>
       <div class="kv-row"><span>Georeferenzierung</span><strong>${escapeHtml(project.pipeline.georefStatus || "offen")}</strong></div>
       <div class="kv-row"><span>Analyse</span><strong>${escapeHtml(project.pipeline.analysisStatus || "offen")}</strong></div>
       <div class="kv-row"><span>Export</span><strong>${escapeHtml(project.pipeline.exportStatus || "offen")}</strong></div>
@@ -2602,6 +2714,7 @@ const WORKFLOW_IMAGE_ORDER = [
   "Historisch 1944-12-24",
 ];
 const calibrationState = {name:null, handles:[], guide:null};
+const directEditState = {name:null, mode:null};
 const workflowState = {lastTarget:null};
 
 const AREA_LAYER_CONFIG = {
@@ -2840,6 +2953,7 @@ function createHistoricalLayer(item) {
       mode: "lock",
     });
     if (typeof layer.setOpacity === "function") layer.setOpacity(currentHistoricalOpacity);
+    bindHistoricalLayerEditing(item.name, layer);
     return layer;
   }
   return L.imageOverlay.rotated(
@@ -2851,8 +2965,80 @@ function createHistoricalLayer(item) {
   );
 }
 
+function supportsHistoricalDirectEditing(layer) {
+  return !!(layer && layer.editing && typeof layer.editing.enable === "function" && typeof layer.getCorners === "function");
+}
+
+function setDirectModeButtonState(mode = null) {
+  const buttons = [
+    {id:"directDragBtn", mode:"drag"},
+    {id:"directScaleBtn", mode:"scale"},
+    {id:"directDistortBtn", mode:"distort"},
+    {id:"directOffBtn", mode:null},
+  ];
+  buttons.forEach(({id, mode: buttonMode}) => {
+    const button = document.getElementById(id);
+    if (!button) return;
+    button.classList.toggle("active", mode === buttonMode);
+  });
+}
+
+function syncHistoricalStateFromLayer(name) {
+  const layer = historicalLayers[name];
+  const state = HISTORICAL_IMAGE_STATE[name];
+  if (!supportsHistoricalDirectEditing(layer) || !state) return;
+  state.corners = layer.getCorners().map((corner) => [corner.lat, corner.lng]);
+  syncCalibrationHandlesFromState(name);
+  updateCalibrationOutput();
+}
+
+function bindHistoricalLayerEditing(name, layer) {
+  if (!supportsHistoricalDirectEditing(layer)) return;
+  const sync = () => syncHistoricalStateFromLayer(name);
+  layer.on("update", sync);
+  layer.on("dragend", sync);
+  layer.on("edit", sync);
+}
+
+function applyDirectEditingToLayer(name = directEditState.name, mode = directEditState.mode) {
+  const layer = historicalLayers[name];
+  if (!supportsHistoricalDirectEditing(layer)) return false;
+  if (!map.hasLayer(layer)) layer.addTo(map);
+  layer.editing.enable();
+  if (typeof layer.select === "function") layer.select();
+  if (mode && typeof layer.editing.setMode === "function") layer.editing.setMode(mode);
+  directEditState.name = name;
+  directEditState.mode = mode;
+  setDirectModeButtonState(mode);
+  return true;
+}
+
+function startHistoricalDirectEditing(mode = "drag") {
+  const {name} = getActiveHistoricalState();
+  stopHistoricalCalibration();
+  if (!applyDirectEditingToLayer(name, mode)) {
+    setWorkflowStatus("<strong>Direktbearbeitung nicht verfügbar:</strong> Dieses Overlay unterstützt in der aktuellen Laufzeit keine direkte Kartenbearbeitung. Nutze in diesem Fall weiterhin die klassischen Corner-Handles.", "#c0392b", "#f0b3b3");
+    return;
+  }
+  const modeLabel = mode === "scale" ? "Skalieren" : mode === "distort" ? "4 Ecken" : "Ziehen";
+  setWorkflowStatus(`<strong>Direktmodus aktiv:</strong> ${escapeHtml(name)} kann jetzt direkt auf der Karte per ${modeLabel} bearbeitet werden. Die Corner-Ausgabe synchronisiert sich automatisch mit.`, "#1f6feb", "#b8d7ff");
+}
+
+function stopHistoricalDirectEditing() {
+  Object.entries(historicalLayers).forEach(([name, layer]) => {
+    if (!supportsHistoricalDirectEditing(layer)) return;
+    if (typeof layer.deselect === "function") layer.deselect();
+    if (typeof layer.editing.setMode === "function") layer.editing.setMode("lock");
+    syncHistoricalStateFromLayer(name);
+    if (typeof layer.editing.disable === "function") layer.editing.disable();
+  });
+  directEditState.name = null;
+  directEditState.mode = null;
+  setDirectModeButtonState(null);
+}
+
 function replaceHistoricalLayer(name) {
-  if (!(L.imageOverlay && typeof L.imageOverlay.rotated === "function")) return;
+  if (!L.distortableImageOverlay && !(L.imageOverlay && typeof L.imageOverlay.rotated === "function")) return;
   const state = HISTORICAL_IMAGE_STATE[name];
   const oldLayer = historicalLayers[name];
   const wasVisible = oldLayer ? map.hasLayer(oldLayer) : false;
@@ -2864,6 +3050,7 @@ function replaceHistoricalLayer(name) {
   historicalLayers[name] = layer;
   layerControl.addOverlay(layer, name);
   if (wasVisible) layer.addTo(map);
+  if (directEditState.name === name) applyDirectEditingToLayer(name, directEditState.mode);
 }
 
 if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
@@ -2896,6 +3083,7 @@ function selectHistoricalImage(name) {
   const select = document.getElementById("calibrationSelect");
   if (select) select.value = name;
   updateCalibrationOutput();
+  if (directEditState.mode) startHistoricalDirectEditing(directEditState.mode);
 }
 
 function getCalibrationLabel(index) {
@@ -3200,6 +3388,7 @@ function stopHistoricalCalibration() {
   calibrationState.name = null;
   calibrationState.handles = [];
   calibrationState.guide = null;
+  stopHistoricalDirectEditing();
   updateCalibrationOutput();
 }
 
@@ -3208,6 +3397,10 @@ function startHistoricalCalibration() {
   const state = HISTORICAL_IMAGE_STATE[name];
   if (!historicalLayers[name]) return;
   if (!map.hasLayer(historicalLayers[name])) historicalLayers[name].addTo(map);
+  if (supportsHistoricalDirectEditing(historicalLayers[name])) {
+    startHistoricalDirectEditing("drag");
+    return;
+  }
   stopHistoricalCalibration();
   calibrationState.name = name;
   calibrationState.handles = state.corners.map((corner, index) => {
@@ -3219,6 +3412,7 @@ function startHistoricalCalibration() {
   });
   renderCalibrationGuide();
   updateCalibrationOutput();
+  setWorkflowStatus(`<strong>Corner-Handles aktiv:</strong> ${escapeHtml(name)} wird mangels direkter Overlay-Bearbeitung über die klassischen Kartenmarker kalibriert.`, "#1f6feb", "#b8d7ff");
 }
 
 function resetHistoricalCalibration() {
@@ -3251,6 +3445,94 @@ function exportHistoricalCalibration() {
   a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
   a.download = `${name.replace(/[^a-z0-9]+/gi, "_")}_corners.json`;
   a.click();
+}
+
+function collectHistoricalCalibrationImages() {
+  return Object.values(HISTORICAL_IMAGE_STATE).map((state) => ({
+    name: state.name,
+    file: state.file,
+    note: state.note || "",
+    changed: averageCornerShiftMeters(state.originalCorners, state.corners) > 6,
+    average_shift_meters: Math.round(averageCornerShiftMeters(state.originalCorners, state.corners)),
+    corners: state.corners.map((corner) => [Number(corner[0].toFixed(6)), Number(corner[1].toFixed(6))]),
+    original_corners: state.originalCorners.map((corner) => [Number(corner[0].toFixed(6)), Number(corner[1].toFixed(6))]),
+  }));
+}
+
+function buildProjectCalibrationPayload(project = currentProject()) {
+  const activeProject = normalizeProject(project || {});
+  const images = collectHistoricalCalibrationImages();
+  const calibratedImages = images.filter((image) => image.changed).length;
+  return {
+    schema_version: WEB_CALIBRATION_SCHEMA_VERSION,
+    exported_at: new Date().toISOString(),
+    source: "uxopro.web-app",
+    project: {
+      id: activeProject.id,
+      name: activeProject.name,
+      location: activeProject.location,
+      scope: activeProject.scope,
+      stage: activeProject.stage,
+      local_root: activeProject.localRoot || activeProject.pipeline.localRoot || "",
+    },
+    calibration: {
+      source: "web-map-calibration",
+      master_image: getSelectedHistoricalName() === WORKFLOW_MASTER_IMAGE
+        ? WORKFLOW_MASTER_IMAGE
+        : (activeProject.pipeline.masterImage || WORKFLOW_MASTER_IMAGE),
+      selected_image: getSelectedHistoricalName(),
+      direct_mode: directEditState.mode || "",
+      calibrated_images: calibratedImages,
+      images,
+      geo_targets: GEOREF_TARGETS.map((target) => ({
+        id: target.id,
+        label: target.label,
+        lat: target.lat,
+        lon: target.lon,
+      })),
+    },
+    next_steps: [
+      "1. Datei lokal in <projekt>/handoff/web-calibration.json uebernehmen.",
+      "2. Lokalen Worker / QGIS mit dieser Kalibrierung starten.",
+      "3. Georeferenzierte Raster und Analyse-Ergebnisse nach exports/ und preview/ schreiben.",
+      "4. Danach uxopro-project-package.json neu erzeugen und in die App zurueck importieren.",
+    ],
+  };
+}
+
+async function exportProjectCalibrationPackage() {
+  const project = currentProject();
+  if (!project) {
+    setWorkflowStatus("<strong>Kein aktives Projekt:</strong> Oeffne zuerst ein Projekt im Workspace und exportiere dann den Web-Handoff fuer den lokalen Worker.", "#c0392b", "#f0b3b3");
+    return;
+  }
+  const payload = buildProjectCalibrationPayload(project);
+  const webCalibration = normalizeWebCalibrationPayload(payload);
+  const updatedProject = normalizeProject({
+    ...project,
+    webCalibration,
+    pipeline: {
+      ...project.pipeline,
+      masterImage: payload.calibration.master_image,
+      webCalibrationStatus: "exportiert",
+      webCalibrationExportedAt: todayIso(),
+    },
+    stats: {
+      ...project.stats,
+      imagesWebCalibrated: webCalibration.calibratedImages,
+    },
+    updatedAt: todayIso(),
+  });
+  appState.projects = appState.projects.map((item) => item.id === updatedProject.id ? updatedProject : item);
+  saveAppState();
+  try { await upsertProjectToBackend(updatedProject); } catch (error) { console.error(error); }
+  updateWorkspaceProjectContext(updatedProject);
+  renderDashboard();
+  const a = document.createElement("a");
+  a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
+  a.download = `${updatedProject.id.replace(/[^a-z0-9]+/gi, "_")}_web_calibration.json`;
+  a.click();
+  setWorkflowStatus(`<strong>Web-Handoff exportiert:</strong> ${escapeHtml(updatedProject.name)} hat jetzt eine projektbezogene Web-Kalibrierung. Diese Datei gehoert lokal nach <code>handoff/web-calibration.json</code> und wird dort vom Worker weiterverarbeitet.`, "#16a34a", "#d7f6df");
 }
 
 const studyBoundaryRaw = [
