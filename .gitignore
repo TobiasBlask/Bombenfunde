@@ -1,3 +1,6 @@
 *.tif
 *.tiff
 .DS_Store
+__pycache__/
+*.pyc
+uxopro-project-package.json

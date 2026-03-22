@@ -1,0 +1,18 @@
+{
+  "name": "Weinsberg - Innenstadt Bahntrasse",
+  "location": "Weinsberg",
+  "scope": "TIFF-Serie 1943-1947, Audit v4",
+  "stage": "analysis",
+  "assigned_to": "demo.gutachter@local.test",
+  "created_by": "demo.nutzer@local.test",
+  "visibility": "internal",
+  "master_image": "Historisch 1945-04-09",
+  "georef_status": "teilweise",
+  "analysis_status": "audit-v4",
+  "export_status": "html_ready",
+  "review_status": "intern",
+  "findings_points": 63,
+  "area_features": 9,
+  "note": "Lokales QGIS-/Analyseprojekt fuer die App freigeben.",
+  "pipeline_note": "Erzeugt mit dem lokalen Codex-Exporter."
+}

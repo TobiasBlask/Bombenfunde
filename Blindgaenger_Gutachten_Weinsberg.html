@@ -30,6 +30,7 @@
       --uxo-bg: #f3f2f0;
       --uxo-surface: #fffdfa;
       --uxo-surface-2: #f8f5ef;
+      --uxo-surface-3: #f1ede6;
       --uxo-green: #356859;
       --uxo-green-dark: #263b36;
       --uxo-orange: #ec532a;
@@ -37,50 +38,67 @@
       --uxo-border: #d9d4cb;
       --uxo-muted: #6f7a76;
       --uxo-shadow: 0 24px 60px rgba(38, 59, 54, 0.12);
+      --uxo-shadow-soft: 0 18px 40px rgba(38, 59, 54, 0.08);
+      --uxo-shadow-card: 0 10px 24px rgba(38, 59, 54, 0.07);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'UxoBasierMedium', 'Open Sans', Arial, sans-serif; background: var(--uxo-bg); color: var(--uxo-green-dark); height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+    html { background: var(--uxo-bg); }
+    body { font-family: 'UxoBasierMedium', 'Open Sans', Arial, sans-serif; background:
+      radial-gradient(circle at top left, rgba(236,83,42,.08), transparent 28%),
+      radial-gradient(circle at top right, rgba(53,104,89,.08), transparent 24%),
+      linear-gradient(180deg, #f8f5ef 0%, var(--uxo-bg) 36%, #efebe3 100%);
+      color: var(--uxo-green-dark); height:100vh; display:flex; flex-direction:column; overflow:hidden; position:relative; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; background:
+      linear-gradient(90deg, rgba(255,255,255,.2), transparent 24%, transparent 76%, rgba(255,255,255,.12)),
+      linear-gradient(180deg, rgba(255,255,255,.18), transparent 22%);
+      opacity:.55; z-index:0; }
     h1, h2, h3, h4, h5, h6 { font-family: 'UxoBasierBold', 'Open Sans', Arial, sans-serif; font-weight: 700; letter-spacing: .01em; }
+    button, input, select, textarea { font: inherit; }
+    input:focus, select:focus, button:focus-visible { outline:none; box-shadow:0 0 0 3px rgba(53,104,89,.14); }
 
     /* HEADER */
-    header { background:rgba(243,242,240,.96); border-bottom:3px solid var(--uxo-orange); padding:12px 20px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; box-shadow:0 6px 24px rgba(38,59,54,.08); }
-    header h1 { font-size:1rem; font-weight:700; color:var(--uxo-green); text-transform:uppercase; }
-    header .sub { font-size:0.72rem; color:var(--uxo-muted); margin-top:4px; line-height:1.5; }
-    header .badge { background:var(--uxo-green); color:var(--uxo-bg); font-size:0.68rem; font-weight:700; padding:4px 10px; border-radius:999px; margin-left:10px; }
-    header .meta { font-size:0.72rem; color:var(--uxo-muted); text-align:right; line-height:1.6; }
+    header { position:relative; z-index:2; background:rgba(250,247,242,.88); backdrop-filter:blur(14px); border-bottom:1px solid rgba(217,212,203,.9); padding:14px 22px; display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-shrink:0; box-shadow:0 10px 30px rgba(38,59,54,.06); }
+    header::after { content:""; position:absolute; left:22px; right:22px; bottom:0; height:3px; border-radius:999px; background:linear-gradient(90deg, var(--uxo-orange), rgba(236,83,42,.12) 38%, rgba(53,104,89,.25) 100%); }
+    header h1 { font-size:1.05rem; font-weight:700; color:var(--uxo-green); text-transform:uppercase; line-height:1.3; }
+    header .sub { font-size:0.74rem; color:var(--uxo-muted); margin-top:4px; line-height:1.6; max-width:720px; }
+    header .badge { background:var(--uxo-green); color:var(--uxo-bg); font-size:0.68rem; font-weight:700; padding:5px 11px; border-radius:999px; margin-left:10px; box-shadow:0 8px 18px rgba(53,104,89,.14); }
+    header .meta { font-size:0.72rem; color:var(--uxo-muted); text-align:right; line-height:1.7; padding-top:2px; }
     header .meta strong { color:var(--uxo-green-dark); }
 
     /* LAYOUT */
-    .main { display:flex; flex:1; overflow:hidden; }
+    .main { display:flex; flex:1; overflow:hidden; position:relative; z-index:1; }
 
     /* SIDEBAR */
-    .sidebar { width:340px; min-width:300px; background:var(--uxo-surface); border-right:1px solid var(--uxo-border); overflow-y:auto; flex-shrink:0; }
-    .sb { border-bottom:1px solid #ebe5dc; padding:14px 16px; }
-    .sb h2 { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--uxo-orange); margin-bottom:9px; }
+    .sidebar { width:368px; min-width:320px; background:rgba(255,253,250,.9); backdrop-filter:blur(14px); border-right:1px solid rgba(217,212,203,.85); overflow-y:auto; flex-shrink:0; padding:10px 0 18px; box-shadow:14px 0 36px rgba(38,59,54,.05); }
+    .sidebar::-webkit-scrollbar { width:10px; }
+    .sidebar::-webkit-scrollbar-track { background:transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background:rgba(53,104,89,.18); border-radius:999px; border:2px solid transparent; background-clip:padding-box; }
+    .sb { margin:0 12px 12px; background:rgba(255,253,250,.88); border:1px solid rgba(217,212,203,.8); border-radius:18px; padding:16px 16px 15px; box-shadow:var(--uxo-shadow-card); }
+    .sb h2 { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--uxo-orange); margin-bottom:10px; }
 
     /* STATS */
-    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:6px; }
-    .sc { background:var(--uxo-surface-2); border:1px solid #e8e1d8; border-radius:14px; padding:10px 6px; text-align:center; }
-    .sc .n { font-size:1.6rem; font-weight:700; line-height:1; }
-    .sc .l { font-size:0.62rem; color:var(--uxo-muted); margin-top:2px; line-height:1.3; }
+    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+    .sc { background:linear-gradient(180deg, #fffdfa, var(--uxo-surface-2)); border:1px solid #e8e1d8; border-radius:16px; padding:12px 8px; text-align:center; box-shadow:inset 0 1px 0 rgba(255,255,255,.6); }
+    .sc .n { font-size:1.8rem; font-weight:700; line-height:1; }
+    .sc .l { font-size:0.64rem; color:var(--uxo-muted); margin-top:4px; line-height:1.35; }
     .n.orange { color:#d86a20; } .n.red { color:var(--uxo-orange); } .n.blue { color:#5f8bdf; }
     .n.green { color:var(--uxo-green); } .n.gray { color:#8d9692; }
 
     /* GROUP FILTER */
-    .filters { display:flex; flex-wrap:wrap; gap:5px; }
-    .filter-btn { border:none; border-radius:999px; padding:5px 10px; font-size:0.7rem; font-weight:600; cursor:pointer; opacity:0.55; transition:opacity .15s, transform .12s; box-shadow:inset 0 0 0 1px rgba(255,255,255,.12); }
+    .filters { display:flex; flex-wrap:wrap; gap:7px; }
+    .filter-btn { border:none; border-radius:999px; padding:7px 11px; font-size:0.7rem; font-weight:700; cursor:pointer; opacity:0.55; transition:opacity .15s, transform .12s, box-shadow .15s; box-shadow:inset 0 0 0 1px rgba(255,255,255,.12), 0 6px 16px rgba(38,59,54,.08); }
     .filter-btn.on { opacity:1; }
-    .filter-btn:hover { opacity:.9; transform:translateY(-1px); }
+    .filter-btn:hover { opacity:.9; transform:translateY(-1px); box-shadow:inset 0 0 0 1px rgba(255,255,255,.12), 0 10px 18px rgba(38,59,54,.12); }
 
     /* TABLE */
-    table { width:100%; border-collapse:collapse; font-size:0.7rem; }
-    thead th { background:var(--uxo-surface-2); color:var(--uxo-muted); padding:4px 6px; text-align:left; font-weight:600; position:sticky; top:0; z-index:2; }
+    table { width:100%; border-collapse:separate; border-spacing:0; font-size:0.7rem; }
+    thead th { background:var(--uxo-surface-2); color:var(--uxo-muted); padding:7px 8px; text-align:left; font-weight:700; position:sticky; top:0; z-index:2; }
     tbody tr { cursor:pointer; }
     tbody tr:hover td { background:#f5efe8; }
-    tbody td { padding:3px 6px; border-bottom:1px solid #eee7de; white-space:nowrap; }
+    tbody td { padding:6px 8px; border-bottom:1px solid #eee7de; white-space:nowrap; }
 
     /* LEGEND */
-    .lg-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:0.73rem; }
+    .lg-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:0.73rem; }
     .lg-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; }
     .lg-text strong { display:block; color:var(--uxo-green-dark); font-size:0.73rem; }
     .lg-text span { color:var(--uxo-muted); font-size:0.66rem; }
@@ -101,18 +119,18 @@
     .decision.red { background:#fbebe6; border-left:3px solid var(--uxo-orange); color:#8d4e40; }
     .decision.yellow { background:#fff4e7; border-left:3px solid #d86a20; color:#8d6b45; }
     .decision.green { background:#edf5f1; border-left:3px solid var(--uxo-green); color:#567667; }
-    .audit-note { background:#f7f3ec; border-left:3px solid var(--uxo-green); padding:9px 11px; font-size:.68rem; color:#5c6d67; line-height:1.5; border-radius:10px; }
+    .audit-note { background:#f7f3ec; border:1px solid #e7dfd3; border-left:3px solid var(--uxo-green); padding:10px 11px; font-size:.68rem; color:#5c6d67; line-height:1.6; border-radius:12px; }
     .audit-note strong { color:var(--uxo-green); }
 
     /* NOTE */
-    .note { background:#fff4e7; border-left:3px solid var(--uxo-orange); padding:8px 10px; font-size:0.68rem; color:#71655a; line-height:1.5; border-radius:10px; }
+    .note { background:#fff4e7; border:1px solid #f0dcc9; border-left:3px solid var(--uxo-orange); padding:10px 11px; font-size:0.68rem; color:#71655a; line-height:1.6; border-radius:12px; }
     .note strong { color:var(--uxo-orange); }
 
     /* MAP */
-    #map { flex:1; }
+    #map { flex:1; position:relative; z-index:0; }
 
     /* MAP controls */
-    .map-leg { max-width:360px; background:rgba(255,253,250,.94); border:1px solid var(--uxo-border); border-radius:14px; padding:10px 12px; font-size:.7rem; color:#5f6b66; line-height:1.7; box-shadow:0 12px 28px rgba(38,59,54,.12); }
+    .map-leg { max-width:360px; background:rgba(255,253,250,.92); backdrop-filter:blur(12px); border:1px solid var(--uxo-border); border-radius:16px; padding:10px 12px; font-size:.7rem; color:#5f6b66; line-height:1.7; box-shadow:0 14px 32px rgba(38,59,54,.12); }
     .map-leg b { color:var(--uxo-green-dark); }
     .map-leg-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:4px; }
     .map-leg-toggle, .map-leg-reopen { border:none; border-radius:4px; cursor:pointer; font-weight:700; }
@@ -131,54 +149,58 @@
       linear-gradient(180deg, rgba(243,242,240,.98), rgba(248,245,239,.98)); display:flex; align-items:stretch; justify-content:center; }
     .app-shell.hidden { display:none; }
     .app-view { width:100%; height:100%; overflow:auto; }
-    .auth-wrap { min-height:100%; display:grid; place-items:center; padding:28px; }
-    .auth-card { width:min(520px, 100%); background:rgba(255,253,250,.96); border:1px solid var(--uxo-border); border-radius:22px; box-shadow:var(--uxo-shadow); padding:30px; position:relative; overflow:hidden; }
+    .auth-wrap { min-height:100%; display:grid; place-items:center; padding:40px 28px; }
+    .auth-card { width:min(560px, 100%); background:rgba(255,253,250,.97); border:1px solid rgba(217,212,203,.9); border-radius:28px; box-shadow:var(--uxo-shadow); padding:36px; position:relative; overflow:hidden; }
+    .auth-card::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.48), transparent 32%); pointer-events:none; }
     .auth-card::after { content:""; position:absolute; right:-60px; top:-60px; width:180px; height:180px; border-radius:50%; background:rgba(53,104,89,.06); }
     .auth-kicker, .dash-kicker { font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--uxo-orange); font-weight:700; }
-    .auth-title, .dash-title { font-size:2rem; line-height:1.08; color:var(--uxo-green); margin-top:10px; text-transform:uppercase; }
-    .auth-copy, .dash-copy { font-size:.9rem; color:var(--uxo-muted); line-height:1.7; margin-top:10px; }
+    .auth-title, .dash-title { font-size:2.1rem; line-height:1.06; color:var(--uxo-green); margin-top:10px; text-transform:uppercase; }
+    .auth-copy, .dash-copy { font-size:.92rem; color:var(--uxo-muted); line-height:1.72; margin-top:10px; max-width:72ch; }
     .auth-grid, .dash-grid { display:grid; gap:14px; margin-top:18px; }
     .auth-grid label, .project-form label { display:flex; flex-direction:column; gap:6px; font-size:.74rem; color:var(--uxo-muted); }
-    .auth-grid input, .project-form input, .project-stage-select { width:100%; background:var(--uxo-surface); color:var(--uxo-green-dark); border:1px solid var(--uxo-border); border-radius:14px; padding:12px 13px; font-size:.9rem; }
-    .app-btn { border:none; border-radius:999px; padding:11px 16px; font-size:.82rem; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease; text-transform:uppercase; letter-spacing:.06em; }
-    .app-btn:hover { opacity:.92; transform:translateY(-1px); }
+    .auth-grid input, .project-form input, .project-stage-select { width:100%; background:rgba(255,255,255,.96); color:var(--uxo-green-dark); border:1px solid var(--uxo-border); border-radius:14px; padding:12px 13px; font-size:.9rem; box-shadow:inset 0 1px 0 rgba(255,255,255,.6); }
+    .app-btn { border:none; border-radius:999px; min-height:42px; padding:11px 16px; font-size:.79rem; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease, box-shadow .14s ease; text-transform:uppercase; letter-spacing:.08em; box-shadow:0 10px 20px rgba(38,59,54,.08); }
+    .app-btn:hover { opacity:.96; transform:translateY(-1px); box-shadow:0 14px 24px rgba(38,59,54,.1); }
     .app-btn.primary { background:var(--uxo-green); color:#fff; }
     .app-btn.secondary { background:var(--uxo-orange); color:#fff; }
     .app-btn.warning { background:#d86a20; color:#fff; }
     .app-btn.success { background:var(--uxo-green); color:#fff; }
     .app-btn.danger { background:var(--uxo-orange); color:#fff; }
-    .app-btn.ghost { background:transparent; border:1px solid var(--uxo-border); color:var(--uxo-green-dark); }
+    .app-btn.ghost { background:rgba(255,255,255,.7); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); box-shadow:none; }
     .auth-actions, .project-actions-inline, .workspace-header-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
     .auth-note { margin-top:14px; font-size:.72rem; color:var(--uxo-muted); line-height:1.6; }
-    .role-picker { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; margin-top:16px; }
-    .role-btn { border:1px solid var(--uxo-border); background:var(--uxo-surface-2); color:var(--uxo-green-dark); border-radius:16px; padding:12px 10px; text-align:left; cursor:pointer; }
+    .role-picker { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .role-btn { border:1px solid var(--uxo-border); background:linear-gradient(180deg, #fffdfa, var(--uxo-surface-2)); color:var(--uxo-green-dark); border-radius:18px; padding:14px 12px; text-align:left; cursor:pointer; transition:transform .12s ease, box-shadow .14s ease, border-color .14s ease; box-shadow:var(--uxo-shadow-card); }
     .role-btn strong { display:block; font-size:.8rem; color:var(--uxo-green); text-transform:uppercase; }
     .role-btn span { display:block; margin-top:4px; font-size:.67rem; color:var(--uxo-muted); line-height:1.45; }
-    .role-btn.active { border-color:var(--uxo-green); box-shadow:0 0 0 1px rgba(53,104,89,.2) inset; background:#eef4f1; }
-    .dash-wrap { min-height:100%; padding:22px 26px 28px; }
-    .dash-top { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .role-btn:hover { transform:translateY(-1px); box-shadow:0 14px 28px rgba(38,59,54,.1); }
+    .role-btn.active { border-color:var(--uxo-green); box-shadow:0 0 0 1px rgba(53,104,89,.16) inset, 0 14px 28px rgba(38,59,54,.1); background:#eef4f1; }
+    .dash-wrap { min-height:100%; padding:28px 30px 34px; }
+    .dash-top { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:22px; padding:22px 24px; border:1px solid rgba(217,212,203,.82); border-radius:24px; background:linear-gradient(135deg, rgba(255,253,250,.98), rgba(248,245,239,.96)); box-shadow:var(--uxo-shadow-soft); }
     .dash-user { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .user-chip, .mini-chip { display:inline-flex; align-items:center; gap:7px; padding:6px 10px; border-radius:999px; background:var(--uxo-surface); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); font-size:.74rem; }
-    .dash-layout { display:grid; grid-template-columns:minmax(300px, 360px) 1fr; gap:16px; }
-    .panel { background:rgba(255,253,250,.96); border:1px solid var(--uxo-border); border-radius:18px; box-shadow:var(--uxo-shadow); }
-    .panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px 18px 0; }
-    .panel-head h2 { font-size:.84rem; letter-spacing:.12em; text-transform:uppercase; color:var(--uxo-orange); }
-    .panel-body { padding:16px 18px 18px; }
+    .user-chip, .mini-chip { display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border-radius:999px; background:rgba(255,255,255,.86); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); font-size:.74rem; box-shadow:var(--uxo-shadow-card); }
+    .dash-layout { display:grid; grid-template-columns:minmax(320px, 390px) 1fr; gap:20px; }
+    .panel { background:rgba(255,253,250,.94); border:1px solid rgba(217,212,203,.84); border-radius:22px; box-shadow:var(--uxo-shadow-soft); overflow:hidden; }
+    .panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:18px 20px 14px; border-bottom:1px solid rgba(217,212,203,.56); background:linear-gradient(180deg, rgba(248,245,239,.82), rgba(255,253,250,.62)); }
+    .panel-head h2 { font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--uxo-orange); }
+    .panel-body { padding:18px 20px 20px; }
     .metric-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
-    .metric-card { background:var(--uxo-surface-2); border:1px solid #e9e1d7; border-radius:16px; padding:14px 14px 12px; }
+    .metric-card { background:linear-gradient(180deg, #fffdfa, var(--uxo-surface-2)); border:1px solid #e9e1d7; border-radius:18px; padding:16px 15px 14px; box-shadow:var(--uxo-shadow-card); }
     .metric-card strong { display:block; font-size:1.4rem; color:var(--uxo-green); }
     .metric-card span { display:block; margin-top:4px; color:var(--uxo-muted); font-size:.72rem; line-height:1.4; }
     .project-list { display:flex; flex-direction:column; gap:10px; }
-    .project-row { background:var(--uxo-surface-2); border:1px solid #e8e1d8; border-radius:14px; padding:12px; }
+    .project-row { background:linear-gradient(180deg, #fffdfa, var(--uxo-surface-2)); border:1px solid #e8e1d8; border-radius:16px; padding:13px; transition:transform .12s ease, box-shadow .14s ease, border-color .14s ease; }
+    .project-row:hover { transform:translateY(-1px); box-shadow:0 14px 28px rgba(38,59,54,.08); border-color:#d5cec3; }
     .project-row strong { display:block; color:var(--uxo-green-dark); font-size:.88rem; }
     .project-row .meta { display:block; margin-top:4px; color:var(--uxo-muted); font-size:.72rem; line-height:1.5; }
     .project-row .statusline { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-    .kanban { display:grid; grid-template-columns:repeat(7, minmax(210px,1fr)); gap:12px; overflow:auto; padding-bottom:4px; }
-    .kanban-col { background:rgba(248,245,239,.98); border:1px solid #e3dbd0; border-radius:16px; min-height:360px; padding:12px; }
+    .kanban { display:grid; grid-template-columns:repeat(7, minmax(220px,1fr)); gap:14px; overflow:auto; padding-bottom:6px; }
+    .kanban-col { background:rgba(248,245,239,.98); border:1px solid #e3dbd0; border-radius:18px; min-height:360px; padding:13px; box-shadow:var(--uxo-shadow-card); }
     .kanban-col h3 { font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; color:var(--uxo-green); margin-bottom:8px; }
     .kanban-col .col-sub { font-size:.68rem; color:var(--uxo-muted); margin-bottom:12px; }
     .kanban-stack { display:flex; flex-direction:column; gap:10px; }
-    .kanban-card { background:var(--uxo-surface); border:1px solid var(--uxo-border); border-radius:14px; padding:12px; }
+    .kanban-card { background:var(--uxo-surface); border:1px solid var(--uxo-border); border-radius:15px; padding:12px; box-shadow:0 8px 18px rgba(38,59,54,.06); transition:transform .12s ease, box-shadow .14s ease; }
+    .kanban-card:hover { transform:translateY(-1px); box-shadow:0 14px 24px rgba(38,59,54,.08); }
     .kanban-card strong { display:block; color:var(--uxo-green-dark); font-size:.82rem; line-height:1.4; }
     .kanban-card .meta { margin-top:5px; font-size:.7rem; color:var(--uxo-muted); line-height:1.45; }
     .kanban-card .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
@@ -186,27 +208,39 @@
     .project-form-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
     .stack { display:grid; gap:16px; }
     .mini-list { display:grid; gap:10px; }
-    .mini-row { background:var(--uxo-surface-2); border:1px solid #e8e1d8; border-radius:14px; padding:12px; }
+    .mini-row { background:linear-gradient(180deg, #fffdfa, var(--uxo-surface-2)); border:1px solid #e8e1d8; border-radius:15px; padding:12px; }
     .mini-row strong { display:block; color:var(--uxo-green-dark); font-size:.82rem; }
     .mini-row .meta { display:block; margin-top:4px; color:var(--uxo-muted); font-size:.72rem; line-height:1.45; }
     .pill-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .subtle-note { font-size:.72rem; color:var(--uxo-muted); line-height:1.6; }
+    .kv-stack { display:grid; gap:8px; margin-top:10px; }
+    .kv-row { display:flex; justify-content:space-between; gap:12px; font-size:.71rem; color:var(--uxo-muted); }
+    .kv-row strong { color:var(--uxo-green-dark); font-size:.74rem; }
+    .artifact-list { display:grid; gap:8px; margin-top:10px; }
+    .artifact-item { background:linear-gradient(180deg, #fffdfa, var(--uxo-surface-2)); border:1px solid #e8e1d8; border-radius:14px; padding:10px 11px; }
+    .artifact-item strong { display:block; color:var(--uxo-green-dark); font-size:.76rem; }
+    .artifact-item span { display:block; margin-top:3px; color:var(--uxo-muted); font-size:.68rem; line-height:1.45; overflow-wrap:anywhere; }
+    .artifact-item a { color:var(--uxo-green); text-decoration:none; }
+    .artifact-item a:hover { text-decoration:underline; }
     .hidden-panel { display:none !important; }
     .workflow-badge { display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; background:var(--uxo-surface); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); font-size:.68rem; }
     .workflow-badge::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--badge-color, #6fb2ff); }
-    .header-action-btn { background:var(--uxo-surface); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); border-radius:999px; padding:8px 12px; font-size:.72rem; font-weight:700; cursor:pointer; text-transform:uppercase; letter-spacing:.08em; }
-    .header-action-btn:hover { background:#f1ece4; }
+    .header-action-btn { background:rgba(255,255,255,.84); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); border-radius:999px; min-height:38px; padding:8px 13px; font-size:.72rem; font-weight:700; cursor:pointer; text-transform:uppercase; letter-spacing:.08em; box-shadow:var(--uxo-shadow-card); transition:transform .12s ease, background .12s ease; }
+    .header-action-btn:hover { background:#f1ece4; transform:translateY(-1px); }
     .workspace-header-left { display:flex; align-items:flex-start; gap:12px; }
     .workspace-title-block { min-width:0; }
     .workspace-topline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
     .brand-lockup { display:flex; align-items:center; gap:14px; }
     .brand-logo { width:auto; height:24px; display:block; }
-    .brand-logo.large { height:26px; }
+    .brand-logo.large { height:28px; }
     .brand-divider { width:44px; height:4px; border-radius:999px; background:var(--uxo-orange); display:inline-block; }
     @media (max-width: 1380px) {
       .dash-layout { grid-template-columns:1fr; }
       .kanban { grid-template-columns:repeat(3, minmax(240px,1fr)); }
     }
     @media (max-width: 900px) {
+      header { flex-direction:column; }
+      .sidebar { width:332px; min-width:290px; }
       .kanban { grid-template-columns:repeat(2, minmax(240px,1fr)); }
       .project-form-grid, .metric-grid { grid-template-columns:1fr; }
       .dash-top { flex-direction:column; }
@@ -214,7 +248,10 @@
     }
     @media (max-width: 640px) {
       .kanban { grid-template-columns:1fr; }
-      .auth-card, .dash-wrap { padding-left:16px; padding-right:16px; }
+      .auth-wrap { padding:20px 14px; }
+      .auth-card { padding:24px 20px; border-radius:22px; }
+      .dash-wrap { padding:18px 14px 24px; }
+      .sidebar { width:100%; min-width:0; max-width:100%; }
     }
   </style>
 </head>
@@ -312,6 +349,27 @@
                 </div>
                 <button id="createProjectBtn" class="app-btn primary">Projekt anlegen</button>
               </div>
+            </div>
+          </section>
+
+          <section id="handoffPanel" class="panel">
+            <div class="panel-head">
+              <div>
+                <h2 id="handoffPanelTitle">Lokale Übergabe</h2>
+                <div id="handoffPanelCopy" class="dash-copy" style="margin-top:6px;font-size:.78rem;">TIFFs, QGIS und Analyse bleiben lokal. Die App importiert nur Manifest, Befunde und freizugebende Derivate.</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="mini-row">
+                <strong>Hybrid-Modell</strong>
+                <span class="meta">Originale, Georeferenzierung und schwere Verarbeitung laufen lokal. Die App verwaltet Projektstatus, Review, Freigaben und die Darstellung der erzeugten Ergebnisse.</span>
+              </div>
+              <div class="project-actions-inline">
+                <button id="importManifestBtn" class="app-btn secondary">Projektpaket importieren</button>
+                <button id="exportManifestTemplateBtn" class="app-btn ghost">Template exportieren</button>
+              </div>
+              <input id="manifestFileInput" type="file" accept=".json,application/json" style="display:none"/>
+              <div id="importStatus" class="auth-note">Noch kein lokales Projektpaket importiert.</div>
             </div>
           </section>
 
@@ -938,6 +996,7 @@ const WORKFLOW_STAGES = [
   {id:"released", label:"Freigegeben", color:"#1f8f53", hint:"Interaktives HTML und PDF sind abgabefaehig."},
 ];
 const WORKFLOW_STAGE_INDEX = Object.fromEntries(WORKFLOW_STAGES.map((stage, index) => [stage.id, index]));
+const LOCAL_PACKAGE_SCHEMA_VERSION = "uxopro.local-package.v1";
 
 function todayIso() {
   return new Date().toISOString().slice(0, 10);
@@ -955,6 +1014,95 @@ function getRoleMeta(roleId) {
   return USER_ROLES[roleId] || USER_ROLES.admin;
 }
 
+function normalizePipelineState(pipeline = {}) {
+  return {
+    mode: pipeline.mode || "manual",
+    localRoot: pipeline.localRoot || pipeline.local_root || "",
+    masterImage: pipeline.masterImage || pipeline.master_image || "",
+    georefStatus: pipeline.georefStatus || pipeline.georef_status || "offen",
+    analysisStatus: pipeline.analysisStatus || pipeline.analysis_status || "offen",
+    exportStatus: pipeline.exportStatus || pipeline.export_status || "offen",
+    reviewStatus: pipeline.reviewStatus || pipeline.review_status || "offen",
+    lastRunAt: pipeline.lastRunAt || pipeline.last_run_at || "",
+    note: pipeline.note || "",
+  };
+}
+
+function normalizeProjectStats(stats = {}) {
+  const asNumber = (value) => Number.isFinite(Number(value)) ? Number(value) : 0;
+  return {
+    imagesTotal: asNumber(stats.imagesTotal ?? stats.images_total),
+    imagesGeoreferenced: asNumber(stats.imagesGeoreferenced ?? stats.images_georeferenced),
+    findingsPoints: asNumber(stats.findingsPoints ?? stats.findings_points),
+    areaFeatures: asNumber(stats.areaFeatures ?? stats.area_features),
+    artifacts: asNumber(stats.artifacts ?? stats.artifact_count),
+  };
+}
+
+function normalizeArtifact(artifact = {}) {
+  return {
+    kind: artifact.kind || artifact.type || "artifact",
+    label: artifact.label || artifact.name || artifact.kind || "Artefakt",
+    path: artifact.path || "",
+    url: artifact.url || artifact.href || "",
+    role: artifact.role || "",
+    description: artifact.description || "",
+    generatedAt: artifact.generatedAt || artifact.generated_at || artifact.createdAt || "",
+    sizeBytes: Number.isFinite(Number(artifact.sizeBytes ?? artifact.size_bytes)) ? Number(artifact.sizeBytes ?? artifact.size_bytes) : 0,
+  };
+}
+
+function normalizeArtifacts(artifacts = []) {
+  return Array.isArray(artifacts) ? artifacts.map(normalizeArtifact) : [];
+}
+
+function inferDocumentReady(artifacts, type) {
+  const matcher = type === "html"
+    ? (artifact) => ["interactive_html", "report_html", "html"].includes(artifact.kind) || /\.html?$/i.test(artifact.path || artifact.url || "")
+    : (artifact) => ["report_pdf", "pdf"].includes(artifact.kind) || /\.pdf$/i.test(artifact.path || artifact.url || "");
+  return artifacts.some(matcher);
+}
+
+function buildLocalPackageTemplate(project = {}) {
+  const current = normalizeProject(project);
+  return {
+    schema_version: LOCAL_PACKAGE_SCHEMA_VERSION,
+    exported_at: new Date().toISOString(),
+    project: {
+      id: current.id || "gut-muster-001",
+      name: current.name || "Musterprojekt",
+      location: current.location || "Weinsberg",
+      scope: current.scope || "Baufeld Nord",
+      stage: current.stage || "sources",
+      note: current.note || "Lokales QGIS-/Analyseprojekt fuer die Web-App freigeben.",
+      assigned_to: current.assignedTo || "",
+    },
+    pipeline: {
+      mode: "local-desktop",
+      local_root: "/Volumes/Projektordner/Weinsberg",
+      master_image: WORKFLOW_MASTER_IMAGE,
+      georef_status: "in_progress",
+      analysis_status: "pending",
+      export_status: "pending",
+      review_status: "pending",
+      last_run_at: new Date().toISOString(),
+      note: "Lokale Facharbeit in QGIS/GDAL/Python, Web-App nur fuer Review und Freigabe.",
+    },
+    stats: {
+      images_total: 15,
+      images_georeferenced: 0,
+      findings_points: 0,
+      area_features: 0,
+      artifacts: 3,
+    },
+    artifacts: [
+      {kind:"interactive_html", label:"HTML Gutachten", path:"exports/report.html", role:"review"},
+      {kind:"report_pdf", label:"PDF Gutachten", path:"exports/report.pdf", role:"release"},
+      {kind:"findings_geojson", label:"Befunde GeoJSON", path:"exports/findings.geojson", role:"analysis"},
+    ],
+  };
+}
+
 function createDefaultProjects() {
   return [
     {
@@ -965,13 +1113,40 @@ function createDefaultProjects() {
       stage: "analysis",
       owner: "Lokal",
       updatedAt: todayIso(),
-      htmlReady: false,
+      htmlReady: true,
       pdfReady: false,
       releasedAt: "",
       note: "Aktives Gutachten auf Basis der vorhandenen HTML-Auswertung.",
       createdBy: "demo.nutzer",
       assignedTo: "demo.gutachter",
       visibility: "internal",
+      sourceMode: "hybrid-local",
+      packageVersion: LOCAL_PACKAGE_SCHEMA_VERSION,
+      manifestImportedAt: todayIso(),
+      localRoot: "./",
+      pipeline: {
+        mode: "local-desktop",
+        masterImage: "Historisch 1945-04-09",
+        georefStatus: "teilweise",
+        analysisStatus: "audit-v4",
+        exportStatus: "html-bereit",
+        reviewStatus: "intern",
+        lastRunAt: `${todayIso()}T08:00:00Z`,
+        note: "Historische TIFF-Serie lokal ausgewertet; Web-App dient als Review- und Freigabelayer.",
+      },
+      stats: {
+        imagesTotal: 15,
+        imagesGeoreferenced: 3,
+        findingsPoints: summary.total,
+        areaFeatures: 9,
+        artifacts: 4,
+      },
+      artifacts: [
+        {kind:"interactive_html", label:"Interaktives HTML", path:"Blindgaenger_Gutachten_Weinsberg.html", role:"review", description:"Arbeits- und Freigabeoberflaeche", generatedAt:todayIso()},
+        {kind:"gcp_csv", label:"GCP-Zielpunkte", path:"Weinsberg_GCP_Zielpunkte_WGS84.csv", role:"georef", generatedAt:todayIso()},
+        {kind:"preview_image", label:"Preview 1945-04-09", path:"1945-04-09 Weinsberg US34-3762_3166 M100_preview.png", role:"preview", generatedAt:todayIso()},
+        {kind:"preview_image", label:"Preview 1945-03-19", path:"1945-03-19 Weinsberg US34-3594_4160 M100_preview.png", role:"preview", generatedAt:todayIso()},
+      ],
     }
   ];
 }
@@ -992,8 +1167,25 @@ function normalizeProject(project) {
     createdBy: "demo.nutzer",
     assignedTo: "demo.gutachter",
     visibility: "internal",
+    sourceMode: "manual",
+    packageVersion: "",
+    manifestImportedAt: "",
+    localRoot: "",
+    pipeline: normalizePipelineState(),
+    stats: normalizeProjectStats(),
+    artifacts: [],
   };
   const merged = {...base, ...project};
+  merged.pipeline = normalizePipelineState(project?.pipeline || merged.pipeline);
+  merged.stats = normalizeProjectStats(project?.stats || merged.stats);
+  merged.artifacts = normalizeArtifacts(project?.artifacts || merged.artifacts);
+  merged.htmlReady = typeof project?.htmlReady === "boolean" ? project.htmlReady : (merged.htmlReady || inferDocumentReady(merged.artifacts, "html"));
+  merged.pdfReady = typeof project?.pdfReady === "boolean" ? project.pdfReady : (merged.pdfReady || inferDocumentReady(merged.artifacts, "pdf"));
+  merged.sourceMode = project?.sourceMode || merged.sourceMode;
+  merged.packageVersion = project?.packageVersion || merged.packageVersion;
+  merged.manifestImportedAt = project?.manifestImportedAt || merged.manifestImportedAt;
+  merged.localRoot = project?.localRoot || merged.localRoot || merged.pipeline.localRoot || "";
+  if (!merged.stats.artifacts) merged.stats.artifacts = merged.artifacts.length;
   if (!WORKFLOW_STAGE_INDEX.hasOwnProperty(merged.stage)) merged.stage = "intake";
   return merged;
 }
@@ -1093,6 +1285,13 @@ function projectToSupabaseRow(project) {
       createdBy: project.createdBy || appState.session.user || "",
       assignedTo: project.assignedTo || "",
       visibility: project.visibility || "internal",
+      sourceMode: project.sourceMode || "manual",
+      packageVersion: project.packageVersion || "",
+      manifestImportedAt: project.manifestImportedAt || "",
+      localRoot: project.localRoot || "",
+      pipeline: project.pipeline || normalizePipelineState(),
+      stats: project.stats || normalizeProjectStats(),
+      artifacts: project.artifacts || [],
     },
   };
 }
@@ -1113,6 +1312,13 @@ function projectFromSupabaseRow(row) {
     createdBy: row.payload?.createdBy || row.owner_id || "",
     assignedTo: row.payload?.assignedTo || "",
     visibility: row.payload?.visibility || "internal",
+    sourceMode: row.payload?.sourceMode || "manual",
+    packageVersion: row.payload?.packageVersion || "",
+    manifestImportedAt: row.payload?.manifestImportedAt || "",
+    localRoot: row.payload?.localRoot || "",
+    pipeline: row.payload?.pipeline || {},
+    stats: row.payload?.stats || {},
+    artifacts: row.payload?.artifacts || [],
   });
 }
 
@@ -1220,6 +1426,31 @@ function canEditProjectStages(role = currentRole()) {
   return role === "admin";
 }
 
+function formatBytes(bytes = 0) {
+  if (!bytes) return "";
+  const units = ["B", "KB", "MB", "GB"];
+  let value = bytes;
+  let unitIndex = 0;
+  while (value >= 1024 && unitIndex < units.length - 1) {
+    value /= 1024;
+    unitIndex += 1;
+  }
+  return `${value.toFixed(value >= 100 || unitIndex === 0 ? 0 : 1)} ${units[unitIndex]}`;
+}
+
+function projectSourceLabel(project) {
+  return project.sourceMode === "hybrid-local" ? "Lokales Projektpaket" : "App-intern";
+}
+
+function projectPipelineSummary(project) {
+  const bits = [];
+  if (project.stats.imagesTotal) bits.push(`${project.stats.imagesGeoreferenced || 0}/${project.stats.imagesTotal} Bilder`);
+  if (project.stats.findingsPoints) bits.push(`${project.stats.findingsPoints} Befunde`);
+  if (project.stats.areaFeatures) bits.push(`${project.stats.areaFeatures} Flächen`);
+  if (project.artifacts.length) bits.push(`${project.artifacts.length} Artefakte`);
+  return bits.join(" · ") || "Noch keine lokalen Ausgaben importiert";
+}
+
 function stageBadge(stageId) {
   const stage = getStageMeta(stageId);
   return `<span class="workflow-badge" style="--badge-color:${stage.color}">${escapeHtml(stage.label)}</span>`;
@@ -1227,8 +1458,10 @@ function stageBadge(stageId) {
 
 function projectOutputSummary(project) {
   const bits = [];
+  bits.push(projectSourceLabel(project));
   bits.push(project.htmlReady ? "HTML bereit" : "HTML offen");
   bits.push(project.pdfReady ? "PDF bereit" : "PDF offen");
+  if (project.manifestImportedAt) bits.push(`Import ${project.manifestImportedAt}`);
   if (project.releasedAt) bits.push(`Freigegeben ${project.releasedAt}`);
   return bits.join(" · ");
 }
@@ -1280,6 +1513,7 @@ function renderProjectList(projects = roleScopedProjects(), role = currentRole()
         <strong>${escapeHtml(project.name)}</strong>
         <span class="meta">${escapeHtml(project.location)} · ${escapeHtml(project.scope)}</span>
         <span class="meta">Zuletzt: ${escapeHtml(project.updatedAt)} · ${projectOutputSummary(project)}</span>
+        <span class="meta">Quelle: ${escapeHtml(projectSourceLabel(project))} · ${escapeHtml(projectPipelineSummary(project))}</span>
         <span class="meta">Antragsteller: ${escapeHtml(project.createdBy || "offen")} · Gutachter: ${escapeHtml(project.assignedTo || "offen")}</span>
         <div class="statusline">${stageBadge(project.stage)}</div>
         <div class="project-actions-inline">
@@ -1343,16 +1577,30 @@ function renderDashboard() {
   document.getElementById("boardPanelTitle").textContent = roleMeta.boardTitle;
   document.getElementById("boardPanelCopy").textContent = roleMeta.boardCopy;
   document.getElementById("createProjectBtn").textContent = roleMeta.createButton;
+  document.getElementById("handoffPanelTitle").textContent = role === "gutachter" ? "Paketimport" : "Lokale Übergabe";
+  document.getElementById("handoffPanelCopy").textContent = role === "gutachter"
+    ? "Importiere lokale Projektpakete aus QGIS/GDAL und ziehe sie dann durch Georeferenzierung, Analyse und Review."
+    : "Original-TIFFs und QGIS bleiben lokal. Die App verwaltet nur Manifest, Review, Freigaben und publizierte Ausgaben.";
+  document.getElementById("importManifestBtn").textContent = role === "gutachter" ? "Arbeitsstand importieren" : "Projektpaket importieren";
   document.getElementById("projectNameLabel").textContent = role === "nutzer" ? "Anfrage / Bauvorhaben" : "Projektname";
   document.getElementById("projectLocationLabel").textContent = "Ort";
   document.getElementById("projectScopeLabel").textContent = role === "nutzer" ? "Bereich / Flurstück" : "Bereich";
   document.getElementById("projectNameInput").placeholder = role === "nutzer" ? "z. B. Neubau Mehrfamilienhaus" : "z. B. Weinsberg – Bauabschnitt Nord";
   document.getElementById("projectScopeInput").placeholder = role === "nutzer" ? "z. B. Flst. 218/4, Bahnhofsnähe" : "Innenstadt / Bahntrasse";
   const requestPanel = document.getElementById("requestPanel");
+  const handoffPanel = document.getElementById("handoffPanel");
   requestPanel.classList.toggle("hidden-panel", role === "gutachter");
+  handoffPanel.classList.toggle("hidden-panel", role === "nutzer");
   renderDashboardMetrics(scopedProjects, role);
   renderProjectList(scopedProjects, role);
   renderKanbanBoard(scopedProjects, role);
+  const active = currentProject();
+  setImportStatus(
+    active?.sourceMode === "hybrid-local"
+      ? `Aktives Paket: ${active.name} · ${projectPipelineSummary(active)}`
+      : "Noch kein lokales Projektpaket importiert.",
+    active?.sourceMode === "hybrid-local" ? "success" : "neutral"
+  );
 }
 
 async function setProjectStage(projectId, stageId) {
@@ -1405,11 +1653,82 @@ async function createProject(name, location, scope) {
   renderDashboard();
 }
 
+function setImportStatus(message, tone = "neutral") {
+  const node = document.getElementById("importStatus");
+  if (!node) return;
+  node.textContent = message;
+  node.style.color = tone === "error"
+    ? "#b42318"
+    : (tone === "success" ? "#356859" : "#6f7a76");
+}
+
+function buildProjectFromManifest(manifest) {
+  if (!manifest || typeof manifest !== "object") {
+    throw new Error("Das Projektpaket ist leer oder kein gueltiges JSON-Objekt.");
+  }
+  const schemaVersion = manifest.schema_version || manifest.schemaVersion || "";
+  if (schemaVersion && schemaVersion !== LOCAL_PACKAGE_SCHEMA_VERSION) {
+    throw new Error(`Schema nicht unterstuetzt: ${schemaVersion}`);
+  }
+  const info = manifest.project || {};
+  if (!info.name) throw new Error("Im Projektpaket fehlt `project.name`.");
+  const artifacts = normalizeArtifacts(manifest.artifacts || manifest.outputs || []);
+  const project = normalizeProject({
+    id: info.id || makeProjectId(),
+    name: info.name,
+    location: info.location || "Unbekannt",
+    scope: info.scope || "Noch kein Bereich definiert",
+    stage: manifest.workflow?.stage || info.stage || "sources",
+    owner: appState.session.user || "Lokal",
+    updatedAt: todayIso(),
+    note: info.note || manifest.summary || "",
+    createdBy: info.createdBy || info.created_by || appState.session.user || "Lokal",
+    assignedTo: info.assignedTo || info.assigned_to || "",
+    visibility: info.visibility || "internal",
+    sourceMode: "hybrid-local",
+    packageVersion: schemaVersion || LOCAL_PACKAGE_SCHEMA_VERSION,
+    manifestImportedAt: todayIso(),
+    localRoot: manifest.pipeline?.local_root || manifest.pipeline?.localRoot || manifest.local_root || "",
+    pipeline: manifest.pipeline || {},
+    stats: manifest.stats || manifest.metrics || {artifacts: artifacts.length},
+    artifacts,
+    htmlReady: typeof info.htmlReady === "boolean" ? info.htmlReady : inferDocumentReady(artifacts, "html"),
+    pdfReady: typeof info.pdfReady === "boolean" ? info.pdfReady : inferDocumentReady(artifacts, "pdf"),
+  });
+  if (!project.stats.artifacts) project.stats.artifacts = project.artifacts.length;
+  return project;
+}
+
+async function importProjectManifestFile(file) {
+  const raw = await file.text();
+  const manifest = JSON.parse(raw);
+  const project = buildProjectFromManifest(manifest);
+  appState.projects = [project, ...appState.projects.filter((item) => item.id !== project.id)];
+  appState.currentProjectId = project.id;
+  saveAppState();
+  try { await upsertProjectToBackend(project); } catch (error) { console.error(error); }
+  renderDashboard();
+  setImportStatus(`Projektpaket importiert: ${project.name} · ${projectPipelineSummary(project)}`, "success");
+}
+
+function exportManifestTemplate() {
+  const project = currentProject() || {};
+  const payload = buildLocalPackageTemplate(project);
+  const a = document.createElement("a");
+  a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
+  a.download = "uxopro-local-project-package.template.json";
+  a.click();
+  setImportStatus("Template exportiert. Lokalen Workflow damit befuellen und das fertige Paket wieder importieren.", "neutral");
+}
+
 function projectStageNarrative(project) {
   const stage = getStageMeta(project.stage);
   const role = currentRole();
   if (role === "nutzer") {
     return {accent: stage.color, tone: "#d0d8e2", html: `<strong>Vorgang:</strong> ${escapeHtml(project.name)} befindet sich in der Phase ${escapeHtml(stage.label)}. Als Nutzer siehst du hier Status, Karte und spaeter das freigegebene Gutachten.`};
+  }
+  if (project.sourceMode === "hybrid-local" && ["intake","sources"].includes(project.stage)) {
+    return {accent: stage.color, tone: "#b8d7ff", html: `<strong>Hybrid-Projekt:</strong> ${escapeHtml(project.name)} wird lokal verarbeitet und als Projektpaket in die App uebergeben. Importiert am ${escapeHtml(project.manifestImportedAt || "offen")} · ${escapeHtml(projectPipelineSummary(project))}.`};
   }
   if (project.stage === "master_georef") {
     return {accent: stage.color, tone: "#f3c188", html: `<strong>Projektmodus:</strong> Master-Georeferenzierung fuer ${escapeHtml(project.name)}. Richte jetzt ${escapeHtml(WORKFLOW_MASTER_IMAGE)} sauber aus; danach koennen die Folgebilder teilautomatisch nachgezogen werden.`};
@@ -1456,6 +1775,7 @@ function updateWorkspaceProjectContext(project) {
   syncWorkspaceActions(role);
   const narrative = projectStageNarrative(project);
   setWorkflowStatus(narrative.html, narrative.accent, narrative.tone);
+  renderWorkspaceDataPanel(project);
   if (role !== "nutzer" && project.stage === "master_georef") {
     selectHistoricalImage(WORKFLOW_MASTER_IMAGE);
     showWorkflowLayerSet(WORKFLOW_MASTER_IMAGE);
@@ -1588,6 +1908,8 @@ function renderSidebarPanels() {
   }).join("");
 
   document.querySelector(".sidebar").insertAdjacentHTML("beforeend", `
+    <div class="sb" id="workspaceDataPanel"></div>
+
     <div class="sb">
       <h2>Quellabdeckung TIFF-Serie</h2>
       <div class="src-list">${coverageHtml}</div>
@@ -1798,6 +2120,49 @@ function renderSidebarPanels() {
   document.getElementById("scaleUpBtn").addEventListener("click", () => scaleHistoricalImage(1 + getCalibrationScaleStep() / 100));
   document.getElementById("scaleDownBtn").addEventListener("click", () => scaleHistoricalImage(Math.max(0.01, 1 - getCalibrationScaleStep() / 100)));
   updateCalibrationOutput();
+}
+
+function renderWorkspaceDataPanel(project = currentProject()) {
+  const panel = document.getElementById("workspaceDataPanel");
+  if (!panel) return;
+  if (!project) {
+    panel.innerHTML = `<h2>Projektpaket</h2><div class="subtle-note">Noch kein Projekt aktiv.</div>`;
+    return;
+  }
+  const stats = project.stats || normalizeProjectStats();
+  const artifacts = project.artifacts || [];
+  const artifactHtml = artifacts.length
+    ? `<div class="artifact-list">${artifacts.slice(0, 6).map((artifact) => {
+        const href = artifact.url || artifact.path;
+        const hrefAttr = href ? ` href="${escapeHtml(encodeURI(href))}" target="_blank" rel="noopener"` : "";
+        const meta = [artifact.kind, artifact.generatedAt, formatBytes(artifact.sizeBytes)].filter(Boolean).join(" · ");
+        return `<div class="artifact-item">
+          <strong>${escapeHtml(artifact.label)}</strong>
+          <span>${escapeHtml(meta || "Artefakt")}</span>
+          ${href ? `<span><a${hrefAttr}>${escapeHtml(artifact.path || artifact.url)}</a></span>` : (artifact.path ? `<span>${escapeHtml(artifact.path)}</span>` : "")}
+          ${artifact.description ? `<span>${escapeHtml(artifact.description)}</span>` : ""}
+        </div>`;
+      }).join("")}</div>`
+    : `<div class="subtle-note" style="margin-top:10px;">Noch keine lokalen Artefakte importiert.</div>`;
+  panel.innerHTML = `
+    <h2>Projektpaket / Hybrid</h2>
+    <div class="audit-note">
+      <strong>${escapeHtml(projectSourceLabel(project))}:</strong> ${project.sourceMode === "hybrid-local"
+        ? "QGIS, TIFFs und Analyse bleiben lokal. Diese App zeigt nur Status, importierte Artefakte und Freigabeinformationen."
+        : "Projekt wurde direkt in der App angelegt und kann spaeter mit einem lokalen Paket angereichert werden."}
+    </div>
+    <div class="kv-stack">
+      <div class="kv-row"><span>Manifest</span><strong>${escapeHtml(project.packageVersion || "noch keines")}</strong></div>
+      <div class="kv-row"><span>Importiert</span><strong>${escapeHtml(project.manifestImportedAt || "noch nicht")}</strong></div>
+      <div class="kv-row"><span>Lokaler Root</span><strong>${escapeHtml(project.localRoot || "nicht hinterlegt")}</strong></div>
+      <div class="kv-row"><span>Pipeline</span><strong>${escapeHtml(project.pipeline.mode || "manual")}</strong></div>
+      <div class="kv-row"><span>Georeferenzierung</span><strong>${escapeHtml(project.pipeline.georefStatus || "offen")}</strong></div>
+      <div class="kv-row"><span>Analyse</span><strong>${escapeHtml(project.pipeline.analysisStatus || "offen")}</strong></div>
+      <div class="kv-row"><span>Export</span><strong>${escapeHtml(project.pipeline.exportStatus || "offen")}</strong></div>
+      <div class="kv-row"><span>Umfang</span><strong>${escapeHtml(projectPipelineSummary(project))}</strong></div>
+    </div>
+    ${artifactHtml}
+  `;
 }
 
 function exportGeoJSON() {
@@ -2223,6 +2588,7 @@ const QGIS_SCHEMA = {
 };
 
 renderSidebarPanels();
+renderWorkspaceDataPanel(currentProject());
 
 // ═══════════════════════════════════════════════════════
 // MAP INIT
@@ -2984,6 +3350,25 @@ document.getElementById("createProjectBtn").addEventListener("click", async () =
   nameInput.value = "";
   locationInput.value = "";
   scopeInput.value = "";
+});
+
+document.getElementById("importManifestBtn").addEventListener("click", () => {
+  const input = document.getElementById("manifestFileInput");
+  if (input) input.click();
+});
+
+document.getElementById("exportManifestTemplateBtn").addEventListener("click", exportManifestTemplate);
+
+document.getElementById("manifestFileInput").addEventListener("change", async (event) => {
+  const [file] = event.target.files || [];
+  if (!file) return;
+  try {
+    await importProjectManifestFile(file);
+  } catch (error) {
+    setImportStatus(`Import fehlgeschlagen: ${error.message || "Projektpaket konnte nicht gelesen werden."}`, "error");
+  } finally {
+    event.target.value = "";
+  }
 });
 
 document.getElementById("projectList").addEventListener("click", (event) => {

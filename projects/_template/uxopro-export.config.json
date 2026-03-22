@@ -1,0 +1,18 @@
+{
+  "name": "Projektname",
+  "location": "Ort",
+  "scope": "Bereich / Flurstueck / Untersuchungsraum",
+  "stage": "intake",
+  "assigned_to": "",
+  "created_by": "",
+  "visibility": "internal",
+  "master_image": "Historisch 1945-04-09",
+  "georef_status": "pending",
+  "analysis_status": "pending",
+  "export_status": "pending",
+  "review_status": "pending",
+  "findings_points": 0,
+  "area_features": 0,
+  "note": "Lokales QGIS-/Analyseprojekt fuer die App freigeben.",
+  "pipeline_note": "Projekt angelegt; lokaler Workflow kann starten."
+}

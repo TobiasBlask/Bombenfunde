@@ -1,0 +1,61 @@
+{
+  "schema_version": "uxopro.local-package.v1",
+  "exported_at": "2026-03-22T09:00:00Z",
+  "project": {
+    "id": "gut-weinsberg-002",
+    "name": "Weinsberg - Baufeld Nord",
+    "location": "Weinsberg",
+    "scope": "Flst. 218/4, Bahnhofsnahe",
+    "stage": "sources",
+    "note": "Lokales QGIS- und Analyseprojekt fuer die Web-App.",
+    "assigned_to": "gutachter@example.com"
+  },
+  "pipeline": {
+    "mode": "local-desktop",
+    "local_root": "/Volumes/Projekte/Weinsberg-Nord",
+    "master_image": "Historisch 1945-04-09",
+    "georef_status": "in_progress",
+    "analysis_status": "pending",
+    "export_status": "pending",
+    "review_status": "pending",
+    "last_run_at": "2026-03-22T08:45:00Z",
+    "note": "Georeferenzierung lokal in QGIS, Export ueber GDAL/Python."
+  },
+  "stats": {
+    "images_total": 15,
+    "images_georeferenced": 0,
+    "findings_points": 0,
+    "area_features": 0,
+    "artifacts": 4
+  },
+  "artifacts": [
+    {
+      "kind": "interactive_html",
+      "label": "HTML Gutachten",
+      "path": "exports/report.html",
+      "role": "review",
+      "description": "Interaktive Review- und Freigabefassung"
+    },
+    {
+      "kind": "report_pdf",
+      "label": "PDF Gutachten",
+      "path": "exports/report.pdf",
+      "role": "release",
+      "description": "Abgabe-PDF"
+    },
+    {
+      "kind": "findings_geojson",
+      "label": "Befunde GeoJSON",
+      "path": "exports/findings.geojson",
+      "role": "analysis",
+      "description": "Punkt- und Flaechenbefunde fuer GIS"
+    },
+    {
+      "kind": "preview_image",
+      "label": "Master Preview",
+      "path": "preview/master.png",
+      "role": "preview",
+      "description": "Kleine Karten-Vorschau fuer die App"
+    }
+  ]
+}
