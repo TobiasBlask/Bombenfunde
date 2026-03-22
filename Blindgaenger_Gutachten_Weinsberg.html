@@ -14,152 +14,194 @@
   <script src="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/leaflet.distortableimage.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/IvanSanchez/Leaflet.ImageOverlay.Rotated/Leaflet.ImageOverlay.Rotated.js"></script>
   <style>
+    @font-face {
+      font-family: 'UxoBasierBold';
+      src: url('https://www.uxopro.de/wp-content/themes/uxopro/fonts/basiercircle-bold-webfont.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'UxoBasierMedium';
+      src: url('https://www.uxopro.de/wp-content/themes/uxopro/fonts/basiercircle-medium-webfont.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+    }
+    :root {
+      --uxo-bg: #f3f2f0;
+      --uxo-surface: #fffdfa;
+      --uxo-surface-2: #f8f5ef;
+      --uxo-green: #356859;
+      --uxo-green-dark: #263b36;
+      --uxo-orange: #ec532a;
+      --uxo-orange-soft: #f3b39f;
+      --uxo-border: #d9d4cb;
+      --uxo-muted: #6f7a76;
+      --uxo-shadow: 0 24px 60px rgba(38, 59, 54, 0.12);
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #111; color: #ddd; height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+    body { font-family: 'UxoBasierMedium', 'Open Sans', Arial, sans-serif; background: var(--uxo-bg); color: var(--uxo-green-dark); height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'UxoBasierBold', 'Open Sans', Arial, sans-serif; font-weight: 700; letter-spacing: .01em; }
 
     /* HEADER */
-    header { background:#0a0a0c; border-bottom:3px solid #c0392b; padding:9px 18px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
-    header h1 { font-size:1rem; font-weight:700; color:#fff; }
-    header .sub { font-size:0.7rem; color:#888; margin-top:2px; }
-    header .badge { background:#c0392b; color:#fff; font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:3px; margin-left:10px; }
-    header .meta { font-size:0.7rem; color:#666; text-align:right; line-height:1.6; }
-    header .meta strong { color:#ccc; }
+    header { background:rgba(243,242,240,.96); border-bottom:3px solid var(--uxo-orange); padding:12px 20px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; box-shadow:0 6px 24px rgba(38,59,54,.08); }
+    header h1 { font-size:1rem; font-weight:700; color:var(--uxo-green); text-transform:uppercase; }
+    header .sub { font-size:0.72rem; color:var(--uxo-muted); margin-top:4px; line-height:1.5; }
+    header .badge { background:var(--uxo-green); color:var(--uxo-bg); font-size:0.68rem; font-weight:700; padding:4px 10px; border-radius:999px; margin-left:10px; }
+    header .meta { font-size:0.72rem; color:var(--uxo-muted); text-align:right; line-height:1.6; }
+    header .meta strong { color:var(--uxo-green-dark); }
 
     /* LAYOUT */
     .main { display:flex; flex:1; overflow:hidden; }
 
     /* SIDEBAR */
-    .sidebar { width:340px; min-width:300px; background:#141416; border-right:1px solid #2a2a2e; overflow-y:auto; flex-shrink:0; }
-    .sb { border-bottom:1px solid #222; padding:12px 14px; }
-    .sb h2 { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#666; margin-bottom:9px; }
+    .sidebar { width:340px; min-width:300px; background:var(--uxo-surface); border-right:1px solid var(--uxo-border); overflow-y:auto; flex-shrink:0; }
+    .sb { border-bottom:1px solid #ebe5dc; padding:14px 16px; }
+    .sb h2 { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--uxo-orange); margin-bottom:9px; }
 
     /* STATS */
     .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:6px; }
-    .sc { background:#1c1c20; border-radius:5px; padding:8px 6px; text-align:center; }
+    .sc { background:var(--uxo-surface-2); border:1px solid #e8e1d8; border-radius:14px; padding:10px 6px; text-align:center; }
     .sc .n { font-size:1.6rem; font-weight:700; line-height:1; }
-    .sc .l { font-size:0.62rem; color:#666; margin-top:2px; line-height:1.3; }
-    .n.orange { color:#e67e22; } .n.red { color:#c0392b; } .n.blue { color:#3498db; }
-    .n.green { color:#27ae60; } .n.gray { color:#95a5a6; }
+    .sc .l { font-size:0.62rem; color:var(--uxo-muted); margin-top:2px; line-height:1.3; }
+    .n.orange { color:#d86a20; } .n.red { color:var(--uxo-orange); } .n.blue { color:#5f8bdf; }
+    .n.green { color:var(--uxo-green); } .n.gray { color:#8d9692; }
 
     /* GROUP FILTER */
     .filters { display:flex; flex-wrap:wrap; gap:5px; }
-    .filter-btn { border:none; border-radius:3px; padding:4px 9px; font-size:0.7rem; font-weight:600; cursor:pointer; opacity:0.5; transition:opacity .15s; }
+    .filter-btn { border:none; border-radius:999px; padding:5px 10px; font-size:0.7rem; font-weight:600; cursor:pointer; opacity:0.55; transition:opacity .15s, transform .12s; box-shadow:inset 0 0 0 1px rgba(255,255,255,.12); }
     .filter-btn.on { opacity:1; }
-    .filter-btn:hover { opacity:.85; }
+    .filter-btn:hover { opacity:.9; transform:translateY(-1px); }
 
     /* TABLE */
     table { width:100%; border-collapse:collapse; font-size:0.7rem; }
-    thead th { background:#1c1c20; color:#888; padding:4px 6px; text-align:left; font-weight:600; position:sticky; top:0; z-index:2; }
+    thead th { background:var(--uxo-surface-2); color:var(--uxo-muted); padding:4px 6px; text-align:left; font-weight:600; position:sticky; top:0; z-index:2; }
     tbody tr { cursor:pointer; }
-    tbody tr:hover td { background:#22222a; }
-    tbody td { padding:3px 6px; border-bottom:1px solid #1e1e22; white-space:nowrap; }
+    tbody tr:hover td { background:#f5efe8; }
+    tbody td { padding:3px 6px; border-bottom:1px solid #eee7de; white-space:nowrap; }
 
     /* LEGEND */
     .lg-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:0.73rem; }
     .lg-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; }
-    .lg-text strong { display:block; color:#ccc; font-size:0.73rem; }
-    .lg-text span { color:#666; font-size:0.66rem; }
+    .lg-text strong { display:block; color:var(--uxo-green-dark); font-size:0.73rem; }
+    .lg-text span { color:var(--uxo-muted); font-size:0.66rem; }
     .pill { display:inline-block; border-radius:999px; padding:2px 7px; font-size:0.62rem; font-weight:700; letter-spacing:.02em; border:1px solid transparent; }
-    .pill.ok { color:#2ecc71; background:rgba(46,204,113,.12); border-color:rgba(46,204,113,.35); }
-    .pill.warn { color:#f39c12; background:rgba(243,156,18,.12); border-color:rgba(243,156,18,.35); }
-    .pill.bad { color:#95a5a6; background:rgba(149,165,166,.12); border-color:rgba(149,165,166,.35); }
-    .pill.direct { color:#3498db; background:rgba(52,152,219,.12); border-color:rgba(52,152,219,.35); }
-    .pill.base { color:#9b59b6; background:rgba(155,89,182,.12); border-color:rgba(155,89,182,.35); }
-    .pill.ctx { color:#e67e22; background:rgba(230,126,34,.12); border-color:rgba(230,126,34,.35); }
+    .pill.ok { color:var(--uxo-green); background:rgba(53,104,89,.1); border-color:rgba(53,104,89,.25); }
+    .pill.warn { color:#ce671d; background:rgba(236,83,42,.1); border-color:rgba(236,83,42,.22); }
+    .pill.bad { color:#7c8581; background:rgba(124,133,129,.12); border-color:rgba(124,133,129,.26); }
+    .pill.direct { color:#577ecb; background:rgba(87,126,203,.1); border-color:rgba(87,126,203,.22); }
+    .pill.base { color:#8c6ab8; background:rgba(140,106,184,.1); border-color:rgba(140,106,184,.22); }
+    .pill.ctx { color:#d86a20; background:rgba(216,106,32,.1); border-color:rgba(216,106,32,.22); }
     .src-list { display:flex; flex-direction:column; gap:6px; }
-    .src-item { display:flex; gap:8px; justify-content:space-between; align-items:flex-start; background:#1b1b1f; border-radius:4px; padding:7px 8px; }
+    .src-item { display:flex; gap:8px; justify-content:space-between; align-items:flex-start; background:var(--uxo-surface-2); border:1px solid #e8e1d8; border-radius:12px; padding:8px 9px; }
     .src-item .left { min-width:0; }
-    .src-item .left strong { display:block; color:#d5d5d5; font-size:.68rem; line-height:1.35; }
-    .src-item .left span { display:block; color:#666; font-size:.62rem; line-height:1.35; overflow-wrap:anywhere; }
-    .decision { border-radius:4px; padding:8px 10px; font-size:0.68rem; line-height:1.55; margin-bottom:7px; }
+    .src-item .left strong { display:block; color:var(--uxo-green-dark); font-size:.68rem; line-height:1.35; }
+    .src-item .left span { display:block; color:var(--uxo-muted); font-size:.62rem; line-height:1.35; overflow-wrap:anywhere; }
+    .decision { border-radius:12px; padding:9px 11px; font-size:0.68rem; line-height:1.55; margin-bottom:7px; }
     .decision strong { display:block; font-size:0.72rem; margin-bottom:2px; }
-    .decision.red { background:#1f1010; border-left:3px solid #c0392b; color:#d7b2af; }
-    .decision.yellow { background:#1f1808; border-left:3px solid #f39c12; color:#d8c39f; }
-    .decision.green { background:#0f1b12; border-left:3px solid #27ae60; color:#b8d9c1; }
-    .audit-note { background:#11161d; border-left:3px solid #3498db; padding:8px 10px; font-size:.68rem; color:#9fb5c9; line-height:1.5; }
-    .audit-note strong { color:#6fb2ff; }
+    .decision.red { background:#fbebe6; border-left:3px solid var(--uxo-orange); color:#8d4e40; }
+    .decision.yellow { background:#fff4e7; border-left:3px solid #d86a20; color:#8d6b45; }
+    .decision.green { background:#edf5f1; border-left:3px solid var(--uxo-green); color:#567667; }
+    .audit-note { background:#f7f3ec; border-left:3px solid var(--uxo-green); padding:9px 11px; font-size:.68rem; color:#5c6d67; line-height:1.5; border-radius:10px; }
+    .audit-note strong { color:var(--uxo-green); }
 
     /* NOTE */
-    .note { background:#1a1200; border-left:3px solid #f39c12; padding:7px 10px; font-size:0.68rem; color:#aaa; line-height:1.5; }
-    .note strong { color:#f39c12; }
+    .note { background:#fff4e7; border-left:3px solid var(--uxo-orange); padding:8px 10px; font-size:0.68rem; color:#71655a; line-height:1.5; border-radius:10px; }
+    .note strong { color:var(--uxo-orange); }
 
     /* MAP */
     #map { flex:1; }
 
     /* MAP controls */
-    .map-leg { max-width:360px; background:rgba(12,12,14,.9); border:1px solid #333; border-radius:4px; padding:8px 11px; font-size:.7rem; color:#bbb; line-height:1.7; box-shadow:0 6px 18px rgba(0,0,0,.35); }
-    .map-leg b { color:#fff; }
+    .map-leg { max-width:360px; background:rgba(255,253,250,.94); border:1px solid var(--uxo-border); border-radius:14px; padding:10px 12px; font-size:.7rem; color:#5f6b66; line-height:1.7; box-shadow:0 12px 28px rgba(38,59,54,.12); }
+    .map-leg b { color:var(--uxo-green-dark); }
     .map-leg-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:4px; }
     .map-leg-toggle, .map-leg-reopen { border:none; border-radius:4px; cursor:pointer; font-weight:700; }
-    .map-leg-toggle { width:24px; height:24px; background:#1d1f24; color:#ddd; font-size:1rem; line-height:1; }
-    .map-leg-toggle:hover, .map-leg-reopen:hover { background:#2a2d33; }
-    .map-leg-reopen { display:none; padding:6px 10px; background:rgba(12,12,14,.94); color:#ddd; border:1px solid #333; box-shadow:0 6px 18px rgba(0,0,0,.3); }
-    .map-leg-line { display:block; color:#666; font-size:.65rem; line-height:1.45; overflow-wrap:anywhere; }
+    .map-leg-toggle { width:24px; height:24px; background:var(--uxo-surface-2); color:var(--uxo-green); font-size:1rem; line-height:1; border:1px solid var(--uxo-border); }
+    .map-leg-toggle:hover, .map-leg-reopen:hover { background:#efe8de; }
+    .map-leg-reopen { display:none; padding:6px 10px; background:rgba(255,253,250,.96); color:var(--uxo-green); border:1px solid var(--uxo-border); box-shadow:0 6px 18px rgba(38,59,54,.12); }
+    .map-leg-line { display:block; color:var(--uxo-muted); font-size:.65rem; line-height:1.45; overflow-wrap:anywhere; }
     .map-leg.collapsed { background:transparent; border:none; padding:0; box-shadow:none; }
     .map-leg.collapsed .map-leg-shell { display:none; }
     .map-leg.collapsed .map-leg-reopen { display:inline-block; }
 
     /* APP SHELL */
     .app-shell { position:fixed; inset:0; z-index:5000; background:
-      radial-gradient(circle at top left, rgba(31,111,235,.16), transparent 32%),
-      radial-gradient(circle at top right, rgba(180,83,9,.18), transparent 28%),
-      linear-gradient(180deg, rgba(7,10,14,.98), rgba(10,12,16,.98)); display:flex; align-items:stretch; justify-content:center; }
+      radial-gradient(circle at top left, rgba(236,83,42,.12), transparent 32%),
+      radial-gradient(circle at top right, rgba(53,104,89,.12), transparent 28%),
+      linear-gradient(180deg, rgba(243,242,240,.98), rgba(248,245,239,.98)); display:flex; align-items:stretch; justify-content:center; }
     .app-shell.hidden { display:none; }
     .app-view { width:100%; height:100%; overflow:auto; }
     .auth-wrap { min-height:100%; display:grid; place-items:center; padding:28px; }
-    .auth-card { width:min(460px, 100%); background:rgba(16,20,26,.94); border:1px solid #223041; border-radius:16px; box-shadow:0 30px 80px rgba(0,0,0,.45); padding:28px; }
-    .auth-kicker, .dash-kicker { font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#6fb2ff; font-weight:700; }
-    .auth-title, .dash-title { font-size:2rem; line-height:1.1; color:#fff; margin-top:10px; }
-    .auth-copy, .dash-copy { font-size:.9rem; color:#8ca0b6; line-height:1.65; margin-top:10px; }
+    .auth-card { width:min(520px, 100%); background:rgba(255,253,250,.96); border:1px solid var(--uxo-border); border-radius:22px; box-shadow:var(--uxo-shadow); padding:30px; position:relative; overflow:hidden; }
+    .auth-card::after { content:""; position:absolute; right:-60px; top:-60px; width:180px; height:180px; border-radius:50%; background:rgba(53,104,89,.06); }
+    .auth-kicker, .dash-kicker { font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--uxo-orange); font-weight:700; }
+    .auth-title, .dash-title { font-size:2rem; line-height:1.08; color:var(--uxo-green); margin-top:10px; text-transform:uppercase; }
+    .auth-copy, .dash-copy { font-size:.9rem; color:var(--uxo-muted); line-height:1.7; margin-top:10px; }
     .auth-grid, .dash-grid { display:grid; gap:14px; margin-top:18px; }
-    .auth-grid label, .project-form label { display:flex; flex-direction:column; gap:6px; font-size:.74rem; color:#8ca0b6; }
-    .auth-grid input, .project-form input, .project-stage-select { width:100%; background:#11161d; color:#e5edf5; border:1px solid #2a3645; border-radius:8px; padding:11px 12px; font-size:.88rem; }
-    .app-btn { border:none; border-radius:8px; padding:10px 14px; font-size:.82rem; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease; }
+    .auth-grid label, .project-form label { display:flex; flex-direction:column; gap:6px; font-size:.74rem; color:var(--uxo-muted); }
+    .auth-grid input, .project-form input, .project-stage-select { width:100%; background:var(--uxo-surface); color:var(--uxo-green-dark); border:1px solid var(--uxo-border); border-radius:14px; padding:12px 13px; font-size:.9rem; }
+    .app-btn { border:none; border-radius:999px; padding:11px 16px; font-size:.82rem; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease; text-transform:uppercase; letter-spacing:.06em; }
     .app-btn:hover { opacity:.92; transform:translateY(-1px); }
-    .app-btn.primary { background:#1f6feb; color:#fff; }
-    .app-btn.secondary { background:#2f3d4f; color:#fff; }
-    .app-btn.warning { background:#b45309; color:#fff; }
-    .app-btn.success { background:#1f8f53; color:#fff; }
-    .app-btn.danger { background:#b42318; color:#fff; }
-    .app-btn.ghost { background:transparent; border:1px solid #334155; color:#d8e0e8; }
+    .app-btn.primary { background:var(--uxo-green); color:#fff; }
+    .app-btn.secondary { background:var(--uxo-orange); color:#fff; }
+    .app-btn.warning { background:#d86a20; color:#fff; }
+    .app-btn.success { background:var(--uxo-green); color:#fff; }
+    .app-btn.danger { background:var(--uxo-orange); color:#fff; }
+    .app-btn.ghost { background:transparent; border:1px solid var(--uxo-border); color:var(--uxo-green-dark); }
     .auth-actions, .project-actions-inline, .workspace-header-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
-    .auth-note { margin-top:14px; font-size:.72rem; color:#708090; line-height:1.55; }
+    .auth-note { margin-top:14px; font-size:.72rem; color:var(--uxo-muted); line-height:1.6; }
+    .role-picker { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; margin-top:16px; }
+    .role-btn { border:1px solid var(--uxo-border); background:var(--uxo-surface-2); color:var(--uxo-green-dark); border-radius:16px; padding:12px 10px; text-align:left; cursor:pointer; }
+    .role-btn strong { display:block; font-size:.8rem; color:var(--uxo-green); text-transform:uppercase; }
+    .role-btn span { display:block; margin-top:4px; font-size:.67rem; color:var(--uxo-muted); line-height:1.45; }
+    .role-btn.active { border-color:var(--uxo-green); box-shadow:0 0 0 1px rgba(53,104,89,.2) inset; background:#eef4f1; }
     .dash-wrap { min-height:100%; padding:22px 26px 28px; }
     .dash-top { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:18px; }
     .dash-user { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .user-chip, .mini-chip { display:inline-flex; align-items:center; gap:7px; padding:6px 10px; border-radius:999px; background:#11161d; border:1px solid #2c3c50; color:#dce6ef; font-size:.74rem; }
+    .user-chip, .mini-chip { display:inline-flex; align-items:center; gap:7px; padding:6px 10px; border-radius:999px; background:var(--uxo-surface); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); font-size:.74rem; }
     .dash-layout { display:grid; grid-template-columns:minmax(300px, 360px) 1fr; gap:16px; }
-    .panel { background:rgba(14,18,24,.94); border:1px solid #1f2a37; border-radius:14px; box-shadow:0 18px 50px rgba(0,0,0,.25); }
+    .panel { background:rgba(255,253,250,.96); border:1px solid var(--uxo-border); border-radius:18px; box-shadow:var(--uxo-shadow); }
     .panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px 18px 0; }
-    .panel-head h2 { font-size:.84rem; letter-spacing:.08em; text-transform:uppercase; color:#8ca0b6; }
+    .panel-head h2 { font-size:.84rem; letter-spacing:.12em; text-transform:uppercase; color:var(--uxo-orange); }
     .panel-body { padding:16px 18px 18px; }
     .metric-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
-    .metric-card { background:#11161d; border:1px solid #1f2a37; border-radius:12px; padding:14px 14px 12px; }
-    .metric-card strong { display:block; font-size:1.4rem; color:#fff; }
-    .metric-card span { display:block; margin-top:4px; color:#7d8a99; font-size:.72rem; line-height:1.4; }
+    .metric-card { background:var(--uxo-surface-2); border:1px solid #e9e1d7; border-radius:16px; padding:14px 14px 12px; }
+    .metric-card strong { display:block; font-size:1.4rem; color:var(--uxo-green); }
+    .metric-card span { display:block; margin-top:4px; color:var(--uxo-muted); font-size:.72rem; line-height:1.4; }
     .project-list { display:flex; flex-direction:column; gap:10px; }
-    .project-row { background:#11161d; border:1px solid #1f2a37; border-radius:12px; padding:12px; }
-    .project-row strong { display:block; color:#fff; font-size:.88rem; }
-    .project-row .meta { display:block; margin-top:4px; color:#7d8a99; font-size:.72rem; line-height:1.5; }
+    .project-row { background:var(--uxo-surface-2); border:1px solid #e8e1d8; border-radius:14px; padding:12px; }
+    .project-row strong { display:block; color:var(--uxo-green-dark); font-size:.88rem; }
+    .project-row .meta { display:block; margin-top:4px; color:var(--uxo-muted); font-size:.72rem; line-height:1.5; }
     .project-row .statusline { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
     .kanban { display:grid; grid-template-columns:repeat(7, minmax(210px,1fr)); gap:12px; overflow:auto; padding-bottom:4px; }
-    .kanban-col { background:#0f141b; border:1px solid #1f2a37; border-radius:12px; min-height:360px; padding:12px; }
-    .kanban-col h3 { font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:#dce6ef; margin-bottom:8px; }
-    .kanban-col .col-sub { font-size:.68rem; color:#708090; margin-bottom:12px; }
+    .kanban-col { background:rgba(248,245,239,.98); border:1px solid #e3dbd0; border-radius:16px; min-height:360px; padding:12px; }
+    .kanban-col h3 { font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; color:var(--uxo-green); margin-bottom:8px; }
+    .kanban-col .col-sub { font-size:.68rem; color:var(--uxo-muted); margin-bottom:12px; }
     .kanban-stack { display:flex; flex-direction:column; gap:10px; }
-    .kanban-card { background:#141b23; border:1px solid #233043; border-radius:12px; padding:12px; }
-    .kanban-card strong { display:block; color:#fff; font-size:.82rem; line-height:1.4; }
-    .kanban-card .meta { margin-top:5px; font-size:.7rem; color:#7d8a99; line-height:1.45; }
+    .kanban-card { background:var(--uxo-surface); border:1px solid var(--uxo-border); border-radius:14px; padding:12px; }
+    .kanban-card strong { display:block; color:var(--uxo-green-dark); font-size:.82rem; line-height:1.4; }
+    .kanban-card .meta { margin-top:5px; font-size:.7rem; color:var(--uxo-muted); line-height:1.45; }
     .kanban-card .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
     .project-form { display:grid; gap:10px; margin-top:12px; }
     .project-form-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
-    .workflow-badge { display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; background:#11161d; border:1px solid #32465b; color:#dce6ef; font-size:.68rem; }
+    .stack { display:grid; gap:16px; }
+    .mini-list { display:grid; gap:10px; }
+    .mini-row { background:var(--uxo-surface-2); border:1px solid #e8e1d8; border-radius:14px; padding:12px; }
+    .mini-row strong { display:block; color:var(--uxo-green-dark); font-size:.82rem; }
+    .mini-row .meta { display:block; margin-top:4px; color:var(--uxo-muted); font-size:.72rem; line-height:1.45; }
+    .pill-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .hidden-panel { display:none !important; }
+    .workflow-badge { display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; background:var(--uxo-surface); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); font-size:.68rem; }
     .workflow-badge::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--badge-color, #6fb2ff); }
-    .header-action-btn { background:#11161d; border:1px solid #253244; color:#dce6ef; border-radius:999px; padding:7px 11px; font-size:.72rem; font-weight:700; cursor:pointer; }
-    .header-action-btn:hover { background:#17202b; }
+    .header-action-btn { background:var(--uxo-surface); border:1px solid var(--uxo-border); color:var(--uxo-green-dark); border-radius:999px; padding:8px 12px; font-size:.72rem; font-weight:700; cursor:pointer; text-transform:uppercase; letter-spacing:.08em; }
+    .header-action-btn:hover { background:#f1ece4; }
     .workspace-header-left { display:flex; align-items:flex-start; gap:12px; }
     .workspace-title-block { min-width:0; }
     .workspace-topline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .brand-lockup { display:flex; align-items:center; gap:14px; }
+    .brand-logo { width:auto; height:24px; display:block; }
+    .brand-logo.large { height:26px; }
+    .brand-divider { width:44px; height:4px; border-radius:999px; background:var(--uxo-orange); display:inline-block; }
     @media (max-width: 1380px) {
       .dash-layout { grid-template-columns:1fr; }
       .kanban { grid-template-columns:repeat(3, minmax(240px,1fr)); }
@@ -182,9 +224,27 @@
   <div id="loginView" class="app-view">
     <div class="auth-wrap">
       <div class="auth-card">
-        <div class="auth-kicker">Blindgaenger-Gutachten Suite</div>
-        <div class="auth-title">Workflow statt Einzeldatei</div>
-        <div class="auth-copy">Anmeldung, Projekte, Georeferenzierung, Analyse, Review und Freigabe laufen in einer Oberfläche. Das aktuelle Gutachten bleibt der Projekt-Arbeitsbereich.</div>
+        <div class="brand-lockup">
+          <img src="uxopro-logo.svg" alt="Uxo Pro" class="brand-logo large"/>
+          <span class="brand-divider"></span>
+        </div>
+        <div class="auth-kicker">Uxo Pro Portal</div>
+        <div class="auth-title">Bombenfunde verwalten</div>
+        <div class="auth-copy">Eine Oberfläche für drei Rollen: Admins steuern Freigaben und Zuweisungen, Gutachter bearbeiten Luftbilder und Verdachtsflächen, Nutzer verfolgen ihre Aufträge und freigegebenen Gutachten.</div>
+        <div class="role-picker">
+          <button type="button" class="role-btn active" data-login-role="admin">
+            <strong>Admin</strong>
+            <span>Portfolio, Zuweisung, Review, Freigabe</span>
+          </button>
+          <button type="button" class="role-btn" data-login-role="gutachter">
+            <strong>Gutachter</strong>
+            <span>Georeferenzierung, Analyse, Arbeitskorb</span>
+          </button>
+          <button type="button" class="role-btn" data-login-role="nutzer">
+            <strong>Nutzer</strong>
+            <span>Anfragen, Status, fertige Gutachten</span>
+          </button>
+        </div>
         <div class="auth-grid">
           <label>
             E-Mail / Login
@@ -209,9 +269,13 @@
     <div class="dash-wrap">
       <div class="dash-top">
         <div>
-          <div class="dash-kicker">Projektportfolio</div>
-          <div class="dash-title">Gutachten durch den Workflow ziehen</div>
-          <div class="dash-copy">Jedes Projekt ist ein Gutachten. Die zentrale Oberflaeche steuert Intake, Georeferenzierung, Analyse, Review und Freigabe. Erst danach geht das Projekt als interaktives HTML und als PDF in die Abgabe.</div>
+          <div class="brand-lockup" style="margin-bottom:14px;">
+            <img src="uxopro-logo.svg" alt="Uxo Pro" class="brand-logo large"/>
+            <span class="brand-divider"></span>
+          </div>
+          <div id="dashboardKicker" class="dash-kicker">Projektportfolio</div>
+          <div id="dashboardTitle" class="dash-title">Gutachten steuern</div>
+          <div id="dashboardCopy" class="dash-copy">Zentrale Oberflaeche für Portfolio, Bearbeitung und Freigabe.</div>
         </div>
         <div class="dash-user">
           <span id="sessionUserChip" class="user-chip">Nicht angemeldet</span>
@@ -220,29 +284,29 @@
       </div>
 
       <div class="dash-layout">
-        <div style="display:grid; gap:16px;">
+        <div id="dashboardLeftColumn" class="stack">
           <section class="panel">
-            <div class="panel-head"><h2>Portfolio</h2></div>
+            <div class="panel-head"><h2 id="metricsPanelTitle">Portfolio</h2></div>
             <div class="panel-body">
               <div id="dashboardMetrics" class="metric-grid"></div>
             </div>
           </section>
 
-          <section class="panel">
-            <div class="panel-head"><h2>Neues Gutachten</h2></div>
+          <section id="requestPanel" class="panel">
+            <div class="panel-head"><h2 id="requestPanelTitle">Neues Gutachten</h2></div>
             <div class="panel-body">
               <div class="project-form">
                 <label>
-                  Projektname
+                  <span id="projectNameLabel">Projektname</span>
                   <input id="projectNameInput" type="text" placeholder="z. B. Weinsberg – Bauabschnitt Nord"/>
                 </label>
                 <div class="project-form-grid">
                   <label>
-                    Ort
+                    <span id="projectLocationLabel">Ort</span>
                     <input id="projectLocationInput" type="text" placeholder="Weinsberg"/>
                   </label>
                   <label>
-                    Bereich
+                    <span id="projectScopeLabel">Bereich</span>
                     <input id="projectScopeInput" type="text" placeholder="Innenstadt / Bahntrasse"/>
                   </label>
                 </div>
@@ -251,8 +315,8 @@
             </div>
           </section>
 
-          <section class="panel">
-            <div class="panel-head"><h2>Projekte</h2></div>
+          <section id="projectPanel" class="panel">
+            <div class="panel-head"><h2 id="projectPanelTitle">Projekte</h2></div>
             <div id="projectList" class="panel-body project-list"></div>
           </section>
         </div>
@@ -260,8 +324,8 @@
         <section class="panel">
           <div class="panel-head">
             <div>
-              <h2>Workflow-Board</h2>
-              <div class="dash-copy" style="margin-top:6px;font-size:.78rem;">Kanban fuer den gesamten Gutachtenprozess von der Quellenaufnahme bis zur Freigabe.</div>
+              <h2 id="boardPanelTitle">Board</h2>
+              <div id="boardPanelCopy" class="dash-copy" style="margin-top:6px;font-size:.78rem;">Board fuer den aktuellen Rollenblick auf Projekte, Aufgaben und Freigaben.</div>
             </div>
           </div>
           <div id="kanbanBoard" class="panel-body kanban"></div>
@@ -280,11 +344,15 @@
       <button id="printProjectBtn" class="header-action-btn">PDF</button>
     </div>
     <div class="workspace-title-block">
+      <div class="brand-lockup" style="margin-bottom:8px;">
+        <img src="uxopro-logo.svg" alt="Uxo Pro" class="brand-logo"/>
+        <span class="brand-divider"></span>
+      </div>
       <div class="workspace-topline">
         <h1><span id="workspaceProjectHeading">Kampfmittel-Luftbildauswertung – Weinsberg (Heilbronn-Kreis)</span>
           <span class="badge" id="badgeText">Audit v4 · Punktprüfung läuft</span></h1>
       </div>
-      <div class="sub" id="workspaceSubtitle">Formales Template beibehalten · Punktinventar gegen TIFF-Serie geprüft · 4-stufige Flächenlogik ergänzt · 3-GCP-Affinkorrektur auf reale Weinsberg-Lage angewandt</div>
+      <div class="sub" id="workspaceSubtitle">Digitale Luftbildauswertung, Projektsteuerung und Freigabe in einer Oberflaeche</div>
     </div>
   </div>
   <div class="meta"><strong>Projekt:</strong> <span id="workspaceProjectMeta">Weinsberg – Initialprojekt</span> &nbsp;|&nbsp; <strong>Workflow:</strong> <span id="workspaceStageMeta">Analyse</span><br/>
@@ -822,6 +890,44 @@ document.getElementById("auditSummaryText").innerHTML = `${summary.confirmed} Pu
 const APP_STORAGE_KEY = "blindgaenger_suite_v1";
 const SUPABASE_PUBLIC_CONFIG = window.SUPABASE_PUBLIC_CONFIG || {};
 const SUPABASE_PROJECTS_TABLE = SUPABASE_PUBLIC_CONFIG.projectsTable || "gutachten_projects";
+const USER_ROLES = {
+  admin: {
+    label: "Admin",
+    dashboardKicker: "Steuerung",
+    dashboardTitle: "Gutachten steuern und freigeben",
+    dashboardCopy: "Admins verwalten Projekte, Zuweisungen, Review und finale Freigaben.",
+    metricsTitle: "Leitstand",
+    requestTitle: "Neues Gutachten anlegen",
+    createButton: "Projekt anlegen",
+    projectTitle: "Alle Projekte",
+    boardTitle: "Freigabe-Board",
+    boardCopy: "Kanban fuer Intake, Zuweisung, Review und Freigabe ueber alle Gutachten.",
+  },
+  gutachter: {
+    label: "Gutachter",
+    dashboardKicker: "Arbeitskorb",
+    dashboardTitle: "Meine Luftbild-Gutachten",
+    dashboardCopy: "Gutachter sehen ihre zugewiesenen Vorgänge, den Bearbeitungsstand und die Arbeitsliste fuer Georeferenzierung und Analyse.",
+    metricsTitle: "Mein Stand",
+    requestTitle: "Neuen Fall vorbereiten",
+    createButton: "Fall anlegen",
+    projectTitle: "Meine Faelle",
+    boardTitle: "Bearbeitungsboard",
+    boardCopy: "Board fuer Georeferenzierung, Analyse und Review aus Sicht des Gutachters.",
+  },
+  nutzer: {
+    label: "Nutzer",
+    dashboardKicker: "Auftraege",
+    dashboardTitle: "Meine Anfragen und Gutachten",
+    dashboardCopy: "Nutzer verfolgen ihre Bauanfragen, sehen den Status der Bearbeitung und oeffnen freigegebene Gutachten.",
+    metricsTitle: "Mein Status",
+    requestTitle: "Neue Anfrage stellen",
+    createButton: "Anfrage absenden",
+    projectTitle: "Meine Vorgänge",
+    boardTitle: "Statusboard",
+    boardCopy: "Status der eigenen Vorgänge von Anfrage bis freigegebenes Gutachten.",
+  }
+};
 const WORKFLOW_STAGES = [
   {id:"intake", label:"Intake", color:"#64748b", hint:"Projekt anlegen, Baufrage und Gebiet definieren."},
   {id:"sources", label:"Quellen", color:"#2563eb", hint:"TIFF-Serie, Archivquellen und Kontextmaterial erfassen."},
@@ -845,6 +951,10 @@ function getStageMeta(stageId) {
   return WORKFLOW_STAGES.find((stage) => stage.id === stageId) || WORKFLOW_STAGES[0];
 }
 
+function getRoleMeta(roleId) {
+  return USER_ROLES[roleId] || USER_ROLES.admin;
+}
+
 function createDefaultProjects() {
   return [
     {
@@ -859,6 +969,9 @@ function createDefaultProjects() {
       pdfReady: false,
       releasedAt: "",
       note: "Aktives Gutachten auf Basis der vorhandenen HTML-Auswertung.",
+      createdBy: "demo.nutzer",
+      assignedTo: "demo.gutachter",
+      visibility: "internal",
     }
   ];
 }
@@ -876,6 +989,9 @@ function normalizeProject(project) {
     pdfReady: false,
     releasedAt: "",
     note: "",
+    createdBy: "demo.nutzer",
+    assignedTo: "demo.gutachter",
+    visibility: "internal",
   };
   const merged = {...base, ...project};
   if (!WORKFLOW_STAGE_INDEX.hasOwnProperty(merged.stage)) merged.stage = "intake";
@@ -889,6 +1005,7 @@ function getDefaultAppState() {
       authenticated: false,
       user: "",
       backend: "local",
+      role: "admin",
     },
     shellView: "login",
     currentProjectId: projects[0]?.id || null,
@@ -906,6 +1023,7 @@ function loadAppState() {
         authenticated: Boolean(parsed?.session?.authenticated),
         user: parsed?.session?.user || "",
         backend: parsed?.session?.backend || "local",
+        role: parsed?.session?.role || "admin",
       },
       shellView: parsed?.shellView || (parsed?.session?.authenticated ? "dashboard" : "login"),
       currentProjectId: parsed?.currentProjectId || parsed?.projects?.[0]?.id || null,
@@ -921,6 +1039,7 @@ function loadAppState() {
 let appState = loadAppState();
 let supabaseClient = null;
 let backendMode = "local";
+let selectedLoginRole = appState.session.role || "admin";
 
 function saveAppState() {
   localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(appState));
@@ -945,6 +1064,17 @@ function updateBackendUi() {
   }
 }
 
+function setLoginRole(role) {
+  selectedLoginRole = USER_ROLES[role] ? role : "admin";
+  document.querySelectorAll("[data-login-role]").forEach((button) => {
+    button.classList.toggle("active", button.getAttribute("data-login-role") === selectedLoginRole);
+  });
+}
+
+function resolveUserRoleFromSession(user) {
+  return user?.user_metadata?.role || user?.app_metadata?.role || selectedLoginRole || appState.session.role || "admin";
+}
+
 function projectToSupabaseRow(project) {
   return {
     project_id: project.id,
@@ -960,6 +1090,9 @@ function projectToSupabaseRow(project) {
       owner: project.owner || appState.session.user || "Supabase",
       updatedAt: project.updatedAt || todayIso(),
       scope: project.scope,
+      createdBy: project.createdBy || appState.session.user || "",
+      assignedTo: project.assignedTo || "",
+      visibility: project.visibility || "internal",
     },
   };
 }
@@ -977,6 +1110,9 @@ function projectFromSupabaseRow(row) {
     pdfReady: Boolean(row.pdf_ready),
     releasedAt: row.released_at || "",
     note: row.note || "",
+    createdBy: row.payload?.createdBy || row.owner_id || "",
+    assignedTo: row.payload?.assignedTo || "",
+    visibility: row.payload?.visibility || "internal",
   });
 }
 
@@ -1024,11 +1160,13 @@ async function initBackend() {
     const { data, error } = await supabaseClient.auth.getSession();
     if (error) throw error;
     if (data?.session?.user) {
+      const role = resolveUserRoleFromSession(data.session.user);
       backendMode = "supabase";
       appState.session = {
         authenticated: true,
         user: data.session.user.email || data.session.user.id,
         backend: "supabase",
+        role,
       };
       await hydrateProjectsFromBackend();
       appState.shellView = appState.shellView === "workspace" ? "workspace" : "dashboard";
@@ -1053,6 +1191,35 @@ function currentProject() {
   return appState.projects.find((project) => project.id === appState.currentProjectId) || appState.projects[0] || null;
 }
 
+function currentRole() {
+  return appState.session.role || "admin";
+}
+
+function roleScopedProjects(role = currentRole(), user = appState.session.user) {
+  if (role === "admin") return [...appState.projects];
+  if (role === "gutachter") {
+    const mine = appState.projects.filter((project) => project.assignedTo === user);
+    return mine.length ? mine : appState.projects.filter((project) => project.stage !== "released");
+  }
+  return appState.projects.filter((project) => project.createdBy === user || (project.stage === "released" && project.visibility === "public"));
+}
+
+function canCreateProjects(role = currentRole()) {
+  return role !== "nutzer" || true;
+}
+
+function canAdvanceWorkflow(role = currentRole()) {
+  return role === "admin" || role === "gutachter";
+}
+
+function canReleaseProjects(role = currentRole()) {
+  return role === "admin";
+}
+
+function canEditProjectStages(role = currentRole()) {
+  return role === "admin";
+}
+
 function stageBadge(stageId) {
   const stage = getStageMeta(stageId);
   return `<span class="workflow-badge" style="--badge-color:${stage.color}">${escapeHtml(stage.label)}</span>`;
@@ -1070,22 +1237,42 @@ function projectStageHint(stageId) {
   return getStageMeta(stageId).hint;
 }
 
-function renderDashboardMetrics() {
-  const released = appState.projects.filter((project) => project.stage === "released").length;
-  const htmlReady = appState.projects.filter((project) => project.htmlReady).length;
-  const pdfReady = appState.projects.filter((project) => project.pdfReady).length;
-  const inWork = appState.projects.filter((project) => project.stage !== "released").length;
+function renderDashboardMetrics(projects = roleScopedProjects(), role = currentRole()) {
+  const released = projects.filter((project) => project.stage === "released").length;
+  const htmlReady = projects.filter((project) => project.htmlReady).length;
+  const pdfReady = projects.filter((project) => project.pdfReady).length;
+  const inWork = projects.filter((project) => project.stage !== "released").length;
+  const review = projects.filter((project) => project.stage === "review").length;
+  const georef = projects.filter((project) => ["master_georef","series_georef"].includes(project.stage)).length;
+  const requested = projects.filter((project) => project.stage === "intake").length;
+  const metrics = role === "nutzer"
+    ? [
+        {value: projects.length, label: "Eigene Vorgänge"},
+        {value: inWork, label: "In Bearbeitung"},
+        {value: released, label: "Freigegeben"},
+        {value: `${htmlReady}/${pdfReady}`, label: "HTML / PDF bereit"},
+      ]
+    : role === "gutachter"
+      ? [
+          {value: projects.length, label: "Zugewiesene Fälle"},
+          {value: georef, label: "Georeferenzierung"},
+          {value: review, label: "Vor Review"},
+          {value: released, label: "Abgeschlossen"},
+        ]
+      : [
+          {value: appState.projects.length, label: "Alle Gutachten"},
+          {value: inWork, label: "Aktiv im Workflow"},
+          {value: review, label: "Warten auf Freigabe"},
+          {value: `${htmlReady}/${pdfReady}`, label: "HTML / PDF bereit"},
+        ];
   document.getElementById("dashboardMetrics").innerHTML = `
-    <div class="metric-card"><strong>${appState.projects.length}</strong><span>Gutachten im Portfolio</span></div>
-    <div class="metric-card"><strong>${inWork}</strong><span>Aktiv im Workflow</span></div>
-    <div class="metric-card"><strong>${released}</strong><span>Freigegeben</span></div>
-    <div class="metric-card"><strong>${htmlReady}/${pdfReady}</strong><span>HTML / PDF bereit</span></div>
+    ${metrics.map((metric) => `<div class="metric-card"><strong>${metric.value}</strong><span>${escapeHtml(metric.label)}</span></div>`).join("")}
   `;
 }
 
-function renderProjectList() {
+function renderProjectList(projects = roleScopedProjects(), role = currentRole()) {
   const list = document.getElementById("projectList");
-  list.innerHTML = appState.projects
+  list.innerHTML = projects
     .slice()
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
     .map((project) => `
@@ -1093,21 +1280,28 @@ function renderProjectList() {
         <strong>${escapeHtml(project.name)}</strong>
         <span class="meta">${escapeHtml(project.location)} · ${escapeHtml(project.scope)}</span>
         <span class="meta">Zuletzt: ${escapeHtml(project.updatedAt)} · ${projectOutputSummary(project)}</span>
+        <span class="meta">Antragsteller: ${escapeHtml(project.createdBy || "offen")} · Gutachter: ${escapeHtml(project.assignedTo || "offen")}</span>
         <div class="statusline">${stageBadge(project.stage)}</div>
         <div class="project-actions-inline">
-          <select class="project-stage-select" data-project-stage="${escapeHtml(project.id)}">
+          <select class="project-stage-select ${canEditProjectStages(role) ? "" : "hidden-panel"}" data-project-stage="${escapeHtml(project.id)}">
             ${WORKFLOW_STAGES.map((stage) => `<option value="${stage.id}" ${stage.id === project.stage ? "selected" : ""}>${escapeHtml(stage.label)}</option>`).join("")}
           </select>
           <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Oeffnen</button>
+          ${canAdvanceWorkflow(role) ? `<button class="app-btn ghost" data-advance-project="${escapeHtml(project.id)}">Weiter</button>` : ""}
         </div>
       </div>
-    `).join("");
+    `).join("") || `<div class="mini-row"><strong>Keine Einträge</strong><span class="meta">Fuer diese Rolle sind aktuell keine Projekte sichtbar.</span></div>`;
 }
 
-function renderKanbanBoard() {
+function renderKanbanBoard(projects = roleScopedProjects(), role = currentRole()) {
   const board = document.getElementById("kanbanBoard");
-  board.innerHTML = WORKFLOW_STAGES.map((stage) => {
-    const items = appState.projects.filter((project) => project.stage === stage.id);
+  const stages = role === "nutzer"
+    ? WORKFLOW_STAGES.filter((stage) => ["intake","analysis","review","released"].includes(stage.id))
+    : role === "gutachter"
+      ? WORKFLOW_STAGES.filter((stage) => !["sources"].includes(stage.id))
+      : WORKFLOW_STAGES;
+  board.innerHTML = stages.map((stage) => {
+    const items = projects.filter((project) => project.stage === stage.id);
     const cards = items.length
       ? items.map((project) => `
           <div class="kanban-card">
@@ -1116,7 +1310,7 @@ function renderKanbanBoard() {
             <div class="meta">${projectOutputSummary(project)}</div>
             <div class="actions">
               <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Oeffnen</button>
-              <button class="app-btn ghost" data-advance-project="${escapeHtml(project.id)}">Weiter</button>
+              ${canAdvanceWorkflow(role) ? `<button class="app-btn ghost" data-advance-project="${escapeHtml(project.id)}">Weiter</button>` : ""}
             </div>
           </div>
         `).join("")
@@ -1136,10 +1330,29 @@ function renderKanbanBoard() {
 
 function renderDashboard() {
   const user = appState.session.user || "Lokal";
-  document.getElementById("sessionUserChip").textContent = `Backend ${backendDescriptor()} · ${user}`;
-  renderDashboardMetrics();
-  renderProjectList();
-  renderKanbanBoard();
+  const role = currentRole();
+  const roleMeta = getRoleMeta(role);
+  const scopedProjects = roleScopedProjects(role, user);
+  document.getElementById("sessionUserChip").textContent = `${roleMeta.label} · ${user} · ${backendDescriptor()}`;
+  document.getElementById("dashboardKicker").textContent = roleMeta.dashboardKicker;
+  document.getElementById("dashboardTitle").textContent = roleMeta.dashboardTitle;
+  document.getElementById("dashboardCopy").textContent = roleMeta.dashboardCopy;
+  document.getElementById("metricsPanelTitle").textContent = roleMeta.metricsTitle;
+  document.getElementById("requestPanelTitle").textContent = roleMeta.requestTitle;
+  document.getElementById("projectPanelTitle").textContent = roleMeta.projectTitle;
+  document.getElementById("boardPanelTitle").textContent = roleMeta.boardTitle;
+  document.getElementById("boardPanelCopy").textContent = roleMeta.boardCopy;
+  document.getElementById("createProjectBtn").textContent = roleMeta.createButton;
+  document.getElementById("projectNameLabel").textContent = role === "nutzer" ? "Anfrage / Bauvorhaben" : "Projektname";
+  document.getElementById("projectLocationLabel").textContent = "Ort";
+  document.getElementById("projectScopeLabel").textContent = role === "nutzer" ? "Bereich / Flurstück" : "Bereich";
+  document.getElementById("projectNameInput").placeholder = role === "nutzer" ? "z. B. Neubau Mehrfamilienhaus" : "z. B. Weinsberg – Bauabschnitt Nord";
+  document.getElementById("projectScopeInput").placeholder = role === "nutzer" ? "z. B. Flst. 218/4, Bahnhofsnähe" : "Innenstadt / Bahntrasse";
+  const requestPanel = document.getElementById("requestPanel");
+  requestPanel.classList.toggle("hidden-panel", role === "gutachter");
+  renderDashboardMetrics(scopedProjects, role);
+  renderProjectList(scopedProjects, role);
+  renderKanbanBoard(scopedProjects, role);
 }
 
 async function setProjectStage(projectId, stageId) {
@@ -1149,6 +1362,7 @@ async function setProjectStage(projectId, stageId) {
     if (stageId === "released") {
       next.htmlReady = true;
       next.releasedAt = next.releasedAt || todayIso();
+      next.visibility = "public";
     }
     return next;
   });
@@ -1171,6 +1385,7 @@ async function advanceProjectStage(projectId) {
 }
 
 async function createProject(name, location, scope) {
+  const role = currentRole();
   const project = normalizeProject({
     id: makeProjectId(),
     name,
@@ -1179,6 +1394,9 @@ async function createProject(name, location, scope) {
     stage: "intake",
     owner: appState.session.user || "Lokal",
     updatedAt: todayIso(),
+    createdBy: appState.session.user || "Lokal",
+    assignedTo: role === "gutachter" ? (appState.session.user || "Lokal") : "",
+    visibility: role === "nutzer" ? "private" : "internal",
   });
   appState.projects.unshift(project);
   appState.currentProjectId = project.id;
@@ -1189,6 +1407,10 @@ async function createProject(name, location, scope) {
 
 function projectStageNarrative(project) {
   const stage = getStageMeta(project.stage);
+  const role = currentRole();
+  if (role === "nutzer") {
+    return {accent: stage.color, tone: "#d0d8e2", html: `<strong>Vorgang:</strong> ${escapeHtml(project.name)} befindet sich in der Phase ${escapeHtml(stage.label)}. Als Nutzer siehst du hier Status, Karte und spaeter das freigegebene Gutachten.`};
+  }
   if (project.stage === "master_georef") {
     return {accent: stage.color, tone: "#f3c188", html: `<strong>Projektmodus:</strong> Master-Georeferenzierung fuer ${escapeHtml(project.name)}. Richte jetzt ${escapeHtml(WORKFLOW_MASTER_IMAGE)} sauber aus; danach koennen die Folgebilder teilautomatisch nachgezogen werden.`};
   }
@@ -1210,7 +1432,20 @@ function projectStageNarrative(project) {
   return {accent: stage.color, tone: "#d0d8e2", html: `<strong>Projektmodus:</strong> Intake fuer ${escapeHtml(project.name)}. Fragestellung, Baufeld und Untersuchungsraum zuerst sauber definieren.`};
 }
 
+function syncWorkspaceActions(role = currentRole()) {
+  const advanceBtn = document.getElementById("advanceStageBtn");
+  const releaseBtn = document.getElementById("releaseProjectBtn");
+  const dashboardBtn = document.getElementById("openDashboardBtn");
+  const printBtn = document.getElementById("printProjectBtn");
+  if (dashboardBtn) dashboardBtn.textContent = role === "nutzer" ? "Meine Uebersicht" : "Projektuebersicht";
+  if (advanceBtn) advanceBtn.textContent = role === "admin" ? "Status weiter" : "Bearbeitung weiter";
+  if (advanceBtn) advanceBtn.style.display = canAdvanceWorkflow(role) ? "inline-flex" : "none";
+  if (releaseBtn) releaseBtn.style.display = canReleaseProjects(role) ? "inline-flex" : "none";
+  if (printBtn) printBtn.textContent = role === "nutzer" ? "Gutachten PDF" : "PDF Export";
+}
+
 function updateWorkspaceProjectContext(project) {
+  const role = currentRole();
   const stage = getStageMeta(project.stage);
   document.getElementById("workspaceProjectHeading").textContent = `Kampfmittel-Luftbildauswertung – ${project.name}`;
   document.getElementById("workspaceSubtitle").textContent = `${project.location} · ${project.scope} · ${projectOutputSummary(project)}`;
@@ -1218,12 +1453,13 @@ function updateWorkspaceProjectContext(project) {
   document.getElementById("workspaceStageMeta").textContent = stage.label;
   document.getElementById("badgeText").textContent = `${stage.label} · ${summary.total} Punkte · Flächenlogik`;
   document.title = `${project.name} | Blindgaenger-Gutachten Suite`;
+  syncWorkspaceActions(role);
   const narrative = projectStageNarrative(project);
   setWorkflowStatus(narrative.html, narrative.accent, narrative.tone);
-  if (project.stage === "master_georef") {
+  if (role !== "nutzer" && project.stage === "master_georef") {
     selectHistoricalImage(WORKFLOW_MASTER_IMAGE);
     showWorkflowLayerSet(WORKFLOW_MASTER_IMAGE);
-  } else if (project.stage === "series_georef") {
+  } else if (role !== "nutzer" && project.stage === "series_georef") {
     const targetName = workflowState.lastTarget || WORKFLOW_IMAGE_ORDER.find((name) => name !== WORKFLOW_MASTER_IMAGE);
     selectHistoricalImage(targetName);
     showWorkflowLayerSet(targetName);
@@ -1252,7 +1488,7 @@ async function logoutApp() {
   if (backendMode === "supabase" && supabaseClient) {
     try { await supabaseClient.auth.signOut(); } catch (error) { console.error(error); }
   }
-  appState.session = {authenticated:false, user:"", backend:"local"};
+  appState.session = {authenticated:false, user:"", backend:"local", role:selectedLoginRole || "admin"};
   appState.shellView = "login";
   backendMode = isSupabaseConfigured() ? "local" : "local";
   saveAppState();
@@ -1263,15 +1499,17 @@ async function loginApp(user, password = "") {
   if (isSupabaseConfigured()) {
     const { data, error } = await supabaseClient.auth.signInWithPassword({ email: user, password });
     if (error) throw error;
+    const role = resolveUserRoleFromSession(data.user);
     backendMode = "supabase";
     appState.session = {
       authenticated: true,
       user: data.user?.email || user,
       backend: "supabase",
+      role,
     };
     await hydrateProjectsFromBackend();
   } else {
-    appState.session = {authenticated:true, user, backend:"local"};
+    appState.session = {authenticated:true, user, backend:"local", role:selectedLoginRole};
     backendMode = "local";
   }
   appState.shellView = "dashboard";
@@ -1282,7 +1520,7 @@ async function loginApp(user, password = "") {
 
 async function signUpApp(user, password = "") {
   if (!isSupabaseConfigured()) throw new Error("Supabase ist noch nicht konfiguriert.");
-  const { error } = await supabaseClient.auth.signUp({ email: user, password });
+  const { error } = await supabaseClient.auth.signUp({ email: user, password, options: { data: { role: selectedLoginRole } } });
   if (error) throw error;
   const authNote = document.getElementById("authNote");
   if (authNote) authNote.textContent = "Account angelegt. Falls E-Mail-Bestaetigung aktiv ist, bestaetige die Mail und melde dich danach an.";
@@ -1292,6 +1530,7 @@ function syncAppShell() {
   const shell = document.getElementById("appShell");
   const loginView = document.getElementById("loginView");
   const dashboardView = document.getElementById("dashboardView");
+  setLoginRole(selectedLoginRole);
   if (!appState.session.authenticated) {
     shell.classList.remove("hidden");
     loginView.style.display = "block";
@@ -2696,6 +2935,12 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   }
 });
 
+document.querySelectorAll("[data-login-role]").forEach((button) => {
+  button.addEventListener("click", () => {
+    setLoginRole(button.getAttribute("data-login-role"));
+  });
+});
+
 document.getElementById("signupBtn").addEventListener("click", async () => {
   const user = document.getElementById("loginUser").value.trim();
   const pass = document.getElementById("loginPass").value.trim();
@@ -2709,12 +2954,15 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
 });
 
 document.getElementById("demoLoginBtn").addEventListener("click", async () => {
-  document.getElementById("loginUser").value = "demo.analyst";
+  const demoUser = selectedLoginRole === "admin"
+    ? "demo.admin"
+    : (selectedLoginRole === "gutachter" ? "demo.gutachter" : "demo.nutzer");
+  document.getElementById("loginUser").value = `${demoUser}@local.test`;
   document.getElementById("loginPass").value = "lokal";
   try {
-    await loginApp("demo.analyst", "lokal");
+    await loginApp(`${demoUser}@local.test`, "lokal");
   } catch (error) {
-    appState.session = {authenticated:true, user:"demo.analyst", backend:"local"};
+    appState.session = {authenticated:true, user:`${demoUser}@local.test`, backend:"local", role:selectedLoginRole};
     backendMode = "local";
     appState.shellView = "dashboard";
     saveAppState();
