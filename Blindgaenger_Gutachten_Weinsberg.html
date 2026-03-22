@@ -218,6 +218,14 @@
     .calibration-mode-btn:hover { transform:translateY(-1px); border-color:#5b7390; }
     .calibration-mode-btn.active { background:#1f6feb; border-color:#7fb1ff; color:#fff; box-shadow:0 0 0 1px rgba(127,177,255,.22); }
     .calibration-mode-note { margin-top:8px; color:#9fb2c4; font-size:.68rem; line-height:1.55; }
+    .historical-visibility-grid { display:grid; gap:8px; margin-top:10px; }
+    .historical-visibility-actions { display:flex; gap:8px; flex-wrap:wrap; }
+    .historical-visibility-btn { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; background:#fffdfa; color:var(--uxo-green-dark); border:1px solid #ded5c8; border-radius:12px; padding:10px 12px; font-size:.72rem; font-weight:700; cursor:pointer; transition:border-color .14s ease, box-shadow .14s ease, transform .12s ease, background .14s ease; }
+    .historical-visibility-btn:hover { transform:translateY(-1px); box-shadow:0 10px 18px rgba(38,59,54,.08); border-color:#cabaa5; }
+    .historical-visibility-btn.active { background:#eef4f1; border-color:rgba(53,104,89,.38); box-shadow:0 0 0 1px rgba(53,104,89,.1) inset; }
+    .historical-visibility-btn .state { display:inline-flex; align-items:center; justify-content:center; min-width:68px; padding:4px 8px; border-radius:999px; font-size:.64rem; text-transform:uppercase; letter-spacing:.08em; background:#f2ebe2; color:#8f7d6a; }
+    .historical-visibility-btn.active .state { background:rgba(53,104,89,.14); color:var(--uxo-green); }
+    .historical-visibility-note { margin-top:8px; font-size:.66rem; color:var(--uxo-muted); line-height:1.55; }
     .project-form { display:grid; gap:10px; margin-top:12px; }
     .project-form-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
     .stack { display:grid; gap:16px; }
@@ -2156,6 +2164,14 @@ function renderSidebarPanels() {
       <div class="audit-note">
         <strong>Ebenen vorhanden:</strong> 24.12.1944, 19.03.1945 und 09.04.1945 sind als transparente Preview-Overlays im Layer-Control oben rechts eingebunden. Diese dienen der visuellen Luftbildkontrolle im Kartenraum; für amtlich belastbare Lageaussagen bleibt die vollständige TIFF-Georeferenzierung und Überlagerungsprüfung in QGIS der saubere Endschritt.
       </div>
+      <div class="historical-visibility-grid" id="historicalVisibilityControls"></div>
+      <div class="historical-visibility-actions">
+        <button id="showAllHistoricalBtn" class="app-btn ghost" type="button" style="min-height:34px; padding:8px 12px; font-size:.68rem;">Alle Bildlayer zeigen</button>
+        <button id="hideAllHistoricalBtn" class="app-btn ghost" type="button" style="min-height:34px; padding:8px 12px; font-size:.68rem;">Alle Bildlayer ausblenden</button>
+      </div>
+      <div class="historical-visibility-note">
+        Wenn ein Layer oben rechts einmal verschwindet, kannst du ihn hier jederzeit wieder sauber zuschalten. Diese Buttons sind mit dem Kartenstatus synchronisiert.
+      </div>
       <div style="margin-top:10px; font-size:.68rem; color:#9aa2aa; line-height:1.5;">
         <strong style="color:#ddd;">Kalibrierhilfe:</strong> Halbautomatische Nachführung der <strong>4 Overlay-Ecken</strong> direkt in der Karte. Geeignet für schnelle Preview-Korrekturen, nicht als Ersatz für eine vollständige QGIS-Georeferenzierung.
       </div>
@@ -2189,13 +2205,13 @@ function renderSidebarPanels() {
         <button id="scaleUpBtn" style="grid-column:span 2; background:#8e44ad;color:#fff;border:none;border-radius:4px;padding:6px 8px;font-size:.72rem;font-weight:700;cursor:pointer;">Größer</button>
       </div>
       <div class="calibration-mode-grid">
-        <button id="directDragBtn" class="calibration-mode-btn">Auf Karte ziehen</button>
-        <button id="directScaleBtn" class="calibration-mode-btn">Auf Karte skalieren</button>
+        <button id="directDragBtn" class="calibration-mode-btn">Direkt anfassen</button>
+        <button id="directScaleBtn" class="calibration-mode-btn">Skalier-Handles</button>
         <button id="directDistortBtn" class="calibration-mode-btn">4 Ecken direkt</button>
         <button id="directOffBtn" class="calibration-mode-btn">Direktmodus aus</button>
       </div>
       <div class="calibration-mode-note">
-        Das ausgewählte historische Bild kann direkt auf der Karte angefasst werden. Ziehen verschiebt das komplette Overlay, Skalieren ändert die Größe, 4 Ecken erlaubt das direkte Nachziehen der Ecken im Kartenraum.
+        Im Direktmodus das Bild einfach anklicken und auf der Karte ziehen. Über die Toolbar direkt am Overlay kannst du auf Skalierung oder 4 Ecken umschalten; die Auswahl synchronisiert sich automatisch mit dem Export.
       </div>
       <div style="margin-top:8px; font-size:.64rem; color:#7f8c8d; line-height:1.45;">
         Auto-Näherung nutzt hinterlegte Bildlandmarken fuer Burg Weibertreu, Marktplatz und Bahnhof und rechnet daraus eine <strong>formstabile Helmert-Startlage</strong> (Verschiebung, Rotation, einheitlicher Maßstab). Gut fuer einen ersten Sprung, nicht fuer die Endabnahme.
@@ -2242,6 +2258,14 @@ function renderSidebarPanels() {
   document.getElementById("exportCalibrationBtn").addEventListener("click", exportHistoricalCalibration);
   document.getElementById("exportProjectCalibrationBtn").addEventListener("click", exportProjectCalibrationPackage);
   document.getElementById("autoApproxBtn").addEventListener("click", applyHistoricalAutoApprox);
+  document.getElementById("showAllHistoricalBtn").addEventListener("click", () => {
+    HISTORICAL_IMAGE_LAYERS.forEach((item) => setHistoricalLayerVisibility(item.name, true, {rebuildOnShow:true}));
+    setWorkflowStatus("<strong>Historische Bildlayer aktiv:</strong> Alle Preview-Ebenen wurden wieder sichtbar geschaltet. Du kannst jetzt einzelne Bilder weiter vergleichen oder kalibrieren.", "#1f6feb", "#b8d7ff");
+  });
+  document.getElementById("hideAllHistoricalBtn").addEventListener("click", () => {
+    HISTORICAL_IMAGE_LAYERS.forEach((item) => setHistoricalLayerVisibility(item.name, false));
+    setWorkflowStatus("<strong>Historische Bildlayer ausgeblendet:</strong> Alle Preview-Ebenen sind vorübergehend aus. Über die Buttons im Panel kannst du sie jederzeit wieder sichtbar machen.", "#6b7280", "#d1d5db");
+  });
   document.getElementById("calibrationSelect").addEventListener("change", () => {
     updateCalibrationOutput();
     if (directEditState.mode) {
@@ -2938,6 +2962,7 @@ const topo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",{max
 const overlayMaps = {};
 const layerControl = L.control.layers({"Satellit":sat,"OpenStreetMap":osm,"Topographie":topo}, overlayMaps, {position:"topright"}).addTo(map);
 const historicalLayers = {};
+const historicalVisibilityState = Object.fromEntries(HISTORICAL_IMAGE_LAYERS.map((item) => [item.name, false]));
 const calibrationLayer = L.layerGroup().addTo(map);
 let currentHistoricalOpacity = 0.6;
 L.control.scale({imperial:false}).addTo(map);
@@ -2983,6 +3008,65 @@ function setDirectModeButtonState(mode = null) {
   });
 }
 
+function getHistoricalLayerNameByLayer(layer) {
+  return Object.entries(historicalLayers).find(([, candidate]) => candidate === layer)?.[0] || null;
+}
+
+function syncHistoricalVisibilityControls() {
+  document.querySelectorAll("[data-historical-toggle]").forEach((button) => {
+    const name = button.getAttribute("data-historical-toggle");
+    const visible = !!historicalVisibilityState[name];
+    button.classList.toggle("active", visible);
+    button.setAttribute("aria-pressed", visible ? "true" : "false");
+    const stateBadge = button.querySelector(".state");
+    if (stateBadge) stateBadge.textContent = visible ? "sichtbar" : "aus";
+  });
+}
+
+function renderHistoricalVisibilityControls() {
+  const host = document.getElementById("historicalVisibilityControls");
+  if (!host) return;
+  host.innerHTML = HISTORICAL_IMAGE_LAYERS.map((item) => `
+    <button type="button" class="historical-visibility-btn" data-historical-toggle="${escapeHtml(item.name)}" aria-pressed="false">
+      <span>${escapeHtml(item.name)}</span>
+      <span class="state">aus</span>
+    </button>
+  `).join("");
+  host.querySelectorAll("[data-historical-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const name = button.getAttribute("data-historical-toggle");
+      setHistoricalLayerVisibility(name, !historicalVisibilityState[name], {rebuildOnShow:true, focus:false});
+    });
+  });
+  syncHistoricalVisibilityControls();
+}
+
+function setHistoricalLayerVisibility(name, visible, options = {}) {
+  const {rebuildOnShow = false, focus = false, fitBounds = false, statusMessage = ""} = options;
+  let layer = historicalLayers[name];
+  if (!layer) return false;
+
+  if (visible) {
+    if (rebuildOnShow) {
+      replaceHistoricalLayer(name);
+      layer = historicalLayers[name];
+    }
+    if (!map.hasLayer(layer)) layer.addTo(map);
+    if (focus) selectHistoricalImage(name);
+    if (fitBounds) map.fitBounds(L.latLngBounds(HISTORICAL_IMAGE_STATE[name].corners), {padding:[50,50]});
+  } else {
+    if (calibrationState.name === name || directEditState.name === name) {
+      stopHistoricalCalibration();
+    }
+    if (map.hasLayer(layer)) map.removeLayer(layer);
+  }
+
+  historicalVisibilityState[name] = !!visible;
+  syncHistoricalVisibilityControls();
+  if (statusMessage) setWorkflowStatus(statusMessage, visible ? "#1f6feb" : "#6b7280", visible ? "#b8d7ff" : "#d1d5db");
+  return true;
+}
+
 function syncHistoricalStateFromLayer(name) {
   const layer = historicalLayers[name];
   const state = HISTORICAL_IMAGE_STATE[name];
@@ -2992,12 +3076,37 @@ function syncHistoricalStateFromLayer(name) {
   updateCalibrationOutput();
 }
 
+function setHistoricalToolbarVisibility(layer, visible) {
+  if (!supportsHistoricalDirectEditing(layer)) return;
+  layer.options.suppressToolbar = !visible;
+  if (!layer.editing || !layer.editing.enabled || !layer.editing.enabled()) return;
+  if (visible) {
+    if (typeof layer.editing._refresh === "function" && layer.isSelected && layer.isSelected()) {
+      layer.editing._refresh();
+    } else if (typeof layer.editing._addToolbar === "function" && layer.isSelected && layer.isSelected()) {
+      layer.editing._addToolbar();
+    }
+    return;
+  }
+  if (layer.editing.toolbar && typeof layer.editing._removeToolbar === "function") {
+    layer.editing._removeToolbar();
+  }
+}
+
 function bindHistoricalLayerEditing(name, layer) {
   if (!supportsHistoricalDirectEditing(layer)) return;
   const sync = () => syncHistoricalStateFromLayer(name);
   layer.on("update", sync);
   layer.on("dragend", sync);
   layer.on("edit", sync);
+  layer.on("select", () => {
+    selectHistoricalImage(name, {restartMode:false});
+    directEditState.name = name;
+    syncHistoricalVisibilityControls();
+    if (directEditState.mode) {
+      setWorkflowStatus(`<strong>Direktbearbeitung aktiv:</strong> ${escapeHtml(name)} ist ausgewählt. Ziehe das Bild direkt auf der Karte oder nutze die Toolbar am Overlay für Skalierung und Eckenmodus.`, "#1f6feb", "#b8d7ff");
+    }
+  });
 }
 
 function applyDirectEditingToLayer(name = directEditState.name, mode = directEditState.mode) {
@@ -3005,6 +3114,7 @@ function applyDirectEditingToLayer(name = directEditState.name, mode = directEdi
   if (!supportsHistoricalDirectEditing(layer)) return false;
   if (!map.hasLayer(layer)) layer.addTo(map);
   layer.editing.enable();
+  setHistoricalToolbarVisibility(layer, true);
   if (typeof layer.select === "function") layer.select();
   if (mode && typeof layer.editing.setMode === "function") layer.editing.setMode(mode);
   directEditState.name = name;
@@ -3020,13 +3130,14 @@ function startHistoricalDirectEditing(mode = "drag") {
     setWorkflowStatus("<strong>Direktbearbeitung nicht verfügbar:</strong> Dieses Overlay unterstützt in der aktuellen Laufzeit keine direkte Kartenbearbeitung. Nutze in diesem Fall weiterhin die klassischen Corner-Handles.", "#c0392b", "#f0b3b3");
     return;
   }
-  const modeLabel = mode === "scale" ? "Skalieren" : mode === "distort" ? "4 Ecken" : "Ziehen";
-  setWorkflowStatus(`<strong>Direktmodus aktiv:</strong> ${escapeHtml(name)} kann jetzt direkt auf der Karte per ${modeLabel} bearbeitet werden. Die Corner-Ausgabe synchronisiert sich automatisch mit.`, "#1f6feb", "#b8d7ff");
+  const modeLabel = mode === "scale" ? "Skalier-Handles" : mode === "distort" ? "4 Ecken" : "Ziehen";
+  setWorkflowStatus(`<strong>Direktmodus aktiv:</strong> ${escapeHtml(name)} ist ausgewählt. Du kannst das Bild jetzt direkt anfassen. Standard ist ${modeLabel}; über die kleine Toolbar am Overlay kannst du zwischen Ziehen, Skalieren und 4 Ecken wechseln.`, "#1f6feb", "#b8d7ff");
 }
 
 function stopHistoricalDirectEditing() {
   Object.entries(historicalLayers).forEach(([name, layer]) => {
     if (!supportsHistoricalDirectEditing(layer)) return;
+    setHistoricalToolbarVisibility(layer, false);
     if (typeof layer.deselect === "function") layer.deselect();
     if (typeof layer.editing.setMode === "function") layer.editing.setMode("lock");
     syncHistoricalStateFromLayer(name);
@@ -3050,6 +3161,8 @@ function replaceHistoricalLayer(name) {
   historicalLayers[name] = layer;
   layerControl.addOverlay(layer, name);
   if (wasVisible) layer.addTo(map);
+  historicalVisibilityState[name] = wasVisible;
+  syncHistoricalVisibilityControls();
   if (directEditState.name === name) applyDirectEditingToLayer(name, directEditState.mode);
 }
 
@@ -3059,6 +3172,7 @@ if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
     historicalLayers[item.name] = layer;
     layerControl.addOverlay(layer, item.name);
   });
+  renderHistoricalVisibilityControls();
 
   const opacitySlider = document.getElementById("opacitySlider");
   if (opacitySlider) {
@@ -3074,16 +3188,34 @@ if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
   }
 }
 
+map.on("overlayadd", (event) => {
+  const name = getHistoricalLayerNameByLayer(event.layer);
+  if (!name) return;
+  historicalVisibilityState[name] = true;
+  syncHistoricalVisibilityControls();
+});
+
+map.on("overlayremove", (event) => {
+  const name = getHistoricalLayerNameByLayer(event.layer);
+  if (!name) return;
+  if (calibrationState.name === name || directEditState.name === name) {
+    stopHistoricalCalibration();
+  }
+  historicalVisibilityState[name] = false;
+  syncHistoricalVisibilityControls();
+});
+
 function getSelectedHistoricalName() {
   const select = document.getElementById("calibrationSelect");
   return select ? select.value : HISTORICAL_IMAGE_LAYERS[0].name;
 }
 
-function selectHistoricalImage(name) {
+function selectHistoricalImage(name, options = {}) {
+  const {restartMode = true} = options;
   const select = document.getElementById("calibrationSelect");
   if (select) select.value = name;
   updateCalibrationOutput();
-  if (directEditState.mode) startHistoricalDirectEditing(directEditState.mode);
+  if (restartMode && directEditState.mode) startHistoricalDirectEditing(directEditState.mode);
 }
 
 function getCalibrationLabel(index) {
@@ -3109,7 +3241,9 @@ function showWorkflowLayerSet(activeName) {
     const shouldShow = name === WORKFLOW_MASTER_IMAGE || name === activeName;
     if (shouldShow && !map.hasLayer(layer)) layer.addTo(map);
     if (!shouldShow && map.hasLayer(layer)) map.removeLayer(layer);
+    historicalVisibilityState[name] = shouldShow;
   });
+  syncHistoricalVisibilityControls();
 }
 
 function averageCornerShiftMeters(aCorners, bCorners) {
