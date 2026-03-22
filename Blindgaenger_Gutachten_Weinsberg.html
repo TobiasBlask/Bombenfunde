@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/vendor.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/leaflet.distortableimage.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-config.js"></script>
   <script src="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/vendor.js"></script>
   <script src="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/leaflet.distortableimage.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/IvanSanchez/Leaflet.ImageOverlay.Rotated/Leaflet.ImageOverlay.Rotated.js"></script>
@@ -96,17 +98,196 @@
     .map-leg.collapsed { background:transparent; border:none; padding:0; box-shadow:none; }
     .map-leg.collapsed .map-leg-shell { display:none; }
     .map-leg.collapsed .map-leg-reopen { display:inline-block; }
+
+    /* APP SHELL */
+    .app-shell { position:fixed; inset:0; z-index:5000; background:
+      radial-gradient(circle at top left, rgba(31,111,235,.16), transparent 32%),
+      radial-gradient(circle at top right, rgba(180,83,9,.18), transparent 28%),
+      linear-gradient(180deg, rgba(7,10,14,.98), rgba(10,12,16,.98)); display:flex; align-items:stretch; justify-content:center; }
+    .app-shell.hidden { display:none; }
+    .app-view { width:100%; height:100%; overflow:auto; }
+    .auth-wrap { min-height:100%; display:grid; place-items:center; padding:28px; }
+    .auth-card { width:min(460px, 100%); background:rgba(16,20,26,.94); border:1px solid #223041; border-radius:16px; box-shadow:0 30px 80px rgba(0,0,0,.45); padding:28px; }
+    .auth-kicker, .dash-kicker { font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#6fb2ff; font-weight:700; }
+    .auth-title, .dash-title { font-size:2rem; line-height:1.1; color:#fff; margin-top:10px; }
+    .auth-copy, .dash-copy { font-size:.9rem; color:#8ca0b6; line-height:1.65; margin-top:10px; }
+    .auth-grid, .dash-grid { display:grid; gap:14px; margin-top:18px; }
+    .auth-grid label, .project-form label { display:flex; flex-direction:column; gap:6px; font-size:.74rem; color:#8ca0b6; }
+    .auth-grid input, .project-form input, .project-stage-select { width:100%; background:#11161d; color:#e5edf5; border:1px solid #2a3645; border-radius:8px; padding:11px 12px; font-size:.88rem; }
+    .app-btn { border:none; border-radius:8px; padding:10px 14px; font-size:.82rem; font-weight:700; cursor:pointer; transition:transform .12s ease, opacity .12s ease; }
+    .app-btn:hover { opacity:.92; transform:translateY(-1px); }
+    .app-btn.primary { background:#1f6feb; color:#fff; }
+    .app-btn.secondary { background:#2f3d4f; color:#fff; }
+    .app-btn.warning { background:#b45309; color:#fff; }
+    .app-btn.success { background:#1f8f53; color:#fff; }
+    .app-btn.danger { background:#b42318; color:#fff; }
+    .app-btn.ghost { background:transparent; border:1px solid #334155; color:#d8e0e8; }
+    .auth-actions, .project-actions-inline, .workspace-header-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .auth-note { margin-top:14px; font-size:.72rem; color:#708090; line-height:1.55; }
+    .dash-wrap { min-height:100%; padding:22px 26px 28px; }
+    .dash-top { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .dash-user { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .user-chip, .mini-chip { display:inline-flex; align-items:center; gap:7px; padding:6px 10px; border-radius:999px; background:#11161d; border:1px solid #2c3c50; color:#dce6ef; font-size:.74rem; }
+    .dash-layout { display:grid; grid-template-columns:minmax(300px, 360px) 1fr; gap:16px; }
+    .panel { background:rgba(14,18,24,.94); border:1px solid #1f2a37; border-radius:14px; box-shadow:0 18px 50px rgba(0,0,0,.25); }
+    .panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px 18px 0; }
+    .panel-head h2 { font-size:.84rem; letter-spacing:.08em; text-transform:uppercase; color:#8ca0b6; }
+    .panel-body { padding:16px 18px 18px; }
+    .metric-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
+    .metric-card { background:#11161d; border:1px solid #1f2a37; border-radius:12px; padding:14px 14px 12px; }
+    .metric-card strong { display:block; font-size:1.4rem; color:#fff; }
+    .metric-card span { display:block; margin-top:4px; color:#7d8a99; font-size:.72rem; line-height:1.4; }
+    .project-list { display:flex; flex-direction:column; gap:10px; }
+    .project-row { background:#11161d; border:1px solid #1f2a37; border-radius:12px; padding:12px; }
+    .project-row strong { display:block; color:#fff; font-size:.88rem; }
+    .project-row .meta { display:block; margin-top:4px; color:#7d8a99; font-size:.72rem; line-height:1.5; }
+    .project-row .statusline { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .kanban { display:grid; grid-template-columns:repeat(7, minmax(210px,1fr)); gap:12px; overflow:auto; padding-bottom:4px; }
+    .kanban-col { background:#0f141b; border:1px solid #1f2a37; border-radius:12px; min-height:360px; padding:12px; }
+    .kanban-col h3 { font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:#dce6ef; margin-bottom:8px; }
+    .kanban-col .col-sub { font-size:.68rem; color:#708090; margin-bottom:12px; }
+    .kanban-stack { display:flex; flex-direction:column; gap:10px; }
+    .kanban-card { background:#141b23; border:1px solid #233043; border-radius:12px; padding:12px; }
+    .kanban-card strong { display:block; color:#fff; font-size:.82rem; line-height:1.4; }
+    .kanban-card .meta { margin-top:5px; font-size:.7rem; color:#7d8a99; line-height:1.45; }
+    .kanban-card .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .project-form { display:grid; gap:10px; margin-top:12px; }
+    .project-form-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
+    .workflow-badge { display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; background:#11161d; border:1px solid #32465b; color:#dce6ef; font-size:.68rem; }
+    .workflow-badge::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--badge-color, #6fb2ff); }
+    .header-action-btn { background:#11161d; border:1px solid #253244; color:#dce6ef; border-radius:999px; padding:7px 11px; font-size:.72rem; font-weight:700; cursor:pointer; }
+    .header-action-btn:hover { background:#17202b; }
+    .workspace-header-left { display:flex; align-items:flex-start; gap:12px; }
+    .workspace-title-block { min-width:0; }
+    .workspace-topline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    @media (max-width: 1380px) {
+      .dash-layout { grid-template-columns:1fr; }
+      .kanban { grid-template-columns:repeat(3, minmax(240px,1fr)); }
+    }
+    @media (max-width: 900px) {
+      .kanban { grid-template-columns:repeat(2, minmax(240px,1fr)); }
+      .project-form-grid, .metric-grid { grid-template-columns:1fr; }
+      .dash-top { flex-direction:column; }
+      .workspace-header-left { flex-direction:column; gap:8px; }
+    }
+    @media (max-width: 640px) {
+      .kanban { grid-template-columns:1fr; }
+      .auth-card, .dash-wrap { padding-left:16px; padding-right:16px; }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>Kampfmittel-Luftbildauswertung – Weinsberg (Heilbronn-Kreis)
-      <span class="badge" id="badgeText">Audit v4 · Punktprüfung läuft</span></h1>
-    <div class="sub">Formales Template beibehalten · Punktinventar gegen TIFF-Serie geprüft · 4-stufige Flächenlogik ergänzt · 3-GCP-Affinkorrektur auf reale Weinsberg-Lage angewandt</div>
+<div id="appShell" class="app-shell">
+  <div id="loginView" class="app-view">
+    <div class="auth-wrap">
+      <div class="auth-card">
+        <div class="auth-kicker">Blindgaenger-Gutachten Suite</div>
+        <div class="auth-title">Workflow statt Einzeldatei</div>
+        <div class="auth-copy">Anmeldung, Projekte, Georeferenzierung, Analyse, Review und Freigabe laufen in einer Oberfläche. Das aktuelle Gutachten bleibt der Projekt-Arbeitsbereich.</div>
+        <div class="auth-grid">
+          <label>
+            E-Mail / Login
+            <input id="loginUser" type="email" placeholder="z. B. tobias@example.com" autocomplete="username"/>
+          </label>
+          <label>
+            Passwort
+            <input id="loginPass" type="password" placeholder="lokale Demo-Anmeldung" autocomplete="current-password"/>
+          </label>
+        </div>
+        <div class="auth-actions">
+          <button id="loginBtn" class="app-btn primary">Anmelden</button>
+          <button id="signupBtn" class="app-btn secondary">Account anlegen</button>
+          <button id="demoLoginBtn" class="app-btn ghost">Demo-Login</button>
+        </div>
+        <div id="authNote" class="auth-note">Supabase-ready mit lokalem Fallback. Ohne Konfiguration laeuft die App lokal weiter; mit `supabase-config.js` werden Anmeldung, Projekte und Workflow-Status ueber Supabase synchronisiert.</div>
+      </div>
+    </div>
   </div>
-  <div class="meta"><strong>Stand:</strong> 20.03.2026 &nbsp;|&nbsp; <strong>Geolage:</strong> 3-GCP affine Korrektur &nbsp;|&nbsp; <strong>Status:</strong> Audit der Punktdaten<br/>
+
+  <div id="dashboardView" class="app-view" style="display:none;">
+    <div class="dash-wrap">
+      <div class="dash-top">
+        <div>
+          <div class="dash-kicker">Projektportfolio</div>
+          <div class="dash-title">Gutachten durch den Workflow ziehen</div>
+          <div class="dash-copy">Jedes Projekt ist ein Gutachten. Die zentrale Oberflaeche steuert Intake, Georeferenzierung, Analyse, Review und Freigabe. Erst danach geht das Projekt als interaktives HTML und als PDF in die Abgabe.</div>
+        </div>
+        <div class="dash-user">
+          <span id="sessionUserChip" class="user-chip">Nicht angemeldet</span>
+          <button id="logoutBtn" class="app-btn ghost">Abmelden</button>
+        </div>
+      </div>
+
+      <div class="dash-layout">
+        <div style="display:grid; gap:16px;">
+          <section class="panel">
+            <div class="panel-head"><h2>Portfolio</h2></div>
+            <div class="panel-body">
+              <div id="dashboardMetrics" class="metric-grid"></div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><h2>Neues Gutachten</h2></div>
+            <div class="panel-body">
+              <div class="project-form">
+                <label>
+                  Projektname
+                  <input id="projectNameInput" type="text" placeholder="z. B. Weinsberg – Bauabschnitt Nord"/>
+                </label>
+                <div class="project-form-grid">
+                  <label>
+                    Ort
+                    <input id="projectLocationInput" type="text" placeholder="Weinsberg"/>
+                  </label>
+                  <label>
+                    Bereich
+                    <input id="projectScopeInput" type="text" placeholder="Innenstadt / Bahntrasse"/>
+                  </label>
+                </div>
+                <button id="createProjectBtn" class="app-btn primary">Projekt anlegen</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><h2>Projekte</h2></div>
+            <div id="projectList" class="panel-body project-list"></div>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Workflow-Board</h2>
+              <div class="dash-copy" style="margin-top:6px;font-size:.78rem;">Kanban fuer den gesamten Gutachtenprozess von der Quellenaufnahme bis zur Freigabe.</div>
+            </div>
+          </div>
+          <div id="kanbanBoard" class="panel-body kanban"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="workspace-header-left">
+    <div class="workspace-header-actions">
+      <button id="openDashboardBtn" class="header-action-btn">Projektuebersicht</button>
+      <button id="advanceStageBtn" class="header-action-btn">Workflow +1</button>
+      <button id="releaseProjectBtn" class="header-action-btn">Freigeben</button>
+      <button id="printProjectBtn" class="header-action-btn">PDF</button>
+    </div>
+    <div class="workspace-title-block">
+      <div class="workspace-topline">
+        <h1><span id="workspaceProjectHeading">Kampfmittel-Luftbildauswertung – Weinsberg (Heilbronn-Kreis)</span>
+          <span class="badge" id="badgeText">Audit v4 · Punktprüfung läuft</span></h1>
+      </div>
+      <div class="sub" id="workspaceSubtitle">Formales Template beibehalten · Punktinventar gegen TIFF-Serie geprüft · 4-stufige Flächenlogik ergänzt · 3-GCP-Affinkorrektur auf reale Weinsberg-Lage angewandt</div>
+    </div>
+  </div>
+  <div class="meta"><strong>Projekt:</strong> <span id="workspaceProjectMeta">Weinsberg – Initialprojekt</span> &nbsp;|&nbsp; <strong>Workflow:</strong> <span id="workspaceStageMeta">Analyse</span><br/>
   <span id="metaText">Alle 15 TIFF-Dateien werden als Punktquelle, Baseline oder Kontextbild ausgewiesen.</span></div>
 </header>
 
@@ -637,6 +818,497 @@ document.getElementById("statPlausible").textContent = summary.plausible;
 document.getElementById("statWeak").textContent = summary.weak;
 document.getElementById("statOpenFiles").textContent = summary.openFiles;
 document.getElementById("auditSummaryText").innerHTML = `${summary.confirmed} Punkte sind <strong>bestätigt</strong>, ${summary.plausible} <strong>plausibel</strong> und ${summary.weak} <strong>nicht hinreichend belegt</strong>. ${evidenceCounts.primary} Punkte liegen im <strong>Primärquellen-Layer</strong>, ${evidenceCounts.comparison} im <strong>Vergleichs-/Persistenz-Layer</strong>.`;
+
+const APP_STORAGE_KEY = "blindgaenger_suite_v1";
+const SUPABASE_PUBLIC_CONFIG = window.SUPABASE_PUBLIC_CONFIG || {};
+const SUPABASE_PROJECTS_TABLE = SUPABASE_PUBLIC_CONFIG.projectsTable || "gutachten_projects";
+const WORKFLOW_STAGES = [
+  {id:"intake", label:"Intake", color:"#64748b", hint:"Projekt anlegen, Baufrage und Gebiet definieren."},
+  {id:"sources", label:"Quellen", color:"#2563eb", hint:"TIFF-Serie, Archivquellen und Kontextmaterial erfassen."},
+  {id:"master_georef", label:"Master-Georef", color:"#b45309", hint:"Bestes Referenzbild manuell georeferenzieren."},
+  {id:"series_georef", label:"Folge-Georef", color:"#c2410c", hint:"Weitere Bilder teilautomatisch daran ausrichten."},
+  {id:"analysis", label:"Analyse", color:"#7c3aed", hint:"Zeitvergleich, Befundpruefung, Verdachtszonen und Textteil."},
+  {id:"review", label:"Review", color:"#0891b2", hint:"Qualitaetssicherung, Nachweislogik und Freigabereife."},
+  {id:"released", label:"Freigegeben", color:"#1f8f53", hint:"Interaktives HTML und PDF sind abgabefaehig."},
+];
+const WORKFLOW_STAGE_INDEX = Object.fromEntries(WORKFLOW_STAGES.map((stage, index) => [stage.id, index]));
+
+function todayIso() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function makeProjectId() {
+  return `gut-${Math.random().toString(36).slice(2, 8)}-${Date.now().toString(36).slice(-4)}`;
+}
+
+function getStageMeta(stageId) {
+  return WORKFLOW_STAGES.find((stage) => stage.id === stageId) || WORKFLOW_STAGES[0];
+}
+
+function createDefaultProjects() {
+  return [
+    {
+      id: "gut-weinsberg-001",
+      name: "Weinsberg – Innenstadt / Bahntrasse",
+      location: "Weinsberg",
+      scope: "TIFF-Serie 1943–1947 · Audit v4",
+      stage: "analysis",
+      owner: "Lokal",
+      updatedAt: todayIso(),
+      htmlReady: false,
+      pdfReady: false,
+      releasedAt: "",
+      note: "Aktives Gutachten auf Basis der vorhandenen HTML-Auswertung.",
+    }
+  ];
+}
+
+function normalizeProject(project) {
+  const base = {
+    id: makeProjectId(),
+    name: "Unbenanntes Gutachten",
+    location: "Unbekannt",
+    scope: "Noch kein Bereich definiert",
+    stage: "intake",
+    owner: "Lokal",
+    updatedAt: todayIso(),
+    htmlReady: false,
+    pdfReady: false,
+    releasedAt: "",
+    note: "",
+  };
+  const merged = {...base, ...project};
+  if (!WORKFLOW_STAGE_INDEX.hasOwnProperty(merged.stage)) merged.stage = "intake";
+  return merged;
+}
+
+function getDefaultAppState() {
+  const projects = createDefaultProjects().map(normalizeProject);
+  return {
+    session: {
+      authenticated: false,
+      user: "",
+      backend: "local",
+    },
+    shellView: "login",
+    currentProjectId: projects[0]?.id || null,
+    projects,
+  };
+}
+
+function loadAppState() {
+  try {
+    const raw = localStorage.getItem(APP_STORAGE_KEY);
+    if (!raw) return getDefaultAppState();
+    const parsed = JSON.parse(raw);
+    return {
+      session: {
+        authenticated: Boolean(parsed?.session?.authenticated),
+        user: parsed?.session?.user || "",
+        backend: parsed?.session?.backend || "local",
+      },
+      shellView: parsed?.shellView || (parsed?.session?.authenticated ? "dashboard" : "login"),
+      currentProjectId: parsed?.currentProjectId || parsed?.projects?.[0]?.id || null,
+      projects: Array.isArray(parsed?.projects) && parsed.projects.length
+        ? parsed.projects.map(normalizeProject)
+        : createDefaultProjects().map(normalizeProject),
+    };
+  } catch (error) {
+    return getDefaultAppState();
+  }
+}
+
+let appState = loadAppState();
+let supabaseClient = null;
+let backendMode = "local";
+
+function saveAppState() {
+  localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(appState));
+}
+
+function isSupabaseConfigured() {
+  return Boolean(window.supabase && SUPABASE_PUBLIC_CONFIG.url && SUPABASE_PUBLIC_CONFIG.anonKey);
+}
+
+function backendDescriptor() {
+  if (backendMode === "supabase") return "Supabase";
+  if (isSupabaseConfigured()) return "Supabase bereit (Fallback lokal)";
+  return "Lokal";
+}
+
+function updateBackendUi() {
+  const authNote = document.getElementById("authNote");
+  if (authNote) {
+    authNote.textContent = backendMode === "supabase"
+      ? "Supabase aktiv. Anmeldung, Projekte und Workflow-Status werden gegen das Backend synchronisiert."
+      : "Supabase-ready mit lokalem Fallback. Ohne gueltige Konfiguration laeuft die App lokal weiter; mit supabase-config.js werden Anmeldung, Projekte und Workflow-Status ueber Supabase synchronisiert.";
+  }
+}
+
+function projectToSupabaseRow(project) {
+  return {
+    project_id: project.id,
+    name: project.name,
+    location: project.location,
+    scope: project.scope,
+    workflow_stage: project.stage,
+    html_ready: project.htmlReady,
+    pdf_ready: project.pdfReady,
+    released_at: project.releasedAt || null,
+    note: project.note || "",
+    payload: {
+      owner: project.owner || appState.session.user || "Supabase",
+      updatedAt: project.updatedAt || todayIso(),
+      scope: project.scope,
+    },
+  };
+}
+
+function projectFromSupabaseRow(row) {
+  return normalizeProject({
+    id: row.project_id,
+    name: row.name,
+    location: row.location,
+    scope: row.scope,
+    stage: row.workflow_stage,
+    owner: row.payload?.owner || row.owner_id || "Supabase",
+    updatedAt: (row.updated_at || row.payload?.updatedAt || todayIso()).slice(0, 10),
+    htmlReady: Boolean(row.html_ready),
+    pdfReady: Boolean(row.pdf_ready),
+    releasedAt: row.released_at || "",
+    note: row.note || "",
+  });
+}
+
+async function upsertProjectToBackend(project) {
+  if (backendMode !== "supabase" || !supabaseClient) return;
+  const { error } = await supabaseClient
+    .from(SUPABASE_PROJECTS_TABLE)
+    .upsert(projectToSupabaseRow(project), { onConflict: "project_id" });
+  if (error) throw error;
+}
+
+async function fetchProjectsFromBackend() {
+  if (backendMode !== "supabase" || !supabaseClient) return appState.projects;
+  const { data, error } = await supabaseClient
+    .from(SUPABASE_PROJECTS_TABLE)
+    .select("*")
+    .order("updated_at", { ascending: false });
+  if (error) throw error;
+  return (data || []).map(projectFromSupabaseRow);
+}
+
+async function hydrateProjectsFromBackend() {
+  if (backendMode !== "supabase" || !supabaseClient) return;
+  const remoteProjects = await fetchProjectsFromBackend();
+  appState.projects = remoteProjects.length ? remoteProjects : [];
+  if (!appState.projects.length) {
+    appState.currentProjectId = null;
+  } else if (!appState.projects.some((project) => project.id === appState.currentProjectId)) {
+    appState.currentProjectId = appState.projects[0].id;
+  }
+  saveAppState();
+}
+
+async function initBackend() {
+  if (!isSupabaseConfigured()) {
+    backendMode = "local";
+    appState.session.backend = "local";
+    updateBackendUi();
+    return;
+  }
+  try {
+    supabaseClient = window.supabase.createClient(SUPABASE_PUBLIC_CONFIG.url, SUPABASE_PUBLIC_CONFIG.anonKey, {
+      auth: { persistSession: true, autoRefreshToken: true },
+    });
+    const { data, error } = await supabaseClient.auth.getSession();
+    if (error) throw error;
+    if (data?.session?.user) {
+      backendMode = "supabase";
+      appState.session = {
+        authenticated: true,
+        user: data.session.user.email || data.session.user.id,
+        backend: "supabase",
+      };
+      await hydrateProjectsFromBackend();
+      appState.shellView = appState.shellView === "workspace" ? "workspace" : "dashboard";
+    } else {
+      backendMode = "local";
+      if (appState.session.backend === "supabase") {
+        appState.session = { authenticated:false, user:"", backend:"local" };
+        appState.shellView = "login";
+      } else {
+        appState.session.backend = "local";
+      }
+    }
+  } catch (error) {
+    backendMode = "local";
+    appState.session.backend = "local";
+  }
+  updateBackendUi();
+  saveAppState();
+}
+
+function currentProject() {
+  return appState.projects.find((project) => project.id === appState.currentProjectId) || appState.projects[0] || null;
+}
+
+function stageBadge(stageId) {
+  const stage = getStageMeta(stageId);
+  return `<span class="workflow-badge" style="--badge-color:${stage.color}">${escapeHtml(stage.label)}</span>`;
+}
+
+function projectOutputSummary(project) {
+  const bits = [];
+  bits.push(project.htmlReady ? "HTML bereit" : "HTML offen");
+  bits.push(project.pdfReady ? "PDF bereit" : "PDF offen");
+  if (project.releasedAt) bits.push(`Freigegeben ${project.releasedAt}`);
+  return bits.join(" · ");
+}
+
+function projectStageHint(stageId) {
+  return getStageMeta(stageId).hint;
+}
+
+function renderDashboardMetrics() {
+  const released = appState.projects.filter((project) => project.stage === "released").length;
+  const htmlReady = appState.projects.filter((project) => project.htmlReady).length;
+  const pdfReady = appState.projects.filter((project) => project.pdfReady).length;
+  const inWork = appState.projects.filter((project) => project.stage !== "released").length;
+  document.getElementById("dashboardMetrics").innerHTML = `
+    <div class="metric-card"><strong>${appState.projects.length}</strong><span>Gutachten im Portfolio</span></div>
+    <div class="metric-card"><strong>${inWork}</strong><span>Aktiv im Workflow</span></div>
+    <div class="metric-card"><strong>${released}</strong><span>Freigegeben</span></div>
+    <div class="metric-card"><strong>${htmlReady}/${pdfReady}</strong><span>HTML / PDF bereit</span></div>
+  `;
+}
+
+function renderProjectList() {
+  const list = document.getElementById("projectList");
+  list.innerHTML = appState.projects
+    .slice()
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+    .map((project) => `
+      <div class="project-row">
+        <strong>${escapeHtml(project.name)}</strong>
+        <span class="meta">${escapeHtml(project.location)} · ${escapeHtml(project.scope)}</span>
+        <span class="meta">Zuletzt: ${escapeHtml(project.updatedAt)} · ${projectOutputSummary(project)}</span>
+        <div class="statusline">${stageBadge(project.stage)}</div>
+        <div class="project-actions-inline">
+          <select class="project-stage-select" data-project-stage="${escapeHtml(project.id)}">
+            ${WORKFLOW_STAGES.map((stage) => `<option value="${stage.id}" ${stage.id === project.stage ? "selected" : ""}>${escapeHtml(stage.label)}</option>`).join("")}
+          </select>
+          <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Oeffnen</button>
+        </div>
+      </div>
+    `).join("");
+}
+
+function renderKanbanBoard() {
+  const board = document.getElementById("kanbanBoard");
+  board.innerHTML = WORKFLOW_STAGES.map((stage) => {
+    const items = appState.projects.filter((project) => project.stage === stage.id);
+    const cards = items.length
+      ? items.map((project) => `
+          <div class="kanban-card">
+            <strong>${escapeHtml(project.name)}</strong>
+            <div class="meta">${escapeHtml(project.location)} · ${escapeHtml(project.scope)}</div>
+            <div class="meta">${projectOutputSummary(project)}</div>
+            <div class="actions">
+              <button class="app-btn secondary" data-open-project="${escapeHtml(project.id)}">Oeffnen</button>
+              <button class="app-btn ghost" data-advance-project="${escapeHtml(project.id)}">Weiter</button>
+            </div>
+          </div>
+        `).join("")
+      : `<div class="kanban-card" style="border-style:dashed; opacity:.72;">
+          <strong>Leer</strong>
+          <div class="meta">${escapeHtml(stage.hint)}</div>
+        </div>`;
+    return `
+      <div class="kanban-col">
+        <h3>${escapeHtml(stage.label)}</h3>
+        <div class="col-sub">${escapeHtml(stage.hint)}</div>
+        <div class="kanban-stack">${cards}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderDashboard() {
+  const user = appState.session.user || "Lokal";
+  document.getElementById("sessionUserChip").textContent = `Backend ${backendDescriptor()} · ${user}`;
+  renderDashboardMetrics();
+  renderProjectList();
+  renderKanbanBoard();
+}
+
+async function setProjectStage(projectId, stageId) {
+  appState.projects = appState.projects.map((project) => {
+    if (project.id !== projectId) return project;
+    const next = {...project, stage: stageId, updatedAt: todayIso()};
+    if (stageId === "released") {
+      next.htmlReady = true;
+      next.releasedAt = next.releasedAt || todayIso();
+    }
+    return next;
+  });
+  saveAppState();
+  const updatedProject = appState.projects.find((project) => project.id === projectId);
+  if (updatedProject) {
+    try { await upsertProjectToBackend(updatedProject); } catch (error) { console.error(error); }
+  }
+  renderDashboard();
+  const project = currentProject();
+  if (project && project.id === projectId) updateWorkspaceProjectContext(project);
+}
+
+async function advanceProjectStage(projectId) {
+  const project = appState.projects.find((item) => item.id === projectId);
+  if (!project) return;
+  const currentIndex = WORKFLOW_STAGE_INDEX[project.stage] ?? 0;
+  const nextStage = WORKFLOW_STAGES[Math.min(currentIndex + 1, WORKFLOW_STAGES.length - 1)].id;
+  await setProjectStage(projectId, nextStage);
+}
+
+async function createProject(name, location, scope) {
+  const project = normalizeProject({
+    id: makeProjectId(),
+    name,
+    location,
+    scope,
+    stage: "intake",
+    owner: appState.session.user || "Lokal",
+    updatedAt: todayIso(),
+  });
+  appState.projects.unshift(project);
+  appState.currentProjectId = project.id;
+  saveAppState();
+  try { await upsertProjectToBackend(project); } catch (error) { console.error(error); }
+  renderDashboard();
+}
+
+function projectStageNarrative(project) {
+  const stage = getStageMeta(project.stage);
+  if (project.stage === "master_georef") {
+    return {accent: stage.color, tone: "#f3c188", html: `<strong>Projektmodus:</strong> Master-Georeferenzierung fuer ${escapeHtml(project.name)}. Richte jetzt ${escapeHtml(WORKFLOW_MASTER_IMAGE)} sauber aus; danach koennen die Folgebilder teilautomatisch nachgezogen werden.`};
+  }
+  if (project.stage === "series_georef") {
+    return {accent: stage.color, tone: "#f0b286", html: `<strong>Projektmodus:</strong> Serien-Georeferenzierung fuer ${escapeHtml(project.name)}. Uebertrage die Master-Korrektur auf die weiteren Bilder und ziehe diese nur noch fein nach.`};
+  }
+  if (project.stage === "analysis") {
+    return {accent: stage.color, tone: "#d9c1ff", html: `<strong>Projektmodus:</strong> Analysephase fuer ${escapeHtml(project.name)}. Zeitvergleich, Punktpruefung, Flaechenlogik und Textteil sollten jetzt konsistent ausgearbeitet werden.`};
+  }
+  if (project.stage === "review") {
+    return {accent: stage.color, tone: "#aee8f5", html: `<strong>Projektmodus:</strong> Reviewphase fuer ${escapeHtml(project.name)}. Freigabelogik, Quellenabdeckung und Darstellungsfehler jetzt hart pruefen.`};
+  }
+  if (project.stage === "released") {
+    return {accent: stage.color, tone: "#bfe8cc", html: `<strong>Projektmodus:</strong> ${escapeHtml(project.name)} ist freigegeben. Interaktives HTML ist markiert; PDF kann ueber den Header-Druckpfad erzeugt werden.`};
+  }
+  if (project.stage === "sources") {
+    return {accent: stage.color, tone: "#b8d7ff", html: `<strong>Projektmodus:</strong> Quellenaufbau fuer ${escapeHtml(project.name)}. TIFF-Serie, Akten, Textquellen und Objektdefinitionen zuerst sauber zusammenziehen.`};
+  }
+  return {accent: stage.color, tone: "#d0d8e2", html: `<strong>Projektmodus:</strong> Intake fuer ${escapeHtml(project.name)}. Fragestellung, Baufeld und Untersuchungsraum zuerst sauber definieren.`};
+}
+
+function updateWorkspaceProjectContext(project) {
+  const stage = getStageMeta(project.stage);
+  document.getElementById("workspaceProjectHeading").textContent = `Kampfmittel-Luftbildauswertung – ${project.name}`;
+  document.getElementById("workspaceSubtitle").textContent = `${project.location} · ${project.scope} · ${projectOutputSummary(project)}`;
+  document.getElementById("workspaceProjectMeta").textContent = `${project.location} · ${project.scope}`;
+  document.getElementById("workspaceStageMeta").textContent = stage.label;
+  document.getElementById("badgeText").textContent = `${stage.label} · ${summary.total} Punkte · Flächenlogik`;
+  document.title = `${project.name} | Blindgaenger-Gutachten Suite`;
+  const narrative = projectStageNarrative(project);
+  setWorkflowStatus(narrative.html, narrative.accent, narrative.tone);
+  if (project.stage === "master_georef") {
+    selectHistoricalImage(WORKFLOW_MASTER_IMAGE);
+    showWorkflowLayerSet(WORKFLOW_MASTER_IMAGE);
+  } else if (project.stage === "series_georef") {
+    const targetName = workflowState.lastTarget || WORKFLOW_IMAGE_ORDER.find((name) => name !== WORKFLOW_MASTER_IMAGE);
+    selectHistoricalImage(targetName);
+    showWorkflowLayerSet(targetName);
+  }
+}
+
+function openProject(projectId) {
+  appState.currentProjectId = projectId;
+  appState.shellView = "workspace";
+  saveAppState();
+  const project = currentProject();
+  if (project) updateWorkspaceProjectContext(project);
+  document.getElementById("appShell").classList.add("hidden");
+  setTimeout(() => {
+    if (typeof map?.invalidateSize === "function") map.invalidateSize();
+  }, 120);
+}
+
+function showDashboard() {
+  appState.shellView = appState.session.authenticated ? "dashboard" : "login";
+  saveAppState();
+  syncAppShell();
+}
+
+async function logoutApp() {
+  if (backendMode === "supabase" && supabaseClient) {
+    try { await supabaseClient.auth.signOut(); } catch (error) { console.error(error); }
+  }
+  appState.session = {authenticated:false, user:"", backend:"local"};
+  appState.shellView = "login";
+  backendMode = isSupabaseConfigured() ? "local" : "local";
+  saveAppState();
+  syncAppShell();
+}
+
+async function loginApp(user, password = "") {
+  if (isSupabaseConfigured()) {
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email: user, password });
+    if (error) throw error;
+    backendMode = "supabase";
+    appState.session = {
+      authenticated: true,
+      user: data.user?.email || user,
+      backend: "supabase",
+    };
+    await hydrateProjectsFromBackend();
+  } else {
+    appState.session = {authenticated:true, user, backend:"local"};
+    backendMode = "local";
+  }
+  appState.shellView = "dashboard";
+  saveAppState();
+  updateBackendUi();
+  syncAppShell();
+}
+
+async function signUpApp(user, password = "") {
+  if (!isSupabaseConfigured()) throw new Error("Supabase ist noch nicht konfiguriert.");
+  const { error } = await supabaseClient.auth.signUp({ email: user, password });
+  if (error) throw error;
+  const authNote = document.getElementById("authNote");
+  if (authNote) authNote.textContent = "Account angelegt. Falls E-Mail-Bestaetigung aktiv ist, bestaetige die Mail und melde dich danach an.";
+}
+
+function syncAppShell() {
+  const shell = document.getElementById("appShell");
+  const loginView = document.getElementById("loginView");
+  const dashboardView = document.getElementById("dashboardView");
+  if (!appState.session.authenticated) {
+    shell.classList.remove("hidden");
+    loginView.style.display = "block";
+    dashboardView.style.display = "none";
+    return;
+  }
+  if (appState.shellView === "workspace") {
+    shell.classList.add("hidden");
+    const project = currentProject();
+    if (project) updateWorkspaceProjectContext(project);
+    return;
+  }
+  shell.classList.remove("hidden");
+  loginView.style.display = "none";
+  dashboardView.style.display = "block";
+  renderDashboard();
+}
 
 function renderSidebarPanels() {
   const contextFiles = fileAudit
@@ -2011,6 +2683,110 @@ function toggleArea(areaKey, btn) {
   else activeAreas.delete(areaKey);
   syncAreaVisibility(areaKey);
 }
+
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const user = document.getElementById("loginUser").value.trim();
+  const pass = document.getElementById("loginPass").value.trim();
+  if (!user || !pass) return;
+  try {
+    await loginApp(user, pass);
+  } catch (error) {
+    const authNote = document.getElementById("authNote");
+    if (authNote) authNote.textContent = `Anmeldung fehlgeschlagen: ${error.message || "Supabase-Login nicht moeglich."}`;
+  }
+});
+
+document.getElementById("signupBtn").addEventListener("click", async () => {
+  const user = document.getElementById("loginUser").value.trim();
+  const pass = document.getElementById("loginPass").value.trim();
+  if (!user || !pass) return;
+  try {
+    await signUpApp(user, pass);
+  } catch (error) {
+    const authNote = document.getElementById("authNote");
+    if (authNote) authNote.textContent = `Registrierung fehlgeschlagen: ${error.message || "Supabase-Signup nicht moeglich."}`;
+  }
+});
+
+document.getElementById("demoLoginBtn").addEventListener("click", async () => {
+  document.getElementById("loginUser").value = "demo.analyst";
+  document.getElementById("loginPass").value = "lokal";
+  try {
+    await loginApp("demo.analyst", "lokal");
+  } catch (error) {
+    appState.session = {authenticated:true, user:"demo.analyst", backend:"local"};
+    backendMode = "local";
+    appState.shellView = "dashboard";
+    saveAppState();
+    syncAppShell();
+  }
+});
+
+document.getElementById("logoutBtn").addEventListener("click", async () => { await logoutApp(); });
+
+document.getElementById("createProjectBtn").addEventListener("click", async () => {
+  const nameInput = document.getElementById("projectNameInput");
+  const locationInput = document.getElementById("projectLocationInput");
+  const scopeInput = document.getElementById("projectScopeInput");
+  const name = nameInput.value.trim();
+  const location = locationInput.value.trim() || "Unbekannt";
+  const scope = scopeInput.value.trim() || "Noch kein Bereich definiert";
+  if (!name) return;
+  await createProject(name, location, scope);
+  nameInput.value = "";
+  locationInput.value = "";
+  scopeInput.value = "";
+});
+
+document.getElementById("projectList").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-open-project]");
+  if (!button) return;
+  openProject(button.getAttribute("data-open-project"));
+});
+
+document.getElementById("projectList").addEventListener("change", (event) => {
+  const select = event.target.closest("[data-project-stage]");
+  if (!select) return;
+  setProjectStage(select.getAttribute("data-project-stage"), select.value);
+});
+
+document.getElementById("kanbanBoard").addEventListener("click", async (event) => {
+  const openBtn = event.target.closest("[data-open-project]");
+  if (openBtn) {
+    openProject(openBtn.getAttribute("data-open-project"));
+    return;
+  }
+  const advanceBtn = event.target.closest("[data-advance-project]");
+  if (advanceBtn) await advanceProjectStage(advanceBtn.getAttribute("data-advance-project"));
+});
+
+document.getElementById("openDashboardBtn").addEventListener("click", showDashboard);
+
+document.getElementById("advanceStageBtn").addEventListener("click", async () => {
+  const project = currentProject();
+  if (!project) return;
+  await advanceProjectStage(project.id);
+});
+
+document.getElementById("releaseProjectBtn").addEventListener("click", async () => {
+  const project = currentProject();
+  if (!project) return;
+  await setProjectStage(project.id, "released");
+});
+
+document.getElementById("printProjectBtn").addEventListener("click", async () => {
+  const project = currentProject();
+  if (project) {
+    appState.projects = appState.projects.map((item) => item.id === project.id ? {...item, pdfReady:true, updatedAt:todayIso()} : item);
+    saveAppState();
+    try { await upsertProjectToBackend(currentProject()); } catch (error) { console.error(error); }
+    renderDashboard();
+    updateWorkspaceProjectContext(currentProject());
+  }
+  window.print();
+});
+
+initBackend().finally(syncAppShell);
 </script>
 </body>
 </html>
