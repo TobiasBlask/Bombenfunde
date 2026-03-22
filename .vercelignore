@@ -1,0 +1,8 @@
+.git
+.gitignore
+.DS_Store
+*.tif
+*.tiff
+*_preview_grid.png
+*_preview_annot_helper.png
+supabase-schema.sql
