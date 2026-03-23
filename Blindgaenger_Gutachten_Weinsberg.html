@@ -2302,7 +2302,7 @@ function renderSidebarPanels() {
       </div>
       <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="0.6" style="width:100%; margin-bottom:4px; accent-color:#3498db; cursor:pointer;" title="Deckkraft der historischen Luftbilder anpassen" />
       <div class="audit-note">
-        <strong>Ebenen vorhanden:</strong> 24.12.1944, 19.03.1945 und 09.04.1945 sind als transparente Preview-Overlays im Layer-Control oben rechts eingebunden. Diese dienen der visuellen Luftbildkontrolle im Kartenraum; für amtlich belastbare Lageaussagen bleibt die vollständige TIFF-Georeferenzierung und Überlagerungsprüfung in QGIS der saubere Endschritt.
+        <strong>Ebenen vorhanden:</strong> 24.12.1944, 19.03.1945 und 09.04.1945 sind als transparente Preview-Overlays im Layer-Control oben rechts eingebunden. Die Startlage wird pro Bild über die geostabilen Anker <strong>Burg Weibertreu</strong> und <strong>Bahnhof Weinsberg</strong> vorjustiert; für amtlich belastbare Lageaussagen bleibt die vollständige TIFF-Georeferenzierung und Überlagerungsprüfung in QGIS der saubere Endschritt.
       </div>
       <div class="historical-visibility-grid" id="historicalVisibilityControls"></div>
       <div class="historical-visibility-actions">
@@ -2354,7 +2354,7 @@ function renderSidebarPanels() {
         Im Direktmodus das Bild einfach anklicken und auf der Karte ziehen. Über die Toolbar direkt am Overlay kannst du auf Skalierung oder 4 Ecken umschalten; die Auswahl synchronisiert sich automatisch mit dem Export.
       </div>
       <div style="margin-top:8px; font-size:.64rem; color:#7f8c8d; line-height:1.45;">
-        Auto-Näherung nutzt hinterlegte Bildlandmarken fuer Burg Weibertreu, Marktplatz und Bahnhof und rechnet daraus eine <strong>formstabile Helmert-Startlage</strong> (Verschiebung, Rotation, einheitlicher Maßstab). Gut fuer einen ersten Sprung, nicht fuer die Endabnahme.
+        Die Grundstellung der Overlays wird bereits aus <strong>Burg Weibertreu</strong> und <strong>Bahnhof Weinsberg</strong> abgeleitet. Auto-Näherung nutzt zusätzlich hinterlegte Bildlandmarken und rechnet daraus eine weiter verbesserte <strong>formstabile Helmert-Startlage</strong>. Gut fuer einen ersten Sprung, nicht fuer die Endabnahme.
       </div>
       <textarea id="calibrationOutput" readonly style="width:100%; min-height:92px; margin-top:8px; background:#11161d; color:#cbd5e1; border:1px solid #2a2a2e; border-radius:4px; padding:8px; font-size:.64rem; line-height:1.45; resize:vertical;"></textarea>
     </div>
@@ -2838,6 +2838,7 @@ const HISTORICAL_IMAGE_FITS = {
     ],
   },
 };
+const HISTORICAL_STABLE_ANCHOR_IDS = ["GCP02", "GCP03"];
 const WORKFLOW_MASTER_IMAGE = DEFAULT_WORKFLOW_MASTER_IMAGE;
 const WORKFLOW_IMAGE_ORDER = [
   WORKFLOW_MASTER_IMAGE,
@@ -3074,6 +3075,7 @@ const calibrationLayer = L.layerGroup().addTo(map);
 let currentHistoricalOpacity = 0.6;
 let suppressHistoricalOverlayEvents = false;
 L.control.scale({imperial:false}).addTo(map);
+applyStableAnchorPresets();
 
 function runWithoutHistoricalOverlayEvents(callback) {
   suppressHistoricalOverlayEvents = true;
@@ -3391,6 +3393,61 @@ function getCalibrationLabel(index) {
 
 function getGeoTargetById(id) {
   return GEOREF_TARGETS.find((target) => target.id === id);
+}
+
+function computeHistoricalTwoPointPreset(name, anchorIds = HISTORICAL_STABLE_ANCHOR_IDS) {
+  const fit = HISTORICAL_IMAGE_FITS[name];
+  if (!fit || !Array.isArray(fit.anchors)) return null;
+  const anchors = anchorIds.map((anchorId) => {
+    const anchor = fit.anchors.find((entry) => entry.targetId === anchorId);
+    const target = getGeoTargetById(anchorId);
+    if (!anchor || !target) return null;
+    return {
+      x: anchor.x,
+      y: anchor.y,
+      mapPoint: map.project(L.latLng(target.lat, target.lon), map.getZoom()),
+    };
+  }).filter(Boolean);
+  if (anchors.length < 2) return null;
+
+  const [a, b] = anchors;
+  const srcDx = b.x - a.x;
+  const srcDy = b.y - a.y;
+  const dstDx = b.mapPoint.x - a.mapPoint.x;
+  const dstDy = b.mapPoint.y - a.mapPoint.y;
+  const srcLen = Math.hypot(srcDx, srcDy);
+  const dstLen = Math.hypot(dstDx, dstDy);
+  if (!Number.isFinite(srcLen) || !Number.isFinite(dstLen) || srcLen < 1e-6 || dstLen < 1e-6) return null;
+
+  const scale = dstLen / srcLen;
+  const angle = Math.atan2(dstDy, dstDx) - Math.atan2(srcDy, srcDx);
+  const cos = Math.cos(angle);
+  const sin = Math.sin(angle);
+
+  const transformPoint = (x, y) => {
+    const relX = x - a.x;
+    const relY = y - a.y;
+    const px = a.mapPoint.x + scale * (relX * cos - relY * sin);
+    const py = a.mapPoint.y + scale * (relX * sin + relY * cos);
+    const ll = map.unproject(L.point(px, py), map.getZoom());
+    return [ll.lat, ll.lng];
+  };
+
+  return [
+    transformPoint(0, 0),
+    transformPoint(fit.width, 0),
+    transformPoint(0, fit.height),
+    transformPoint(fit.width, fit.height),
+  ];
+}
+
+function applyStableAnchorPresets() {
+  Object.keys(HISTORICAL_IMAGE_STATE).forEach((name) => {
+    const preset = computeHistoricalTwoPointPreset(name);
+    if (!preset) return;
+    HISTORICAL_IMAGE_STATE[name].originalCorners = preset.map((corner) => [...corner]);
+    HISTORICAL_IMAGE_STATE[name].corners = preset.map((corner) => [...corner]);
+  });
 }
 
 function setWorkflowStatus(html, accent = "#f39c12", textColor = "#d5be8b") {
