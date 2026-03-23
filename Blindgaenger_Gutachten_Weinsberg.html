@@ -2845,7 +2845,7 @@ const WORKFLOW_IMAGE_ORDER = [
   "Historisch 1944-12-24",
 ];
 const calibrationState = {name:null, handles:[], guide:null};
-const directEditState = {name:null, mode:null};
+const directEditState = {name:null, mode:null, layer:null};
 const workflowState = {lastTarget:null};
 
 const AREA_LAYER_CONFIG = {
@@ -3072,23 +3072,19 @@ const historicalLayers = {};
 const historicalVisibilityState = Object.fromEntries(HISTORICAL_IMAGE_LAYERS.map((item) => [item.name, false]));
 const calibrationLayer = L.layerGroup().addTo(map);
 let currentHistoricalOpacity = 0.6;
+let suppressHistoricalOverlayEvents = false;
 L.control.scale({imperial:false}).addTo(map);
 
-function createHistoricalLayer(item) {
-  if (L.distortableImageOverlay) {
-    const corners = completeImageCorners(item.corners).map((corner) => L.latLng(corner[0], corner[1]));
-    const layer = L.distortableImageOverlay(encodeURI(item.file), {
-      corners,
-      editable: true,
-      interactive: true,
-      selected: false,
-      suppressToolbar: true,
-      mode: "lock",
-    });
-    if (typeof layer.setOpacity === "function") layer.setOpacity(currentHistoricalOpacity);
-    bindHistoricalLayerEditing(item.name, layer);
-    return layer;
+function runWithoutHistoricalOverlayEvents(callback) {
+  suppressHistoricalOverlayEvents = true;
+  try {
+    return callback();
+  } finally {
+    suppressHistoricalOverlayEvents = false;
   }
+}
+
+function createDisplayHistoricalLayer(item) {
   return L.imageOverlay.rotated(
     encodeURI(item.file),
     item.corners[0],
@@ -3096,6 +3092,22 @@ function createHistoricalLayer(item) {
     item.corners[2],
     {opacity: currentHistoricalOpacity, interactive:false}
   );
+}
+
+function createEditableHistoricalLayer(item) {
+  if (!L.distortableImageOverlay) return null;
+  const corners = completeImageCorners(item.corners).map((corner) => L.latLng(corner[0], corner[1]));
+  const layer = L.distortableImageOverlay(encodeURI(item.file), {
+    corners,
+    editable: true,
+    interactive: true,
+    selected: false,
+    suppressToolbar: true,
+    mode: "lock",
+  });
+  if (typeof layer.setOpacity === "function") layer.setOpacity(currentHistoricalOpacity);
+  bindHistoricalLayerEditing(item.name, layer);
+  return layer;
 }
 
 function supportsHistoricalDirectEditing(layer) {
@@ -3117,7 +3129,13 @@ function setDirectModeButtonState(mode = null) {
 }
 
 function getHistoricalLayerNameByLayer(layer) {
+  if (directEditState.layer && layer === directEditState.layer) return directEditState.name;
   return Object.entries(historicalLayers).find(([, candidate]) => candidate === layer)?.[0] || null;
+}
+
+function getVisibleHistoricalLayer(name) {
+  if (directEditState.name === name && directEditState.layer) return directEditState.layer;
+  return historicalLayers[name] || null;
 }
 
 function syncHistoricalVisibilityControls() {
@@ -3151,23 +3169,27 @@ function renderHistoricalVisibilityControls() {
 
 function setHistoricalLayerVisibility(name, visible, options = {}) {
   const {rebuildOnShow = false, focus = false, fitBounds = false, statusMessage = ""} = options;
-  let layer = historicalLayers[name];
-  if (!layer) return false;
+  let layer = getVisibleHistoricalLayer(name);
+  if (!layer && !historicalLayers[name]) return false;
 
   if (visible) {
     if (rebuildOnShow) {
       replaceHistoricalLayer(name);
-      layer = historicalLayers[name];
+      layer = getVisibleHistoricalLayer(name);
     }
-    if (!map.hasLayer(layer)) layer.addTo(map);
+    if (!layer) layer = getVisibleHistoricalLayer(name);
+    if (!map.hasLayer(layer)) runWithoutHistoricalOverlayEvents(() => layer.addTo(map));
     if (typeof layer.bringToFront === "function") layer.bringToFront();
     if (focus) selectHistoricalImage(name);
     if (fitBounds) map.fitBounds(L.latLngBounds(HISTORICAL_IMAGE_STATE[name].corners), {padding:[50,50]});
   } else {
-    if (calibrationState.name === name || directEditState.name === name) {
+    if (directEditState.name === name) {
+      stopHistoricalDirectEditing({preserveVisible:false});
+      layer = historicalLayers[name];
+    } else if (calibrationState.name === name) {
       stopHistoricalCalibration();
     }
-    if (map.hasLayer(layer)) map.removeLayer(layer);
+    if (map.hasLayer(layer)) runWithoutHistoricalOverlayEvents(() => map.removeLayer(layer));
   }
 
   historicalVisibilityState[name] = !!visible;
@@ -3176,8 +3198,8 @@ function setHistoricalLayerVisibility(name, visible, options = {}) {
   return true;
 }
 
-function syncHistoricalStateFromLayer(name) {
-  const layer = historicalLayers[name];
+function syncHistoricalStateFromLayer(name, layerOverride = null) {
+  const layer = layerOverride || (directEditState.name === name && directEditState.layer ? directEditState.layer : historicalLayers[name]);
   const state = HISTORICAL_IMAGE_STATE[name];
   if (!supportsHistoricalDirectEditing(layer) || !state) return;
   state.corners = layer.getCorners().map((corner) => [corner.lat, corner.lng]);
@@ -3219,15 +3241,29 @@ function bindHistoricalLayerEditing(name, layer) {
 }
 
 function applyDirectEditingToLayer(name = directEditState.name, mode = directEditState.mode) {
-  const layer = historicalLayers[name];
-  if (!supportsHistoricalDirectEditing(layer)) return false;
-  setHistoricalLayerVisibility(name, true);
+  let layer = directEditState.name === name ? directEditState.layer : null;
+  if (!layer) {
+    const state = HISTORICAL_IMAGE_STATE[name];
+    layer = createEditableHistoricalLayer(state);
+    if (!supportsHistoricalDirectEditing(layer)) return false;
+    if (historicalLayers[name] && map.hasLayer(historicalLayers[name])) {
+      runWithoutHistoricalOverlayEvents(() => map.removeLayer(historicalLayers[name]));
+    }
+    directEditState.name = name;
+    directEditState.mode = mode;
+    directEditState.layer = layer;
+  } else {
+    directEditState.name = name;
+    directEditState.mode = mode;
+  }
+  layer = directEditState.layer;
+  if (!map.hasLayer(layer)) runWithoutHistoricalOverlayEvents(() => layer.addTo(map));
+  historicalVisibilityState[name] = true;
+  syncHistoricalVisibilityControls();
   layer.editing.enable();
   setHistoricalToolbarVisibility(layer, true);
   if (typeof layer.select === "function") layer.select();
   if (mode && typeof layer.editing.setMode === "function") layer.editing.setMode(mode);
-  directEditState.name = name;
-  directEditState.mode = mode;
   setDirectModeButtonState(mode);
   return true;
 }
@@ -3243,41 +3279,58 @@ function startHistoricalDirectEditing(mode = "drag") {
   setWorkflowStatus(`<strong>Direktmodus aktiv:</strong> ${escapeHtml(name)} ist ausgewählt. Du kannst das Bild jetzt direkt anfassen. Standard ist ${modeLabel}; über die kleine Toolbar am Overlay kannst du zwischen Ziehen, Skalieren und 4 Ecken wechseln.`, "#1f6feb", "#b8d7ff");
 }
 
-function stopHistoricalDirectEditing() {
-  Object.entries(historicalLayers).forEach(([name, layer]) => {
-    if (!supportsHistoricalDirectEditing(layer)) return;
+function stopHistoricalDirectEditing(options = {}) {
+  const {preserveVisible = true} = options;
+  const {name, layer} = directEditState;
+  if (name && layer && supportsHistoricalDirectEditing(layer)) {
     setHistoricalToolbarVisibility(layer, false);
     if (typeof layer.deselect === "function") layer.deselect();
     if (typeof layer.editing.setMode === "function") layer.editing.setMode("lock");
-    syncHistoricalStateFromLayer(name);
+    syncHistoricalStateFromLayer(name, layer);
     if (typeof layer.editing.disable === "function") layer.editing.disable();
-  });
+    if (map.hasLayer(layer)) runWithoutHistoricalOverlayEvents(() => map.removeLayer(layer));
+    directEditState.layer = null;
+    replaceHistoricalLayer(name);
+    if (preserveVisible && historicalLayers[name] && !map.hasLayer(historicalLayers[name])) {
+      runWithoutHistoricalOverlayEvents(() => historicalLayers[name].addTo(map));
+      historicalVisibilityState[name] = true;
+    } else if (!preserveVisible && historicalLayers[name] && map.hasLayer(historicalLayers[name])) {
+      runWithoutHistoricalOverlayEvents(() => map.removeLayer(historicalLayers[name]));
+      historicalVisibilityState[name] = false;
+    }
+  }
   directEditState.name = null;
   directEditState.mode = null;
   setDirectModeButtonState(null);
+  syncHistoricalVisibilityControls();
 }
 
 function replaceHistoricalLayer(name) {
   if (!L.distortableImageOverlay && !(L.imageOverlay && typeof L.imageOverlay.rotated === "function")) return;
   const state = HISTORICAL_IMAGE_STATE[name];
   const oldLayer = historicalLayers[name];
-  const wasVisible = oldLayer ? map.hasLayer(oldLayer) : false;
+  const wasVisible = !!historicalVisibilityState[name];
   if (oldLayer) {
-    if (wasVisible) map.removeLayer(oldLayer);
+    if (map.hasLayer(oldLayer)) runWithoutHistoricalOverlayEvents(() => map.removeLayer(oldLayer));
     if (typeof layerControl.removeLayer === "function") layerControl.removeLayer(oldLayer);
   }
-  const layer = createHistoricalLayer(state);
+  const layer = createDisplayHistoricalLayer(state);
   historicalLayers[name] = layer;
   layerControl.addOverlay(layer, name);
-  if (wasVisible) layer.addTo(map);
+  if (wasVisible && directEditState.name !== name) runWithoutHistoricalOverlayEvents(() => layer.addTo(map));
   historicalVisibilityState[name] = wasVisible;
   syncHistoricalVisibilityControls();
-  if (directEditState.name === name) applyDirectEditingToLayer(name, directEditState.mode);
+  if (directEditState.name === name && directEditState.layer) {
+    const mode = directEditState.mode;
+    if (map.hasLayer(directEditState.layer)) map.removeLayer(directEditState.layer);
+    directEditState.layer = null;
+    applyDirectEditingToLayer(name, mode);
+  }
 }
 
 if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
   Object.values(HISTORICAL_IMAGE_STATE).forEach((item) => {
-    const layer = createHistoricalLayer(item);
+    const layer = createDisplayHistoricalLayer(item);
     historicalLayers[item.name] = layer;
     layerControl.addOverlay(layer, item.name);
   });
@@ -3293,11 +3346,15 @@ if (L.imageOverlay && typeof L.imageOverlay.rotated === "function") {
           layer.setOpacity(currentHistoricalOpacity);
         }
       });
+      if (directEditState.layer && typeof directEditState.layer.setOpacity === "function") {
+        directEditState.layer.setOpacity(currentHistoricalOpacity);
+      }
     });
   }
 }
 
 map.on("overlayadd", (event) => {
+  if (suppressHistoricalOverlayEvents) return;
   const name = getHistoricalLayerNameByLayer(event.layer);
   if (!name) return;
   historicalVisibilityState[name] = true;
@@ -3305,6 +3362,7 @@ map.on("overlayadd", (event) => {
 });
 
 map.on("overlayremove", (event) => {
+  if (suppressHistoricalOverlayEvents) return;
   const name = getHistoricalLayerNameByLayer(event.layer);
   if (!name) return;
   if (calibrationState.name === name || directEditState.name === name) {
@@ -3348,8 +3406,17 @@ function setWorkflowStatus(html, accent = "#f39c12", textColor = "#d5be8b") {
 function showWorkflowLayerSet(activeName) {
   Object.entries(historicalLayers).forEach(([name, layer]) => {
     const shouldShow = name === WORKFLOW_MASTER_IMAGE || name === activeName;
-    if (shouldShow && !map.hasLayer(layer)) layer.addTo(map);
-    if (!shouldShow && map.hasLayer(layer)) map.removeLayer(layer);
+    if (shouldShow) {
+      if (directEditState.name === name && directEditState.layer) {
+        if (!map.hasLayer(directEditState.layer)) directEditState.layer.addTo(map);
+      } else if (!map.hasLayer(layer)) {
+        layer.addTo(map);
+      }
+    }
+    if (!shouldShow) {
+      if (directEditState.name === name) stopHistoricalDirectEditing({preserveVisible:false});
+      if (map.hasLayer(layer)) map.removeLayer(layer);
+    }
     historicalVisibilityState[name] = shouldShow;
   });
   syncHistoricalVisibilityControls();
@@ -3640,7 +3707,7 @@ function startHistoricalCalibration() {
   const state = HISTORICAL_IMAGE_STATE[name];
   if (!historicalLayers[name]) return;
   if (!map.hasLayer(historicalLayers[name])) historicalLayers[name].addTo(map);
-  if (supportsHistoricalDirectEditing(historicalLayers[name])) {
+  if (L.distortableImageOverlay) {
     startHistoricalDirectEditing("drag");
     return;
   }
