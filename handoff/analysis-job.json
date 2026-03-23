@@ -1,17 +1,21 @@
 {
-  "schema_version": "uxopro.web-calibration.v1",
-  "exported_at": "2026-03-23T08:26:27.731Z",
-  "source": "uxopro.web-app",
+  "schema_version": "uxopro.analysis-handoff.v1",
+  "created_at": "2026-03-23T10:06:06Z",
+  "source_web_calibration": "handoff/web-calibration.json",
   "project": {
     "id": "gut-weinsberg-001",
     "name": "Weinsberg \u2013 Innenstadt / Bahntrasse",
     "location": "Weinsberg",
     "scope": "TIFF-Serie 1943\u20131947 \u00b7 Audit v4",
-    "stage": "analysis",
     "local_root": "/Users/tobias-benediktblask/Downloads/Weinsberg"
   },
+  "inputs": {
+    "tiff_root": "inputs/",
+    "qgis_root": "qgis/",
+    "preview_root": "preview/",
+    "gcp_targets_expected": "exports/ or root-level GCP CSV"
+  },
   "calibration": {
-    "source": "web-map-calibration",
     "master_image": "Historisch 1945-04-09",
     "selected_image": "Historisch 1945-04-09",
     "direct_mode": "",
@@ -180,10 +184,19 @@
       }
     ]
   },
-  "next_steps": [
-    "1. Datei lokal in <projekt>/handoff/web-calibration.json uebernehmen.",
-    "2. Lokalen Worker / QGIS mit dieser Kalibrierung starten.",
-    "3. Georeferenzierte Raster und Analyse-Ergebnisse nach exports/ und preview/ schreiben.",
-    "4. Danach uxopro-project-package.json neu erzeugen und in die App zurueck importieren."
+  "expected_outputs": [
+    "exports/report.html",
+    "exports/report.pdf",
+    "exports/findings.geojson",
+    "exports/areas.geojson",
+    "preview/*.png",
+    "uxopro-project-package.json"
+  ],
+  "worker_steps": [
+    "Masterbild in QGIS oder lokalem Georeferenzierungsprozess mit der Web-Kalibrierung als Startlage setzen.",
+    "Folgebilder an das Masterbild oder dessen Kontrollpunkte annaehern.",
+    "Multitemporale Auswertung und Befundkartierung lokal durchfuehren.",
+    "Exporte in exports/ und preview/ schreiben.",
+    "Danach tools/export_local_package.py fuer den Rueckimport in die App ausfuehren."
   ]
 }

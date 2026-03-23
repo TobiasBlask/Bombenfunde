@@ -3356,10 +3356,27 @@ function computeHistoricalTwoPointPreset(name, anchorIds = HISTORICAL_STABLE_ANC
   ];
 }
 
+function blendImageCorners(baseCorners, suggestedCorners, blend = 0.7) {
+  if (!Array.isArray(baseCorners) || !Array.isArray(suggestedCorners) || baseCorners.length !== suggestedCorners.length) return baseCorners;
+  return baseCorners.map((corner, index) => ([
+    corner[0] * (1 - blend) + suggestedCorners[index][0] * blend,
+    corner[1] * (1 - blend) + suggestedCorners[index][1] * blend,
+  ]));
+}
+
 function applyStableAnchorPresets() {
   Object.keys(HISTORICAL_IMAGE_STATE).forEach((name) => {
-    const preset = computeHistoricalTwoPointPreset(name);
-    if (!preset) return;
+    const stablePreset = computeHistoricalTwoPointPreset(name);
+    if (!stablePreset) return;
+    let preset = stablePreset;
+    if (name !== WORKFLOW_MASTER_IMAGE) {
+      const threeAnchorPreset = computeHistoricalAutoApprox(name);
+      if (threeAnchorPreset) {
+        // Burg + Bahnhof remain the stable primary anchors; the third anchor pulls
+        // the image framing toward the visually better inner geometry.
+        preset = blendImageCorners(stablePreset, threeAnchorPreset, 0.74);
+      }
+    }
     HISTORICAL_IMAGE_STATE[name].originalCorners = preset.map((corner) => [...corner]);
     HISTORICAL_IMAGE_STATE[name].corners = preset.map((corner) => [...corner]);
   });

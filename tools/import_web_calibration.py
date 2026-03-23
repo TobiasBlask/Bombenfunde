@@ -116,13 +116,14 @@ def build_analysis_handoff(root: Path, payload: dict) -> dict:
 
 def update_config(config: dict, payload: dict, georef_status: str, analysis_status: str, master_image_override: str) -> dict:
     calibration = payload["calibration"]
+    calibrated_images = calibration.get("calibrated_images", 0) or len(calibration.get("images", []))
     config = dict(config)
     config["master_image"] = master_image_override or calibration.get("master_image", config.get("master_image", ""))
     config["georef_status"] = georef_status
     config["analysis_status"] = analysis_status or config.get("analysis_status", "pending")
     config["web_calibration_status"] = "imported"
     config["web_calibration_exported_at"] = payload.get("exported_at", "")
-    config["images_web_calibrated"] = calibration.get("calibrated_images", 0)
+    config["images_web_calibrated"] = calibrated_images
     base_note = config.get("pipeline_note", "").strip()
     extra_note = f"Web-Kalibrierung am {payload.get('exported_at', iso_now())} lokal uebernommen."
     if extra_note not in base_note:

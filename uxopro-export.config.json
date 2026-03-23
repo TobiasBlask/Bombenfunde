@@ -8,9 +8,9 @@
   "visibility": "internal",
   "master_image": "Historisch 1945-04-09",
   "analysis_profile": "crater_v1",
-  "georef_status": "teilweise",
-  "web_calibration_status": "vorhanden",
-  "web_calibration_exported_at": "2026-03-22T09:00:00Z",
+  "georef_status": "ready_for_local_georef",
+  "web_calibration_status": "imported",
+  "web_calibration_exported_at": "2026-03-23T08:26:27.731Z",
   "images_web_calibrated": 3,
   "analysis_status": "candidates_generated",
   "export_status": "analysis_outputs_ready",
@@ -18,5 +18,5 @@
   "findings_points": 178,
   "area_features": 178,
   "note": "Lokales QGIS-/Analyseprojekt fuer die App freigeben.",
-  "pipeline_note": "Erzeugt mit dem lokalen Codex-Exporter. Automatische Kandidatenanalyse am 2026-03-23T08:26:56Z erzeugt. Automatische Kandidatenanalyse am 2026-03-23T09:04:04Z erzeugt. Automatische Kandidatenanalyse am 2026-03-23T09:28:01Z erzeugt. Automatische Kandidatenanalyse am 2026-03-23T09:30:41Z erzeugt."
+  "pipeline_note": "Erzeugt mit dem lokalen Codex-Exporter. Automatische Kandidatenanalyse am 2026-03-23T08:26:56Z erzeugt. Automatische Kandidatenanalyse am 2026-03-23T09:04:04Z erzeugt. Automatische Kandidatenanalyse am 2026-03-23T09:28:01Z erzeugt. Automatische Kandidatenanalyse am 2026-03-23T09:30:41Z erzeugt. Web-Kalibrierung am 2026-03-23T08:26:27.731Z lokal uebernommen. Automatische Kandidatenanalyse am 2026-03-23T10:03:15Z erzeugt. Automatische Kandidatenanalyse am 2026-03-23T10:06:41Z erzeugt."
 }

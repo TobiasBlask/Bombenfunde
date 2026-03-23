@@ -8,117 +8,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_high",
-        "score": 0.3234,
-        "support_count": 2,
-        "radius_m": 7.6,
-        "dates": "1945-03-19, 1945-04-09",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-04-09",
-        "baseline_seen": "nein",
-        "persistence": "ja",
-        "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
-        "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3434, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3034, \"radius_m\": 5.3}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.290305869879623,
-          49.15036738027452
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_high",
-        "score": 0.2993,
-        "support_count": 2,
-        "radius_m": 7.6,
-        "dates": "1945-03-19, 1945-04-09",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-04-09",
-        "baseline_seen": "nein",
-        "persistence": "ja",
-        "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
-        "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3089, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2896, \"radius_m\": 5.3}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.287193459267668,
-          49.15104023557751
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_high",
-        "score": 0.2945,
-        "support_count": 2,
-        "radius_m": 7.6,
-        "dates": "1945-03-19, 1945-04-09",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-04-09",
-        "baseline_seen": "nein",
-        "persistence": "ja",
-        "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
-        "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3038, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2853, \"radius_m\": 5.3}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.284725038129515,
-          49.15142555861471
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_high",
-        "score": 0.2932,
-        "support_count": 2,
-        "radius_m": 7.6,
-        "dates": "1945-03-19, 1945-04-09",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-04-09",
-        "baseline_seen": "nein",
-        "persistence": "ja",
-        "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
-        "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3144, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.272, \"radius_m\": 5.3}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.28871648915574,
-          49.15086340113545
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_high",
         "score": 0.2931,
         "support_count": 2,
-        "radius_m": 7.6,
+        "radius_m": 7.1,
         "dates": "1945-03-19, 1945-04-09",
         "first_seen": "1945-03-19",
         "last_seen": "1945-04-09",
@@ -126,13 +18,13 @@
         "persistence": "ja",
         "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
         "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3154, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2708, \"radius_m\": 5.3}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3154, \"radius_m\": 8.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2708, \"radius_m\": 5.3}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288674966512392,
-          49.152736735271745
+          9.279803371790205,
+          49.150556788076905
         ]
       }
     },
@@ -143,9 +35,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_high",
-        "score": 0.2899,
+        "score": 0.2553,
         "support_count": 2,
-        "radius_m": 9.8,
+        "radius_m": 11.9,
         "dates": "1945-03-19, 1945-04-09",
         "first_seen": "1945-03-19",
         "last_seen": "1945-04-09",
@@ -153,13 +45,13 @@
         "persistence": "ja",
         "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
         "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3232, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2566, \"radius_m\": 9.6}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2945, \"radius_m\": 8.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2161, \"radius_m\": 14.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.289875972072043,
-          49.15038610037501
+          9.281953665307286,
+          49.14653516583515
         ]
       }
     },
@@ -170,9 +62,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_high",
-        "score": 0.286,
-        "support_count": 2,
-        "radius_m": 5.4,
+        "score": 0.2537,
+        "support_count": 3,
+        "radius_m": 9.7,
         "dates": "1945-03-19, 1945-04-09",
         "first_seen": "1945-03-19",
         "last_seen": "1945-04-09",
@@ -180,13 +72,13 @@
         "persistence": "ja",
         "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
         "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2824, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2896, \"radius_m\": 5.3}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2491, \"radius_m\": 8.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3034, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2086, \"radius_m\": 14.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291952645565802,
-          49.150971088231174
+          9.28101782916496,
+          49.14792067697993
         ]
       }
     },
@@ -197,9 +89,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_high",
-        "score": 0.2513,
+        "score": 0.2445,
         "support_count": 2,
-        "radius_m": 15.6,
+        "radius_m": 12.6,
         "dates": "1945-03-19, 1945-04-09",
         "first_seen": "1945-03-19",
         "last_seen": "1945-04-09",
@@ -207,13 +99,13 @@
         "persistence": "ja",
         "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
         "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.304, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1986, \"radius_m\": 21.3}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1995, \"radius_m\": 19.8}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2896, \"radius_m\": 5.3}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.282395475012558,
-          49.15256625124777
+          9.278979274008023,
+          49.147869679512795
         ]
       }
     },
@@ -224,9 +116,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_high",
-        "score": 0.2284,
+        "score": 0.2353,
         "support_count": 2,
-        "radius_m": 15.2,
+        "radius_m": 11.7,
         "dates": "1945-03-19, 1945-04-09",
         "first_seen": "1945-03-19",
         "last_seen": "1945-04-09",
@@ -234,13 +126,13 @@
         "persistence": "ja",
         "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
         "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2363, \"radius_m\": 15.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2204, \"radius_m\": 14.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.214, \"radius_m\": 13.8}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2566, \"radius_m\": 9.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291462861077143,
-          49.150116222642936
+          9.281247759770785,
+          49.148176184408605
         ]
       }
     },
@@ -251,9 +143,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_high",
-        "score": 0.2113,
+        "score": 0.2184,
         "support_count": 2,
-        "radius_m": 15.2,
+        "radius_m": 14.4,
         "dates": "1945-03-19, 1945-04-09",
         "first_seen": "1945-03-19",
         "last_seen": "1945-04-09",
@@ -261,40 +153,13 @@
         "persistence": "ja",
         "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
         "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.214, \"radius_m\": 15.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2086, \"radius_m\": 14.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2164, \"radius_m\": 13.8}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2204, \"radius_m\": 14.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290345282790891,
-          49.150051176045835
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_high",
-        "score": 0.1976,
-        "support_count": 2,
-        "radius_m": 15.2,
-        "dates": "1945-03-19, 1945-04-09",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-04-09",
-        "baseline_seen": "nein",
-        "persistence": "ja",
-        "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
-        "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2242, \"radius_m\": 15.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.171, \"radius_m\": 14.9}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.268488323297614,
-          49.151626950004626
+          9.280175009783603,
+          49.14749657899268
         ]
       }
     },
@@ -305,9 +170,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.3572,
+        "score": 0.3434,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -315,13 +180,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3572, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3434, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28780726459144,
-          49.15100360535669
+          9.280861446914953,
+          49.14839524378808
         ]
       }
     },
@@ -334,7 +199,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3398,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -342,13 +207,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3398, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3398, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288411578654808,
-          49.15233207501543
+          9.280326835464146,
+          49.15037135159734
         ]
       }
     },
@@ -361,7 +226,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3346,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -369,13 +234,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3346, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3346, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28701677487493,
-          49.15206486731651
+          9.28149589827682,
+          49.15074840847627
         ]
       }
     },
@@ -388,7 +253,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.333,
         "support_count": 2,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -396,13 +261,40 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3354, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3306, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3354, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3306, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.282148801093069,
-          49.15195837447179
+          9.28480976433558,
+          49.15260990349232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.3263,
+        "support_count": 2,
+        "radius_m": 4.9,
+        "dates": "1945-03-19",
+        "first_seen": "1945-03-19",
+        "last_seen": "1945-03-19",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-03-19",
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3572, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2954, \"radius_m\": 4.9}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.282057397890904,
+          49.149670645771934
         ]
       }
     },
@@ -428,8 +320,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286127420233463,
-          49.150380304643335
+          9.284123810460137,
+          49.14989425289852
         ]
       }
     },
@@ -440,9 +332,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.3226,
+        "score": 0.3232,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -450,13 +342,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3226, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3232, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291605075041687,
-          49.151293321305985
+          9.281174354085604,
+          49.14856348568642
         ]
       }
     },
@@ -469,7 +361,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3225,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -477,13 +369,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3225, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3225, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.289218692607003,
-          49.15116294246232
+          9.28087831295164,
+          49.14927886673438
         ]
       }
     },
@@ -496,7 +388,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3209,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -504,13 +396,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3209, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3209, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285745445803222,
-          49.152211380724445
+          9.282199637020565,
+          49.15134970374561
         ]
       }
     },
@@ -523,7 +415,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3182,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -531,13 +423,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3182, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3182, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.292817548082269,
-          49.15059246035952
+          9.279030720956086,
+          49.14747378093753
         ]
       }
     },
@@ -550,7 +442,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3181,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -558,13 +450,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3181, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3181, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.287655576431352,
-          49.15199912269463
+          9.28113499110617,
+          49.15045147422801
         ]
       }
     },
@@ -575,36 +467,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.3175,
-        "support_count": 1,
-        "radius_m": 9.9,
-        "dates": "1945-03-19",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-03-19",
-        "baseline_seen": "nein",
-        "persistence": "nein",
-        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3175, \"radius_m\": 9.9}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.289978323513063,
-          49.15073667017777
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_medium",
-        "score": 0.3167,
+        "score": 0.3157,
         "support_count": 2,
-        "radius_m": 7.7,
+        "radius_m": 6.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -612,13 +477,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3256, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3077, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3226, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3088, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28954014600471,
-          49.15077302157852
+          9.279052790828361,
+          49.14837393605369
         ]
       }
     },
@@ -629,9 +494,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.3151,
-        "support_count": 1,
-        "radius_m": 5.5,
+        "score": 0.3148,
+        "support_count": 2,
+        "radius_m": 6.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -639,13 +504,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3151, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3151, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3144, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288454410227903,
-          49.15092830322942
+          9.281513956251683,
+          49.14934344457649
         ]
       }
     },
@@ -658,7 +523,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3148,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -666,13 +531,40 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3148, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3148, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291627166759312,
-          49.14718168028869
+          9.282980786548082,
+          49.145693586203635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.3124,
+        "support_count": 3,
+        "radius_m": 7.6,
+        "dates": "1945-03-19",
+        "first_seen": "1945-03-19",
+        "last_seen": "1945-03-19",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-03-19",
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3256, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3175, \"radius_m\": 8.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.294, \"radius_m\": 8.9}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.280837188783392,
+          49.14880363440308
         ]
       }
     },
@@ -685,7 +577,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3106,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -693,13 +585,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3106, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3106, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285240341300723,
-          49.15239042676727
+          9.282367146748195,
+          49.15166840529341
         ]
       }
     },
@@ -710,9 +602,9 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.3088,
+        "score": 0.3089,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -720,13 +612,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3088, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3089, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291924539744302,
-          49.15134921364442
+          9.282314546414675,
+          49.149999637919095
         ]
       }
     },
@@ -739,7 +631,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3078,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -747,13 +639,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3078, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3078, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291556529738745,
-          49.147662377161545
+          9.282581538076709,
+          49.14603908879555
         ]
       }
     },
@@ -766,7 +658,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3077,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -774,13 +666,94 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3077, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3077, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288244185658698,
-          49.15181322940143
+          9.280918688715953,
+          49.150095103476055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.3077,
+        "support_count": 1,
+        "radius_m": 8.9,
+        "dates": "1945-03-19",
+        "first_seen": "1945-03-19",
+        "last_seen": "1945-03-19",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-03-19",
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3077, \"radius_m\": 8.9}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.28101522012229,
+          49.1489752192216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.304,
+        "support_count": 1,
+        "radius_m": 8.9,
+        "dates": "1945-03-19",
+        "first_seen": "1945-03-19",
+        "last_seen": "1945-03-19",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-03-19",
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.304, \"radius_m\": 8.9}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.284064324068927,
+          49.15288384063748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.3038,
+        "support_count": 1,
+        "radius_m": 8.9,
+        "dates": "1945-03-19",
+        "first_seen": "1945-03-19",
+        "last_seen": "1945-03-19",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-03-19",
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3038, \"radius_m\": 8.9}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.283592928849359,
+          49.15117283171585
         ]
       }
     },
@@ -793,7 +766,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3029,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -801,13 +774,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3029, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3029, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288043927737633,
-          49.152042698904125
+          9.28083808393552,
+          49.15032613414994
         ]
       }
     },
@@ -833,8 +806,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285525720400223,
-          49.15072383106914
+          9.284237291846097,
+          49.15041135794205
         ]
       }
     },
@@ -847,7 +820,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3005,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -855,13 +828,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3005, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3005, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290530119510839,
-          49.151614535535
+          9.279593286826014,
+          49.14905666219359
         ]
       }
     },
@@ -887,8 +860,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.273380777098389,
-          49.1514522781942
+          9.292716586894825,
+          49.15614470114086
         ]
       }
     },
@@ -901,7 +874,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.3002,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -909,13 +882,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3002, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3002, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285698075597555,
-          49.14731313556262
+          9.28677457754308,
+          49.14813354505916
         ]
       }
     },
@@ -928,7 +901,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2995,
         "support_count": 2,
-        "radius_m": 7.7,
+        "radius_m": 6.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -936,13 +909,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3034, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2956, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3034, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2956, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28780054391219,
-          49.150368422793065
+          9.282551929136915,
+          49.14931693934723
         ]
       }
     },
@@ -968,8 +941,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284145876688264,
-          49.15086638329119
+          9.285141006268864,
+          49.15110810509605
         ]
       }
     },
@@ -982,7 +955,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2987,
         "support_count": 2,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -990,13 +963,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.304, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2935, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.304, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2935, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284468704819192,
-          49.14694242056149
+          9.287930371150509,
+          49.14837661916512
         ]
       }
     },
@@ -1022,8 +995,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2890913648987,
-          49.153234653529985
+          9.279030689230744,
+          49.150793368478304
         ]
       }
     },
@@ -1036,7 +1009,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2955,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1044,13 +1017,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2955, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2955, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291085480266815,
-          49.1516444114175
+          9.279198794330181,
+          49.148855986620326
         ]
       }
     },
@@ -1063,7 +1036,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2955,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1071,40 +1044,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2955, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2955, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291066043357421,
-          49.14784686608489
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_medium",
-        "score": 0.2954,
-        "support_count": 1,
-        "radius_m": 5.5,
-        "dates": "1945-03-19",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-03-19",
-        "baseline_seen": "nein",
-        "persistence": "nein",
-        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2954, \"radius_m\": 5.5}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.287788314619233,
-          49.1507810288379
+          9.2827343307393,
+          49.146355600865284
         ]
       }
     },
@@ -1117,7 +1063,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.295,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1125,13 +1071,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.295, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.295, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291177648693719,
-          49.15207178824504
+          9.278741470261256,
+          49.14910167897365
         ]
       }
     },
@@ -1142,50 +1088,23 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.2945,
+        "score": 0.2896,
         "support_count": 1,
-        "radius_m": 9.9,
-        "dates": "1945-03-19",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-03-19",
+        "radius_m": 5.3,
+        "dates": "1945-04-09",
+        "first_seen": "1945-04-09",
+        "last_seen": "1945-04-09",
         "baseline_seen": "nein",
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2945, \"radius_m\": 9.9}]"
+        "images": "Historisch 1945-04-09",
+        "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2896, \"radius_m\": 5.3}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291529874930518,
-          49.14833696793074
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_medium",
-        "score": 0.294,
-        "support_count": 1,
-        "radius_m": 9.9,
-        "dates": "1945-03-19",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-03-19",
-        "baseline_seen": "nein",
-        "persistence": "nein",
-        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.294, \"radius_m\": 9.9}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.289809371873263,
-          49.15095247383498
+          9.282675778571011,
+          49.149941576265434
         ]
       }
     },
@@ -1198,7 +1117,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2864,
         "support_count": 2,
-        "radius_m": 7.7,
+        "radius_m": 6.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1206,13 +1125,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2997, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.273, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2997, \"radius_m\": 4.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.273, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290522645772839,
-          49.14719720469851
+          9.283695831385149,
+          49.1461422141994
         ]
       }
     },
@@ -1223,9 +1142,36 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.2856,
+        "score": 0.2853,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 5.3,
+        "dates": "1945-04-09",
+        "first_seen": "1945-04-09",
+        "last_seen": "1945-04-09",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-04-09",
+        "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2853, \"radius_m\": 5.3}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.284159456122403,
+          49.151359200595664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.284,
+        "support_count": 2,
+        "radius_m": 6.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1233,13 +1179,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2856, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2856, \"radius_m\": 8.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2824, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291707210116732,
-          49.151065250454444
+          9.279355491915386,
+          49.148140576000614
         ]
       }
     },
@@ -1252,7 +1198,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2823,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1260,13 +1206,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2823, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2823, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285266061700945,
-          49.14751947051926
+          9.286868501945525,
+          49.14844126196105
         ]
       }
     },
@@ -1292,8 +1238,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291114525291828,
-          49.15436691354192
+          9.276368013426334,
+          49.15078850844472
         ]
       }
     },
@@ -1306,7 +1252,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2806,
         "support_count": 1,
-        "radius_m": 15.4,
+        "radius_m": 13.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1314,13 +1260,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2806, \"radius_m\": 15.4}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2806, \"radius_m\": 13.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290354190661478,
-          49.15083897285287
+          9.280428915508615,
+          49.148614251205586
         ]
       }
     },
@@ -1333,7 +1279,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2786,
         "support_count": 1,
-        "radius_m": 5.5,
+        "radius_m": 4.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1341,13 +1287,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2786, \"radius_m\": 5.5}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2786, \"radius_m\": 4.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291628356864924,
-          49.15173300887622
+          9.27875807504169,
+          49.14869904864694
         ]
       }
     },
@@ -1373,8 +1319,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285375010561424,
-          49.15094913777866
+          9.2841268356242,
+          49.15064644048033
         ]
       }
     },
@@ -1400,8 +1346,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284807272373541,
-          49.151875014006606
+          9.28363382197478,
+          49.151590481119925
         ]
       }
     },
@@ -1427,8 +1373,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286022377192724,
-          49.15064095764493
+          9.283943490846493,
+          49.15013664512122
         ]
       }
     },
@@ -1454,8 +1400,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.295163425792108,
-          49.150132924459605
+          9.277521750250664,
+          49.14585140055482
         ]
       }
     },
@@ -1468,7 +1414,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2738,
         "support_count": 1,
-        "radius_m": 15.4,
+        "radius_m": 13.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1476,13 +1422,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2738, \"radius_m\": 15.4}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2738, \"radius_m\": 13.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.282325700389105,
-          49.152176988813196
+          9.284490138410227,
+          49.15268408591581
         ]
       }
     },
@@ -1508,8 +1454,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288589724883565,
-          49.15315604303173
+          9.279489309962498,
+          49.15094779996203
         ]
       }
     },
@@ -1522,7 +1468,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.273,
         "support_count": 1,
-        "radius_m": 9.9,
+        "radius_m": 8.9,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1530,13 +1476,40 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.273, \"radius_m\": 9.9}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.273, \"radius_m\": 8.9}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291103176209006,
-          49.14722689098787
+          9.283284901056142,
+          49.14593141276065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.272,
+        "support_count": 1,
+        "radius_m": 5.3,
+        "dates": "1945-04-09",
+        "first_seen": "1945-04-09",
+        "last_seen": "1945-04-09",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-04-09",
+        "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.272, \"radius_m\": 5.3}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.281759367143625,
+          49.14918101390619
         ]
       }
     },
@@ -1562,8 +1535,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290799025569761,
-          49.15105144917641
+          9.27991364648293,
+          49.14840984044159
         ]
       }
     },
@@ -1589,8 +1562,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28579337020567,
-          49.15035823638665
+          9.284399014871148,
+          49.15002004529939
         ]
       }
     },
@@ -1616,8 +1589,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288920228460256,
-          49.15343881078952
+          9.278956798890185,
+          49.15102114318684
         ]
       }
     },
@@ -1643,8 +1616,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.289617655364092,
-          49.15602904802927
+          9.2758449092838,
+          49.15268714808054
         ]
       }
     },
@@ -1670,8 +1643,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286962665925515,
-          49.15311682548949
+          9.280761673347339,
+          49.15161223918637
         ]
       }
     },
@@ -1697,8 +1670,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288257864369093,
-          49.15073969633738
+          9.282150618994061,
+          49.14925772643656
         ]
       }
     },
@@ -1724,8 +1697,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28728249360756,
-          49.15340073423009
+          9.280236116153405,
+          49.15169100226795
         ]
       }
     },
@@ -1751,8 +1724,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286884744302387,
-          49.153343820014264
+          9.28059435708832,
+          49.151817553194114
         ]
       }
     },
@@ -1778,8 +1751,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274513486937188,
-          49.15354267856363
+          9.289773367748001,
+          49.15724597545453
         ]
       }
     },
@@ -1805,8 +1778,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28913703168427,
-          49.152533399247496
+          9.27969543009936,
+          49.150242305448856
         ]
       }
     },
@@ -1832,8 +1805,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28979760129705,
-          49.15353881740815
+          9.278192049768663,
+          49.15072262652044
         ]
       }
     },
@@ -1859,35 +1832,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290284758199,
-          49.15260299259671
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_medium",
-        "score": 0.2491,
-        "support_count": 1,
-        "radius_m": 9.9,
-        "dates": "1945-03-19",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-03-19",
-        "baseline_seen": "nein",
-        "persistence": "nein",
-        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2491, \"radius_m\": 9.9}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.290792031128404,
-          49.15002635442889
+          9.2787561011083,
+          49.14980538255272
         ]
       }
     },
@@ -1913,8 +1859,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286544037798777,
-          49.152773417439
+          9.28142145450672,
+          49.15153052678423
         ]
       }
     },
@@ -1940,8 +1886,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.295607989438576,
-          49.150267210118884
+          9.277050883454491,
+          49.14576350657629
         ]
       }
     },
@@ -1954,7 +1900,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2442,
         "support_count": 1,
-        "radius_m": 15.4,
+        "radius_m": 13.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -1962,13 +1908,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2442, \"radius_m\": 15.4}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2442, \"radius_m\": 13.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291584910505835,
-          49.14938432347165
+          9.280965488048917,
+          49.147165071171344
         ]
       }
     },
@@ -1994,8 +1940,35 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.279971578654807,
-          49.15462754153086
+          9.28455419978025,
+          49.155739930067064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.2363,
+        "support_count": 1,
+        "radius_m": 13.8,
+        "dates": "1945-03-19",
+        "first_seen": "1945-03-19",
+        "last_seen": "1945-03-19",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-03-19",
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2363, \"radius_m\": 13.8}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.280454917732074,
+          49.14769651374999
         ]
       }
     },
@@ -2021,8 +1994,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28623873929961,
-          49.1532954358128
+          9.281132262002453,
+          49.152056483777194
         ]
       }
     },
@@ -2048,8 +2021,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274824943301834,
-          49.151833796601835
+          9.291241433590274,
+          49.15581781486503
         ]
       }
     },
@@ -2075,8 +2048,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.289453133963313,
-          49.153422601715604
+          9.278569043262253,
+          49.15078149490962
         ]
       }
     },
@@ -2102,8 +2075,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.289133229571984,
-          49.15287175202115
+          9.279360876391706,
+          49.150500412308304
         ]
       }
     },
@@ -2116,7 +2089,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2278,
         "support_count": 1,
-        "radius_m": 15.4,
+        "radius_m": 13.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2124,13 +2097,40 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2278, \"radius_m\": 15.4}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2278, \"radius_m\": 13.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28796723290717,
-          49.14990975859419
+          9.282867306837131,
+          49.14894786389357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.2242,
+        "support_count": 1,
+        "radius_m": 13.8,
+        "dates": "1945-03-19",
+        "first_seen": "1945-03-19",
+        "last_seen": "1945-03-19",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-03-19",
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2242, \"radius_m\": 13.8}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.294135543635353,
+          49.15778973775005
         ]
       }
     },
@@ -2143,7 +2143,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2241,
         "support_count": 1,
-        "radius_m": 15.4,
+        "radius_m": 13.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2151,13 +2151,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2241, \"radius_m\": 15.4}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2241, \"radius_m\": 13.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.267167987215121,
-          49.14829310586544
+          9.298104175097276,
+          49.15613390454365
         ]
       }
     },
@@ -2183,8 +2183,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274618982212342,
-          49.154284002522544
+          9.28895411942525,
+          49.15776289011002
         ]
       }
     },
@@ -2197,7 +2197,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2193,
         "support_count": 1,
-        "radius_m": 15.4,
+        "radius_m": 13.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2205,13 +2205,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2193, \"radius_m\": 15.4}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2193, \"radius_m\": 13.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290918367426348,
-          49.14861571453351
+          9.282118665369651,
+          49.14692198764708
         ]
       }
     },
@@ -2237,62 +2237,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274245798777098,
-          49.153774813160354
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_medium",
-        "score": 0.2164,
-        "support_count": 1,
-        "radius_m": 15.4,
-        "dates": "1945-03-19",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-03-19",
-        "baseline_seen": "nein",
-        "persistence": "nein",
-        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2164, \"radius_m\": 15.4}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.29181510783769,
-          49.150142126972526
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_medium",
-        "score": 0.2161,
-        "support_count": 1,
-        "radius_m": 14.9,
-        "dates": "1945-04-09",
-        "first_seen": "1945-04-09",
-        "last_seen": "1945-04-09",
-        "baseline_seen": "nein",
-        "persistence": "nein",
-        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2161, \"radius_m\": 14.9}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.291088233463036,
-          49.14881299548109
+          9.289744786154438,
+          49.15753612140986
         ]
       }
     },
@@ -2305,7 +2251,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2156,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2313,13 +2259,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2156, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2156, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286233134519177,
-          49.1539399699963
+          9.28027403835464,
+          49.15229784212803
         ]
       }
     },
@@ -2345,8 +2291,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28904290439133,
-          49.15064355152776
+          9.281651479191856,
+          49.14884990709712
         ]
       }
     },
@@ -2359,7 +2305,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2123,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2367,13 +2313,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2123, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2123, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.280914439688717,
-          49.15514886337138
+          9.282665442468037,
+          49.1552069007212
         ]
       }
     },
@@ -2386,7 +2332,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2046,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2394,13 +2340,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2046, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2046, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.276622420233462,
-          49.14407671347772
+          9.295770553085047,
+          49.149598014022686
         ]
       }
     },
@@ -2413,7 +2359,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2039,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2421,13 +2367,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2039, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2039, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274137817120621,
-          49.15540802340995
+          9.286900933296277,
+          49.158067033875895
         ]
       }
     },
@@ -2453,8 +2399,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.278332474152307,
-          49.1543463708842
+          9.28607704803051,
+          49.15622603679055
         ]
       }
     },
@@ -2480,8 +2426,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.275312634241246,
-          49.15278421450247
+          9.289923972186388,
+          49.15633016624423
         ]
       }
     },
@@ -2494,7 +2440,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2017,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2502,13 +2448,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2017, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2017, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285213391328515,
-          49.14975629803723
+          9.284828410783769,
+          49.14993940740162
         ]
       }
     },
@@ -2521,7 +2467,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.2008,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2529,13 +2475,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2008, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2008, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274985038354641,
-          49.146153061385164
+          9.294926090605891,
+          49.15161888898501
         ]
       }
     },
@@ -2548,7 +2494,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1999,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2556,13 +2502,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1999, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1999, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.289207447470817,
-          49.15004320904362
+          9.281924434130072,
+          49.148543796812255
         ]
       }
     },
@@ -2573,23 +2519,23 @@
         "objektklasse": "bombenkrater_kandidat",
         "analysis_profile": "crater_v1",
         "analysis_status": "candidate_medium",
-        "score": 0.1995,
+        "score": 0.1986,
         "support_count": 1,
-        "radius_m": 22.1,
-        "dates": "1945-03-19",
-        "first_seen": "1945-03-19",
-        "last_seen": "1945-03-19",
+        "radius_m": 21.3,
+        "dates": "1945-04-09",
+        "first_seen": "1945-04-09",
+        "last_seen": "1945-04-09",
         "baseline_seen": "nein",
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-        "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1995, \"radius_m\": 22.1}]"
+        "images": "Historisch 1945-04-09",
+        "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1986, \"radius_m\": 21.3}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.292404420233463,
-          49.150932592631136
+          9.284806880698344,
+          49.15319328418419
         ]
       }
     },
@@ -2602,7 +2548,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1978,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2610,13 +2556,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1978, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1978, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285319194552528,
-          49.151722655664734
+          9.282934509727625,
+          49.15119608072794
         ]
       }
     },
@@ -2629,7 +2575,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1962,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2637,13 +2583,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1962, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1962, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.285664851584214,
-          49.144663873003374
+          9.28925391717621,
+          49.14639717522705
         ]
       }
     },
@@ -2669,8 +2615,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.276810041133965,
-          49.152990589449836
+          9.28858311903284,
+          49.155847814741435
         ]
       }
     },
@@ -2683,7 +2629,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1951,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2691,13 +2637,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1951, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1951, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284967327404113,
-          49.158854754502926
+          9.276550799888827,
+          49.15604636538333
         ]
       }
     },
@@ -2710,7 +2656,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1915,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2718,13 +2664,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1915, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1915, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284599892718175,
-          49.15596690708846
+          9.27947244413563,
+          49.15428473100273
         ]
       }
     },
@@ -2750,8 +2696,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.275859838799333,
-          49.15277308335494
+          9.289520285891335,
+          49.156088297033335
         ]
       }
     },
@@ -2777,8 +2723,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.269267037798777,
-          49.15620963087578
+          9.29109075003623,
+          49.16150545323492
         ]
       }
     },
@@ -2791,7 +2737,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1889,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2799,13 +2745,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1889, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1889, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.287793030016676,
-          49.15153070480574
+          9.281478729849917,
+          49.150087553100185
         ]
       }
     },
@@ -2831,8 +2777,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.276235684824902,
-          49.15350161741268
+          9.288508865615231,
+          49.15648018594575
         ]
       }
     },
@@ -2858,8 +2804,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.283828981656473,
-          49.15794421832677
+          9.278322589729456,
+          49.156608543164765
         ]
       }
     },
@@ -2885,8 +2831,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.282561499166203,
-          49.15726174625455
+          9.27996397730442,
+          49.15663189697538
         ]
       }
     },
@@ -2912,8 +2858,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.287164271817677,
-          49.158126556655986
+          9.27561261671746,
+          49.15532390219599
         ]
       }
     },
@@ -2926,7 +2872,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1855,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -2934,13 +2880,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1855, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1855, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284491596442468,
-          49.150538990461314
+          9.28457908671484,
+          49.150742769360775
         ]
       }
     },
@@ -2966,8 +2912,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284500757643135,
-          49.152687788358115
+          9.283055597972254,
+          49.15233734602326
         ]
       }
     },
@@ -2993,8 +2939,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.277926315175097,
-          49.1521632278361
+          9.288562060751744,
+          49.154744482721085
         ]
       }
     },
@@ -3020,8 +2966,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.280885989438577,
-          49.152417885276876
+          9.28606469031186,
+          49.153674891193944
         ]
       }
     },
@@ -3047,8 +2993,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.289170007226236,
-          49.15420729710007
+          9.278001065496209,
+          49.151497128040376
         ]
       }
     },
@@ -3061,7 +3007,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1827,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -3069,13 +3015,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1827, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1827, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.284786107837688,
-          49.15653079011903
+          9.278826364091161,
+          49.15458327698052
         ]
       }
     },
@@ -3088,7 +3034,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1778,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -3096,13 +3042,40 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1778, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1778, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.287950967759866,
-          49.15341506830211
+          9.279626414118955,
+          49.151269436388134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.1771,
+        "support_count": 1,
+        "radius_m": 14.9,
+        "dates": "1945-04-09",
+        "first_seen": "1945-04-09",
+        "last_seen": "1945-04-09",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-04-09",
+        "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1771, \"radius_m\": 14.9}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.290842917918082,
+          49.15891044265187
         ]
       }
     },
@@ -3128,8 +3101,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.277095677042801,
-          49.15189128873956
+          9.289462872418468,
+          49.15489270819253
         ]
       }
     },
@@ -3155,8 +3128,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.275131140077821,
-          49.145391013346
+          9.297434063185001,
+          49.15080394088959
         ]
       }
     },
@@ -3169,7 +3142,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1754,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -3177,13 +3150,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1754, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1754, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.264735360755974,
-          49.14772727405165
+          9.300235771539743,
+          49.15672548026155
         ]
       }
     },
@@ -3209,8 +3182,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.273913759310728,
-          49.15170300205692
+          9.292062552658956,
+          49.15610737772822
         ]
       }
     },
@@ -3236,8 +3209,35 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.29082318065592,
-          49.15369279885991
+          9.277261139734847,
+          49.15040179112508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_medium",
+        "score": 0.171,
+        "support_count": 1,
+        "radius_m": 14.9,
+        "dates": "1945-04-09",
+        "first_seen": "1945-04-09",
+        "last_seen": "1945-04-09",
+        "baseline_seen": "nein",
+        "persistence": "nein",
+        "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+        "images": "Historisch 1945-04-09",
+        "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.171, \"radius_m\": 14.9}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.29625874578861,
+          49.15839586862288
         ]
       }
     },
@@ -3250,7 +3250,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.169,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -3258,13 +3258,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.169, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.169, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.278180388549194,
-          49.14768832965384
+          9.291391617009449,
+          49.15136472010916
         ]
       }
     },
@@ -3290,8 +3290,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.277631628682602,
-          49.153429155249306
+          9.287522992272281,
+          49.15582976031371
         ]
       }
     },
@@ -3317,8 +3317,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.26577091328516,
-          49.15268201073353
+          9.297258800872637,
+          49.160322902423715
         ]
       }
     },
@@ -3344,8 +3344,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28326351139522,
-          49.153192922448106
+          9.28348964841285,
+          49.15324808672071
         ]
       }
     },
@@ -3358,7 +3358,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1651,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -3366,13 +3366,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1651, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1651, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274860653696498,
-          49.13867727644627
+          9.301942143968871,
+          49.146731879286584
         ]
       }
     },
@@ -3385,7 +3385,7 @@
         "analysis_status": "candidate_medium",
         "score": 0.1646,
         "support_count": 1,
-        "radius_m": 22.1,
+        "radius_m": 19.8,
         "dates": "1945-03-19",
         "first_seen": "1945-03-19",
         "last_seen": "1945-03-19",
@@ -3393,13 +3393,13 @@
         "persistence": "nein",
         "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
         "images": "Historisch 1945-03-19",
-        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1646, \"radius_m\": 22.1}]"
+        "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1646, \"radius_m\": 19.8}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28512610561423,
-          49.15320977865722
+          9.281682537520844,
+          49.1522548888815
         ]
       }
     },
@@ -3425,8 +3425,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286538570316843,
-          49.156362654665465
+          9.277846066100276,
+          49.15425366935587
         ]
       }
     },
@@ -3452,8 +3452,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.282271102279044,
-          49.155362601471204
+          9.282078107290475,
+          49.155316140616385
         ]
       }
     },
@@ -3479,8 +3479,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.275451400778211,
-          49.15170533125932
+          9.290894682774788,
+          49.155453199764494
         ]
       }
     },
@@ -3506,8 +3506,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.275359990550307,
-          49.14117729229165
+          9.301462310511893,
+          49.14751277030473
         ]
       }
     },
@@ -3533,8 +3533,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.272964033351862,
-          49.144096407934306
+          9.30036762495346,
+          49.15074728427874
         ]
       }
     },
@@ -3560,8 +3560,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274945712618122,
-          49.14692650616904
+          9.296043459625366,
+          49.15204682338406
         ]
       }
     },
@@ -3587,8 +3587,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.270361090605892,
-          49.150424007972134
+          9.296030960596973,
+          49.15665346679938
         ]
       }
     },
@@ -3614,8 +3614,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271391827682045,
-          49.145938187972064
+          9.299722809368493,
+          49.152813873758845
         ]
       }
     },
@@ -3628,7 +3628,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4161,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3636,13 +3636,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4161, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4161, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.27170775709314,
-          49.15640855530263
+          9.288959366314618,
+          49.16002623955993
         ]
       }
     },
@@ -3655,7 +3655,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4149,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3663,13 +3663,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4149, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4149, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.27179350129202,
-          49.155318278585696
+          9.289930261812117,
+          49.15918964342799
         ]
       }
     },
@@ -3682,7 +3682,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4146,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3690,13 +3690,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4146, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4146, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271680116145063,
-          49.1568332479461
+          9.288576940522512,
+          49.16034978052535
         ]
       }
     },
@@ -3709,7 +3709,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4138,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3717,13 +3717,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4138, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4138, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271661898247466,
-          49.15711315900657
+          9.288324887159533,
+          49.16056302343437
         ]
       }
     },
@@ -3736,7 +3736,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4125,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3744,13 +3744,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4125, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4125, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.272582514718666,
-          49.1436497042919
+          9.300415792662589,
+          49.150288248506605
         ]
       }
     },
@@ -3763,7 +3763,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4121,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3771,13 +3771,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4121, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4121, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271821142253694,
-          49.154893585928626
+          9.290312687604224,
+          49.1588661024218
         ]
       }
     },
@@ -3790,7 +3790,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4119,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3798,13 +3798,40 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4119, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4119, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271763975719324,
-          49.15577192756028
+          9.289521761534186,
+          49.15953524404825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_type": "impact_candidate",
+        "objektklasse": "bombenkrater_kandidat",
+        "analysis_profile": "crater_v1",
+        "analysis_status": "candidate_low",
+        "score": 0.4074,
+        "support_count": 1,
+        "radius_m": 18.6,
+        "dates": "1944-12-24",
+        "first_seen": "1944-12-24",
+        "last_seen": "1944-12-24",
+        "baseline_seen": "ja",
+        "persistence": "nein",
+        "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
+        "images": "Historisch 1944-12-24",
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4074, \"radius_m\": 18.6}]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.29096710172318,
+          49.158327649491525
         ]
       }
     },
@@ -3817,7 +3844,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4066,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3825,13 +3852,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4066, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4066, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2721496927754,
-          49.14984553457313
+          9.29485833963313,
+          49.15502037637086
         ]
       }
     },
@@ -3844,7 +3871,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4053,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3852,13 +3879,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4053, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4053, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.272190526014235,
-          49.14921814769338
+          9.295423286826015,
+          49.15454241806624
         ]
       }
     },
@@ -3871,7 +3898,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4033,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3879,13 +3906,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4033, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4033, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.272123936424752,
-          49.150241270912666
+          9.294501988326848,
+          49.155321857763
         ]
       }
     },
@@ -3898,7 +3925,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4024,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3906,13 +3933,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4024, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4024, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271997039282523,
-          49.1521909962928
+          9.292746306281266,
+          49.15680720510963
         ]
       }
     },
@@ -3925,7 +3952,7 @@
         "analysis_status": "candidate_low",
         "score": 0.4013,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3933,13 +3960,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4013, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4013, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271636770112849,
-          49.157499243227896
+          9.287977227348525,
+          49.160857151584736
         ]
       }
     },
@@ -3952,7 +3979,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3928,
         "support_count": 1,
-        "radius_m": 13.6,
+        "radius_m": 13.0,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3960,13 +3987,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3928, \"radius_m\": 13.6}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3928, \"radius_m\": 13.0}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.272497408723455,
-          49.14427585864731
+          9.299884575875486,
+          49.15078326243442
         ]
       }
     },
@@ -3979,7 +4006,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3925,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -3987,13 +4014,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3925, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3925, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271910027555919,
-          49.15375504859751
+          9.2913270405781,
+          49.15799274001152
         ]
       }
     },
@@ -4006,7 +4033,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3925,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4014,13 +4041,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3925, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3925, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.272047604228277,
-          49.15164123735039
+          9.293230478043359,
+          49.15638238798221
         ]
       }
     },
@@ -4033,7 +4060,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3823,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4041,13 +4068,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3823, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3823, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2722508228523,
-          49.1487460165029
+          9.295826683157308,
+          49.154170741559845
         ]
       }
     },
@@ -4060,7 +4087,7 @@
         "analysis_status": "candidate_low",
         "score": 0.382,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4068,13 +4095,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.382, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.382, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271984155625956,
-          49.152616100071654
+          9.292352637020567,
+          49.15712506174916
         ]
       }
     },
@@ -4087,7 +4114,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3445,
         "support_count": 1,
-        "radius_m": 13.6,
+        "radius_m": 13.0,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4095,13 +4122,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3445, \"radius_m\": 13.6}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3445, \"radius_m\": 13.0}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.271757373987958,
-          49.156100510392264
+          9.289215007226236,
+          49.159779568975544
         ]
       }
     },
@@ -4114,7 +4141,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3398,
         "support_count": 1,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4122,13 +4149,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3398, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3398, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.29081603465887,
-          49.1581111248742
+          9.273291186214564,
+          49.15352691992557
         ]
       }
     },
@@ -4141,7 +4168,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3392,
         "support_count": 1,
-        "radius_m": 19.4,
+        "radius_m": 18.6,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4149,13 +4176,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3392, \"radius_m\": 19.4}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3392, \"radius_m\": 18.6}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.293837219313676,
-          49.1441833910254
+          9.284277346859367,
+          49.1420573931985
         ]
       }
     },
@@ -4168,7 +4195,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3365,
         "support_count": 1,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4176,13 +4203,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3365, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3365, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2808844752078,
-          49.157834333019
+          9.2808580405781,
+          49.15735217804531
         ]
       }
     },
@@ -4195,7 +4222,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3329,
         "support_count": 2,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4203,13 +4230,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3402, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3255, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3402, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3255, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291532396499699,
-          49.15841152105159
+          9.272479447391717,
+          49.153457262346684
         ]
       }
     },
@@ -4222,7 +4249,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3322,
         "support_count": 1,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4230,13 +4257,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3322, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3322, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.273051238527302,
-          49.158254217837346
+          9.286220953307394,
+          49.16083858958763
         ]
       }
     },
@@ -4249,7 +4276,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3263,
         "support_count": 2,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4257,13 +4284,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3298, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3228, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3298, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3228, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.292112469983868,
-          49.15816171016225
+          9.27228972526815,
+          49.15303821323629
         ]
       }
     },
@@ -4276,7 +4303,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3254,
         "support_count": 2,
-        "radius_m": 6.8,
+        "radius_m": 6.5,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4284,13 +4311,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3416, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3092, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3416, \"radius_m\": 8.4}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3092, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274053528427922,
-          49.15834065211358
+          9.285401830427743,
+          49.16049557144459
         ]
       }
     },
@@ -4303,7 +4330,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3252,
         "support_count": 2,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4311,13 +4338,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3309, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3196, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3309, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3196, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.281345720462179,
-          49.15782851938867
+          9.280524321943311,
+          49.15716079402631
         ]
       }
     },
@@ -4330,7 +4357,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3228,
         "support_count": 1,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4338,13 +4365,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3228, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3228, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.291934104686655,
-          49.15842271688088
+          9.272173385769872,
+          49.153302540303564
         ]
       }
     },
@@ -4357,7 +4384,7 @@
         "analysis_status": "candidate_low",
         "score": 0.322,
         "support_count": 2,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4365,13 +4392,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3262, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3178, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3262, \"radius_m\": 8.4}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3178, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28711004983592,
-          49.14392842571788
+          9.289466813646202,
+          49.144599192173615
         ]
       }
     },
@@ -4384,7 +4411,7 @@
         "analysis_status": "candidate_low",
         "score": 0.321,
         "support_count": 1,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4392,13 +4419,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.321, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.321, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.287731975044192,
-          49.14394573924152
+          9.28899298332407,
+          49.144359600715106
         ]
       }
     },
@@ -4411,7 +4438,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3206,
         "support_count": 2,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4419,13 +4446,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3207, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3206, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3207, \"radius_m\": 8.4}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3206, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.288366569784172,
-          49.14396340546712
+          9.288509500380995,
+          49.14411512842602
         ]
       }
     },
@@ -4438,7 +4465,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3198,
         "support_count": 1,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4446,13 +4473,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3198, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3198, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28349717337623,
-          49.14381817848592
+          9.292228550305724,
+          49.1459839106662
         ]
       }
     },
@@ -4465,7 +4492,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3196,
         "support_count": 1,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4473,13 +4500,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3196, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3196, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.282639347536351,
-          49.14382330727188
+          9.292854596998334,
+          49.14633571614581
         ]
       }
     },
@@ -4492,7 +4519,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3171,
         "support_count": 1,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4500,13 +4527,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3171, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3171, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.278772229168142,
-          49.143725321693445
+          9.295791694274596,
+          49.14783260210092
         ]
       }
     },
@@ -4519,7 +4546,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3152,
         "support_count": 2,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4527,13 +4554,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3349, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.2954, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3349, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.2954, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.290647930938697,
-          49.1583092256372
+          9.273226955438478,
+          49.15374081571942
         ]
       }
     },
@@ -4546,7 +4573,7 @@
         "analysis_status": "candidate_low",
         "score": 0.315,
         "support_count": 2,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4554,13 +4581,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3172, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3127, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3172, \"radius_m\": 8.4}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3127, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28898521515866,
-          49.1439806276848
+          9.288038168887784,
+          49.14387680049593
         ]
       }
     },
@@ -4573,7 +4600,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3133,
         "support_count": 3,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4581,13 +4608,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.33, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3058, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3041, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.33, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3058, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3041, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28149609762858,
-          49.15805944287569
+          9.280194730146913,
+          49.15726962744132
         ]
       }
     },
@@ -4600,7 +4627,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3124,
         "support_count": 2,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4608,13 +4635,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3136, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3112, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3136, \"radius_m\": 8.4}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3112, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.286587203053815,
-          49.143923540294374
+          9.28985598809171,
+          49.14480772646371
         ]
       }
     },
@@ -4627,7 +4654,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3111,
         "support_count": 1,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4635,13 +4662,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3111, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3111, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.274538055823738,
-          49.14358810871211
+          9.29903595275153,
+          49.14944955848765
         ]
       }
     },
@@ -4654,7 +4681,7 @@
         "analysis_status": "candidate_low",
         "score": 0.308,
         "support_count": 1,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4662,13 +4689,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.308, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.308, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.28088163722666,
-          49.158105008687734
+          9.2806034352418,
+          49.15755240015993
         ]
       }
     },
@@ -4681,7 +4708,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3059,
         "support_count": 2,
-        "radius_m": 8.7,
+        "radius_m": 8.4,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4689,13 +4716,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3318, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.28, \"radius_m\": 8.7}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3318, \"radius_m\": 8.4}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.28, \"radius_m\": 8.4}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.273437024128977,
-          49.15833659845797
+          9.285859094692926,
+          49.160742678595895
         ]
       }
     },
@@ -4708,7 +4735,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3051,
         "support_count": 2,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4716,13 +4743,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3099, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3003, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3099, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3003, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.275038194258778,
-          49.143602031873925
+          9.298654908925684,
+          49.149256884387164
         ]
       }
     },
@@ -4735,7 +4762,7 @@
         "analysis_status": "candidate_low",
         "score": 0.3036,
         "support_count": 2,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4743,40 +4770,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3061, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3011, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3061, \"radius_m\": 4.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3011, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2741019144392,
-          49.14357596713961
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "feature_type": "impact_candidate",
-        "objektklasse": "bombenkrater_kandidat",
-        "analysis_profile": "crater_v1",
-        "analysis_status": "candidate_low",
-        "score": 0.2923,
-        "support_count": 2,
-        "radius_m": 17.1,
-        "dates": "1944-12-24, 1945-04-09",
-        "first_seen": "1944-12-24",
-        "last_seen": "1945-04-09",
-        "baseline_seen": "ja",
-        "persistence": "ja",
-        "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
-        "images": "Historisch 1944-12-24, Historisch 1945-04-09",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4074, \"radius_m\": 19.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1771, \"radius_m\": 14.9}]"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.271910433210673,
-          49.15423020265231
+          9.299368238715031,
+          49.14961757826591
         ]
       }
     },
@@ -4789,7 +4789,7 @@
         "analysis_status": "candidate_low",
         "score": 0.2908,
         "support_count": 1,
-        "radius_m": 4.8,
+        "radius_m": 4.7,
         "dates": "1944-12-24",
         "first_seen": "1944-12-24",
         "last_seen": "1944-12-24",
@@ -4797,13 +4797,13 @@
         "persistence": "nein",
         "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
         "images": "Historisch 1944-12-24",
-        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.2908, \"radius_m\": 4.8}]"
+        "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.2908, \"radius_m\": 4.7}]"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.273519153485614,
-          49.14356941349604
+          9.299803060589216,
+          49.14984919323965
         ]
       }
     }
