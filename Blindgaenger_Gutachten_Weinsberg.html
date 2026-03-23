@@ -80,6 +80,8 @@
     .sb-toggle-btn { border:none; border-radius:999px; padding:6px 10px; background:var(--uxo-surface-2); color:var(--uxo-green); font-size:.63rem; font-weight:700; letter-spacing:.04em; cursor:pointer; border:1px solid var(--uxo-border); white-space:nowrap; }
     .sb-toggle-btn:hover { background:#efe8de; }
     .sb-meta { margin-top:8px; font-size:.64rem; color:var(--uxo-muted); line-height:1.5; }
+    .collapsible-panel .sb-panel-content { margin-top:10px; }
+    .collapsible-panel.collapsed .sb-panel-content { display:none; }
 
     /* STATS */
     .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
@@ -472,41 +474,59 @@
   </div>
 
   <!-- GROUP FILTER -->
-  <div class="sb">
-    <h2>Gruppen ein-/ausblenden</h2>
-    <div class="filters">
-      <button class="filter-btn on" data-grp="HL"  style="background:#c0392b;color:#fff;"  onclick="toggleGrp('HL',this)">● HL – Großkrater</button>
-      <button class="filter-btn on" data-grp="FE"  style="background:#27ae60;color:#fff;"  onclick="toggleGrp('FE',this)">● FE – Waldrand / Persistenz</button>
-      <button class="filter-btn on" data-grp="SE"  style="background:#f39c12;color:#fff;"  onclick="toggleGrp('SE',this)">● SE – Sep.1944 Rauch</button>
-      <button class="filter-btn on" data-grp="NW"  style="background:#e67e22;color:#fff;"  onclick="toggleGrp('NW',this)">● NW – Felder NW</button>
-      <button class="filter-btn on" data-grp="NE"  style="background:#9b59b6;color:#fff;"  onclick="toggleGrp('NE',this)">● NE – Felder NO</button>
-      <button class="filter-btn on" data-grp="W"   style="background:#e74c3c;color:#fff;"  onclick="toggleGrp('W', this)">● W – Bahnkorridor</button>
-      <button class="filter-btn on" data-grp="BHE" style="background:#1abc9c;color:#fff;"  onclick="toggleGrp('BHE',this)">● BHE – Bhf-Ost / Persistenz</button>
-      <button class="filter-btn on" data-grp="M"   style="background:#3498db;color:#fff;"  onclick="toggleGrp('M', this)">● M – Ortskernrand S</button>
+  <div class="sb collapsible-panel" id="groupFilterPanel" data-default-expanded="true" data-summary-collapsed="8 Gruppen vorhanden. Bei Bedarf einblenden." data-summary-expanded="Gruppenfilter sichtbar. Per Klick blendest du die Punktgruppen ein oder aus.">
+    <div class="sb-head">
+      <h2>Gruppen ein-/ausblenden</h2>
+      <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="groupFilterPanelContent">Einklappen</button>
+    </div>
+    <div class="sb-meta" data-disclosure-meta>Gruppenfilter sichtbar. Per Klick blendest du die Punktgruppen ein oder aus.</div>
+    <div class="sb-panel-content" id="groupFilterPanelContent" data-disclosure-content>
+      <div class="filters">
+        <button class="filter-btn on" data-grp="HL"  style="background:#c0392b;color:#fff;"  onclick="toggleGrp('HL',this)">● HL – Großkrater</button>
+        <button class="filter-btn on" data-grp="FE"  style="background:#27ae60;color:#fff;"  onclick="toggleGrp('FE',this)">● FE – Waldrand / Persistenz</button>
+        <button class="filter-btn on" data-grp="SE"  style="background:#f39c12;color:#fff;"  onclick="toggleGrp('SE',this)">● SE – Sep.1944 Rauch</button>
+        <button class="filter-btn on" data-grp="NW"  style="background:#e67e22;color:#fff;"  onclick="toggleGrp('NW',this)">● NW – Felder NW</button>
+        <button class="filter-btn on" data-grp="NE"  style="background:#9b59b6;color:#fff;"  onclick="toggleGrp('NE',this)">● NE – Felder NO</button>
+        <button class="filter-btn on" data-grp="W"   style="background:#e74c3c;color:#fff;"  onclick="toggleGrp('W', this)">● W – Bahnkorridor</button>
+        <button class="filter-btn on" data-grp="BHE" style="background:#1abc9c;color:#fff;"  onclick="toggleGrp('BHE',this)">● BHE – Bhf-Ost / Persistenz</button>
+        <button class="filter-btn on" data-grp="M"   style="background:#3498db;color:#fff;"  onclick="toggleGrp('M', this)">● M – Ortskernrand S</button>
+      </div>
     </div>
   </div>
 
-  <div class="sb">
-    <h2>Evidenz-Layer</h2>
-    <div class="filters">
-      <button class="filter-btn on" data-ev="primary" style="background:#16a085;color:#fff;" onclick="toggleEvidence('primary',this)">● Primärquellen</button>
-      <button class="filter-btn on" data-ev="comparison" style="background:#8e44ad;color:#fff;" onclick="toggleEvidence('comparison',this)">● Vergleich / Persistenz</button>
-      <button class="filter-btn on" data-gcp="on" style="background:#2c3e50;color:#fff;" onclick="toggleGcp(this)">● GCP-Anker</button>
+  <div class="sb collapsible-panel" id="evidencePanel" data-default-expanded="true" data-summary-collapsed="Evidenz-Layer und GCPs ausblendbar." data-summary-expanded="Primärquellen, Vergleichslayer und GCP-Anker sind als operative Filter verfügbar.">
+    <div class="sb-head">
+      <h2>Evidenz-Layer</h2>
+      <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="evidencePanelContent">Einklappen</button>
     </div>
-    <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
-      Kontext-/Kontrollbilder ohne eigene Punktzuweisung bleiben in der Quellabdeckung dokumentiert und werden nicht künstlich als Kartenelemente erzeugt. Historische Hauptaufnahmen lassen sich zusätzlich als transparente Bildlayer einblenden.
+    <div class="sb-meta" data-disclosure-meta>Primärquellen, Vergleichslayer und GCP-Anker sind als operative Filter verfügbar.</div>
+    <div class="sb-panel-content" id="evidencePanelContent" data-disclosure-content>
+      <div class="filters">
+        <button class="filter-btn on" data-ev="primary" style="background:#16a085;color:#fff;" onclick="toggleEvidence('primary',this)">● Primärquellen</button>
+        <button class="filter-btn on" data-ev="comparison" style="background:#8e44ad;color:#fff;" onclick="toggleEvidence('comparison',this)">● Vergleich / Persistenz</button>
+        <button class="filter-btn on" data-gcp="on" style="background:#2c3e50;color:#fff;" onclick="toggleGcp(this)">● GCP-Anker</button>
+      </div>
+      <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
+        Kontext-/Kontrollbilder ohne eigene Punktzuweisung bleiben in der Quellabdeckung dokumentiert und werden nicht künstlich als Kartenelemente erzeugt. Historische Hauptaufnahmen lassen sich zusätzlich als transparente Bildlayer einblenden.
+      </div>
     </div>
   </div>
 
-  <div class="sb">
-    <h2>Verdachtsflächen</h2>
-    <div class="filters">
-      <button class="filter-btn on" data-area="direct" style="background:#c0392b;color:#fff;" onclick="toggleArea('direct',this)">● Direkte Trefferzonen</button>
-      <button class="filter-btn on" data-area="corridor" style="background:#e67e22;color:#fff;" onclick="toggleArea('corridor',this)">● Angriffskorridore</button>
-      <button class="filter-btn on" data-area="indirect" style="background:#f1c40f;color:#111;" onclick="toggleArea('indirect',this)">● Indirekter Verdacht</button>
+  <div class="sb collapsible-panel" id="areasPanel" data-default-expanded="true" data-summary-collapsed="3 Flächenarten verfügbar." data-summary-expanded="Direktzonen, Korridore und indirekte Verdachtsflächen lassen sich getrennt steuern.">
+    <div class="sb-head">
+      <h2>Verdachtsflächen</h2>
+      <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="areasPanelContent">Einklappen</button>
     </div>
-    <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
-      Direkte Trefferzonen basieren auf verdichteten Kraterclustern. Angriffskorridore bilden das rekonstruktive Trefferband. Indirekter Verdacht markiert Lücken- und Randbereiche, in denen ein Blindgänger eher flächenhaft als punktgenau zu vermuten ist.
+    <div class="sb-meta" data-disclosure-meta>Direktzonen, Korridore und indirekte Verdachtsflächen lassen sich getrennt steuern.</div>
+    <div class="sb-panel-content" id="areasPanelContent" data-disclosure-content>
+      <div class="filters">
+        <button class="filter-btn on" data-area="direct" style="background:#c0392b;color:#fff;" onclick="toggleArea('direct',this)">● Direkte Trefferzonen</button>
+        <button class="filter-btn on" data-area="corridor" style="background:#e67e22;color:#fff;" onclick="toggleArea('corridor',this)">● Angriffskorridore</button>
+        <button class="filter-btn on" data-area="indirect" style="background:#f1c40f;color:#111;" onclick="toggleArea('indirect',this)">● Indirekter Verdacht</button>
+      </div>
+      <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
+        Direkte Trefferzonen basieren auf verdichteten Kraterclustern. Angriffskorridore bilden das rekonstruktive Trefferband. Indirekter Verdacht markiert Lücken- und Randbereiche, in denen ein Blindgänger eher flächenhaft als punktgenau zu vermuten ist.
+      </div>
     </div>
   </div>
 
@@ -526,8 +546,13 @@
   </div>
 
   <!-- LEGEND -->
-  <div class="sb">
-    <h2>Legende</h2>
+  <div class="sb collapsible-panel collapsed" id="legendPanel" data-default-expanded="false" data-summary-collapsed="Legende ausgeblendet. Bei Bedarf öffnen." data-summary-expanded="Legende sichtbar. Farben, Puffer und Layer sind erläutert.">
+    <div class="sb-head">
+      <h2>Legende</h2>
+      <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="legendPanelContent">Ausklappen</button>
+    </div>
+    <div class="sb-meta" data-disclosure-meta>Legende ausgeblendet. Bei Bedarf öffnen.</div>
+    <div class="sb-panel-content" id="legendPanelContent" data-disclosure-content>
     <div class="lg-row"><div class="lg-dot" style="background:#c0392b;border:2px solid #922b21"></div><div class="lg-text"><strong>HL – Großkrater / Blockbuster</strong><span>Massiver Einschlag N/NE Altstadt, Blastwelle sichtbar</span></div></div>
     <div class="lg-row"><div class="lg-dot" style="background:#e67e22;border:2px solid #a05010"></div><div class="lg-text"><strong>NW – Streueinschläge Felder NW</strong><span>~15 Einzelkrater in Ackerflächen NW (1944_R1C1)</span></div></div>
     <div class="lg-row"><div class="lg-dot" style="background:#9b59b6;border:2px solid #6c3483"></div><div class="lg-text"><strong>NE – Einzelkrater Felder NO</strong><span>2–3 klare Einzelkrater NO, bestätigt 1945-04-09</span></div></div>
@@ -551,6 +576,7 @@
     <div class="lg-row"><span class="pill" style="color:#ecf0f1;background:rgba(44,62,80,.28);border-color:rgba(44,62,80,.55)">GCP</span><div class="lg-text"><strong>GCP-Anker</strong><span>Stabile Zielpunkte zur Georeferenzierung der historischen TIFFs</span></div></div>
     <div class="lg-row"><div class="lg-dot" style="background:transparent;border:2px dashed #2ecc71;border-radius:3px"></div><div class="lg-text"><strong>Grüne Außenlinie</strong><span>Gesamter ausgewerteter Untersuchungsraum</span></div></div>
     <div class="lg-row"><div class="lg-dot" style="background:transparent;border:2px dashed #3498db;border-radius:3px"></div><div class="lg-text"><strong>Blaue Innenlinie</strong><span>Siedlungsnaher Hauptprüfbereich / baulich relevanter Kernraum</span></div></div>
+    </div>
   </div>
 
   <!-- NOTE -->
@@ -2056,6 +2082,35 @@ function syncAppShell() {
   renderDashboard();
 }
 
+function initSidebarDisclosures(root = document) {
+  root.querySelectorAll(".collapsible-panel").forEach((panel) => {
+    if (panel.dataset.disclosureBound === "true") return;
+    const button = panel.querySelector("[data-disclosure-toggle]");
+    const content = panel.querySelector("[data-disclosure-content]");
+    if (!button || !content) return;
+    const meta = panel.querySelector("[data-disclosure-meta]");
+    const collapsedText = panel.dataset.summaryCollapsed || (meta ? meta.textContent : "");
+    const expandedText = panel.dataset.summaryExpanded || collapsedText;
+    let expanded = panel.dataset.defaultExpanded === "true";
+
+    const sync = () => {
+      panel.classList.toggle("collapsed", !expanded);
+      content.hidden = !expanded;
+      button.textContent = expanded ? "Einklappen" : "Ausklappen";
+      button.setAttribute("aria-expanded", expanded ? "true" : "false");
+      if (meta) meta.textContent = expanded ? expandedText : collapsedText;
+    };
+
+    button.addEventListener("click", () => {
+      expanded = !expanded;
+      sync();
+    });
+
+    panel.dataset.disclosureBound = "true";
+    sync();
+  });
+}
+
 function renderSidebarPanels() {
   const contextFiles = fileAudit
     .filter((file) => file.status === "context")
@@ -2097,9 +2152,15 @@ function renderSidebarPanels() {
   document.querySelector(".sidebar").insertAdjacentHTML("beforeend", `
     <div class="sb" id="workspaceDataPanel"></div>
 
-    <div class="sb">
-      <h2>Quellabdeckung TIFF-Serie</h2>
-      <div class="src-list">${coverageHtml}</div>
+    <div class="sb collapsible-panel collapsed" id="coveragePanel" data-default-expanded="false" data-summary-collapsed="15 TIFF-Dateien dokumentiert. Bei Bedarf öffnen." data-summary-expanded="Quellabdeckung sichtbar. Alle TIFFs sind nach Rolle und Nachweis geführt.">
+      <div class="sb-head">
+        <h2>Quellabdeckung TIFF-Serie</h2>
+        <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="coveragePanelContent">Ausklappen</button>
+      </div>
+      <div class="sb-meta" data-disclosure-meta>15 TIFF-Dateien dokumentiert. Bei Bedarf öffnen.</div>
+      <div class="sb-panel-content" id="coveragePanelContent" data-disclosure-content>
+        <div class="src-list">${coverageHtml}</div>
+      </div>
     </div>
 
     <div class="sb">
@@ -2139,9 +2200,13 @@ function renderSidebarPanels() {
       </div>
     </div>
 
-    <div class="sb">
-      <h2>Für den Vollausbau erforderlich</h2>
-      <div style="font-size:.68rem;line-height:1.6;color:#9aa2aa;">
+    <div class="sb collapsible-panel collapsed" id="fullBuildPanel" data-default-expanded="false" data-summary-collapsed="4 Ausbaupunkte dokumentiert. Bei Bedarf öffnen." data-summary-expanded="Die Ausbaupunkte für Georeferenzierung, Objektklassen und QGIS sind sichtbar.">
+      <div class="sb-head">
+        <h2>Für den Vollausbau erforderlich</h2>
+        <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="fullBuildPanelContent">Ausklappen</button>
+      </div>
+      <div class="sb-meta" data-disclosure-meta>4 Ausbaupunkte dokumentiert. Bei Bedarf öffnen.</div>
+      <div class="sb-panel-content" id="fullBuildPanelContent" data-disclosure-content style="font-size:.68rem;line-height:1.6;color:#9aa2aa;">
         <div style="margin-bottom:8px;"><strong style="color:#ddd;">1. Temporale Auswertung:</strong> nicht nur Analyse von Einzelbildern, sondern systematische Vorher-/Nachher-Prüfung der gesamten Bildserie auf Veränderungen, Persistenz und neu auftretende Bodenstörungen.</div>
         <div style="margin-bottom:8px;"><strong style="color:#ddd;">2. Objektklassen definieren:</strong> klare Kategorien für Sprengbombentrichter, Blindgängerverdacht, Artillerietreffer, Schützengräben, Verteidigungswerke, Löschteiche, Brand-/Rauchspuren und sonstige kriegsbedingte Bodenveränderungen.</div>
         <div style="margin-bottom:8px;"><strong style="color:#ddd;">3. Einheitliches Koordinatensystem:</strong> alle Eingaben und Ausgaben müssen raster- und vektorseitig auf dieselbe geodätische Grundlage gelegt werden, damit Bildlagen, Befunde und spätere Bauflächen deckungsgleich geprüft werden können.</div>
@@ -2149,8 +2214,13 @@ function renderSidebarPanels() {
       </div>
     </div>
 
-    <div class="sb">
-      <h2>Temporale Bewertungslogik</h2>
+    <div class="sb collapsible-panel collapsed" id="temporalLogicPanel" data-default-expanded="false" data-summary-collapsed="Zeitverlaufslogik eingeklappt. Bei Bedarf öffnen." data-summary-expanded="Vorherzustand, Erstauftreten, Persistenz und Überprägung sind sichtbar erläutert.">
+      <div class="sb-head">
+        <h2>Temporale Bewertungslogik</h2>
+        <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="temporalLogicPanelContent">Ausklappen</button>
+      </div>
+      <div class="sb-meta" data-disclosure-meta>Zeitverlaufslogik eingeklappt. Bei Bedarf öffnen.</div>
+      <div class="sb-panel-content" id="temporalLogicPanelContent" data-disclosure-content>
       <div class="audit-note">
         <strong>Nicht nur Einzelbilddeutung:</strong> dieselbe Stelle muss moeglichst ueber die gesamte Serie gelesen werden. Der Zeitverlauf trennt echte kriegsbedingte Bodenveraenderungen besser von Landwirtschaft, Schatten, Feuchtigkeit oder Bildartefakten.
       </div>
@@ -2160,6 +2230,7 @@ function renderSidebarPanels() {
         <div style="margin-bottom:8px;"><strong style="color:#ddd;">3. Direkte Ereignisspur:</strong> Gibt es Rauch, Brand, frische Auswurfkante, offenen Krater oder neue Zerstörung?</div>
         <div style="margin-bottom:8px;"><strong style="color:#ddd;">4. Persistenz:</strong> Ist die Stoerung 1945 oder 1947 noch sichtbar? Das spricht deutlich fuer reale Geländeveraenderung.</div>
         <div><strong style="color:#ddd;">5. Ueberpraegung:</strong> Wurde die Stelle spaeter eingeebnet, ueberbaut oder landwirtschaftlich wieder genutzt?</div>
+      </div>
       </div>
     </div>
 
@@ -2182,14 +2253,24 @@ function renderSidebarPanels() {
       </div>
     </div>
 
-    <div class="sb">
-      <h2>Empfohlene QGIS-Layer</h2>
-      <div class="src-list">${qgisLayerHtml}</div>
+    <div class="sb collapsible-panel collapsed" id="qgisLayerPanel" data-default-expanded="false" data-summary-collapsed="QGIS-Layerliste eingeklappt. Bei Bedarf öffnen." data-summary-expanded="Die empfohlene Layerstruktur für QGIS ist sichtbar.">
+      <div class="sb-head">
+        <h2>Empfohlene QGIS-Layer</h2>
+        <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="qgisLayerPanelContent">Ausklappen</button>
+      </div>
+      <div class="sb-meta" data-disclosure-meta>QGIS-Layerliste eingeklappt. Bei Bedarf öffnen.</div>
+      <div class="sb-panel-content" id="qgisLayerPanelContent" data-disclosure-content>
+        <div class="src-list">${qgisLayerHtml}</div>
+      </div>
     </div>
 
-    <div class="sb">
-      <h2>Attributschema Kern</h2>
-      <div style="font-size:.68rem;line-height:1.55;color:#9aa2aa;">
+    <div class="sb collapsible-panel collapsed" id="qgisFieldPanel" data-default-expanded="false" data-summary-collapsed="Attributschema eingeklappt. Bei Bedarf öffnen." data-summary-expanded="Das Kernschema für Befunde und Flächen ist sichtbar.">
+      <div class="sb-head">
+        <h2>Attributschema Kern</h2>
+        <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="qgisFieldPanelContent">Ausklappen</button>
+      </div>
+      <div class="sb-meta" data-disclosure-meta>Attributschema eingeklappt. Bei Bedarf öffnen.</div>
+      <div class="sb-panel-content" id="qgisFieldPanelContent" data-disclosure-content style="font-size:.68rem;line-height:1.55;color:#9aa2aa;">
         ${qgisFieldHtml}
       </div>
     </div>
@@ -2349,6 +2430,7 @@ function renderSidebarPanels() {
   });
   setDirectModeButtonState(null);
   updateCalibrationOutput();
+  initSidebarDisclosures(document.querySelector(".sidebar"));
 }
 
 function renderWorkspaceDataPanel(project = currentProject()) {
