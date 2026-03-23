@@ -1131,6 +1131,50 @@ function inferDocumentReady(artifacts, type) {
   return artifacts.some(matcher);
 }
 
+const DEFAULT_WORKFLOW_MASTER_IMAGE = "Historisch 1945-04-09";
+const DEFAULT_HISTORICAL_IMAGE_LAYERS = [
+  {
+    name:"Historisch 1944-12-24",
+    file:"1944-12-24 Weinsberg 106G-3896_3149 M900_preview.png",
+    corners:[
+      [49.1580,9.2742],
+      [49.1577,9.2913],
+      [49.1436,9.2745],
+      [49.1433,9.2916],
+    ],
+    note:"dichte Winteraufnahme, Ortskern zentral",
+  },
+  {
+    name:"Historisch 1945-03-19",
+    file:"1945-03-19 Weinsberg US34-3594_4160 M100_preview.png",
+    corners:[
+      [49.1590,9.2669],
+      [49.1587,9.2922],
+      [49.1421,9.2672],
+      [49.1418,9.2925],
+    ],
+    note:"breite Westabdeckung, Ortslage rechts",
+  },
+  {
+    name:"Historisch 1945-04-09",
+    file:"1945-04-09 Weinsberg US34-3762_3166 M100_preview.png",
+    corners:[
+      [49.1588,9.2724],
+      [49.1585,9.2930],
+      [49.1415,9.2727],
+      [49.1412,9.2933],
+    ],
+    note:"fruehe Nachkriegsnaehe, gute Gesamtabdeckung",
+  },
+];
+
+function cloneHistoricalImageLayers(seed = DEFAULT_HISTORICAL_IMAGE_LAYERS) {
+  return seed.map((item) => ({
+    ...item,
+    corners: item.corners.map((corner) => [...corner]),
+  }));
+}
+
 function buildLocalPackageTemplate(project = {}) {
   const current = normalizeProject(project);
   return {
@@ -1148,7 +1192,7 @@ function buildLocalPackageTemplate(project = {}) {
     pipeline: {
       mode: "local-desktop",
       local_root: "/Volumes/Projektordner/Weinsberg",
-      master_image: WORKFLOW_MASTER_IMAGE,
+      master_image: DEFAULT_WORKFLOW_MASTER_IMAGE,
       georef_status: "in_progress",
       web_calibration_status: "pending",
       analysis_status: "pending",
@@ -1197,7 +1241,7 @@ function createDefaultProjects() {
       localRoot: "./",
       pipeline: {
         mode: "local-desktop",
-        masterImage: "Historisch 1945-04-09",
+        masterImage: DEFAULT_WORKFLOW_MASTER_IMAGE,
         georefStatus: "teilweise",
         webCalibrationStatus: "vorhanden",
         webCalibrationExportedAt: todayIso(),
@@ -1210,7 +1254,7 @@ function createDefaultProjects() {
       stats: {
         imagesTotal: 15,
         imagesGeoreferenced: 3,
-        imagesWebCalibrated: HISTORICAL_IMAGE_LAYERS.length,
+        imagesWebCalibrated: DEFAULT_HISTORICAL_IMAGE_LAYERS.length,
         findingsPoints: summary.total,
         areaFeatures: 9,
         artifacts: 4,
@@ -1225,11 +1269,11 @@ function createDefaultProjects() {
         schemaVersion: WEB_CALIBRATION_SCHEMA_VERSION,
         exportedAt: todayIso(),
         source: "embedded-demo",
-        masterImage: WORKFLOW_MASTER_IMAGE,
-        selectedImage: WORKFLOW_MASTER_IMAGE,
+        masterImage: DEFAULT_WORKFLOW_MASTER_IMAGE,
+        selectedImage: DEFAULT_WORKFLOW_MASTER_IMAGE,
         directMode: "",
-        calibratedImages: HISTORICAL_IMAGE_LAYERS.length,
-        images: HISTORICAL_IMAGE_LAYERS.map((item) => ({
+        calibratedImages: DEFAULT_HISTORICAL_IMAGE_LAYERS.length,
+        images: cloneHistoricalImageLayers().map((item) => ({
           name: item.name,
           file: item.file,
           note: item.note,
@@ -2657,41 +2701,7 @@ function inferAreaObjectClass(area) {
   return "blindgaengerverdacht_flaeche";
 }
 
-const HISTORICAL_IMAGE_LAYERS = [
-  {
-    name:"Historisch 1944-12-24",
-    file:"1944-12-24 Weinsberg 106G-3896_3149 M900_preview.png",
-    corners:[
-      [49.1580,9.2742],
-      [49.1577,9.2913],
-      [49.1436,9.2745],
-      [49.1433,9.2916],
-    ],
-    note:"dichte Winteraufnahme, Ortskern zentral",
-  },
-  {
-    name:"Historisch 1945-03-19",
-    file:"1945-03-19 Weinsberg US34-3594_4160 M100_preview.png",
-    corners:[
-      [49.1590,9.2669],
-      [49.1587,9.2922],
-      [49.1421,9.2672],
-      [49.1418,9.2925],
-    ],
-    note:"breite Westabdeckung, Ortslage rechts",
-  },
-  {
-    name:"Historisch 1945-04-09",
-    file:"1945-04-09 Weinsberg US34-3762_3166 M100_preview.png",
-    corners:[
-      [49.1588,9.2724],
-      [49.1585,9.2930],
-      [49.1415,9.2727],
-      [49.1412,9.2933],
-    ],
-    note:"fruehe Nachkriegsnaehe, gute Gesamtabdeckung",
-  },
-];
+const HISTORICAL_IMAGE_LAYERS = cloneHistoricalImageLayers();
 const HISTORICAL_IMAGE_STATE = Object.fromEntries(
   HISTORICAL_IMAGE_LAYERS.map((item) => [
     item.name,
@@ -2731,7 +2741,7 @@ const HISTORICAL_IMAGE_FITS = {
     ],
   },
 };
-const WORKFLOW_MASTER_IMAGE = "Historisch 1945-04-09";
+const WORKFLOW_MASTER_IMAGE = DEFAULT_WORKFLOW_MASTER_IMAGE;
 const WORKFLOW_IMAGE_ORDER = [
   WORKFLOW_MASTER_IMAGE,
   "Historisch 1945-03-19",
