@@ -75,6 +75,11 @@
     .sidebar::-webkit-scrollbar-thumb { background:rgba(53,104,89,.18); border-radius:999px; border:2px solid transparent; background-clip:padding-box; }
     .sb { margin:0 12px 12px; background:rgba(255,253,250,.88); border:1px solid rgba(217,212,203,.8); border-radius:18px; padding:16px 16px 15px; box-shadow:var(--uxo-shadow-card); }
     .sb h2 { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--uxo-orange); margin-bottom:10px; }
+    .sb-head { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+    .sb-head h2 { margin-bottom:0; }
+    .sb-toggle-btn { border:none; border-radius:999px; padding:6px 10px; background:var(--uxo-surface-2); color:var(--uxo-green); font-size:.63rem; font-weight:700; letter-spacing:.04em; cursor:pointer; border:1px solid var(--uxo-border); white-space:nowrap; }
+    .sb-toggle-btn:hover { background:#efe8de; }
+    .sb-meta { margin-top:8px; font-size:.64rem; color:var(--uxo-muted); line-height:1.5; }
 
     /* STATS */
     .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
@@ -96,6 +101,10 @@
     tbody tr { cursor:pointer; }
     tbody tr:hover td { background:#f5efe8; }
     tbody td { padding:6px 8px; border-bottom:1px solid #eee7de; white-space:nowrap; }
+    .audit-panel.collapsed { padding-bottom:14px; }
+    .audit-panel .audit-table-wrap { margin-top:10px; max-height:320px; overflow:auto; border-top:1px solid #ebe3d8; padding-top:8px; }
+    .audit-panel .audit-table-wrap::-webkit-scrollbar { width:8px; height:8px; }
+    .audit-panel .audit-table-wrap::-webkit-scrollbar-thumb { background:rgba(53,104,89,.2); border-radius:999px; }
 
     /* LEGEND */
     .lg-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:0.73rem; }
@@ -502,12 +511,18 @@
   </div>
 
   <!-- IMPACT TABLE -->
-  <div class="sb" style="padding-bottom:0;padding-top:8px;">
-    <h2>Punkt-Auditliste (Klick → Karte)</h2>
-    <table>
-      <thead><tr><th>ID</th><th>Gruppe</th><th>Audit</th><th>Quelle</th></tr></thead>
-      <tbody id="tbl"></tbody>
-    </table>
+  <div class="sb audit-panel collapsed" id="auditPanel" style="padding-bottom:14px;padding-top:8px;">
+    <div class="sb-head">
+      <h2>Punkt-Auditliste (Klick → Karte)</h2>
+      <button id="auditToggleBtn" class="sb-toggle-btn" type="button" aria-expanded="false" aria-controls="auditTableWrap">Ausklappen</button>
+    </div>
+    <div class="sb-meta" id="auditToggleMeta">Liste eingeklappt, damit mehr Platz für Karte und Steuerung bleibt.</div>
+    <div class="audit-table-wrap" id="auditTableWrap" hidden>
+      <table>
+        <thead><tr><th>ID</th><th>Gruppe</th><th>Audit</th><th>Quelle</th></tr></thead>
+        <tbody id="tbl"></tbody>
+      </table>
+    </div>
   </div>
 
   <!-- LEGEND -->
@@ -3898,6 +3913,34 @@ legCtrl.addTo(map);
 // ═══════════════════════════════════════════════════════
 // TABLE
 // ═══════════════════════════════════════════════════════
+const auditPanel = document.getElementById("auditPanel");
+const auditToggleBtn = document.getElementById("auditToggleBtn");
+const auditToggleMeta = document.getElementById("auditToggleMeta");
+const auditTableWrap = document.getElementById("auditTableWrap");
+let auditPanelExpanded = false;
+
+function syncAuditPanelState() {
+  if (!auditPanel || !auditToggleBtn || !auditTableWrap) return;
+  auditPanel.classList.toggle("collapsed", !auditPanelExpanded);
+  auditTableWrap.hidden = !auditPanelExpanded;
+  auditToggleBtn.textContent = auditPanelExpanded ? "Einklappen" : "Ausklappen";
+  auditToggleBtn.setAttribute("aria-expanded", auditPanelExpanded ? "true" : "false");
+  if (auditToggleMeta) {
+    auditToggleMeta.textContent = auditPanelExpanded
+      ? `${summary.total} Punkte sichtbar. Zeilen klicken, um direkt zur Karte zu springen.`
+      : `${summary.total} Punkte vorhanden. Bei Bedarf ausklappen.`;
+  }
+}
+
+if (auditToggleBtn) {
+  auditToggleBtn.addEventListener("click", () => {
+    auditPanelExpanded = !auditPanelExpanded;
+    syncAuditPanelState();
+  });
+}
+
+syncAuditPanelState();
+
 const tbl = document.getElementById("tbl");
 AUDITED_IMPACTS.forEach((imp) => {
   const c = GRP[imp.grp];
