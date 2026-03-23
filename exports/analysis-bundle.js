@@ -1,12 +1,12 @@
 window.UXO_ANALYSIS_DATA = {
   "summary": {
     "schema_version": "uxopro.analysis-result.v1",
-    "created_at": "2026-03-23T09:04:04Z",
+    "created_at": "2026-03-23T09:30:41Z",
     "profile": "crater_v1",
     "project_root": "/Users/tobias-benediktblask/Downloads/Weinsberg",
     "handoff": "handoff/web-calibration.json",
-    "candidate_count": 153,
-    "area_count": 153,
+    "candidate_count": 178,
+    "area_count": 178,
     "baseline_date": "1944-12-24",
     "images_processed": 3,
     "per_image": [
@@ -14,28 +14,28 @@ window.UXO_ANALYSIS_DATA = {
         "image": "Historisch 1944-12-24",
         "date": "1944-12-24",
         "path": "1944-12-24 Weinsberg 106G-3896_3149 M900_preview.png",
-        "candidate_count": 55,
+        "candidate_count": 58,
         "preview": "preview/analysis/1944-12-24 Weinsberg 106G-3896_3149 M900_preview_analysis_preview.png"
       },
       {
         "image": "Historisch 1945-03-19",
         "date": "1945-03-19",
         "path": "1945-03-19 Weinsberg US34-3594_4160 M100_preview.png",
-        "candidate_count": 73,
+        "candidate_count": 77,
         "preview": "preview/analysis/1945-03-19 Weinsberg US34-3594_4160 M100_preview_analysis_preview.png"
       },
       {
         "image": "Historisch 1945-04-09",
         "date": "1945-04-09",
         "path": "1945-04-09 Weinsberg US34-3762_3166 M100_preview.png",
-        "candidate_count": 50,
+        "candidate_count": 80,
         "preview": "preview/analysis/1945-04-09 Weinsberg US34-3762_3166 M100_preview_analysis_preview.png"
       }
     ],
     "status_counts": {
-      "candidate_high": 1,
-      "candidate_medium": 107,
-      "candidate_low": 45
+      "candidate_high": 11,
+      "candidate_medium": 123,
+      "candidate_low": 44
     },
     "outputs": {
       "findings_geojson": "exports/findings.auto.geojson",
@@ -55,9 +55,9 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_high",
-          "score": 0.34,
+          "score": 0.3234,
           "support_count": 2,
-          "radius_m": 10.4,
+          "radius_m": 7.6,
           "dates": "1945-03-19, 1945-04-09",
           "first_seen": "1945-03-19",
           "last_seen": "1945-04-09",
@@ -65,13 +65,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "ja",
           "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
           "images": "Historisch 1945-03-19, Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3079, \"radius_m\": 15.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3722, \"radius_m\": 5.3}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3434, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3034, \"radius_m\": 5.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.266849154011918,
-            49.15648592802174
+            9.290305869879623,
+            49.15036738027452
           ]
         }
       },
@@ -81,132 +81,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4368,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4368, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.27835540689272,
-            49.13916362386243
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4364,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4364, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.277605352973875,
-            49.13888396843686
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4357,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.4357, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.288956028904947,
-            49.15750435352974
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4333,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4333, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.2769618954975,
-            49.138654466686305
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4312,
+          "analysis_status": "candidate_high",
+          "score": 0.2993,
           "support_count": 2,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
+          "radius_m": 7.6,
+          "dates": "1945-03-19, 1945-04-09",
+          "first_seen": "1945-03-19",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4325, \"radius_m\": 9.6}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.43, \"radius_m\": 9.6}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3089, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2896, \"radius_m\": 5.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.278026863147575,
-            49.139034308321435
+            9.287193459267668,
+            49.15104023557751
           ]
         }
       },
@@ -216,24 +108,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4235,
+          "analysis_status": "candidate_high",
+          "score": 0.2945,
           "support_count": 2,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
+          "radius_m": 7.6,
+          "dates": "1945-03-19, 1945-04-09",
+          "first_seen": "1945-03-19",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4452, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4018, \"radius_m\": 5.3}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3038, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2853, \"radius_m\": 5.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.263049747091106,
-            49.15394363137597
+            9.284725038129515,
+            49.15142555861471
           ]
         }
       },
@@ -243,24 +135,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4219,
+          "analysis_status": "candidate_high",
+          "score": 0.2932,
           "support_count": 2,
-          "radius_m": 7.5,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
+          "radius_m": 7.6,
+          "dates": "1945-03-19, 1945-04-09",
+          "first_seen": "1945-03-19",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4247, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4191, \"radius_m\": 9.6}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3144, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.272, \"radius_m\": 5.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.263066033426218,
-            49.15365821746921
+            9.28871648915574,
+            49.15086340113545
           ]
         }
       },
@@ -270,132 +162,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4211,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4211, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.277276474708172,
-            49.13876666754213
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4153,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4153, \"radius_m\": 21.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.288342688715952,
-            49.14287138315801
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4153,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4153, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.299330378543635,
-            49.14962934707967
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4138,
+          "analysis_status": "candidate_high",
+          "score": 0.2931,
           "support_count": 2,
-          "radius_m": 5.5,
-          "dates": "1945-03-19",
+          "radius_m": 7.6,
+          "dates": "1945-03-19, 1945-04-09",
           "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.4361, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3915, \"radius_m\": 5.5}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.274599570771187,
-            49.13660914037961
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4078,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.4078, \"radius_m\": 9.6}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3154, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2708, \"radius_m\": 5.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.278755780433576,
-            49.13930642492571
+            9.288674966512392,
+            49.152736735271745
           ]
         }
       },
@@ -405,132 +189,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.407,
-          "support_count": 1,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.407, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.263435494163426,
-            49.15368139829274
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4,
+          "analysis_status": "candidate_high",
+          "score": 0.2899,
           "support_count": 2,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.431, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.369, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.262580937853853,
-            49.15457135267612
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3989,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3989, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.279999798221233,
-            49.13975012822948
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3971,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
+          "radius_m": 9.8,
+          "dates": "1945-03-19, 1945-04-09",
           "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3971, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.271836516953863,
-            49.13716770650362
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3971,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3971, \"radius_m\": 9.6}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3232, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2566, \"radius_m\": 9.6}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.279656620900502,
-            49.13962772731809
+            9.289875972072043,
+            49.15038610037501
           ]
         }
       },
@@ -540,402 +216,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3963,
-          "support_count": 1,
-          "radius_m": 5.5,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3963, \"radius_m\": 5.5}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.275107691495277,
-            49.13672826997273
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.393,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.393, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.279084658699277,
-            49.13942372579911
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3929,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3929, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.301163730961646,
-            49.14740785154744
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.39,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.39, \"radius_m\": 21.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.288941956086715,
-            49.1431093896535
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3898,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3898, \"radius_m\": 21.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.294279826570316,
-            49.155532096176586
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3838,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3838, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.262764923290717,
-            49.1540853615235
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3833,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3833, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.271410968871596,
-            49.13765542412452
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3794,
-          "support_count": 1,
-          "radius_m": 14.9,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3794, \"radius_m\": 14.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.294096639799887,
-            49.15581859846107
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3777,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3777, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.289223039466371,
-            49.157198405780996
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3765,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3765, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.270609937187327,
-            49.13857348082269
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3759,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3759, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.296156969983324,
-            49.149253325180666
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3744,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3744, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.271152302390217,
-            49.1379518799333
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.372,
+          "analysis_status": "candidate_high",
+          "score": 0.286,
           "support_count": 2,
-          "radius_m": 7.5,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3966, \"radius_m\": 9.6}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3474, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.298482311421337,
-            49.15064519560154
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3708,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
+          "radius_m": 5.4,
+          "dates": "1945-03-19, 1945-04-09",
           "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3708, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.272226618677042,
-            49.1367428258995
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3707,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3707, \"radius_m\": 9.6}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2824, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2896, \"radius_m\": 5.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.28740508782657,
-            49.163890118799245
+            9.291952645565802,
+            49.150971088231174
           ]
         }
       },
@@ -945,78 +243,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3706,
-          "support_count": 1,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3706, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.265940913285158,
-            49.15626123222987
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3691,
+          "analysis_status": "candidate_high",
+          "score": 0.2513,
           "support_count": 2,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
+          "radius_m": 15.6,
+          "dates": "1945-03-19, 1945-04-09",
           "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3701, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.368, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.25875205195863,
-            49.15334129614518
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3683,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3683, \"radius_m\": 9.6}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.304, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1986, \"radius_m\": 21.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.27596096164536,
-            49.13829746396321
+            9.282395475012558,
+            49.15256625124777
           ]
         }
       },
@@ -1026,24 +270,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3671,
+          "analysis_status": "candidate_high",
+          "score": 0.2284,
           "support_count": 2,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
+          "radius_m": 15.2,
+          "dates": "1945-03-19, 1945-04-09",
+          "first_seen": "1945-03-19",
           "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3692, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3649, \"radius_m\": 5.3}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2363, \"radius_m\": 15.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2204, \"radius_m\": 14.9}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.269622779790227,
-            49.15758615132529
+            9.291462861077143,
+            49.150116222642936
           ]
         }
       },
@@ -1053,24 +297,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3668,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
+          "analysis_status": "candidate_high",
+          "score": 0.2113,
+          "support_count": 2,
+          "radius_m": 15.2,
+          "dates": "1945-03-19, 1945-04-09",
           "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
+          "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3668, \"radius_m\": 22.1}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.214, \"radius_m\": 15.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2086, \"radius_m\": 14.9}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.264201683713175,
-            49.145917934408004
+            9.290345282790891,
+            49.150051176045835
           ]
         }
       },
@@ -1080,78 +324,24 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate",
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3623,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
+          "analysis_status": "candidate_high",
+          "score": 0.1976,
+          "support_count": 2,
+          "radius_m": 15.2,
+          "dates": "1945-03-19, 1945-04-09",
           "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
+          "last_seen": "1945-04-09",
           "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3623, \"radius_m\": 22.1}]"
+          "persistence": "ja",
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar.",
+          "images": "Historisch 1945-03-19, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2242, \"radius_m\": 15.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.171, \"radius_m\": 14.9}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.263901296831573,
-            49.14626220566982
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3582,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3582, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.262399362423569,
-            49.147983561978876
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3574,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3574, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.276161942745969,
-            49.1598397176209
+            9.268488323297614,
+            49.151626950004626
           ]
         }
       },
@@ -1189,654 +379,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3561,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3561, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.288655642023345,
-            49.15784854474708
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3551,
-          "support_count": 2,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3614, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3487, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.300631575815217,
-            49.14809071682019
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3543,
-          "support_count": 1,
-          "radius_m": 5.5,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3543, \"radius_m\": 5.5}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.285574905503056,
-            49.1415242940847
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3531,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3531, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.267508015008337,
-            49.15660954974987
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3527,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3527, \"radius_m\": 21.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.263156284602557,
-            49.15452823601247
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3521,
-          "support_count": 1,
-          "radius_m": 14.9,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3521, \"radius_m\": 14.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.27650824291273,
-            49.13855333296585
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3518,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3518, \"radius_m\": 21.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.274654209560865,
-            49.1592709386408
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3516,
-          "support_count": 2,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3524, \"radius_m\": 9.9}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3508, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.268582656642323,
-            49.15701067083432
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3516,
-          "support_count": 1,
-          "radius_m": 9.6,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3516, \"radius_m\": 9.6}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.26271301389661,
-            49.15437018405938
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.351,
-          "support_count": 2,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3526, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3494, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.300459258140888,
-            49.148297424679406
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3508,
-          "support_count": 1,
-          "radius_m": 14.9,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3508, \"radius_m\": 14.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.280570467481935,
-            49.139977936224845
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3503,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3503, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.261923892718176,
-            49.1545252184547
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3492,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3492, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.264379737076153,
-            49.155441887715405
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3474,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3474, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.26279153418566,
-            49.147534096720406
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3462,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3462, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.261573057809894,
-            49.15439426570318
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3461,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3461, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.287362309616453,
-            49.15933047915509
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.346,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.346, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.259862737632018,
-            49.15375587103947
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3456,
-          "support_count": 1,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3456, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.29879895775431,
-            49.15028907840778
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3453,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3453, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.26404352028905,
-            49.15531639132852
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3434,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3434, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.264774426347973,
-            49.15558920956087
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3434,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3434, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.29025160811562,
-            49.15044573143438
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3427,
-          "support_count": 2,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3432, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3422, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.300833772410598,
-            49.147848166974214
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.34,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.34, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.274517076153419,
-            49.13702755414796
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3399,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3399, \"radius_m\": 21.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.275314551973318,
-            49.15945785760169
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.3398,
           "support_count": 1,
           "radius_m": 9.9,
@@ -1854,87 +396,6 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             9.288411578654808,
             49.15233207501543
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3386,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3386, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.266120822123401,
-            49.14371842356866
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3359,
-          "support_count": 1,
-          "radius_m": 5.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3359, \"radius_m\": 5.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.299750069483048,
-            49.14914814919042
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3354,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3354, \"radius_m\": 21.3}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.262761274597,
-            49.154957652918796
           ]
         }
       },
@@ -1972,60 +433,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3344,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3344, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.263341850472486,
-            49.15505448582546
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3337,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3337, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.263736539744302,
-            49.155201807670934
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.333,
           "support_count": 2,
           "radius_m": 5.5,
@@ -2053,104 +460,23 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3304,
+          "score": 0.3237,
           "support_count": 1,
-          "radius_m": 5.5,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
           "baseline_seen": "nein",
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3304, \"radius_m\": 5.5}]"
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3237, \"radius_m\": 9.6}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.293177174541412,
-            49.15133519491188
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3267,
-          "support_count": 1,
-          "radius_m": 15.4,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3267, \"radius_m\": 15.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.26040360811562,
-            49.153957756531405
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3241,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3241, \"radius_m\": 22.1}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.270159356864925,
-            49.1390898877154
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3232,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3232, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.289800644246803,
-            49.150429478877314
+            9.286127420233463,
+            49.150380304643335
           ]
         }
       },
@@ -2188,7 +514,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3223,
+          "score": 0.3225,
           "support_count": 1,
           "radius_m": 9.9,
           "dates": "1945-03-19",
@@ -2198,13 +524,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3223, \"radius_m\": 9.9}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3225, \"radius_m\": 9.9}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.290951694830461,
-            49.1543071687087
+            9.289218692607003,
+            49.15116294246232
           ]
         }
       },
@@ -2404,60 +730,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3146,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3146, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.293028667593108,
-            49.15095016430535
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3144,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3144, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.288790499166204,
-            49.15087631099114
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.3106,
           "support_count": 1,
           "radius_m": 5.5,
@@ -2485,9 +757,9 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3092,
+          "score": 0.3088,
           "support_count": 1,
-          "radius_m": 22.1,
+          "radius_m": 9.9,
           "dates": "1945-03-19",
           "first_seen": "1945-03-19",
           "last_seen": "1945-03-19",
@@ -2495,40 +767,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3092, \"radius_m\": 22.1}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3088, \"radius_m\": 9.9}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.273792444135632,
-            49.13676964922578
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3083,
-          "support_count": 1,
-          "radius_m": 5.5,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3083, \"radius_m\": 5.5}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.296033623123959,
-            49.14901712373961
+            9.291924539744302,
+            49.15134921364442
           ]
         }
       },
@@ -2593,60 +838,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.304,
-          "support_count": 1,
-          "radius_m": 5.5,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.304, \"radius_m\": 5.5}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.284384578654809,
-            49.14688610413481
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3038,
-          "support_count": 1,
-          "radius_m": 9.9,
-          "dates": "1945-03-19",
-          "first_seen": "1945-03-19",
-          "last_seen": "1945-03-19",
-          "baseline_seen": "nein",
-          "persistence": "nein",
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3038, \"radius_m\": 9.9}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.284805362423569,
-            49.151378703438795
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.3029,
           "support_count": 1,
           "radius_m": 9.9,
@@ -2664,6 +855,33 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             9.288043927737633,
             49.152042698904125
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.3022,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3022, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.285525720400223,
+            49.15072383106914
           ]
         }
       },
@@ -2701,6 +919,33 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
+          "score": 0.3004,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3004, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.273380777098389,
+            49.1514522781942
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
           "score": 0.3002,
           "support_count": 1,
           "radius_m": 5.5,
@@ -2728,23 +973,23 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2972,
-          "support_count": 1,
-          "radius_m": 21.3,
-          "dates": "1945-04-09",
-          "first_seen": "1945-04-09",
-          "last_seen": "1945-04-09",
+          "score": 0.2995,
+          "support_count": 2,
+          "radius_m": 7.7,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
           "baseline_seen": "nein",
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
-          "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2972, \"radius_m\": 21.3}]"
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.3034, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2956, \"radius_m\": 9.9}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.295136093385214,
-            49.1545271917834
+            9.28780054391219,
+            49.150368422793065
           ]
         }
       },
@@ -2755,7 +1000,88 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2881,
+          "score": 0.2993,
+          "support_count": 2,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3339, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2648, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.284145876688264,
+            49.15086638329119
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2987,
+          "support_count": 2,
+          "radius_m": 5.5,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.304, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2935, \"radius_m\": 5.5}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.284468704819192,
+            49.14694242056149
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2977,
+          "support_count": 3,
+          "radius_m": 6.8,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.3256, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2912, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2762, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.2890913648987,
+            49.153234653529985
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2955,
           "support_count": 1,
           "radius_m": 5.5,
           "dates": "1945-03-19",
@@ -2765,13 +1091,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2881, \"radius_m\": 5.5}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2955, \"radius_m\": 5.5}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.288532983324068,
-            49.15277036700582
+            9.291085480266815,
+            49.1516444114175
           ]
         }
       },
@@ -2782,7 +1108,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2879,
+          "score": 0.2955,
           "support_count": 1,
           "radius_m": 9.9,
           "dates": "1945-03-19",
@@ -2792,13 +1118,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2879, \"radius_m\": 9.9}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2955, \"radius_m\": 9.9}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.291135200667036,
-            49.15400807217895
+            9.291066043357421,
+            49.14784686608489
           ]
         }
       },
@@ -2809,7 +1135,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2838,
+          "score": 0.2954,
           "support_count": 1,
           "radius_m": 5.5,
           "dates": "1945-03-19",
@@ -2819,13 +1145,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2838, \"radius_m\": 5.5}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2954, \"radius_m\": 5.5}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.287777516953863,
-            49.15028260997941
+            9.287788314619233,
+            49.1507810288379
           ]
         }
       },
@@ -2836,7 +1162,142 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2824,
+          "score": 0.295,
+          "support_count": 1,
+          "radius_m": 9.9,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.295, \"radius_m\": 9.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.291177648693719,
+            49.15207178824504
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2945,
+          "support_count": 1,
+          "radius_m": 9.9,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2945, \"radius_m\": 9.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.291529874930518,
+            49.14833696793074
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.294,
+          "support_count": 1,
+          "radius_m": 9.9,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.294, \"radius_m\": 9.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.289809371873263,
+            49.15095247383498
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2864,
+          "support_count": 2,
+          "radius_m": 7.7,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2997, \"radius_m\": 5.5}, {\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.273, \"radius_m\": 9.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.290522645772839,
+            49.14719720469851
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2856,
+          "support_count": 1,
+          "radius_m": 9.9,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2856, \"radius_m\": 9.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.291707210116732,
+            49.151065250454444
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2823,
           "support_count": 1,
           "radius_m": 5.5,
           "dates": "1945-03-19",
@@ -2846,13 +1307,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2824, \"radius_m\": 5.5}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2823, \"radius_m\": 5.5}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.291857403557533,
-            49.15089315155323
+            9.285266061700945,
+            49.14751947051926
           ]
         }
       },
@@ -2863,9 +1324,9 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2797,
+          "score": 0.2809,
           "support_count": 1,
-          "radius_m": 21.3,
+          "radius_m": 9.6,
           "dates": "1945-04-09",
           "first_seen": "1945-04-09",
           "last_seen": "1945-04-09",
@@ -2873,13 +1334,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2797, \"radius_m\": 21.3}]"
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2809, \"radius_m\": 9.6}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.294462684269039,
-            49.14505419465017
+            9.291114525291828,
+            49.15436691354192
           ]
         }
       },
@@ -2890,7 +1351,1006 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.272,
+          "score": 0.2806,
+          "support_count": 1,
+          "radius_m": 15.4,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2806, \"radius_m\": 15.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.290354190661478,
+            49.15083897285287
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2786,
+          "support_count": 1,
+          "radius_m": 5.5,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2786, \"radius_m\": 5.5}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.291628356864924,
+            49.15173300887622
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2779,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2779, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.285375010561424,
+            49.15094913777866
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2769,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2769, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.284807272373541,
+            49.151875014006606
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2765,
+          "support_count": 2,
+          "radius_m": 7.5,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2896, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2634, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.286022377192724,
+            49.15064095764493
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2747,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2747, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.295163425792108,
+            49.150132924459605
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2738,
+          "support_count": 1,
+          "radius_m": 15.4,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2738, \"radius_m\": 15.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.282325700389105,
+            49.152176988813196
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2736,
+          "support_count": 2,
+          "radius_m": 7.5,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2762, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2709, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.288589724883565,
+            49.15315604303173
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.273,
+          "support_count": 1,
+          "radius_m": 9.9,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.273, \"radius_m\": 9.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.291103176209006,
+            49.14722689098787
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2714,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2714, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.290799025569761,
+            49.15105144917641
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2707,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2707, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28579337020567,
+            49.15035823638665
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2667,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2667, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.288920228460256,
+            49.15343881078952
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2657,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2657, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.289617655364092,
+            49.15602904802927
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2642,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2642, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.286962665925515,
+            49.15311682548949
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2618,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2618, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.288257864369093,
+            49.15073969633738
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2617,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2617, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28728249360756,
+            49.15340073423009
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2606,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2606, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.286884744302387,
+            49.153343820014264
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2576,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2576, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274513486937188,
+            49.15354267856363
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2563,
+          "support_count": 1,
+          "radius_m": 5.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2563, \"radius_m\": 5.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28913703168427,
+            49.152533399247496
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2553,
+          "support_count": 2,
+          "radius_m": 7.5,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2632, \"radius_m\": 5.3}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2474, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28979760129705,
+            49.15353881740815
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2523,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2523, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.290284758199,
+            49.15260299259671
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2491,
+          "support_count": 1,
+          "radius_m": 9.9,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2491, \"radius_m\": 9.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.290792031128404,
+            49.15002635442889
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2471,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2471, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.286544037798777,
+            49.152773417439
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2445,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2445, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.295607989438576,
+            49.150267210118884
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2442,
+          "support_count": 1,
+          "radius_m": 15.4,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2442, \"radius_m\": 15.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.291584910505835,
+            49.14938432347165
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2377,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2377, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.279971578654807,
+            49.15462754153086
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2363,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2363, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28623873929961,
+            49.1532954358128
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2351,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2351, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274824943301834,
+            49.151833796601835
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2334,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2334, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.289453133963313,
+            49.153422601715604
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2299,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2299, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.289133229571984,
+            49.15287175202115
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2278,
+          "support_count": 1,
+          "radius_m": 15.4,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2278, \"radius_m\": 15.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28796723290717,
+            49.14990975859419
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2241,
+          "support_count": 1,
+          "radius_m": 15.4,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2241, \"radius_m\": 15.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.267167987215121,
+            49.14829310586544
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2226,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2226, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274618982212342,
+            49.154284002522544
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2193,
+          "support_count": 1,
+          "radius_m": 15.4,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2193, \"radius_m\": 15.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.290918367426348,
+            49.14861571453351
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2188,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2188, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274245798777098,
+            49.153774813160354
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2164,
+          "support_count": 1,
+          "radius_m": 15.4,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2164, \"radius_m\": 15.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.29181510783769,
+            49.150142126972526
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2161,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2161, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.291088233463036,
+            49.14881299548109
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2156,
           "support_count": 1,
           "radius_m": 22.1,
           "dates": "1945-03-19",
@@ -2900,13 +2360,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.272, \"radius_m\": 22.1}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2156, \"radius_m\": 22.1}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.290047633129515,
-            49.15421049778318
+            9.286233134519177,
+            49.1539399699963
           ]
         }
       },
@@ -2917,7 +2377,331 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2607,
+          "score": 0.2132,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2132, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28904290439133,
+            49.15064355152776
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2123,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2123, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.280914439688717,
+            49.15514886337138
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2046,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2046, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.276622420233462,
+            49.14407671347772
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2039,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2039, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274137817120621,
+            49.15540802340995
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2034,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2034, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.278332474152307,
+            49.1543463708842
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2018,
+          "support_count": 1,
+          "radius_m": 9.6,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2018, \"radius_m\": 9.6}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.275312634241246,
+            49.15278421450247
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2017,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2017, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.285213391328515,
+            49.14975629803723
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2008,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2008, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274985038354641,
+            49.146153061385164
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1999,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1999, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.289207447470817,
+            49.15004320904362
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1995,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1995, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.292404420233463,
+            49.150932592631136
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1978,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1978, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.285319194552528,
+            49.151722655664734
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1962,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1962, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.285664851584214,
+            49.144663873003374
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1955,
           "support_count": 1,
           "radius_m": 21.3,
           "dates": "1945-04-09",
@@ -2927,13 +2711,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-04-09",
-          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.2607, \"radius_m\": 21.3}]"
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1955, \"radius_m\": 21.3}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.298957425236242,
-            49.1499209644287
+            9.276810041133965,
+            49.152990589449836
           ]
         }
       },
@@ -2944,9 +2728,9 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2525,
+          "score": 0.1951,
           "support_count": 1,
-          "radius_m": 5.5,
+          "radius_m": 22.1,
           "dates": "1945-03-19",
           "first_seen": "1945-03-19",
           "last_seen": "1945-03-19",
@@ -2954,13 +2738,931 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
           "images": "Historisch 1945-03-19",
-          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.2525, \"radius_m\": 5.5}]"
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1951, \"radius_m\": 22.1}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.293515205669816,
-            49.151081113774225
+            9.284967327404113,
+            49.158854754502926
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1915,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1915, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.284599892718175,
+            49.15596690708846
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1912,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1912, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.275859838799333,
+            49.15277308335494
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1904,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1904, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.269267037798777,
+            49.15620963087578
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1889,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1889, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.287793030016676,
+            49.15153070480574
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1888,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1888, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.276235684824902,
+            49.15350161741268
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1869,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1869, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.283828981656473,
+            49.15794421832677
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1864,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1864, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.282561499166203,
+            49.15726174625455
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1864,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1864, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.287164271817677,
+            49.158126556655986
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1855,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1855, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.284491596442468,
+            49.150538990461314
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.184,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.184, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.284500757643135,
+            49.152687788358115
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1839,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1839, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.277926315175097,
+            49.1521632278361
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1837,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1837, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.280885989438577,
+            49.152417885276876
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1833,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1833, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.289170007226236,
+            49.15420729710007
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1827,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1827, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.284786107837688,
+            49.15653079011903
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1778,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1778, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.287950967759866,
+            49.15341506830211
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1768,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1768, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.277095677042801,
+            49.15189128873956
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1755,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1755, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.275131140077821,
+            49.145391013346
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1754,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1754, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.264735360755974,
+            49.14772727405165
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1744,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1744, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.273913759310728,
+            49.15170300205692
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1719,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1719, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.29082318065592,
+            49.15369279885991
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.169,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.169, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.278180388549194,
+            49.14768832965384
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1687,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1687, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.277631628682602,
+            49.153429155249306
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1674,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1674, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.26577091328516,
+            49.15268201073353
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1669,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1669, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28326351139522,
+            49.153192922448106
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1651,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1651, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274860653696498,
+            49.13867727644627
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1646,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "dates": "1945-03-19",
+          "first_seen": "1945-03-19",
+          "last_seen": "1945-03-19",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-03-19",
+          "source_records": "[{\"image\": \"Historisch 1945-03-19\", \"date\": \"1945-03-19\", \"score\": 0.1646, \"radius_m\": 22.1}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28512610561423,
+            49.15320977865722
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1631,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1631, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.286538570316843,
+            49.156362654665465
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1607,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1607, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.282271102279044,
+            49.155362601471204
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1605,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1605, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.275451400778211,
+            49.15170533125932
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1557,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1557, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.275359990550307,
+            49.14117729229165
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.155,
+          "support_count": 1,
+          "radius_m": 14.9,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.155, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.272964033351862,
+            49.144096407934306
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1549,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1549, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.274945712618122,
+            49.14692650616904
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1488,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1488, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.270361090605892,
+            49.150424007972134
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1397,
+          "support_count": 1,
+          "radius_m": 21.3,
+          "dates": "1945-04-09",
+          "first_seen": "1945-04-09",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "nein",
+          "persistence": "nein",
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert.",
+          "images": "Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1397, \"radius_m\": 21.3}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.271391827682045,
+            49.145938187972064
           ]
         }
       },
@@ -3150,33 +3852,6 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             9.271763975719324,
             49.15577192756028
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
-          "score": 0.4074,
-          "support_count": 1,
-          "radius_m": 19.4,
-          "dates": "1944-12-24",
-          "first_seen": "1944-12-24",
-          "last_seen": "1944-12-24",
-          "baseline_seen": "ja",
-          "persistence": "nein",
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
-          "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4074, \"radius_m\": 19.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.271852872070548,
-            49.154178918924444
           ]
         }
       },
@@ -3403,33 +4078,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3856,
-          "support_count": 1,
-          "radius_m": 19.4,
-          "dates": "1944-12-24",
-          "first_seen": "1944-12-24",
-          "last_seen": "1944-12-24",
-          "baseline_seen": "ja",
-          "persistence": "nein",
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
-          "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3856, \"radius_m\": 19.4}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.293925764877716,
-            49.14418585602278
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
           "score": 0.3823,
           "support_count": 1,
           "radius_m": 19.4,
@@ -3457,9 +4105,9 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3603,
+          "score": 0.382,
           "support_count": 1,
-          "radius_m": 13.6,
+          "radius_m": 19.4,
           "dates": "1944-12-24",
           "first_seen": "1944-12-24",
           "last_seen": "1944-12-24",
@@ -3467,13 +4115,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
           "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3603, \"radius_m\": 13.6}]"
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.382, \"radius_m\": 19.4}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.27155070625179,
-            49.158821581685956
+            9.271984155625956,
+            49.152616100071654
           ]
         }
       },
@@ -3528,6 +4176,33 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             9.29081603465887,
             49.1581111248742
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.3392,
+          "support_count": 1,
+          "radius_m": 19.4,
+          "dates": "1944-12-24",
+          "first_seen": "1944-12-24",
+          "last_seen": "1944-12-24",
+          "baseline_seen": "ja",
+          "persistence": "nein",
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
+          "images": "Historisch 1944-12-24",
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3392, \"radius_m\": 19.4}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.293837219313676,
+            49.1441833910254
           ]
         }
       },
@@ -3619,33 +4294,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3318,
-          "support_count": 1,
-          "radius_m": 8.7,
-          "dates": "1944-12-24",
-          "first_seen": "1944-12-24",
-          "last_seen": "1944-12-24",
-          "baseline_seen": "ja",
-          "persistence": "nein",
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
-          "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3318, \"radius_m\": 8.7}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.273434295558554,
-            49.158274563807765
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
           "score": 0.3263,
           "support_count": 2,
           "radius_m": 4.8,
@@ -3663,33 +4311,6 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             9.292112469983868,
             49.15816171016225
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
-          "score": 0.3262,
-          "support_count": 1,
-          "radius_m": 8.7,
-          "dates": "1944-12-24",
-          "first_seen": "1944-12-24",
-          "last_seen": "1944-12-24",
-          "baseline_seen": "ja",
-          "persistence": "nein",
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
-          "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3262, \"radius_m\": 8.7}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.28694982244722,
-            49.14392396521259
           ]
         }
       },
@@ -3771,6 +4392,33 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             9.291934104686655,
             49.15842271688088
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.322,
+          "support_count": 2,
+          "radius_m": 8.7,
+          "dates": "1944-12-24",
+          "first_seen": "1944-12-24",
+          "last_seen": "1944-12-24",
+          "baseline_seen": "ja",
+          "persistence": "nein",
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
+          "images": "Historisch 1944-12-24",
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3262, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3178, \"radius_m\": 8.7}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.28711004983592,
+            49.14392842571788
           ]
         }
       },
@@ -3889,33 +4537,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3172,
-          "support_count": 1,
-          "radius_m": 8.7,
-          "dates": "1944-12-24",
-          "first_seen": "1944-12-24",
-          "last_seen": "1944-12-24",
-          "baseline_seen": "ja",
-          "persistence": "nein",
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
-          "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3172, \"radius_m\": 8.7}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.28882403716072,
-            49.14397614071588
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
           "score": 0.3171,
           "support_count": 1,
           "radius_m": 8.7,
@@ -3970,7 +4591,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3145,
+          "score": 0.315,
           "support_count": 2,
           "radius_m": 8.7,
           "dates": "1944-12-24",
@@ -3980,40 +4601,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
           "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3349, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.2941, \"radius_m\": 8.7}]"
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3172, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3127, \"radius_m\": 8.7}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.293088540789428,
-            49.15829677540986
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate",
-          "objektklasse": "bombenkrater_kandidat",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
-          "score": 0.3136,
-          "support_count": 1,
-          "radius_m": 8.7,
-          "dates": "1944-12-24",
-          "first_seen": "1944-12-24",
-          "last_seen": "1944-12-24",
-          "baseline_seen": "ja",
-          "persistence": "nein",
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
-          "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3136, \"radius_m\": 8.7}]"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            9.286476950874752,
-            49.1439204710263
+            9.28898521515866,
+            49.1439806276848
           ]
         }
       },
@@ -4051,6 +4645,33 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
+          "score": 0.3124,
+          "support_count": 2,
+          "radius_m": 8.7,
+          "dates": "1944-12-24",
+          "first_seen": "1944-12-24",
+          "last_seen": "1944-12-24",
+          "baseline_seen": "ja",
+          "persistence": "nein",
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
+          "images": "Historisch 1944-12-24",
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3136, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3112, \"radius_m\": 8.7}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.286587203053815,
+            49.143923540294374
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
           "score": 0.3111,
           "support_count": 1,
           "radius_m": 4.8,
@@ -4078,7 +4699,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_kandidat",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3099,
+          "score": 0.308,
           "support_count": 1,
           "radius_m": 4.8,
           "dates": "1944-12-24",
@@ -4088,13 +4709,40 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
           "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3099, \"radius_m\": 4.8}]"
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.308, \"radius_m\": 4.8}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.274936510911967,
-            49.143599201150295
+            9.28088163722666,
+            49.158105008687734
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.3059,
+          "support_count": 2,
+          "radius_m": 8.7,
+          "dates": "1944-12-24",
+          "first_seen": "1944-12-24",
+          "last_seen": "1944-12-24",
+          "baseline_seen": "ja",
+          "persistence": "nein",
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
+          "images": "Historisch 1944-12-24",
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3318, \"radius_m\": 8.7}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.28, \"radius_m\": 8.7}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.273437024128977,
+            49.15833659845797
           ]
         }
       },
@@ -4106,7 +4754,7 @@ window.UXO_ANALYSIS_DATA = {
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
           "score": 0.3051,
-          "support_count": 1,
+          "support_count": 2,
           "radius_m": 4.8,
           "dates": "1944-12-24",
           "first_seen": "1944-12-24",
@@ -4115,13 +4763,13 @@ window.UXO_ANALYSIS_DATA = {
           "persistence": "nein",
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
           "images": "Historisch 1944-12-24",
-          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3051, \"radius_m\": 4.8}]"
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3099, \"radius_m\": 4.8}, {\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.3003, \"radius_m\": 4.8}]"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            9.293065938769638,
-            49.15943093949606
+            9.275038194258778,
+            49.143602031873925
           ]
         }
       },
@@ -4149,6 +4797,33 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             9.2741019144392,
             49.14357596713961
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate",
+          "objektklasse": "bombenkrater_kandidat",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.2923,
+          "support_count": 2,
+          "radius_m": 17.1,
+          "dates": "1944-12-24, 1945-04-09",
+          "first_seen": "1944-12-24",
+          "last_seen": "1945-04-09",
+          "baseline_seen": "ja",
+          "persistence": "ja",
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich.",
+          "images": "Historisch 1944-12-24, Historisch 1945-04-09",
+          "source_records": "[{\"image\": \"Historisch 1944-12-24\", \"date\": \"1944-12-24\", \"score\": 0.4074, \"radius_m\": 19.4}, {\"image\": \"Historisch 1945-04-09\", \"date\": \"1945-04-09\", \"score\": 0.1771, \"radius_m\": 14.9}]"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            9.271910433210673,
+            49.15423020265231
           ]
         }
       },
@@ -4191,7 +4866,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_high",
-          "score": 0.34,
+          "score": 0.3234,
           "support_count": 2,
           "radius_m": 22.0,
           "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
@@ -4201,88 +4876,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.267151340358954,
-                49.15648592802174
+                9.290608018905049,
+                49.15036738027452
               ],
               [
-                9.267136550306402,
-                49.15654699857399
+                9.290593230679146,
+                49.150428450826766
               ],
               [
-                9.267093627902138,
-                49.156602091115076
+                9.290550313576027,
+                49.150483543367855
               ],
               [
-                9.26702677469015,
-                49.156645812803234
+                9.290483468620764,
+                49.15052726505601
               ],
               [
-                9.26694253472862,
-                49.156673883855
+                9.290399239063314,
+                49.15055533610778
               ],
               [
-                9.266849154011918,
-                49.15668355648024
+                9.290305869879623,
+                49.15056500873302
               ],
               [
-                9.266755773295216,
-                49.156673883855
+                9.290212500695931,
+                49.15055533610778
               ],
               [
-                9.266671533333687,
-                49.156645812803234
+                9.290128271138482,
+                49.15052726505601
               ],
               [
-                9.266604680121699,
-                49.156602091115076
+                9.290061426183218,
+                49.150483543367855
               ],
               [
-                9.266561757717435,
-                49.15654699857399
+                9.290018509080099,
+                49.150428450826766
               ],
               [
-                9.266546967664883,
-                49.15648592802174
+                9.290003720854196,
+                49.15036738027452
               ],
               [
-                9.266561757717435,
-                49.15642485746949
+                9.290018509080099,
+                49.15030630972227
               ],
               [
-                9.266604680121699,
-                49.1563697649284
+                9.290061426183218,
+                49.15025121718118
               ],
               [
-                9.266671533333687,
-                49.15632604324024
+                9.290128271138482,
+                49.15020749549302
               ],
               [
-                9.266755773295216,
-                49.156297972188476
+                9.290212500695931,
+                49.150179424441255
               ],
               [
-                9.266849154011918,
-                49.156288299563236
+                9.290305869879623,
+                49.150169751816016
               ],
               [
-                9.26694253472862,
-                49.156297972188476
+                9.290399239063314,
+                49.150179424441255
               ],
               [
-                9.26702677469015,
-                49.15632604324024
+                9.290483468620764,
+                49.15020749549302
               ],
               [
-                9.267093627902138,
-                49.1563697649284
+                9.290550313576027,
+                49.15025121718118
               ],
               [
-                9.267136550306402,
-                49.15642485746949
+                9.290593230679146,
+                49.15030630972227
               ],
               [
-                9.267151340358954,
-                49.15648592802174
+                9.290608018905049,
+                49.15036738027452
               ]
             ]
           ]
@@ -4294,515 +4969,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4368,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.278657487610857,
-                49.13916362386243
-              ],
-              [
-                9.278642702728153,
-                49.13922469441468
-              ],
-              [
-                9.278599795327366,
-                49.13927978695577
-              ],
-              [
-                9.278532965483842,
-                49.139323508643926
-              ],
-              [
-                9.278448754968297,
-                49.13935157969569
-              ],
-              [
-                9.27835540689272,
-                49.13936125232093
-              ],
-              [
-                9.278262058817143,
-                49.13935157969569
-              ],
-              [
-                9.278177848301597,
-                49.139323508643926
-              ],
-              [
-                9.278111018458073,
-                49.13927978695577
-              ],
-              [
-                9.278068111057287,
-                49.13922469441468
-              ],
-              [
-                9.278053326174582,
-                49.13916362386243
-              ],
-              [
-                9.278068111057287,
-                49.13910255331018
-              ],
-              [
-                9.278111018458073,
-                49.13904746076909
-              ],
-              [
-                9.278177848301597,
-                49.139003739080934
-              ],
-              [
-                9.278262058817143,
-                49.13897566802917
-              ],
-              [
-                9.27835540689272,
-                49.13896599540393
-              ],
-              [
-                9.278448754968297,
-                49.13897566802917
-              ],
-              [
-                9.278532965483842,
-                49.139003739080934
-              ],
-              [
-                9.278599795327366,
-                49.13904746076909
-              ],
-              [
-                9.278642702728153,
-                49.13910255331018
-              ],
-              [
-                9.278657487610857,
-                49.13916362386243
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4364,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.277907431987547,
-                49.13888396843686
-              ],
-              [
-                9.277892647188263,
-                49.13894503898911
-              ],
-              [
-                9.27784974002958,
-                49.139000131530196
-              ],
-              [
-                9.277782910563138,
-                49.139043853218354
-              ],
-              [
-                9.277698700522745,
-                49.13907192427012
-              ],
-              [
-                9.277605352973875,
-                49.13908159689536
-              ],
-              [
-                9.277512005425006,
-                49.13907192427012
-              ],
-              [
-                9.277427795384613,
-                49.139043853218354
-              ],
-              [
-                9.27736096591817,
-                49.139000131530196
-              ],
-              [
-                9.277318058759487,
-                49.13894503898911
-              ],
-              [
-                9.277303273960204,
-                49.13888396843686
-              ],
-              [
-                9.277318058759487,
-                49.13882289788461
-              ],
-              [
-                9.27736096591817,
-                49.13876780534352
-              ],
-              [
-                9.277427795384613,
-                49.13872408365536
-              ],
-              [
-                9.277512005425006,
-                49.138696012603596
-              ],
-              [
-                9.277605352973875,
-                49.138686339978356
-              ],
-              [
-                9.277698700522745,
-                49.138696012603596
-              ],
-              [
-                9.277782910563138,
-                49.13872408365536
-              ],
-              [
-                9.27784974002958,
-                49.13876780534352
-              ],
-              [
-                9.277892647188263,
-                49.13882289788461
-              ],
-              [
-                9.277907431987547,
-                49.13888396843686
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4357,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.289258221465351,
-                49.15750435352974
-              ],
-              [
-                9.289243431108696,
-                49.15756542408199
-              ],
-              [
-                9.289200507821889,
-                49.157620516623076
-              ],
-              [
-                9.289133653235305,
-                49.157664238311234
-              ],
-              [
-                9.289049411541685,
-                49.157692309363
-              ],
-              [
-                9.288956028904947,
-                49.15770198198824
-              ],
-              [
-                9.288862646268209,
-                49.157692309363
-              ],
-              [
-                9.288778404574588,
-                49.157664238311234
-              ],
-              [
-                9.288711549988005,
-                49.157620516623076
-              ],
-              [
-                9.288668626701197,
-                49.15756542408199
-              ],
-              [
-                9.288653836344542,
-                49.15750435352974
-              ],
-              [
-                9.288668626701197,
-                49.15744328297749
-              ],
-              [
-                9.288711549988005,
-                49.1573881904364
-              ],
-              [
-                9.288778404574588,
-                49.15734446874824
-              ],
-              [
-                9.288862646268209,
-                49.157316397696476
-              ],
-              [
-                9.288956028904947,
-                49.15730672507124
-              ],
-              [
-                9.289049411541685,
-                49.157316397696476
-              ],
-              [
-                9.289133653235305,
-                49.15734446874824
-              ],
-              [
-                9.289200507821889,
-                49.1573881904364
-              ],
-              [
-                9.289243431108696,
-                49.15744328297749
-              ],
-              [
-                9.289258221465351,
-                49.15750435352974
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4333,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.277263973112406,
-                49.138654466686305
-              ],
-              [
-                9.277249188381584,
-                49.138715537238554
-              ],
-              [
-                9.277206281421579,
-                49.13877062977964
-              ],
-              [
-                9.27713945226459,
-                49.1388143514678
-              ],
-              [
-                9.277055242614127,
-                49.138842422519566
-              ],
-              [
-                9.2769618954975,
-                49.138852095144806
-              ],
-              [
-                9.276868548380873,
-                49.138842422519566
-              ],
-              [
-                9.27678433873041,
-                49.1388143514678
-              ],
-              [
-                9.276717509573421,
-                49.13877062977964
-              ],
-              [
-                9.276674602613417,
-                49.138715537238554
-              ],
-              [
-                9.276659817882594,
-                49.138654466686305
-              ],
-              [
-                9.276674602613417,
-                49.138593396134056
-              ],
-              [
-                9.276717509573421,
-                49.138538303592966
-              ],
-              [
-                9.27678433873041,
-                49.13849458190481
-              ],
-              [
-                9.276868548380873,
-                49.13846651085304
-              ],
-              [
-                9.2769618954975,
-                49.1384568382278
-              ],
-              [
-                9.277055242614127,
-                49.13846651085304
-              ],
-              [
-                9.27713945226459,
-                49.13849458190481
-              ],
-              [
-                9.277206281421579,
-                49.138538303592966
-              ],
-              [
-                9.277249188381584,
-                49.138593396134056
-              ],
-              [
-                9.277263973112406,
-                49.138654466686305
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4312,
+          "analysis_status": "candidate_high",
+          "score": 0.2993,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.278328943077547,
-                49.139034308321435
+                9.287495612396723,
+                49.15104023557751
               ],
               [
-                9.278314158233417,
-                49.139095378873684
+                9.287480823969975,
+                49.15110130612976
               ],
               [
-                9.278271250944583,
-                49.13915047141477
+                9.287437906283976,
+                49.15115639867085
               ],
               [
-                9.278204421275426,
-                49.13919419310293
+                9.287371060420861,
+                49.15120012035901
               ],
               [
-                9.278120210979596,
-                49.1392222641547
+                9.287286829719449,
+                49.15122819141077
               ],
               [
-                9.278026863147575,
-                49.139231936779936
+                9.287193459267668,
+                49.15123786403601
               ],
               [
-                9.277933515315555,
-                49.1392222641547
+                9.287100088815887,
+                49.15122819141077
               ],
               [
-                9.277849305019725,
-                49.13919419310293
+                9.287015858114474,
+                49.15120012035901
               ],
               [
-                9.277782475350568,
-                49.13915047141477
+                9.286949012251359,
+                49.15115639867085
               ],
               [
-                9.277739568061733,
-                49.139095378873684
+                9.28690609456536,
+                49.15110130612976
               ],
               [
-                9.277724783217604,
-                49.139034308321435
+                9.286891306138612,
+                49.15104023557751
               ],
               [
-                9.277739568061733,
-                49.138973237769186
+                9.28690609456536,
+                49.15097916502526
               ],
               [
-                9.277782475350568,
-                49.1389181452281
+                9.286949012251359,
+                49.15092407248417
               ],
               [
-                9.277849305019725,
-                49.13887442353994
+                9.287015858114474,
+                49.150880350796015
               ],
               [
-                9.277933515315555,
-                49.13884635248817
+                9.287100088815887,
+                49.15085227974425
               ],
               [
-                9.278026863147575,
-                49.13883667986293
+                9.287193459267668,
+                49.15084260711901
               ],
               [
-                9.278120210979596,
-                49.13884635248817
+                9.287286829719449,
+                49.15085227974425
               ],
               [
-                9.278204421275426,
-                49.13887442353994
+                9.287371060420861,
+                49.150880350796015
               ],
               [
-                9.278271250944583,
-                49.1389181452281
+                9.287437906283976,
+                49.15092407248417
               ],
               [
-                9.278314158233417,
-                49.138973237769186
+                9.287480823969975,
+                49.15097916502526
               ],
               [
-                9.278328943077547,
-                49.139034308321435
+                9.287495612396723,
+                49.15104023557751
               ]
             ]
           ]
@@ -4814,99 +5073,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4235,
+          "analysis_status": "candidate_high",
+          "score": 0.2945,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.26335191792923,
-                49.15394363137597
+                9.28502719360866,
+                49.15142555861471
               ],
               [
-                9.263337128635738,
-                49.154004701928216
+                9.285012405066889,
+                49.15148662916696
               ],
               [
-                9.263294208434353,
-                49.154059794469305
+                9.284969487047086,
+                49.15154172170805
               ],
               [
-                9.263227358653428,
-                49.15410351615746
+                9.284902640664056,
+                49.15158544339621
               ],
               [
-                9.263143123015292,
-                49.15413158720923
+                9.284818409307514,
+                49.15161351444797
               ],
               [
-                9.263049747091106,
-                49.15414125983447
+                9.284725038129515,
+                49.15162318707321
               ],
               [
-                9.26295637116692,
-                49.15413158720923
+                9.284631666951517,
+                49.15161351444797
               ],
               [
-                9.262872135528784,
-                49.15410351615746
+                9.284547435594975,
+                49.15158544339621
               ],
               [
-                9.26280528574786,
-                49.154059794469305
+                9.284480589211945,
+                49.15154172170805
               ],
               [
-                9.262762365546473,
-                49.154004701928216
+                9.284437671192142,
+                49.15148662916696
               ],
               [
-                9.262747576252982,
-                49.15394363137597
+                9.284422882650372,
+                49.15142555861471
               ],
               [
-                9.262762365546473,
-                49.15388256082372
+                9.284437671192142,
+                49.15136448806246
               ],
               [
-                9.26280528574786,
-                49.15382746828263
+                9.284480589211945,
+                49.15130939552137
               ],
               [
-                9.262872135528784,
-                49.15378374659447
+                9.284547435594975,
+                49.151265673833215
               ],
               [
-                9.26295637116692,
-                49.153755675542705
+                9.284631666951517,
+                49.15123760278145
               ],
               [
-                9.263049747091106,
-                49.153746002917465
+                9.284725038129515,
+                49.15122793015621
               ],
               [
-                9.263143123015292,
-                49.153755675542705
+                9.284818409307514,
+                49.15123760278145
               ],
               [
-                9.263227358653428,
-                49.15378374659447
+                9.284902640664056,
+                49.151265673833215
               ],
               [
-                9.263294208434353,
-                49.15382746828263
+                9.284969487047086,
+                49.15130939552137
               ],
               [
-                9.263337128635738,
-                49.15388256082372
+                9.285012405066889,
+                49.15136448806246
               ],
               [
-                9.26335191792923,
-                49.15394363137597
+                9.28502719360866,
+                49.15142555861471
               ]
             ]
           ]
@@ -4918,99 +5177,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4219,
+          "analysis_status": "candidate_high",
+          "score": 0.2932,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.263368202523353,
-                49.15365821746921
+                9.2890186412063,
+                49.15086340113545
               ],
               [
-                9.263353413315071,
-                49.153719288021456
+                9.289003852832336,
+                49.1509244716877
               ],
               [
-                9.263310493360976,
-                49.153774380562545
+                9.288960935299528,
+                49.15097956422879
               ],
               [
-                9.263243643965213,
-                49.1538181022507
+                9.288894089675008,
+                49.15102328591695
               ],
               [
-                9.263159408812408,
-                49.15384617330247
+                9.288809859274249,
+                49.151051356968715
               ],
               [
-                9.263066033426218,
-                49.15385584592771
+                9.28871648915574,
+                49.151061029593954
               ],
               [
-                9.26297265804003,
-                49.15384617330247
+                9.288623119037233,
+                49.151051356968715
               ],
               [
-                9.262888422887224,
-                49.1538181022507
+                9.288538888636474,
+                49.15102328591695
               ],
               [
-                9.262821573491461,
-                49.153774380562545
+                9.288472043011954,
+                49.15097956422879
               ],
               [
-                9.262778653537366,
-                49.153719288021456
+                9.288429125479146,
+                49.1509244716877
               ],
               [
-                9.262763864329084,
-                49.15365821746921
+                9.288414337105182,
+                49.15086340113545
               ],
               [
-                9.262778653537366,
-                49.15359714691696
+                9.288429125479146,
+                49.150802330583204
               ],
               [
-                9.262821573491461,
-                49.15354205437587
+                9.288472043011954,
+                49.150747238042115
               ],
               [
-                9.262888422887224,
-                49.15349833268771
+                9.288538888636474,
+                49.15070351635396
               ],
               [
-                9.26297265804003,
-                49.153470261635945
+                9.288623119037233,
+                49.15067544530219
               ],
               [
-                9.263066033426218,
-                49.153460589010706
+                9.28871648915574,
+                49.15066577267695
               ],
               [
-                9.263159408812408,
-                49.153470261635945
+                9.288809859274249,
+                49.15067544530219
               ],
               [
-                9.263243643965213,
-                49.15349833268771
+                9.288894089675008,
+                49.15070351635396
               ],
               [
-                9.263310493360976,
-                49.15354205437587
+                9.288960935299528,
+                49.150747238042115
               ],
               [
-                9.263353413315071,
-                49.15359714691696
+                9.289003852832336,
+                49.150802330583204
               ],
               [
-                9.263368202523353,
-                49.15365821746921
+                9.2890186412063,
+                49.15086340113545
               ]
             ]
           ]
@@ -5022,411 +5281,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4211,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.277578553006917,
-                49.13876666754213
-              ],
-              [
-                9.277563768242624,
-                49.13882773809438
-              ],
-              [
-                9.277520861185488,
-                49.13888283063547
-              ],
-              [
-                9.277454031877213,
-                49.138926552323625
-              ],
-              [
-                9.277369822036116,
-                49.13895462337539
-              ],
-              [
-                9.277276474708172,
-                49.13896429600063
-              ],
-              [
-                9.277183127380228,
-                49.13895462337539
-              ],
-              [
-                9.277098917539131,
-                49.138926552323625
-              ],
-              [
-                9.277032088230856,
-                49.13888283063547
-              ],
-              [
-                9.27698918117372,
-                49.13882773809438
-              ],
-              [
-                9.276974396409427,
-                49.13876666754213
-              ],
-              [
-                9.27698918117372,
-                49.13870559698988
-              ],
-              [
-                9.277032088230856,
-                49.13865050444879
-              ],
-              [
-                9.277098917539131,
-                49.13860678276063
-              ],
-              [
-                9.277183127380228,
-                49.13857871170887
-              ],
-              [
-                9.277276474708172,
-                49.13856903908363
-              ],
-              [
-                9.277369822036116,
-                49.13857871170887
-              ],
-              [
-                9.277454031877213,
-                49.13860678276063
-              ],
-              [
-                9.277520861185488,
-                49.13865050444879
-              ],
-              [
-                9.277563768242624,
-                49.13870559698988
-              ],
-              [
-                9.277578553006917,
-                49.13876666754213
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4153,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.288644792034933,
-                49.14287138315801
-              ],
-              [
-                9.288630006046064,
-                49.14293245371026
-              ],
-              [
-                9.288587095435066,
-                49.14298754625135
-              ],
-              [
-                9.288520260591518,
-                49.143031267939506
-              ],
-              [
-                9.288436043775574,
-                49.14305933899127
-              ],
-              [
-                9.288342688715952,
-                49.14306901161651
-              ],
-              [
-                9.28824933365633,
-                49.14305933899127
-              ],
-              [
-                9.288165116840386,
-                49.143031267939506
-              ],
-              [
-                9.288098281996838,
-                49.14298754625135
-              ],
-              [
-                9.28805537138584,
-                49.14293245371026
-              ],
-              [
-                9.28804058539697,
-                49.14287138315801
-              ],
-              [
-                9.28805537138584,
-                49.14281031260576
-              ],
-              [
-                9.288098281996838,
-                49.14275522006467
-              ],
-              [
-                9.288165116840386,
-                49.142711498376514
-              ],
-              [
-                9.28824933365633,
-                49.14268342732475
-              ],
-              [
-                9.288342688715952,
-                49.14267375469951
-              ],
-              [
-                9.288436043775574,
-                49.14268342732475
-              ],
-              [
-                9.288520260591518,
-                49.142711498376514
-              ],
-              [
-                9.288587095435066,
-                49.14275522006467
-              ],
-              [
-                9.288630006046064,
-                49.14281031260576
-              ],
-              [
-                9.288644792034933,
-                49.14287138315801
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4153,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.2996325230681,
-                49.14962934707967
-              ],
-              [
-                9.29961773506249,
-                49.149690417631916
-              ],
-              [
-                9.299574818598684,
-                49.149745510173005
-              ],
-              [
-                9.299507974639177,
-                49.14978923186116
-              ],
-              [
-                9.299423746336451,
-                49.14981730291293
-              ],
-              [
-                9.299330378543635,
-                49.14982697553817
-              ],
-              [
-                9.299237010750819,
-                49.14981730291293
-              ],
-              [
-                9.299152782448093,
-                49.14978923186116
-              ],
-              [
-                9.299085938488586,
-                49.149745510173005
-              ],
-              [
-                9.29904302202478,
-                49.149690417631916
-              ],
-              [
-                9.29902823401917,
-                49.14962934707967
-              ],
-              [
-                9.29904302202478,
-                49.14956827652742
-              ],
-              [
-                9.299085938488586,
-                49.14951318398633
-              ],
-              [
-                9.299152782448093,
-                49.14946946229817
-              ],
-              [
-                9.299237010750819,
-                49.149441391246405
-              ],
-              [
-                9.299330378543635,
-                49.149431718621166
-              ],
-              [
-                9.299423746336451,
-                49.149441391246405
-              ],
-              [
-                9.299507974639177,
-                49.14946946229817
-              ],
-              [
-                9.299574818598684,
-                49.14951318398633
-              ],
-              [
-                9.29961773506249,
-                49.14956827652742
-              ],
-              [
-                9.2996325230681,
-                49.14962934707967
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4138,
+          "analysis_status": "candidate_high",
+          "score": 0.2931,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.274901635921038,
-                49.13660914037961
+                9.288977129988789,
+                49.152736735271745
               ],
               [
-                9.274886851800298,
-                49.13667021093186
+                9.288962341055605,
+                49.152797805823994
               ],
               [
-                9.274843946610826,
-                49.13672530347295
+                9.288919421899877,
+                49.15285289836508
               ],
               [
-                9.274777120211501,
-                49.13676902516111
+                9.288852573747599,
+                49.15289662005324
               ],
               [
-                9.2746929140359,
-                49.136797096212874
+                9.288768340161678,
+                49.15292469110501
               ],
               [
-                9.274599570771187,
-                49.13680676883811
+                9.288674966512392,
+                49.152934363730246
               ],
               [
-                9.274506227506475,
-                49.136797096212874
+                9.288581592863107,
+                49.15292469110501
               ],
               [
-                9.274422021330873,
-                49.13676902516111
+                9.288497359277185,
+                49.15289662005324
               ],
               [
-                9.274355194931548,
-                49.13672530347295
+                9.288430511124908,
+                49.15285289836508
               ],
               [
-                9.274312289742076,
-                49.13667021093186
+                9.28838759196918,
+                49.152797805823994
               ],
               [
-                9.274297505621336,
-                49.13660914037961
+                9.288372803035996,
+                49.152736735271745
               ],
               [
-                9.274312289742076,
-                49.13654806982736
+                9.28838759196918,
+                49.152675664719496
               ],
               [
-                9.274355194931548,
-                49.136492977286274
+                9.288430511124908,
+                49.15262057217841
               ],
               [
-                9.274422021330873,
-                49.136449255598116
+                9.288497359277185,
+                49.15257685049025
               ],
               [
-                9.274506227506475,
-                49.13642118454635
+                9.288581592863107,
+                49.15254877943848
               ],
               [
-                9.274599570771187,
-                49.13641151192111
+                9.288674966512392,
+                49.152539106813244
               ],
               [
-                9.2746929140359,
-                49.13642118454635
+                9.288768340161678,
+                49.15254877943848
               ],
               [
-                9.274777120211501,
-                49.136449255598116
+                9.288852573747599,
+                49.15257685049025
               ],
               [
-                9.274843946610826,
-                49.136492977286274
+                9.288919421899877,
+                49.15262057217841
               ],
               [
-                9.274886851800298,
-                49.13654806982736
+                9.288962341055605,
+                49.152675664719496
               ],
               [
-                9.274901635921038,
-                49.13660914037961
+                9.288977129988789,
+                49.152736735271745
               ]
             ]
           ]
@@ -5438,307 +5385,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4078,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.279057862022078,
-                49.13930642492571
-              ],
-              [
-                9.279043077096775,
-                49.139367495477956
-              ],
-              [
-                9.279000169572363,
-                49.139422588019045
-              ],
-              [
-                9.278933339536287,
-                49.1394663097072
-              ],
-              [
-                9.278849128778111,
-                49.13949438075897
-              ],
-              [
-                9.278755780433576,
-                49.13950405338421
-              ],
-              [
-                9.27866243208904,
-                49.13949438075897
-              ],
-              [
-                9.278578221330864,
-                49.1394663097072
-              ],
-              [
-                9.278511391294789,
-                49.139422588019045
-              ],
-              [
-                9.278468483770377,
-                49.139367495477956
-              ],
-              [
-                9.278453698845073,
-                49.13930642492571
-              ],
-              [
-                9.278468483770377,
-                49.13924535437346
-              ],
-              [
-                9.278511391294789,
-                49.13919026183237
-              ],
-              [
-                9.278578221330864,
-                49.13914654014421
-              ],
-              [
-                9.27866243208904,
-                49.139118469092445
-              ],
-              [
-                9.278755780433576,
-                49.139108796467205
-              ],
-              [
-                9.278849128778111,
-                49.139118469092445
-              ],
-              [
-                9.278933339536287,
-                49.13914654014421
-              ],
-              [
-                9.279000169572363,
-                49.13919026183237
-              ],
-              [
-                9.279043077096775,
-                49.13924535437346
-              ],
-              [
-                9.279057862022078,
-                49.13930642492571
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.407,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.26373766340196,
-                49.15368139829274
-              ],
-              [
-                9.263722874186758,
-                49.15374246884499
-              ],
-              [
-                9.263679954212577,
-                49.15379756138608
-              ],
-              [
-                9.263613104785533,
-                49.153841283074236
-              ],
-              [
-                9.26352886959331,
-                49.153869354126
-              ],
-              [
-                9.263435494163426,
-                49.15387902675124
-              ],
-              [
-                9.263342118733542,
-                49.153869354126
-              ],
-              [
-                9.26325788354132,
-                49.153841283074236
-              ],
-              [
-                9.263191034114275,
-                49.15379756138608
-              ],
-              [
-                9.263148114140094,
-                49.15374246884499
-              ],
-              [
-                9.263133324924892,
-                49.15368139829274
-              ],
-              [
-                9.263148114140094,
-                49.15362032774049
-              ],
-              [
-                9.263191034114275,
-                49.1535652351994
-              ],
-              [
-                9.26325788354132,
-                49.153521513511244
-              ],
-              [
-                9.263342118733542,
-                49.15349344245948
-              ],
-              [
-                9.263435494163426,
-                49.15348376983424
-              ],
-              [
-                9.26352886959331,
-                49.15349344245948
-              ],
-              [
-                9.263613104785533,
-                49.153521513511244
-              ],
-              [
-                9.263679954212577,
-                49.1535652351994
-              ],
-              [
-                9.263722874186758,
-                49.15362032774049
-              ],
-              [
-                9.26373766340196,
-                49.15368139829274
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.4,
+          "analysis_status": "candidate_high",
+          "score": 0.2899,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.262883112521097,
-                49.15457135267612
+                9.290178121211639,
+                49.15038610037501
               ],
               [
-                9.262868323040195,
-                49.15463242322837
+                9.290163332980148,
+                49.15044717092726
               ],
               [
-                9.262825402294922,
-                49.15468751576946
+                9.29012041586081,
+                49.15050226346835
               ],
               [
-                9.262758551666876,
-                49.15473123745762
+                9.29005357088029,
+                49.150545985156505
               ],
               [
-                9.2626743149613,
-                49.154759308509384
+                9.289969341291014,
+                49.15057405620827
               ],
               [
-                9.262580937853853,
-                49.15476898113462
+                9.289875972072043,
+                49.15058372883351
               ],
               [
-                9.262487560746406,
-                49.154759308509384
+                9.289782602853071,
+                49.15057405620827
               ],
               [
-                9.26240332404083,
-                49.15473123745762
+                9.289698373263796,
+                49.150545985156505
               ],
               [
-                9.262336473412784,
-                49.15468751576946
+                9.289631528283275,
+                49.15050226346835
               ],
               [
-                9.262293552667511,
-                49.15463242322837
+                9.289588611163937,
+                49.15044717092726
               ],
               [
-                9.26227876318661,
-                49.15457135267612
+                9.289573822932446,
+                49.15038610037501
               ],
               [
-                9.262293552667511,
-                49.15451028212387
+                9.289588611163937,
+                49.15032502982276
               ],
               [
-                9.262336473412784,
-                49.154455189582784
+                9.289631528283275,
+                49.15026993728167
               ],
               [
-                9.26240332404083,
-                49.154411467894626
+                9.289698373263796,
+                49.15022621559351
               ],
               [
-                9.262487560746406,
-                49.15438339684286
+                9.289782602853071,
+                49.15019814454175
               ],
               [
-                9.262580937853853,
-                49.15437372421762
+                9.289875972072043,
+                49.15018847191651
               ],
               [
-                9.2626743149613,
-                49.15438339684286
+                9.289969341291014,
+                49.15019814454175
               ],
               [
-                9.262758551666876,
-                49.154411467894626
+                9.29005357088029,
+                49.15022621559351
               ],
               [
-                9.262825402294922,
-                49.154455189582784
+                9.29012041586081,
+                49.15026993728167
               ],
               [
-                9.262868323040195,
-                49.15451028212387
+                9.290163332980148,
+                49.15032502982276
               ],
               [
-                9.262883112521097,
-                49.15457135267612
+                9.290178121211639,
+                49.15038610037501
               ]
             ]
           ]
@@ -5750,1659 +5489,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3989,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.28030188251413,
-                49.13975012822948
-              ],
-              [
-                9.280287097456464,
-                49.13981119878173
-              ],
-              [
-                9.28024418954792,
-                49.13986629132282
-              ],
-              [
-                9.280177358913548,
-                49.139910013010976
-              ],
-              [
-                9.280093147401471,
-                49.13993808406274
-              ],
-              [
-                9.279999798221233,
-                49.13994775668798
-              ],
-              [
-                9.279906449040995,
-                49.13993808406274
-              ],
-              [
-                9.279822237528919,
-                49.139910013010976
-              ],
-              [
-                9.279755406894546,
-                49.13986629132282
-              ],
-              [
-                9.279712498986003,
-                49.13981119878173
-              ],
-              [
-                9.279697713928336,
-                49.13975012822948
-              ],
-              [
-                9.279712498986003,
-                49.13968905767723
-              ],
-              [
-                9.279755406894546,
-                49.13963396513614
-              ],
-              [
-                9.279822237528919,
-                49.139590243447984
-              ],
-              [
-                9.279906449040995,
-                49.13956217239622
-              ],
-              [
-                9.279999798221233,
-                49.13955249977098
-              ],
-              [
-                9.280093147401471,
-                49.13956217239622
-              ],
-              [
-                9.280177358913548,
-                49.139590243447984
-              ],
-              [
-                9.28024418954792,
-                49.13963396513614
-              ],
-              [
-                9.280287097456464,
-                49.13968905767723
-              ],
-              [
-                9.28030188251413,
-                49.13975012822948
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3971,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.272139958546585,
-                49.13716770650362
-              ],
-              [
-                9.272125107057937,
-                49.13722905464928
-              ],
-              [
-                9.272082006359176,
-                49.13728439761102
-              ],
-              [
-                9.272014875446997,
-                49.13732831803412
-              ],
-              [
-                9.271930285562815,
-                49.13735651668158
-              ],
-              [
-                9.271836516953863,
-                49.13736623327329
-              ],
-              [
-                9.271742748344911,
-                49.13735651668158
-              ],
-              [
-                9.27165815846073,
-                49.13732831803412
-              ],
-              [
-                9.271591027548551,
-                49.13728439761102
-              ],
-              [
-                9.27154792684979,
-                49.13722905464928
-              ],
-              [
-                9.271533075361141,
-                49.13716770650362
-              ],
-              [
-                9.27154792684979,
-                49.137106358357954
-              ],
-              [
-                9.271591027548551,
-                49.13705101539622
-              ],
-              [
-                9.27165815846073,
-                49.137007094973114
-              ],
-              [
-                9.271742748344911,
-                49.13697889632566
-              ],
-              [
-                9.271836516953863,
-                49.136969179733946
-              ],
-              [
-                9.271930285562815,
-                49.13697889632566
-              ],
-              [
-                9.272014875446997,
-                49.137007094973114
-              ],
-              [
-                9.272082006359176,
-                49.13705101539622
-              ],
-              [
-                9.272125107057937,
-                49.137106358357954
-              ],
-              [
-                9.272139958546585,
-                49.13716770650362
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3971,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.279958704447353,
-                49.13962772731809
-              ],
-              [
-                9.2799439194262,
-                49.13968879787034
-              ],
-              [
-                9.279901011623625,
-                49.13974389041143
-              ],
-              [
-                9.279834181154301,
-                49.13978761209959
-              ],
-              [
-                9.279749969850199,
-                49.139815683151355
-              ],
-              [
-                9.279656620900502,
-                49.139825355776594
-              ],
-              [
-                9.279563271950805,
-                49.139815683151355
-              ],
-              [
-                9.279479060646702,
-                49.13978761209959
-              ],
-              [
-                9.279412230177378,
-                49.13974389041143
-              ],
-              [
-                9.279369322374803,
-                49.13968879787034
-              ],
-              [
-                9.279354537353651,
-                49.13962772731809
-              ],
-              [
-                9.279369322374803,
-                49.139566656765844
-              ],
-              [
-                9.279412230177378,
-                49.139511564224755
-              ],
-              [
-                9.279479060646702,
-                49.1394678425366
-              ],
-              [
-                9.279563271950805,
-                49.13943977148483
-              ],
-              [
-                9.279656620900502,
-                49.13943009885959
-              ],
-              [
-                9.279749969850199,
-                49.13943977148483
-              ],
-              [
-                9.279834181154301,
-                49.1394678425366
-              ],
-              [
-                9.279901011623625,
-                49.139511564224755
-              ],
-              [
-                9.2799439194262,
-                49.139566656765844
-              ],
-              [
-                9.279958704447353,
-                49.13962772731809
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3963,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.275409757371115,
-                49.13672826997273
-              ],
-              [
-                9.275394973214842,
-                49.13678934052498
-              ],
-              [
-                9.27535206792225,
-                49.13684443306607
-              ],
-              [
-                9.275285241362315,
-                49.136888154754224
-              ],
-              [
-                9.275201034984331,
-                49.13691622580599
-              ],
-              [
-                9.275107691495277,
-                49.13692589843123
-              ],
-              [
-                9.275014348006223,
-                49.13691622580599
-              ],
-              [
-                9.27493014162824,
-                49.136888154754224
-              ],
-              [
-                9.274863315068304,
-                49.13684443306607
-              ],
-              [
-                9.274820409775712,
-                49.13678934052498
-              ],
-              [
-                9.27480562561944,
-                49.13672826997273
-              ],
-              [
-                9.274820409775712,
-                49.13666719942048
-              ],
-              [
-                9.274863315068304,
-                49.13661210687939
-              ],
-              [
-                9.27493014162824,
-                49.13656838519123
-              ],
-              [
-                9.275014348006223,
-                49.13654031413947
-              ],
-              [
-                9.275107691495277,
-                49.13653064151423
-              ],
-              [
-                9.275201034984331,
-                49.13654031413947
-              ],
-              [
-                9.275285241362315,
-                49.13656838519123
-              ],
-              [
-                9.27535206792225,
-                49.13661210687939
-              ],
-              [
-                9.275394973214842,
-                49.13666719942048
-              ],
-              [
-                9.275409757371115,
-                49.13672826997273
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.393,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.279386741002728,
-                49.13942372579911
-              ],
-              [
-                9.279371956042432,
-                49.13948479635136
-              ],
-              [
-                9.27932904841647,
-                49.13953988889245
-              ],
-              [
-                9.279262218222225,
-                49.13958361058061
-              ],
-              [
-                9.279178007264743,
-                49.139611681632374
-              ],
-              [
-                9.279084658699277,
-                49.13962135425761
-              ],
-              [
-                9.278991310133812,
-                49.139611681632374
-              ],
-              [
-                9.27890709917633,
-                49.13958361058061
-              ],
-              [
-                9.278840268982085,
-                49.13953988889245
-              ],
-              [
-                9.278797361356123,
-                49.13948479635136
-              ],
-              [
-                9.278782576395827,
-                49.13942372579911
-              ],
-              [
-                9.278797361356123,
-                49.13936265524686
-              ],
-              [
-                9.278840268982085,
-                49.139307562705774
-              ],
-              [
-                9.27890709917633,
-                49.139263841017616
-              ],
-              [
-                9.278991310133812,
-                49.13923576996585
-              ],
-              [
-                9.279084658699277,
-                49.13922609734061
-              ],
-              [
-                9.279178007264743,
-                49.13923576996585
-              ],
-              [
-                9.279262218222225,
-                49.139263841017616
-              ],
-              [
-                9.27932904841647,
-                49.139307562705774
-              ],
-              [
-                9.279371956042432,
-                49.13936265524686
-              ],
-              [
-                9.279386741002728,
-                49.13942372579911
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3929,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.301465861939233,
-                49.14740785154744
-              ],
-              [
-                9.301451074596654,
-                49.14746892209969
-              ],
-              [
-                9.30140816005704,
-                49.14752401464078
-              ],
-              [
-                9.301341319094533,
-                49.14756773632894
-              ],
-              [
-                9.301257094568248,
-                49.1475958073807
-              ],
-              [
-                9.301163730961646,
-                49.14760548000594
-              ],
-              [
-                9.301070367355043,
-                49.1475958073807
-              ],
-              [
-                9.300986142828759,
-                49.14756773632894
-              ],
-              [
-                9.300919301866251,
-                49.14752401464078
-              ],
-              [
-                9.300876387326637,
-                49.14746892209969
-              ],
-              [
-                9.300861599984058,
-                49.14740785154744
-              ],
-              [
-                9.300876387326637,
-                49.14734678099519
-              ],
-              [
-                9.300919301866251,
-                49.147291688454104
-              ],
-              [
-                9.300986142828759,
-                49.147247966765946
-              ],
-              [
-                9.301070367355043,
-                49.14721989571418
-              ],
-              [
-                9.301163730961646,
-                49.14721022308894
-              ],
-              [
-                9.301257094568248,
-                49.14721989571418
-              ],
-              [
-                9.301341319094533,
-                49.147247966765946
-              ],
-              [
-                9.30140816005704,
-                49.147291688454104
-              ],
-              [
-                9.301451074596654,
-                49.14734678099519
-              ],
-              [
-                9.301465861939233,
-                49.14740785154744
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.39,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.289244060856637,
-                49.1431093896535
-              ],
-              [
-                9.289229274796753,
-                49.14317046020575
-              ],
-              [
-                9.289186363979663,
-                49.14322555274684
-              ],
-              [
-                9.289119528815123,
-                49.143269274435
-              ],
-              [
-                9.289035311594702,
-                49.143297345486765
-              ],
-              [
-                9.288941956086715,
-                49.143307018112004
-              ],
-              [
-                9.288848600578728,
-                49.143297345486765
-              ],
-              [
-                9.288764383358307,
-                49.143269274435
-              ],
-              [
-                9.288697548193767,
-                49.14322555274684
-              ],
-              [
-                9.288654637376677,
-                49.14317046020575
-              ],
-              [
-                9.288639851316793,
-                49.1431093896535
-              ],
-              [
-                9.288654637376677,
-                49.143048319101254
-              ],
-              [
-                9.288697548193767,
-                49.142993226560165
-              ],
-              [
-                9.288764383358307,
-                49.14294950487201
-              ],
-              [
-                9.288848600578728,
-                49.14292143382024
-              ],
-              [
-                9.288941956086715,
-                49.142911761195
-              ],
-              [
-                9.289035311594702,
-                49.14292143382024
-              ],
-              [
-                9.289119528815123,
-                49.14294950487201
-              ],
-              [
-                9.289186363979663,
-                49.142993226560165
-              ],
-              [
-                9.289229274796753,
-                49.143048319101254
-              ],
-              [
-                9.289244060856637,
-                49.1431093896535
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3898,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.294582007098382,
-                49.155532096176586
-              ],
-              [
-                9.29456721733063,
-                49.155593166728835
-              ],
-              [
-                9.29452429575289,
-                49.155648259269924
-              ],
-              [
-                9.294457443828243,
-                49.15569198095808
-              ],
-              [
-                9.294373205488858,
-                49.15572005200985
-              ],
-              [
-                9.294279826570316,
-                49.15572972463509
-              ],
-              [
-                9.294186447651773,
-                49.15572005200985
-              ],
-              [
-                9.294102209312388,
-                49.15569198095808
-              ],
-              [
-                9.294035357387742,
-                49.155648259269924
-              ],
-              [
-                9.29399243581,
-                49.155593166728835
-              ],
-              [
-                9.293977646042249,
-                49.155532096176586
-              ],
-              [
-                9.29399243581,
-                49.15547102562434
-              ],
-              [
-                9.294035357387742,
-                49.15541593308325
-              ],
-              [
-                9.294102209312388,
-                49.15537221139509
-              ],
-              [
-                9.294186447651773,
-                49.155344140343324
-              ],
-              [
-                9.294279826570316,
-                49.155334467718085
-              ],
-              [
-                9.294373205488858,
-                49.155344140343324
-              ],
-              [
-                9.294457443828243,
-                49.15537221139509
-              ],
-              [
-                9.29452429575289,
-                49.15541593308325
-              ],
-              [
-                9.29456721733063,
-                49.15547102562434
-              ],
-              [
-                9.294582007098382,
-                49.155532096176586
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3838,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.263067094993389,
-                49.1540853615235
-              ],
-              [
-                9.263052305657583,
-                49.15414643207575
-              ],
-              [
-                9.263009385333397,
-                49.15420152461684
-              ],
-              [
-                9.262942535361207,
-                49.154245246304995
-              ],
-              [
-                9.262858299482062,
-                49.15427331735676
-              ],
-              [
-                9.262764923290717,
-                49.154282989982
-              ],
-              [
-                9.262671547099373,
-                49.15427331735676
-              ],
-              [
-                9.262587311220228,
-                49.154245246304995
-              ],
-              [
-                9.262520461248037,
-                49.15420152461684
-              ],
-              [
-                9.262477540923852,
-                49.15414643207575
-              ],
-              [
-                9.262462751588046,
-                49.1540853615235
-              ],
-              [
-                9.262477540923852,
-                49.15402429097125
-              ],
-              [
-                9.262520461248037,
-                49.15396919843016
-              ],
-              [
-                9.262587311220228,
-                49.153925476742
-              ],
-              [
-                9.262671547099373,
-                49.15389740569024
-              ],
-              [
-                9.262764923290717,
-                49.153887733065
-              ],
-              [
-                9.262858299482062,
-                49.15389740569024
-              ],
-              [
-                9.262942535361207,
-                49.153925476742
-              ],
-              [
-                9.263009385333397,
-                49.15396919843016
-              ],
-              [
-                9.263052305657583,
-                49.15402429097125
-              ],
-              [
-                9.263067094993389,
-                49.1540853615235
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3833,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.271714413450143,
-                49.13765542412452
-              ],
-              [
-                9.271699561815357,
-                49.13771677227018
-              ],
-              [
-                9.271656460692492,
-                49.13777211523192
-              ],
-              [
-                9.271589329119754,
-                49.13781603565502
-              ],
-              [
-                9.271504738403218,
-                49.13784423430248
-              ],
-              [
-                9.271410968871596,
-                49.13785395089419
-              ],
-              [
-                9.271317199339974,
-                49.13784423430248
-              ],
-              [
-                9.271232608623437,
-                49.13781603565502
-              ],
-              [
-                9.2711654770507,
-                49.13777211523192
-              ],
-              [
-                9.271122375927835,
-                49.13771677227018
-              ],
-              [
-                9.271107524293049,
-                49.13765542412452
-              ],
-              [
-                9.271122375927835,
-                49.13759407597885
-              ],
-              [
-                9.2711654770507,
-                49.13753873301712
-              ],
-              [
-                9.271232608623437,
-                49.137494812594014
-              ],
-              [
-                9.271317199339974,
-                49.13746661394656
-              ],
-              [
-                9.271410968871596,
-                49.137456897354845
-              ],
-              [
-                9.271504738403218,
-                49.13746661394656
-              ],
-              [
-                9.271589329119754,
-                49.137494812594014
-              ],
-              [
-                9.271656460692492,
-                49.13753873301712
-              ],
-              [
-                9.271699561815357,
-                49.13759407597885
-              ],
-              [
-                9.271714413450143,
-                49.13765542412452
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3794,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.294398822075763,
-                49.15581859846107
-              ],
-              [
-                9.29438403222247,
-                49.155879669013316
-              ],
-              [
-                9.29434111039647,
-                49.155934761554406
-              ],
-              [
-                9.294274258085151,
-                49.15597848324256
-              ],
-              [
-                9.294190019258533,
-                49.15600655429433
-              ],
-              [
-                9.294096639799887,
-                49.15601622691957
-              ],
-              [
-                9.294003260341242,
-                49.15600655429433
-              ],
-              [
-                9.293919021514624,
-                49.15597848324256
-              ],
-              [
-                9.293852169203305,
-                49.155934761554406
-              ],
-              [
-                9.293809247377306,
-                49.155879669013316
-              ],
-              [
-                9.293794457524012,
-                49.15581859846107
-              ],
-              [
-                9.293809247377306,
-                49.15575752790882
-              ],
-              [
-                9.293852169203305,
-                49.15570243536773
-              ],
-              [
-                9.293919021514624,
-                49.15565871367957
-              ],
-              [
-                9.294003260341242,
-                49.155630642627806
-              ],
-              [
-                9.294096639799887,
-                49.155620970002566
-              ],
-              [
-                9.294190019258533,
-                49.155630642627806
-              ],
-              [
-                9.294274258085151,
-                49.15565871367957
-              ],
-              [
-                9.29434111039647,
-                49.15570243536773
-              ],
-              [
-                9.29438403222247,
-                49.15575752790882
-              ],
-              [
-                9.294398822075763,
-                49.15581859846107
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3777,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.289525230160166,
-                49.157198405780996
-              ],
-              [
-                9.289510439894867,
-                49.157259476333245
-              ],
-              [
-                9.289467516873193,
-                49.157314568874334
-              ],
-              [
-                9.289400662699563,
-                49.15735829056249
-              ],
-              [
-                9.289316421526296,
-                49.15738636161426
-              ],
-              [
-                9.289223039466371,
-                49.1573960342395
-              ],
-              [
-                9.289129657406447,
-                49.15738636161426
-              ],
-              [
-                9.28904541623318,
-                49.15735829056249
-              ],
-              [
-                9.28897856205955,
-                49.157314568874334
-              ],
-              [
-                9.288935639037875,
-                49.157259476333245
-              ],
-              [
-                9.288920848772577,
-                49.157198405780996
-              ],
-              [
-                9.288935639037875,
-                49.15713733522875
-              ],
-              [
-                9.28897856205955,
-                49.15708224268766
-              ],
-              [
-                9.28904541623318,
-                49.1570385209995
-              ],
-              [
-                9.289129657406447,
-                49.157010449947734
-              ],
-              [
-                9.289223039466371,
-                49.157000777322494
-              ],
-              [
-                9.289316421526296,
-                49.157010449947734
-              ],
-              [
-                9.289400662699563,
-                49.1570385209995
-              ],
-              [
-                9.289467516873193,
-                49.15708224268766
-              ],
-              [
-                9.289510439894867,
-                49.15713733522875
-              ],
-              [
-                9.289525230160166,
-                49.157198405780996
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3765,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.27091338738647,
-                49.13857348082269
-              ],
-              [
-                9.270898535476592,
-                49.13863482896836
-              ],
-              [
-                9.27085543355538,
-                49.138690171930094
-              ],
-              [
-                9.270788300739188,
-                49.1387340923532
-              ],
-              [
-                9.270703708455809,
-                49.13876229100065
-              ],
-              [
-                9.270609937187327,
-                49.138772007592365
-              ],
-              [
-                9.270516165918846,
-                49.13876229100065
-              ],
-              [
-                9.270431573635467,
-                49.1387340923532
-              ],
-              [
-                9.270364440819275,
-                49.138690171930094
-              ],
-              [
-                9.270321338898063,
-                49.13863482896836
-              ],
-              [
-                9.270306486988185,
-                49.13857348082269
-              ],
-              [
-                9.270321338898063,
-                49.13851213267703
-              ],
-              [
-                9.270364440819275,
-                49.13845678971529
-              ],
-              [
-                9.270431573635467,
-                49.13841286929219
-              ],
-              [
-                9.270516165918846,
-                49.13838467064473
-              ],
-              [
-                9.270609937187327,
-                49.13837495405302
-              ],
-              [
-                9.270703708455809,
-                49.13838467064473
-              ],
-              [
-                9.270788300739188,
-                49.13841286929219
-              ],
-              [
-                9.27085543355538,
-                49.13845678971529
-              ],
-              [
-                9.270898535476592,
-                49.13851213267703
-              ],
-              [
-                9.27091338738647,
-                49.13857348082269
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3759,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.296459112214656,
-                49.149253325180666
-              ],
-              [
-                9.29644432432128,
-                49.149314395732915
-              ],
-              [
-                9.29640140818319,
-                49.149369488274004
-              ],
-              [
-                9.296334564730996,
-                49.14941320996216
-              ],
-              [
-                9.296250337067525,
-                49.14944128101393
-              ],
-              [
-                9.296156969983324,
-                49.14945095363917
-              ],
-              [
-                9.296063602899123,
-                49.14944128101393
-              ],
-              [
-                9.295979375235651,
-                49.14941320996216
-              ],
-              [
-                9.295912531783458,
-                49.149369488274004
-              ],
-              [
-                9.295869615645367,
-                49.149314395732915
-              ],
-              [
-                9.295854827751992,
-                49.149253325180666
-              ],
-              [
-                9.295869615645367,
-                49.14919225462842
-              ],
-              [
-                9.295912531783458,
-                49.14913716208733
-              ],
-              [
-                9.295979375235651,
-                49.14909344039917
-              ],
-              [
-                9.296063602899123,
-                49.149065369347404
-              ],
-              [
-                9.296156969983324,
-                49.149055696722165
-              ],
-              [
-                9.296250337067525,
-                49.149065369347404
-              ],
-              [
-                9.296334564730996,
-                49.14909344039917
-              ],
-              [
-                9.29640140818319,
-                49.14913716208733
-              ],
-              [
-                9.29644432432128,
-                49.14919225462842
-              ],
-              [
-                9.296459112214656,
-                49.149253325180666
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3744,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.271455748783717,
-                49.1379518799333
-              ],
-              [
-                9.271440897060101,
-                49.13801322807896
-              ],
-              [
-                9.27139779567944,
-                49.1380685710407
-              ],
-              [
-                9.271330663705177,
-                49.1381124914638
-              ],
-              [
-                9.27124607248269,
-                49.13814069011126
-              ],
-              [
-                9.271152302390217,
-                49.13815040670297
-              ],
-              [
-                9.271058532297744,
-                49.13814069011126
-              ],
-              [
-                9.270973941075257,
-                49.1381124914638
-              ],
-              [
-                9.270906809100994,
-                49.1380685710407
-              ],
-              [
-                9.270863707720332,
-                49.13801322807896
-              ],
-              [
-                9.270848855996716,
-                49.1379518799333
-              ],
-              [
-                9.270863707720332,
-                49.13789053178763
-              ],
-              [
-                9.270906809100994,
-                49.137835188825896
-              ],
-              [
-                9.270973941075257,
-                49.13779126840279
-              ],
-              [
-                9.271058532297744,
-                49.13776306975534
-              ],
-              [
-                9.271152302390217,
-                49.137753353163625
-              ],
-              [
-                9.27124607248269,
-                49.13776306975534
-              ],
-              [
-                9.271330663705177,
-                49.13779126840279
-              ],
-              [
-                9.27139779567944,
-                49.137835188825896
-              ],
-              [
-                9.271440897060101,
-                49.13789053178763
-              ],
-              [
-                9.271455748783717,
-                49.1379518799333
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.372,
+          "analysis_status": "candidate_high",
+          "score": 0.286,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.298784462141093,
-                49.15064519560154
+                9.292254798273133,
+                49.150971088231174
               ],
               [
-                9.298769673832265,
-                49.15070626615379
+                9.292240009867026,
+                49.15103215878342
               ],
               [
-                9.298726756488483,
-                49.15076135869488
+                9.29219709224093,
+                49.15108725132451
               ],
               [
-                9.29865991115838,
-                49.15080508038304
+                9.29213024647111,
+                49.15113097301267
               ],
               [
-                9.298575681128604,
-                49.1508331514348
+                9.292046015887264,
+                49.151159044064435
               ],
               [
-                9.298482311421337,
-                49.15084282406004
+                9.291952645565802,
+                49.151168716689675
               ],
               [
-                9.29838894171407,
-                49.1508331514348
+                9.29185927524434,
+                49.151159044064435
               ],
               [
-                9.298304711684294,
-                49.15080508038304
+                9.291775044660493,
+                49.15113097301267
               ],
               [
-                9.29823786635419,
-                49.15076135869488
+                9.291708198890674,
+                49.15108725132451
               ],
               [
-                9.298194949010409,
-                49.15070626615379
+                9.291665281264578,
+                49.15103215878342
               ],
               [
-                9.29818016070158,
-                49.15064519560154
+                9.291650492858471,
+                49.150971088231174
               ],
               [
-                9.298194949010409,
-                49.15058412504929
+                9.291665281264578,
+                49.150910017678925
               ],
               [
-                9.29823786635419,
-                49.1505290325082
+                9.291708198890674,
+                49.150854925137835
               ],
               [
-                9.298304711684294,
-                49.150485310820045
+                9.291775044660493,
+                49.15081120344968
               ],
               [
-                9.29838894171407,
-                49.15045723976828
+                9.29185927524434,
+                49.15078313239791
               ],
               [
-                9.298482311421337,
-                49.15044756714304
+                9.291952645565802,
+                49.15077345977267
               ],
               [
-                9.298575681128604,
-                49.15045723976828
+                9.292046015887264,
+                49.15078313239791
               ],
               [
-                9.29865991115838,
-                49.150485310820045
+                9.29213024647111,
+                49.15081120344968
               ],
               [
-                9.298726756488483,
-                49.1505290325082
+                9.29219709224093,
+                49.150854925137835
               ],
               [
-                9.298769673832265,
-                49.15058412504929
+                9.292240009867026,
+                49.150910017678925
               ],
               [
-                9.298784462141093,
-                49.15064519560154
+                9.292254798273133,
+                49.150971088231174
               ]
             ]
           ]
@@ -7414,411 +5593,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3708,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.272530057668696,
-                49.1367428258995
-              ],
-              [
-                9.272515206307352,
-                49.13680417404517
-              ],
-              [
-                9.272472105978046,
-                49.136859517006904
-              ],
-              [
-                9.272404975641306,
-                49.13690343743001
-              ],
-              [
-                9.27232038648222,
-                49.13693163607746
-              ],
-              [
-                9.272226618677042,
-                49.136941352669176
-              ],
-              [
-                9.272132850871865,
-                49.13693163607746
-              ],
-              [
-                9.272048261712778,
-                49.13690343743001
-              ],
-              [
-                9.271981131376037,
-                49.136859517006904
-              ],
-              [
-                9.271938031046732,
-                49.13680417404517
-              ],
-              [
-                9.271923179685388,
-                49.1367428258995
-              ],
-              [
-                9.271938031046732,
-                49.13668147775384
-              ],
-              [
-                9.271981131376037,
-                49.1366261347921
-              ],
-              [
-                9.272048261712778,
-                49.136582214369
-              ],
-              [
-                9.272132850871865,
-                49.13655401572154
-              ],
-              [
-                9.272226618677042,
-                49.13654429912983
-              ],
-              [
-                9.27232038648222,
-                49.13655401572154
-              ],
-              [
-                9.272404975641306,
-                49.136582214369
-              ],
-              [
-                9.272472105978046,
-                49.1366261347921
-              ],
-              [
-                9.272515206307352,
-                49.13668147775384
-              ],
-              [
-                9.272530057668696,
-                49.1367428258995
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3707,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.287707319354254,
-                49.163890118799245
-              ],
-              [
-                9.287692527090405,
-                49.163951189351494
-              ],
-              [
-                9.287649598268702,
-                49.16400628189258
-              ],
-              [
-                9.28758273506132,
-                49.16405000358074
-              ],
-              [
-                9.28749848250486,
-                49.164078074632506
-              ],
-              [
-                9.28740508782657,
-                49.164087747257746
-              ],
-              [
-                9.28731169314828,
-                49.164078074632506
-              ],
-              [
-                9.28722744059182,
-                49.16405000358074
-              ],
-              [
-                9.287160577384439,
-                49.16400628189258
-              ],
-              [
-                9.287117648562736,
-                49.163951189351494
-              ],
-              [
-                9.287102856298887,
-                49.163890118799245
-              ],
-              [
-                9.287117648562736,
-                49.163829048246996
-              ],
-              [
-                9.287160577384439,
-                49.163773955705906
-              ],
-              [
-                9.28722744059182,
-                49.16373023401775
-              ],
-              [
-                9.28731169314828,
-                49.16370216296598
-              ],
-              [
-                9.28740508782657,
-                49.16369249034074
-              ],
-              [
-                9.28749848250486,
-                49.16370216296598
-              ],
-              [
-                9.28758273506132,
-                49.16373023401775
-              ],
-              [
-                9.287649598268702,
-                49.163773955705906
-              ],
-              [
-                9.287692527090405,
-                49.163829048246996
-              ],
-              [
-                9.287707319354254,
-                49.163890118799245
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3706,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.26624309826138,
-                49.15626123222987
-              ],
-              [
-                9.266228308275922,
-                49.15632230278212
-              ],
-              [
-                9.266185386066367,
-                49.15637739532321
-              ],
-              [
-                9.266118533157647,
-                49.15642111701137
-              ],
-              [
-                9.266034293578256,
-                49.156449188063135
-              ],
-              [
-                9.265940913285158,
-                49.156458860688375
-              ],
-              [
-                9.26584753299206,
-                49.156449188063135
-              ],
-              [
-                9.26576329341267,
-                49.15642111701137
-              ],
-              [
-                9.26569644050395,
-                49.15637739532321
-              ],
-              [
-                9.265653518294394,
-                49.15632230278212
-              ],
-              [
-                9.265638728308936,
-                49.15626123222987
-              ],
-              [
-                9.265653518294394,
-                49.156200161677624
-              ],
-              [
-                9.26569644050395,
-                49.156145069136535
-              ],
-              [
-                9.26576329341267,
-                49.15610134744838
-              ],
-              [
-                9.26584753299206,
-                49.15607327639661
-              ],
-              [
-                9.265940913285158,
-                49.15606360377137
-              ],
-              [
-                9.266034293578256,
-                49.15607327639661
-              ],
-              [
-                9.266118533157647,
-                49.15610134744838
-              ],
-              [
-                9.266185386066367,
-                49.156145069136535
-              ],
-              [
-                9.266228308275922,
-                49.156200161677624
-              ],
-              [
-                9.26624309826138,
-                49.15626123222987
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3691,
+          "analysis_status": "candidate_high",
+          "score": 0.2513,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.259054219122618,
-                49.15334129614518
+                9.28269763744909,
+                49.15256625124777
               ],
               [
-                9.25903943000895,
-                49.15340236669743
+                9.2826828485668,
+                49.15262732180002
               ],
               [
-                9.258996510329437,
-                49.15345745923852
+                9.282639929558773,
+                49.15268241434111
               ],
               [
-                9.258929661361348,
-                49.153501180926675
+                9.282573081636547,
+                49.152726136029266
               ],
               [
-                9.258845426747445,
-                49.15352925197844
+                9.282488848340508,
+                49.15275420708103
               ],
               [
-                9.25875205195863,
-                49.15353892460368
+                9.282395475012558,
+                49.15276387970627
               ],
               [
-                9.258658677169816,
-                49.15352925197844
+                9.282302101684609,
+                49.15275420708103
               ],
               [
-                9.258574442555913,
-                49.153501180926675
+                9.28221786838857,
+                49.152726136029266
               ],
               [
-                9.258507593587824,
-                49.15345745923852
+                9.282151020466344,
+                49.15268241434111
               ],
               [
-                9.25846467390831,
-                49.15340236669743
+                9.282108101458316,
+                49.15262732180002
               ],
               [
-                9.258449884794643,
-                49.15334129614518
+                9.282093312576027,
+                49.15256625124777
               ],
               [
-                9.25846467390831,
-                49.15328022559293
+                9.282108101458316,
+                49.15250518069552
               ],
               [
-                9.258507593587824,
-                49.15322513305184
+                9.282151020466344,
+                49.15245008815443
               ],
               [
-                9.258574442555913,
-                49.15318141136368
+                9.28221786838857,
+                49.15240636646627
               ],
               [
-                9.258658677169816,
-                49.15315334031192
+                9.282302101684609,
+                49.15237829541451
               ],
               [
-                9.25875205195863,
-                49.15314366768668
+                9.282395475012558,
+                49.15236862278927
               ],
               [
-                9.258845426747445,
-                49.15315334031192
+                9.282488848340508,
+                49.15237829541451
               ],
               [
-                9.258929661361348,
-                49.15318141136368
+                9.282573081636547,
+                49.15240636646627
               ],
               [
-                9.258996510329437,
-                49.15322513305184
+                9.282639929558773,
+                49.15245008815443
               ],
               [
-                9.25903943000895,
-                49.15328022559293
+                9.2826828485668,
+                49.15250518069552
               ],
               [
-                9.259054219122618,
-                49.15334129614518
+                9.28269763744909,
+                49.15256625124777
               ]
             ]
           ]
@@ -7830,203 +5697,99 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3683,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.276263037084444,
-                49.13829746396321
-              ],
-              [
-                9.276248252460114,
-                49.13835853451546
-              ],
-              [
-                9.276205345809162,
-                49.13841362705655
-              ],
-              [
-                9.276138517133534,
-                49.13845734874471
-              ],
-              [
-                9.27605430808962,
-                49.138485419796474
-              ],
-              [
-                9.27596096164536,
-                49.138495092421714
-              ],
-              [
-                9.2758676152011,
-                49.138485419796474
-              ],
-              [
-                9.275783406157187,
-                49.13845734874471
-              ],
-              [
-                9.275716577481559,
-                49.13841362705655
-              ],
-              [
-                9.275673670830606,
-                49.13835853451546
-              ],
-              [
-                9.275658886206276,
-                49.13829746396321
-              ],
-              [
-                9.275673670830606,
-                49.13823639341096
-              ],
-              [
-                9.275716577481559,
-                49.138181300869874
-              ],
-              [
-                9.275783406157187,
-                49.138137579181716
-              ],
-              [
-                9.2758676152011,
-                49.13810950812995
-              ],
-              [
-                9.27596096164536,
-                49.13809983550471
-              ],
-              [
-                9.27605430808962,
-                49.13810950812995
-              ],
-              [
-                9.276138517133534,
-                49.138137579181716
-              ],
-              [
-                9.276205345809162,
-                49.138181300869874
-              ],
-              [
-                9.276248252460114,
-                49.13823639341096
-              ],
-              [
-                9.276263037084444,
-                49.13829746396321
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3671,
+          "analysis_status": "candidate_high",
+          "score": 0.2284,
           "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.269924972849692,
-                49.15758615132529
+                9.291765008570842,
+                49.150116222642936
               ],
               [
-                9.26991018246861,
-                49.15764722187754
+                9.291750220419907,
+                49.150177293195185
               ],
               [
-                9.269867259110917,
-                49.15770231441863
+                9.291707303534354,
+                49.150232385736274
               ],
               [
-                9.269800404413926,
-                49.157746036106786
+                9.291640458917957,
+                49.15027610742443
               ],
               [
-                9.269716162581183,
-                49.15777410715855
+                9.291556229787505,
+                49.1503041784762
               ],
               [
-                9.269622779790227,
-                49.15778377978379
+                9.291462861077143,
+                49.15031385110144
               ],
               [
-                9.269529396999271,
-                49.15777410715855
+                9.291369492366782,
+                49.1503041784762
               ],
               [
-                9.269445155166528,
-                49.157746036106786
+                9.291285263236329,
+                49.15027610742443
               ],
               [
-                9.269378300469537,
-                49.15770231441863
+                9.291218418619932,
+                49.150232385736274
               ],
               [
-                9.269335377111844,
-                49.15764722187754
+                9.29117550173438,
+                49.150177293195185
               ],
               [
-                9.269320586730762,
-                49.15758615132529
+                9.291160713583444,
+                49.150116222642936
               ],
               [
-                9.269335377111844,
-                49.15752508077304
+                9.29117550173438,
+                49.15005515209069
               ],
               [
-                9.269378300469537,
-                49.15746998823195
+                9.291218418619932,
+                49.1500000595496
               ],
               [
-                9.269445155166528,
-                49.157426266543794
+                9.291285263236329,
+                49.14995633786144
               ],
               [
-                9.269529396999271,
-                49.15739819549203
+                9.291369492366782,
+                49.149928266809674
               ],
               [
-                9.269622779790227,
-                49.15738852286679
+                9.291462861077143,
+                49.149918594184435
               ],
               [
-                9.269716162581183,
-                49.15739819549203
+                9.291556229787505,
+                49.149928266809674
               ],
               [
-                9.269800404413926,
-                49.157426266543794
+                9.291640458917957,
+                49.14995633786144
               ],
               [
-                9.269867259110917,
-                49.15746998823195
+                9.291707303534354,
+                49.1500000595496
               ],
               [
-                9.26991018246861,
-                49.15752508077304
+                9.291750220419907,
+                49.15005515209069
               ],
               [
-                9.269924972849692,
-                49.15758615132529
+                9.291765008570842,
+                49.150116222642936
               ]
             ]
           ]
@@ -8038,411 +5801,203 @@ window.UXO_ANALYSIS_DATA = {
           "feature_type": "impact_candidate_zone",
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3668,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.264505178887381,
-                49.145917934408004
-              ],
-              [
-                9.264490324776267,
-                49.14597928255367
-              ],
-              [
-                9.264447216466818,
-                49.146034625515405
-              ],
-              [
-                9.264380073700716,
-                49.14607854593851
-              ],
-              [
-                9.264295468879716,
-                49.146106744585964
-              ],
-              [
-                9.264201683713175,
-                49.14611646117768
-              ],
-              [
-                9.264107898546634,
-                49.146106744585964
-              ],
-              [
-                9.264023293725634,
-                49.14607854593851
-              ],
-              [
-                9.263956150959531,
-                49.146034625515405
-              ],
-              [
-                9.263913042650083,
-                49.14597928255367
-              ],
-              [
-                9.263898188538969,
-                49.145917934408004
-              ],
-              [
-                9.263913042650083,
-                49.14585658626234
-              ],
-              [
-                9.263956150959531,
-                49.1458012433006
-              ],
-              [
-                9.264023293725634,
-                49.1457573228775
-              ],
-              [
-                9.264107898546634,
-                49.145729124230044
-              ],
-              [
-                9.264201683713175,
-                49.14571940763833
-              ],
-              [
-                9.264295468879716,
-                49.145729124230044
-              ],
-              [
-                9.264380073700716,
-                49.1457573228775
-              ],
-              [
-                9.264447216466818,
-                49.1458012433006
-              ],
-              [
-                9.264490324776267,
-                49.14585658626234
-              ],
-              [
-                9.264505178887381,
-                49.145917934408004
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3623,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.264204794114434,
-                49.14626220566982
-              ],
-              [
-                9.264189939900117,
-                49.146323553815485
-              ],
-              [
-                9.264146831291155,
-                49.14637889677722
-              ],
-              [
-                9.26407968805855,
-                49.146422817200325
-              ],
-              [
-                9.263995082649725,
-                49.14645101584778
-              ],
-              [
-                9.263901296831573,
-                49.14646073243949
-              ],
-              [
-                9.263807511013422,
-                49.14645101584778
-              ],
-              [
-                9.263722905604597,
-                49.146422817200325
-              ],
-              [
-                9.263655762371991,
-                49.14637889677722
-              ],
-              [
-                9.26361265376303,
-                49.146323553815485
-              ],
-              [
-                9.263597799548712,
-                49.14626220566982
-              ],
-              [
-                9.26361265376303,
-                49.14620085752416
-              ],
-              [
-                9.263655762371991,
-                49.14614551456242
-              ],
-              [
-                9.263722905604597,
-                49.14610159413932
-              ],
-              [
-                9.263807511013422,
-                49.14607339549186
-              ],
-              [
-                9.263901296831573,
-                49.14606367890015
-              ],
-              [
-                9.263995082649725,
-                49.14607339549186
-              ],
-              [
-                9.26407968805855,
-                49.14610159413932
-              ],
-              [
-                9.264146831291155,
-                49.14614551456242
-              ],
-              [
-                9.264189939900117,
-                49.14620085752416
-              ],
-              [
-                9.264204794114434,
-                49.14626220566982
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3582,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.262702870250312,
-                49.147983561978876
-              ],
-              [
-                9.26268801551994,
-                49.14804491012454
-              ],
-              [
-                9.26264490541333,
-                49.14810025308628
-              ],
-              [
-                9.262577759848083,
-                49.14814417350938
-              ],
-              [
-                9.262493151499958,
-                49.148172372156836
-              ],
-              [
-                9.262399362423569,
-                49.14818208874855
-              ],
-              [
-                9.262305573347179,
-                49.148172372156836
-              ],
-              [
-                9.262220964999054,
-                49.14814417350938
-              ],
-              [
-                9.262153819433808,
-                49.14810025308628
-              ],
-              [
-                9.262110709327198,
-                49.14804491012454
-              ],
-              [
-                9.262095854596826,
-                49.147983561978876
-              ],
-              [
-                9.262110709327198,
-                49.14792221383321
-              ],
-              [
-                9.262153819433808,
-                49.147866870871475
-              ],
-              [
-                9.262220964999054,
-                49.14782295044837
-              ],
-              [
-                9.262305573347179,
-                49.147794751800916
-              ],
-              [
-                9.262399362423569,
-                49.1477850352092
-              ],
-              [
-                9.262493151499958,
-                49.147794751800916
-              ],
-              [
-                9.262577759848083,
-                49.14782295044837
-              ],
-              [
-                9.26264490541333,
-                49.147866870871475
-              ],
-              [
-                9.26268801551994,
-                49.14792221383321
-              ],
-              [
-                9.262702870250312,
-                49.147983561978876
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3574,
-          "support_count": 1,
+          "analysis_status": "candidate_high",
+          "score": 0.2113,
+          "support_count": 2,
           "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
         },
         "geometry": {
           "type": "Polygon",
           "coordinates": [
             [
               [
-                9.276464149555654,
-                49.1598397176209
+                9.290647429887896,
+                49.150051176045835
               ],
               [
-                9.276449358501589,
-                49.15990078817315
+                9.290632641756376,
+                49.150112246598084
               ],
               [
-                9.27640643319082,
-                49.159955880714236
+                9.29058972492717,
+                49.15016733913917
               ],
               [
-                9.276339575451845,
-                49.159999602402394
+                9.290522880398534,
+                49.15021106082733
               ],
               [
-                9.276255329785977,
-                49.16002767345416
+                9.290438651378667,
+                49.1502391318791
               ],
               [
-                9.276161942745969,
-                49.1600373460794
+                9.290345282790891,
+                49.150248804504336
               ],
               [
-                9.27606855570596,
-                49.16002767345416
+                9.290251914203116,
+                49.1502391318791
               ],
               [
-                9.275984310040092,
-                49.159999602402394
+                9.290167685183249,
+                49.15021106082733
               ],
               [
-                9.275917452301117,
-                49.159955880714236
+                9.290100840654613,
+                49.15016733913917
               ],
               [
-                9.275874526990348,
-                49.15990078817315
+                9.290057923825406,
+                49.150112246598084
               ],
               [
-                9.275859735936283,
-                49.1598397176209
+                9.290043135693887,
+                49.150051176045835
               ],
               [
-                9.275874526990348,
-                49.15977864706865
+                9.290057923825406,
+                49.149990105493586
               ],
               [
-                9.275917452301117,
-                49.15972355452756
+                9.290100840654613,
+                49.1499350129525
               ],
               [
-                9.275984310040092,
-                49.1596798328394
+                9.290167685183249,
+                49.14989129126434
               ],
               [
-                9.27606855570596,
-                49.159651761787636
+                9.290251914203116,
+                49.14986322021257
               ],
               [
-                9.276161942745969,
-                49.159642089162396
+                9.290345282790891,
+                49.149853547587334
               ],
               [
-                9.276255329785977,
-                49.159651761787636
+                9.290438651378667,
+                49.14986322021257
               ],
               [
-                9.276339575451845,
-                49.1596798328394
+                9.290522880398534,
+                49.14989129126434
               ],
               [
-                9.27640643319082,
-                49.15972355452756
+                9.29058972492717,
+                49.1499350129525
               ],
               [
-                9.276449358501589,
-                49.15977864706865
+                9.290632641756376,
+                49.149990105493586
               ],
               [
-                9.276464149555654,
-                49.1598397176209
+                9.290647429887896,
+                49.150051176045835
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_high",
+          "score": 0.1976,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Baseline-frei und in mehreren Bilddaten sichtbar."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.268790480005066,
+                49.151626950004626
+              ],
+              [
+                9.268775691403178,
+                49.151688020556875
+              ],
+              [
+                9.268732773208907,
+                49.151743113097965
+              ],
+              [
+                9.268665926554135,
+                49.15178683478612
+              ],
+              [
+                9.26858169485518,
+                49.15181490583789
+              ],
+              [
+                9.268488323297614,
+                49.15182457846313
+              ],
+              [
+                9.268394951740047,
+                49.15181490583789
+              ],
+              [
+                9.268310720041093,
+                49.15178683478612
+              ],
+              [
+                9.268243873386321,
+                49.151743113097965
+              ],
+              [
+                9.26820095519205,
+                49.151688020556875
+              ],
+              [
+                9.268186166590162,
+                49.151626950004626
+              ],
+              [
+                9.26820095519205,
+                49.15156587945238
+              ],
+              [
+                9.268243873386321,
+                49.15151078691129
+              ],
+              [
+                9.268310720041093,
+                49.15146706522313
+              ],
+              [
+                9.268394951740047,
+                49.151438994171365
+              ],
+              [
+                9.268488323297614,
+                49.151429321546125
+              ],
+              [
+                9.26858169485518,
+                49.151438994171365
+              ],
+              [
+                9.268665926554135,
+                49.15146706522313
+              ],
+              [
+                9.268732773208907,
+                49.15151078691129
+              ],
+              [
+                9.268775691403178,
+                49.15156587945238
+              ],
+              [
+                9.268790480005066,
+                49.151626950004626
               ]
             ]
           ]
@@ -8559,2502 +6114,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3561,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.288957836683725,
-                49.15784854474708
-              ],
-              [
-                9.28894304622429,
-                49.15790961529933
-              ],
-              [
-                9.288900122639202,
-                49.15796470784042
-              ],
-              [
-                9.288833267588037,
-                49.15800842952858
-              ],
-              [
-                9.288749025309011,
-                49.158036500580344
-              ],
-              [
-                9.288655642023345,
-                49.158046173205584
-              ],
-              [
-                9.288562258737679,
-                49.158036500580344
-              ],
-              [
-                9.288478016458653,
-                49.15800842952858
-              ],
-              [
-                9.288411161407488,
-                49.15796470784042
-              ],
-              [
-                9.2883682378224,
-                49.15790961529933
-              ],
-              [
-                9.288353447362965,
-                49.15784854474708
-              ],
-              [
-                9.2883682378224,
-                49.15778747419483
-              ],
-              [
-                9.288411161407488,
-                49.157732381653744
-              ],
-              [
-                9.288478016458653,
-                49.15768865996559
-              ],
-              [
-                9.288562258737679,
-                49.15766058891382
-              ],
-              [
-                9.288655642023345,
-                49.15765091628858
-              ],
-              [
-                9.288749025309011,
-                49.15766058891382
-              ],
-              [
-                9.288833267588037,
-                49.15768865996559
-              ],
-              [
-                9.288900122639202,
-                49.157732381653744
-              ],
-              [
-                9.28894304622429,
-                49.15778747419483
-              ],
-              [
-                9.288957836683725,
-                49.15784854474708
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3551,
-          "support_count": 2,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.3009337109568,
-                49.14809071682019
-              ],
-              [
-                9.300918923410421,
-                49.14815178737244
-              ],
-              [
-                9.300876008279355,
-                49.14820687991353
-              ],
-              [
-                9.300809166395638,
-                49.14825060160169
-              ],
-              [
-                9.300724940708564,
-                49.148278672653454
-              ],
-              [
-                9.300631575815217,
-                49.148288345278694
-              ],
-              [
-                9.30053821092187,
-                49.148278672653454
-              ],
-              [
-                9.300453985234796,
-                49.14825060160169
-              ],
-              [
-                9.30038714335108,
-                49.14820687991353
-              ],
-              [
-                9.300344228220013,
-                49.14815178737244
-              ],
-              [
-                9.300329440673634,
-                49.14809071682019
-              ],
-              [
-                9.300344228220013,
-                49.14802964626794
-              ],
-              [
-                9.30038714335108,
-                49.147974553726854
-              ],
-              [
-                9.300453985234796,
-                49.147930832038696
-              ],
-              [
-                9.30053821092187,
-                49.14790276098693
-              ],
-              [
-                9.300631575815217,
-                49.14789308836169
-              ],
-              [
-                9.300724940708564,
-                49.14790276098693
-              ],
-              [
-                9.300809166395638,
-                49.147930832038696
-              ],
-              [
-                9.300876008279355,
-                49.147974553726854
-              ],
-              [
-                9.300918923410421,
-                49.14802964626794
-              ],
-              [
-                9.3009337109568,
-                49.14809071682019
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3543,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.285877000610247,
-                49.1415242940847
-              ],
-              [
-                9.285862215023291,
-                49.141585364636946
-              ],
-              [
-                9.285819305578691,
-                49.141640457178035
-              ],
-              [
-                9.285752472551852,
-                49.14168417886619
-              ],
-              [
-                9.285668258025096,
-                49.14171224991796
-              ],
-              [
-                9.285574905503056,
-                49.1417219225432
-              ],
-              [
-                9.285481552981016,
-                49.14171224991796
-              ],
-              [
-                9.28539733845426,
-                49.14168417886619
-              ],
-              [
-                9.285330505427421,
-                49.141640457178035
-              ],
-              [
-                9.28528759598282,
-                49.141585364636946
-              ],
-              [
-                9.285272810395865,
-                49.1415242940847
-              ],
-              [
-                9.28528759598282,
-                49.14146322353245
-              ],
-              [
-                9.285330505427421,
-                49.14140813099136
-              ],
-              [
-                9.28539733845426,
-                49.1413644093032
-              ],
-              [
-                9.285481552981016,
-                49.141336338251435
-              ],
-              [
-                9.285574905503056,
-                49.141326665626195
-              ],
-              [
-                9.285668258025096,
-                49.141336338251435
-              ],
-              [
-                9.285752472551852,
-                49.1413644093032
-              ],
-              [
-                9.285819305578691,
-                49.14140813099136
-              ],
-              [
-                9.285862215023291,
-                49.14146322353245
-              ],
-              [
-                9.285877000610247,
-                49.1415242940847
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3531,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.267810202109564,
-                49.15660954974987
-              ],
-              [
-                9.2677954120201,
-                49.156670620302116
-              ],
-              [
-                9.26775248950871,
-                49.156725712843205
-              ],
-              [
-                9.26768563612987,
-                49.15676943453136
-              ],
-              [
-                9.267601395958097,
-                49.15679750558313
-              ],
-              [
-                9.267508015008337,
-                49.15680717820837
-              ],
-              [
-                9.267414634058577,
-                49.15679750558313
-              ],
-              [
-                9.267330393886803,
-                49.15676943453136
-              ],
-              [
-                9.267263540507964,
-                49.156725712843205
-              ],
-              [
-                9.267220617996575,
-                49.156670620302116
-              ],
-              [
-                9.26720582790711,
-                49.15660954974987
-              ],
-              [
-                9.267220617996575,
-                49.15654847919762
-              ],
-              [
-                9.267263540507964,
-                49.15649338665653
-              ],
-              [
-                9.267330393886803,
-                49.15644966496837
-              ],
-              [
-                9.267414634058577,
-                49.156421593916605
-              ],
-              [
-                9.267508015008337,
-                49.156411921291365
-              ],
-              [
-                9.267601395958097,
-                49.156421593916605
-              ],
-              [
-                9.26768563612987,
-                49.15644966496837
-              ],
-              [
-                9.26775248950871,
-                49.15649338665653
-              ],
-              [
-                9.2677954120201,
-                49.15654847919762
-              ],
-              [
-                9.267810202109564,
-                49.15660954974987
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3527,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.263458459006783,
-                49.15452823601247
-              ],
-              [
-                9.263443669538754,
-                49.154589306564716
-              ],
-              [
-                9.263400748830842,
-                49.154644399105806
-              ],
-              [
-                9.263333898260981,
-                49.15468812079396
-              ],
-              [
-                9.263249661628729,
-                49.15471619184573
-              ],
-              [
-                9.263156284602557,
-                49.15472586447097
-              ],
-              [
-                9.263062907576385,
-                49.15471619184573
-              ],
-              [
-                9.262978670944133,
-                49.15468812079396
-              ],
-              [
-                9.262911820374272,
-                49.154644399105806
-              ],
-              [
-                9.26286889966636,
-                49.154589306564716
-              ],
-              [
-                9.262854110198331,
-                49.15452823601247
-              ],
-              [
-                9.26286889966636,
-                49.15446716546022
-              ],
-              [
-                9.262911820374272,
-                49.15441207291913
-              ],
-              [
-                9.262978670944133,
-                49.15436835123097
-              ],
-              [
-                9.263062907576385,
-                49.154340280179206
-              ],
-              [
-                9.263156284602557,
-                49.154330607553966
-              ],
-              [
-                9.263249661628729,
-                49.154340280179206
-              ],
-              [
-                9.263333898260981,
-                49.15436835123097
-              ],
-              [
-                9.263400748830842,
-                49.15441207291913
-              ],
-              [
-                9.263443669538754,
-                49.15446716546022
-              ],
-              [
-                9.263458459006783,
-                49.15452823601247
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3521,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.276810319911252,
-                49.13855333296585
-              ],
-              [
-                9.276795535210598,
-                49.1386144035181
-              ],
-              [
-                9.276752628338144,
-                49.13866949605919
-              ],
-              [
-                9.276685799317518,
-                49.138713217747345
-              ],
-              [
-                9.276601589838883,
-                49.13874128879911
-              ],
-              [
-                9.27650824291273,
-                49.13875096142435
-              ],
-              [
-                9.276414895986576,
-                49.13874128879911
-              ],
-              [
-                9.276330686507942,
-                49.138713217747345
-              ],
-              [
-                9.276263857487315,
-                49.13866949605919
-              ],
-              [
-                9.276220950614862,
-                49.1386144035181
-              ],
-              [
-                9.276206165914207,
-                49.13855333296585
-              ],
-              [
-                9.276220950614862,
-                49.1384922624136
-              ],
-              [
-                9.276263857487315,
-                49.13843716987251
-              ],
-              [
-                9.276330686507942,
-                49.13839344818435
-              ],
-              [
-                9.276414895986576,
-                49.13836537713259
-              ],
-              [
-                9.27650824291273,
-                49.13835570450735
-              ],
-              [
-                9.276601589838883,
-                49.13836537713259
-              ],
-              [
-                9.276685799317518,
-                49.13839344818435
-              ],
-              [
-                9.276752628338144,
-                49.13843716987251
-              ],
-              [
-                9.276795535210598,
-                49.1384922624136
-              ],
-              [
-                9.276810319911252,
-                49.13855333296585
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3518,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.27495641289996,
-                49.1592709386408
-              ],
-              [
-                9.274941622015758,
-                49.15933200919305
-              ],
-              [
-                9.274898697197951,
-                49.15938710173414
-              ],
-              [
-                9.27483184022678,
-                49.1594308234223
-              ],
-              [
-                9.274747595528403,
-                49.159458894474064
-              ],
-              [
-                9.274654209560865,
-                49.1594685670993
-              ],
-              [
-                9.274560823593326,
-                49.159458894474064
-              ],
-              [
-                9.27447657889495,
-                49.1594308234223
-              ],
-              [
-                9.274409721923778,
-                49.15938710173414
-              ],
-              [
-                9.274366797105971,
-                49.15933200919305
-              ],
-              [
-                9.274352006221768,
-                49.1592709386408
-              ],
-              [
-                9.274366797105971,
-                49.15920986808855
-              ],
-              [
-                9.274409721923778,
-                49.159154775547464
-              ],
-              [
-                9.27447657889495,
-                49.159111053859306
-              ],
-              [
-                9.274560823593326,
-                49.15908298280754
-              ],
-              [
-                9.274654209560865,
-                49.1590733101823
-              ],
-              [
-                9.274747595528403,
-                49.15908298280754
-              ],
-              [
-                9.27483184022678,
-                49.159111053859306
-              ],
-              [
-                9.274898697197951,
-                49.159154775547464
-              ],
-              [
-                9.274941622015758,
-                49.15920986808855
-              ],
-              [
-                9.27495641289996,
-                49.1592709386408
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3516,
-          "support_count": 2,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.268884846190748,
-                49.15701067083432
-              ],
-              [
-                9.268870055981509,
-                49.15707174138657
-              ],
-              [
-                9.268827133122521,
-                49.157126833927656
-              ],
-              [
-                9.268760279202283,
-                49.157170555615814
-              ],
-              [
-                9.268676038348309,
-                49.15719862666758
-              ],
-              [
-                9.268582656642323,
-                49.15720829929282
-              ],
-              [
-                9.268489274936337,
-                49.15719862666758
-              ],
-              [
-                9.268405034082363,
-                49.157170555615814
-              ],
-              [
-                9.268338180162125,
-                49.157126833927656
-              ],
-              [
-                9.268295257303137,
-                49.15707174138657
-              ],
-              [
-                9.268280467093899,
-                49.15701067083432
-              ],
-              [
-                9.268295257303137,
-                49.15694960028207
-              ],
-              [
-                9.268338180162125,
-                49.15689450774098
-              ],
-              [
-                9.268405034082363,
-                49.15685078605282
-              ],
-              [
-                9.268489274936337,
-                49.156822715001056
-              ],
-              [
-                9.268582656642323,
-                49.156813042375816
-              ],
-              [
-                9.268676038348309,
-                49.156822715001056
-              ],
-              [
-                9.268760279202283,
-                49.15685078605282
-              ],
-              [
-                9.268827133122521,
-                49.15689450774098
-              ],
-              [
-                9.268870055981509,
-                49.15694960028207
-              ],
-              [
-                9.268884846190748,
-                49.15701067083432
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3516,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.263015187336704,
-                49.15437018405938
-              ],
-              [
-                9.263000397915862,
-                49.15443125461163
-              ],
-              [
-                9.262957477344894,
-                49.15448634715272
-              ],
-              [
-                9.262890626988332,
-                49.15453006884088
-              ],
-              [
-                9.262806390624847,
-                49.15455813989264
-              ],
-              [
-                9.26271301389661,
-                49.15456781251788
-              ],
-              [
-                9.262619637168372,
-                49.15455813989264
-              ],
-              [
-                9.262535400804888,
-                49.15453006884088
-              ],
-              [
-                9.262468550448325,
-                49.15448634715272
-              ],
-              [
-                9.262425629877358,
-                49.15443125461163
-              ],
-              [
-                9.262410840456516,
-                49.15437018405938
-              ],
-              [
-                9.262425629877358,
-                49.15430911350713
-              ],
-              [
-                9.262468550448325,
-                49.15425402096604
-              ],
-              [
-                9.262535400804888,
-                49.154210299277885
-              ],
-              [
-                9.262619637168372,
-                49.15418222822612
-              ],
-              [
-                9.26271301389661,
-                49.15417255560088
-              ],
-              [
-                9.262806390624847,
-                49.15418222822612
-              ],
-              [
-                9.262890626988332,
-                49.154210299277885
-              ],
-              [
-                9.262957477344894,
-                49.15425402096604
-              ],
-              [
-                9.263000397915862,
-                49.15430911350713
-              ],
-              [
-                9.263015187336704,
-                49.15437018405938
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.351,
-          "support_count": 2,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.300761394542972,
-                49.148297424679406
-              ],
-              [
-                9.300746606934899,
-                49.148358495231655
-              ],
-              [
-                9.300703691624793,
-                49.148413587772744
-              ],
-              [
-                9.300636849462213,
-                49.1484573094609
-              ],
-              [
-                9.300552623423751,
-                49.14848538051267
-              ],
-              [
-                9.300459258140888,
-                49.14849505313791
-              ],
-              [
-                9.300365892858025,
-                49.14848538051267
-              ],
-              [
-                9.300281666819563,
-                49.1484573094609
-              ],
-              [
-                9.300214824656983,
-                49.148413587772744
-              ],
-              [
-                9.300171909346878,
-                49.148358495231655
-              ],
-              [
-                9.300157121738804,
-                49.148297424679406
-              ],
-              [
-                9.300171909346878,
-                49.14823635412716
-              ],
-              [
-                9.300214824656983,
-                49.14818126158607
-              ],
-              [
-                9.300281666819563,
-                49.14813753989791
-              ],
-              [
-                9.300365892858025,
-                49.148109468846144
-              ],
-              [
-                9.300459258140888,
-                49.148099796220905
-              ],
-              [
-                9.300552623423751,
-                49.148109468846144
-              ],
-              [
-                9.300636849462213,
-                49.14813753989791
-              ],
-              [
-                9.300703691624793,
-                49.14818126158607
-              ],
-              [
-                9.300746606934899,
-                49.14823635412716
-              ],
-              [
-                9.300761394542972,
-                49.148297424679406
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3508,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.28087255316336,
-                49.139977936224845
-              ],
-              [
-                9.280857768037732,
-                49.140039006777094
-              ],
-              [
-                9.280814859931963,
-                49.14009409931818
-              ],
-              [
-                9.280748028990404,
-                49.14013782100634
-              ],
-              [
-                9.280663817091252,
-                49.14016589205811
-              ],
-              [
-                9.280570467481935,
-                49.14017556468335
-              ],
-              [
-                9.280477117872618,
-                49.14016589205811
-              ],
-              [
-                9.280392905973466,
-                49.14013782100634
-              ],
-              [
-                9.280326075031907,
-                49.14009409931818
-              ],
-              [
-                9.280283166926138,
-                49.140039006777094
-              ],
-              [
-                9.28026838180051,
-                49.139977936224845
-              ],
-              [
-                9.280283166926138,
-                49.139916865672596
-              ],
-              [
-                9.280326075031907,
-                49.13986177313151
-              ],
-              [
-                9.280392905973466,
-                49.13981805144335
-              ],
-              [
-                9.280477117872618,
-                49.13978998039158
-              ],
-              [
-                9.280570467481935,
-                49.139780307766344
-              ],
-              [
-                9.280663817091252,
-                49.13978998039158
-              ],
-              [
-                9.280748028990404,
-                49.13981805144335
-              ],
-              [
-                9.280814859931963,
-                49.13986177313151
-              ],
-              [
-                9.280857768037732,
-                49.139916865672596
-              ],
-              [
-                9.28087255316336,
-                49.139977936224845
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3503,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.262226067103995,
-                49.1545252184547
-              ],
-              [
-                9.262211277636867,
-                49.15458628900695
-              ],
-              [
-                9.262168356931568,
-                49.15464138154804
-              ],
-              [
-                9.26210150636578,
-                49.1546851032362
-              ],
-              [
-                9.262017269738658,
-                49.15471317428796
-              ],
-              [
-                9.261923892718176,
-                49.1547228469132
-              ],
-              [
-                9.261830515697694,
-                49.15471317428796
-              ],
-              [
-                9.261746279070572,
-                49.1546851032362
-              ],
-              [
-                9.261679428504785,
-                49.15464138154804
-              ],
-              [
-                9.261636507799485,
-                49.15458628900695
-              ],
-              [
-                9.261621718332357,
-                49.1545252184547
-              ],
-              [
-                9.261636507799485,
-                49.15446414790245
-              ],
-              [
-                9.261679428504785,
-                49.15440905536136
-              ],
-              [
-                9.261746279070572,
-                49.154365333673205
-              ],
-              [
-                9.261830515697694,
-                49.15433726262144
-              ],
-              [
-                9.261923892718176,
-                49.1543275899962
-              ],
-              [
-                9.262017269738658,
-                49.15433726262144
-              ],
-              [
-                9.26210150636578,
-                49.154365333673205
-              ],
-              [
-                9.262168356931568,
-                49.15440905536136
-              ],
-              [
-                9.262211277636867,
-                49.15446414790245
-              ],
-              [
-                9.262226067103995,
-                49.1545252184547
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3492,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.264681917053908,
-                49.155441887715405
-              ],
-              [
-                9.264667127313091,
-                49.155502958267654
-              ],
-              [
-                9.264624205813517,
-                49.15555805080874
-              ],
-              [
-                9.264557354010615,
-                49.1556017724969
-              ],
-              [
-                9.26447311582464,
-                49.15562984354867
-              ],
-              [
-                9.264379737076153,
-                49.155639516173906
-              ],
-              [
-                9.264286358327666,
-                49.15562984354867
-              ],
-              [
-                9.264202120141691,
-                49.1556017724969
-              ],
-              [
-                9.264135268338789,
-                49.15555805080874
-              ],
-              [
-                9.264092346839215,
-                49.155502958267654
-              ],
-              [
-                9.264077557098398,
-                49.155441887715405
-              ],
-              [
-                9.264092346839215,
-                49.155380817163156
-              ],
-              [
-                9.264135268338789,
-                49.15532572462207
-              ],
-              [
-                9.264202120141691,
-                49.15528200293391
-              ],
-              [
-                9.264286358327666,
-                49.15525393188214
-              ],
-              [
-                9.264379737076153,
-                49.155244259256904
-              ],
-              [
-                9.26447311582464,
-                49.15525393188214
-              ],
-              [
-                9.264557354010615,
-                49.15528200293391
-              ],
-              [
-                9.264624205813517,
-                49.15532572462207
-              ],
-              [
-                9.264667127313091,
-                49.155380817163156
-              ],
-              [
-                9.264681917053908,
-                49.155441887715405
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3474,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.26309503925918,
-                49.147534096720406
-              ],
-              [
-                9.26308018466356,
-                49.14759544486607
-              ],
-              [
-                9.263037074948016,
-                49.14765078782781
-              ],
-              [
-                9.26296992999187,
-                49.14769470825091
-              ],
-              [
-                9.262885322411256,
-                49.147722906898366
-              ],
-              [
-                9.26279153418566,
-                49.14773262349008
-              ],
-              [
-                9.262697745960063,
-                49.147722906898366
-              ],
-              [
-                9.262613138379448,
-                49.14769470825091
-              ],
-              [
-                9.262545993423302,
-                49.14765078782781
-              ],
-              [
-                9.262502883707759,
-                49.14759544486607
-              ],
-              [
-                9.262488029112138,
-                49.147534096720406
-              ],
-              [
-                9.262502883707759,
-                49.14747274857474
-              ],
-              [
-                9.262545993423302,
-                49.147417405613005
-              ],
-              [
-                9.262613138379448,
-                49.1473734851899
-              ],
-              [
-                9.262697745960063,
-                49.147345286542446
-              ],
-              [
-                9.26279153418566,
-                49.147335569950734
-              ],
-              [
-                9.262885322411256,
-                49.147345286542446
-              ],
-              [
-                9.26296992999187,
-                49.1473734851899
-              ],
-              [
-                9.263037074948016,
-                49.147417405613005
-              ],
-              [
-                9.26308018466356,
-                49.14747274857474
-              ],
-              [
-                9.26309503925918,
-                49.147534096720406
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3462,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.261875231396887,
-                49.15439426570318
-              ],
-              [
-                9.261860441968857,
-                49.15445533625543
-              ],
-              [
-                9.261817521377024,
-                49.15451042879652
-              ],
-              [
-                9.261750670987961,
-                49.15455415048468
-              ],
-              [
-                9.261666434583526,
-                49.154582221536444
-              ],
-              [
-                9.261573057809894,
-                49.15459189416168
-              ],
-              [
-                9.261479681036262,
-                49.154582221536444
-              ],
-              [
-                9.261395444631827,
-                49.15455415048468
-              ],
-              [
-                9.261328594242764,
-                49.15451042879652
-              ],
-              [
-                9.261285673650931,
-                49.15445533625543
-              ],
-              [
-                9.2612708842229,
-                49.15439426570318
-              ],
-              [
-                9.261285673650931,
-                49.15433319515093
-              ],
-              [
-                9.261328594242764,
-                49.154278102609844
-              ],
-              [
-                9.261395444631827,
-                49.154234380921686
-              ],
-              [
-                9.261479681036262,
-                49.15420630986992
-              ],
-              [
-                9.261573057809894,
-                49.15419663724468
-              ],
-              [
-                9.261666434583526,
-                49.15420630986992
-              ],
-              [
-                9.261750670987961,
-                49.154234380921686
-              ],
-              [
-                9.261817521377024,
-                49.154278102609844
-              ],
-              [
-                9.261860441968857,
-                49.15433319515093
-              ],
-              [
-                9.261875231396887,
-                49.15439426570318
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3461,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.28766451331885,
-                49.15933047915509
-              ],
-              [
-                9.287649722416868,
-                49.15939154970734
-              ],
-              [
-                9.287606797547456,
-                49.159446642248426
-              ],
-              [
-                9.287539940495911,
-                49.159490363936584
-              ],
-              [
-                9.287455695696258,
-                49.15951843498835
-              ],
-              [
-                9.287362309616453,
-                49.15952810761359
-              ],
-              [
-                9.287268923536649,
-                49.15951843498835
-              ],
-              [
-                9.287184678736995,
-                49.159490363936584
-              ],
-              [
-                9.28711782168545,
-                49.159446642248426
-              ],
-              [
-                9.287074896816039,
-                49.15939154970734
-              ],
-              [
-                9.287060105914057,
-                49.15933047915509
-              ],
-              [
-                9.287074896816039,
-                49.15926940860284
-              ],
-              [
-                9.28711782168545,
-                49.15921431606175
-              ],
-              [
-                9.287184678736995,
-                49.15917059437359
-              ],
-              [
-                9.287268923536649,
-                49.159142523321826
-              ],
-              [
-                9.287362309616453,
-                49.15913285069659
-              ],
-              [
-                9.287455695696258,
-                49.159142523321826
-              ],
-              [
-                9.287539940495911,
-                49.15917059437359
-              ],
-              [
-                9.287606797547456,
-                49.15921431606175
-              ],
-              [
-                9.287649722416868,
-                49.15926940860284
-              ],
-              [
-                9.28766451331885,
-                49.15933047915509
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.346,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.260164907324825,
-                49.15375587103947
-              ],
-              [
-                9.260150118087388,
-                49.15381694159172
-              ],
-              [
-                9.260107198048683,
-                49.15387203413281
-              ],
-              [
-                9.260040348521139,
-                49.15391575582097
-              ],
-              [
-                9.25995611320228,
-                49.153943826872734
-              ],
-              [
-                9.259862737632018,
-                49.15395349949797
-              ],
-              [
-                9.259769362061755,
-                49.153943826872734
-              ],
-              [
-                9.259685126742896,
-                49.15391575582097
-              ],
-              [
-                9.259618277215353,
-                49.15387203413281
-              ],
-              [
-                9.259575357176647,
-                49.15381694159172
-              ],
-              [
-                9.25956056793921,
-                49.15375587103947
-              ],
-              [
-                9.259575357176647,
-                49.15369480048722
-              ],
-              [
-                9.259618277215353,
-                49.153639707946134
-              ],
-              [
-                9.259685126742896,
-                49.153595986257976
-              ],
-              [
-                9.259769362061755,
-                49.15356791520621
-              ],
-              [
-                9.259862737632018,
-                49.15355824258097
-              ],
-              [
-                9.25995611320228,
-                49.15356791520621
-              ],
-              [
-                9.260040348521139,
-                49.153595986257976
-              ],
-              [
-                9.260107198048683,
-                49.153639707946134
-              ],
-              [
-                9.260150118087388,
-                49.15369480048722
-              ],
-              [
-                9.260164907324825,
-                49.15375587103947
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3456,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.299101106302196,
-                49.15028907840778
-              ],
-              [
-                9.299086318099667,
-                49.15035014896003
-              ],
-              [
-                9.299043401064376,
-                49.15040524150112
-              ],
-              [
-                9.29897655621476,
-                49.15044896318928
-              ],
-              [
-                9.298892326790432,
-                49.15047703424104
-              ],
-              [
-                9.29879895775431,
-                49.15048670686628
-              ],
-              [
-                9.298705588718187,
-                49.15047703424104
-              ],
-              [
-                9.29862135929386,
-                49.15044896318928
-              ],
-              [
-                9.298554514444243,
-                49.15040524150112
-              ],
-              [
-                9.298511597408952,
-                49.15035014896003
-              ],
-              [
-                9.298496809206423,
-                49.15028907840778
-              ],
-              [
-                9.298511597408952,
-                49.15022800785553
-              ],
-              [
-                9.298554514444243,
-                49.15017291531444
-              ],
-              [
-                9.29862135929386,
-                49.150129193626285
-              ],
-              [
-                9.298705588718187,
-                49.15010112257452
-              ],
-              [
-                9.29879895775431,
-                49.15009144994928
-              ],
-              [
-                9.298892326790432,
-                49.15010112257452
-              ],
-              [
-                9.29897655621476,
-                49.150129193626285
-              ],
-              [
-                9.299043401064376,
-                49.15017291531444
-              ],
-              [
-                9.299086318099667,
-                49.15022800785553
-              ],
-              [
-                9.299101106302196,
-                49.15028907840778
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3453,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.264345699501225,
-                49.15531639132852
-              ],
-              [
-                9.264330909797877,
-                49.15537746188077
-              ],
-              [
-                9.264287988407046,
-                49.15543255442186
-              ],
-              [
-                9.264221136773516,
-                49.155476276110015
-              ],
-              [
-                9.26413689880096,
-                49.15550434716178
-              ],
-              [
-                9.26404352028905,
-                49.15551401978702
-              ],
-              [
-                9.26395014177714,
-                49.15550434716178
-              ],
-              [
-                9.263865903804584,
-                49.155476276110015
-              ],
-              [
-                9.263799052171054,
-                49.15543255442186
-              ],
-              [
-                9.263756130780223,
-                49.15537746188077
-              ],
-              [
-                9.263741341076875,
-                49.15531639132852
-              ],
-              [
-                9.263756130780223,
-                49.15525532077627
-              ],
-              [
-                9.263799052171054,
-                49.15520022823518
-              ],
-              [
-                9.263865903804584,
-                49.15515650654702
-              ],
-              [
-                9.26395014177714,
-                49.15512843549526
-              ],
-              [
-                9.26404352028905,
-                49.15511876287002
-              ],
-              [
-                9.26413689880096,
-                49.15512843549526
-              ],
-              [
-                9.264221136773516,
-                49.15515650654702
-              ],
-              [
-                9.264287988407046,
-                49.15520022823518
-              ],
-              [
-                9.264330909797877,
-                49.15525532077627
-              ],
-              [
-                9.264345699501225,
-                49.15531639132852
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3434,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.265076607224458,
-                49.15558920956087
-              ],
-              [
-                9.265061817439653,
-                49.15565028011312
-              ],
-              [
-                9.265018895812425,
-                49.15570537265421
-              ],
-              [
-                9.264952043810695,
-                49.15574909434237
-              ],
-              [
-                9.264867805374182,
-                49.155777165394134
-              ],
-              [
-                9.264774426347973,
-                49.155786838019374
-              ],
-              [
-                9.264681047321764,
-                49.155777165394134
-              ],
-              [
-                9.264596808885251,
-                49.15574909434237
-              ],
-              [
-                9.264529956883521,
-                49.15570537265421
-              ],
-              [
-                9.264487035256293,
-                49.15565028011312
-              ],
-              [
-                9.264472245471488,
-                49.15558920956087
-              ],
-              [
-                9.264487035256293,
-                49.155528139008624
-              ],
-              [
-                9.264529956883521,
-                49.155473046467534
-              ],
-              [
-                9.264596808885251,
-                49.15542932477938
-              ],
-              [
-                9.264681047321764,
-                49.15540125372761
-              ],
-              [
-                9.264774426347973,
-                49.15539158110237
-              ],
-              [
-                9.264867805374182,
-                49.15540125372761
-              ],
-              [
-                9.264952043810695,
-                49.15542932477938
-              ],
-              [
-                9.265018895812425,
-                49.155473046467534
-              ],
-              [
-                9.265061817439653,
-                49.155528139008624
-              ],
-              [
-                9.265076607224458,
-                49.15558920956087
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3434,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.29055375761889,
-                49.15044573143438
-              ],
-              [
-                9.2905389693696,
-                49.15050680198663
-              ],
-              [
-                9.290496052198606,
-                49.15056189452772
-              ],
-              [
-                9.29042920713763,
-                49.15060561621588
-              ],
-              [
-                9.290344977446972,
-                49.15063368726764
-              ],
-              [
-                9.29025160811562,
-                49.15064335989288
-              ],
-              [
-                9.290158238784267,
-                49.15063368726764
-              ],
-              [
-                9.29007400909361,
-                49.15060561621588
-              ],
-              [
-                9.290007164032634,
-                49.15056189452772
-              ],
-              [
-                9.28996424686164,
-                49.15050680198663
-              ],
-              [
-                9.28994945861235,
-                49.15044573143438
-              ],
-              [
-                9.28996424686164,
-                49.15038466088213
-              ],
-              [
-                9.290007164032634,
-                49.15032956834104
-              ],
-              [
-                9.29007400909361,
-                49.150285846652885
-              ],
-              [
-                9.290158238784267,
-                49.15025777560112
-              ],
-              [
-                9.29025160811562,
-                49.15024810297588
-              ],
-              [
-                9.290344977446972,
-                49.15025777560112
-              ],
-              [
-                9.29042920713763,
-                49.150285846652885
-              ],
-              [
-                9.290496052198606,
-                49.15032956834104
-              ],
-              [
-                9.2905389693696,
-                49.15038466088213
-              ],
-              [
-                9.29055375761889,
-                49.15044573143438
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3427,
-          "support_count": 2,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.301135906073135,
-                49.147848166974214
-              ],
-              [
-                9.301121118599147,
-                49.14790923752646
-              ],
-              [
-                9.301078203678165,
-                49.14796433006755
-              ],
-              [
-                9.30101136212166,
-                49.14800805175571
-              ],
-              [
-                9.300927136846894,
-                49.148036122807476
-              ],
-              [
-                9.300833772410598,
-                49.148045795432715
-              ],
-              [
-                9.300740407974303,
-                49.148036122807476
-              ],
-              [
-                9.300656182699537,
-                49.14800805175571
-              ],
-              [
-                9.300589341143032,
-                49.14796433006755
-              ],
-              [
-                9.30054642622205,
-                49.14790923752646
-              ],
-              [
-                9.300531638748062,
-                49.147848166974214
-              ],
-              [
-                9.30054642622205,
-                49.147787096421965
-              ],
-              [
-                9.300589341143032,
-                49.147732003880876
-              ],
-              [
-                9.300656182699537,
-                49.14768828219272
-              ],
-              [
-                9.300740407974303,
-                49.14766021114095
-              ],
-              [
-                9.300833772410598,
-                49.14765053851571
-              ],
-              [
-                9.300927136846894,
-                49.14766021114095
-              ],
-              [
-                9.30101136212166,
-                49.14768828219272
-              ],
-              [
-                9.301078203678165,
-                49.147732003880876
-              ],
-              [
-                9.301121118599147,
-                49.147787096421965
-              ],
-              [
-                9.301135906073135,
-                49.147848166974214
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.34,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.27482051688814,
-                49.13702755414796
-              ],
-              [
-                9.274805665441484,
-                49.13708890229363
-              ],
-              [
-                9.274762564864593,
-                49.137144245255364
-              ],
-              [
-                9.274695434142233,
-                49.13718816567847
-              ],
-              [
-                9.274610844497232,
-                49.13721636432592
-              ],
-              [
-                9.274517076153419,
-                49.137226080917635
-              ],
-              [
-                9.274423307809606,
-                49.13721636432592
-              ],
-              [
-                9.274338718164605,
-                49.13718816567847
-              ],
-              [
-                9.274271587442245,
-                49.137144245255364
-              ],
-              [
-                9.274228486865354,
-                49.13708890229363
-              ],
-              [
-                9.274213635418699,
-                49.13702755414796
-              ],
-              [
-                9.274228486865354,
-                49.1369662060023
-              ],
-              [
-                9.274271587442245,
-                49.13691086304056
-              ],
-              [
-                9.274338718164605,
-                49.13686694261746
-              ],
-              [
-                9.274423307809606,
-                49.13683874397
-              ],
-              [
-                9.274517076153419,
-                49.13682902737829
-              ],
-              [
-                9.274610844497232,
-                49.13683874397
-              ],
-              [
-                9.274695434142233,
-                49.13686694261746
-              ],
-              [
-                9.274762564864593,
-                49.13691086304056
-              ],
-              [
-                9.274805665441484,
-                49.1369662060023
-              ],
-              [
-                9.27482051688814,
-                49.13702755414796
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3399,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.27561675645295,
-                49.15945785760169
-              ],
-              [
-                9.275601965512925,
-                49.159518928153936
-              ],
-              [
-                9.275559040533116,
-                49.159574020695025
-              ],
-              [
-                9.275492183309622,
-                49.15961774238318
-              ],
-              [
-                9.2754079382933,
-                49.15964581343495
-              ],
-              [
-                9.275314551973318,
-                49.15965548606019
-              ],
-              [
-                9.275221165653337,
-                49.15964581343495
-              ],
-              [
-                9.275136920637015,
-                49.15961774238318
-              ],
-              [
-                9.275070063413521,
-                49.159574020695025
-              ],
-              [
-                9.275027138433712,
-                49.159518928153936
-              ],
-              [
-                9.275012347493687,
-                49.15945785760169
-              ],
-              [
-                9.275027138433712,
-                49.15939678704944
-              ],
-              [
-                9.275070063413521,
-                49.15934169450835
-              ],
-              [
-                9.275136920637015,
-                49.15929797282019
-              ],
-              [
-                9.275221165653337,
-                49.159269901768425
-              ],
-              [
-                9.275314551973318,
-                49.159260229143186
-              ],
-              [
-                9.2754079382933,
-                49.159269901768425
-              ],
-              [
-                9.275492183309622,
-                49.15929797282019
-              ],
-              [
-                9.275559040533116,
-                49.15934169450835
-              ],
-              [
-                9.275601965512925,
-                49.15939678704944
-              ],
-              [
-                9.27561675645295,
-                49.15945785760169
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.3398,
           "support_count": 1,
           "radius_m": 22.0,
@@ -11147,318 +6206,6 @@ window.UXO_ANALYSIS_DATA = {
               [
                 9.288713739662999,
                 49.15233207501543
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3386,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.266424303826591,
-                49.14371842356866
-              ],
-              [
-                9.266409450374796,
-                49.14377977171432
-              ],
-              [
-                9.266366343978763,
-                49.14383511467606
-              ],
-              [
-                9.266299204192876,
-                49.14387903509916
-              ],
-              [
-                9.26621460312717,
-                49.14390723374662
-              ],
-              [
-                9.266120822123401,
-                49.14391695033833
-              ],
-              [
-                9.266027041119633,
-                49.14390723374662
-              ],
-              [
-                9.265942440053927,
-                49.14387903509916
-              ],
-              [
-                9.26587530026804,
-                49.14383511467606
-              ],
-              [
-                9.265832193872006,
-                49.14377977171432
-              ],
-              [
-                9.265817340420211,
-                49.14371842356866
-              ],
-              [
-                9.265832193872006,
-                49.14365707542299
-              ],
-              [
-                9.26587530026804,
-                49.143601732461256
-              ],
-              [
-                9.265942440053927,
-                49.14355781203815
-              ],
-              [
-                9.266027041119633,
-                49.1435296133907
-              ],
-              [
-                9.266120822123401,
-                49.143519896798985
-              ],
-              [
-                9.26621460312717,
-                49.1435296133907
-              ],
-              [
-                9.266299204192876,
-                49.14355781203815
-              ],
-              [
-                9.266366343978763,
-                49.143601732461256
-              ],
-              [
-                9.266409450374796,
-                49.14365707542299
-              ],
-              [
-                9.266424303826591,
-                49.14371842356866
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3359,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.300052211072984,
-                49.14914814919042
-              ],
-              [
-                9.300037423211,
-                49.149209219742666
-              ],
-              [
-                9.299994507164014,
-                49.149264312283755
-              ],
-              [
-                9.299927663853717,
-                49.14930803397191
-              ],
-              [
-                9.299843436369045,
-                49.14933610502368
-              ],
-              [
-                9.299750069483048,
-                49.14934577764892
-              ],
-              [
-                9.299656702597051,
-                49.14933610502368
-              ],
-              [
-                9.29957247511238,
-                49.14930803397191
-              ],
-              [
-                9.299505631802083,
-                49.149264312283755
-              ],
-              [
-                9.299462715755096,
-                49.149209219742666
-              ],
-              [
-                9.299447927893112,
-                49.14914814919042
-              ],
-              [
-                9.299462715755096,
-                49.14908707863817
-              ],
-              [
-                9.299505631802083,
-                49.14903198609708
-              ],
-              [
-                9.29957247511238,
-                49.14898826440892
-              ],
-              [
-                9.299656702597051,
-                49.148960193357155
-              ],
-              [
-                9.299750069483048,
-                49.148950520731916
-              ],
-              [
-                9.299843436369045,
-                49.148960193357155
-              ],
-              [
-                9.299927663853717,
-                49.14898826440892
-              ],
-              [
-                9.299994507164014,
-                49.14903198609708
-              ],
-              [
-                9.300037423211,
-                49.14908707863817
-              ],
-              [
-                9.300052211072984,
-                49.14914814919042
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3354,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.263063451620754,
-                49.154957652918796
-              ],
-              [
-                9.263048662024515,
-                49.155018723471045
-              ],
-              [
-                9.263005740944527,
-                49.155073816012134
-              ],
-              [
-                9.262938889795144,
-                49.15511753770029
-              ],
-              [
-                9.26285465243265,
-                49.15514560875206
-              ],
-              [
-                9.262761274597,
-                49.1551552813773
-              ],
-              [
-                9.262667896761352,
-                49.15514560875206
-              ],
-              [
-                9.262583659398857,
-                49.15511753770029
-              ],
-              [
-                9.262516808249474,
-                49.155073816012134
-              ],
-              [
-                9.262473887169486,
-                49.155018723471045
-              ],
-              [
-                9.262459097573247,
-                49.154957652918796
-              ],
-              [
-                9.262473887169486,
-                49.15489658236655
-              ],
-              [
-                9.262516808249474,
-                49.15484148982546
-              ],
-              [
-                9.262583659398857,
-                49.1547977681373
-              ],
-              [
-                9.262667896761352,
-                49.154769697085534
-              ],
-              [
-                9.262761274597,
-                49.154760024460295
-              ],
-              [
-                9.26285465243265,
-                49.154769697085534
-              ],
-              [
-                9.262938889795144,
-                49.1547977681373
-              ],
-              [
-                9.263005740944527,
-                49.15484148982546
-              ],
-              [
-                9.263048662024515,
-                49.15489658236655
-              ],
-              [
-                9.263063451620754,
-                49.154957652918796
               ]
             ]
           ]
@@ -11575,214 +6322,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3344,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.263644028086947,
-                49.15505448582546
-              ],
-              [
-                9.263629238461798,
-                49.15511555637771
-              ],
-              [
-                9.263586317297905,
-                49.1551706489188
-              ],
-              [
-                9.263519466017838,
-                49.155214370606956
-              ],
-              [
-                9.263435228490675,
-                49.15524244165872
-              ],
-              [
-                9.263341850472486,
-                49.15525211428396
-              ],
-              [
-                9.263248472454297,
-                49.15524244165872
-              ],
-              [
-                9.263164234927133,
-                49.155214370606956
-              ],
-              [
-                9.263097383647066,
-                49.1551706489188
-              ],
-              [
-                9.263054462483174,
-                49.15511555637771
-              ],
-              [
-                9.263039672858024,
-                49.15505448582546
-              ],
-              [
-                9.263054462483174,
-                49.15499341527321
-              ],
-              [
-                9.263097383647066,
-                49.15493832273212
-              ],
-              [
-                9.263164234927133,
-                49.154894601043964
-              ],
-              [
-                9.263248472454297,
-                49.1548665299922
-              ],
-              [
-                9.263341850472486,
-                49.15485685736696
-              ],
-              [
-                9.263435228490675,
-                49.1548665299922
-              ],
-              [
-                9.263519466017838,
-                49.154894601043964
-              ],
-              [
-                9.263586317297905,
-                49.15493832273212
-              ],
-              [
-                9.263629238461798,
-                49.15499341527321
-              ],
-              [
-                9.263644028086947,
-                49.15505448582546
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3337,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.264038718257474,
-                49.155201807670934
-              ],
-              [
-                9.264023928588339,
-                49.15526287822318
-              ],
-              [
-                9.263981007296794,
-                49.15531797076427
-              ],
-              [
-                9.263914155817904,
-                49.15536169245243
-              ],
-              [
-                9.263829918040207,
-                49.155389763504196
-              ],
-              [
-                9.263736539744302,
-                49.155399436129436
-              ],
-              [
-                9.263643161448398,
-                49.155389763504196
-              ],
-              [
-                9.2635589236707,
-                49.15536169245243
-              ],
-              [
-                9.263492072191811,
-                49.15531797076427
-              ],
-              [
-                9.263449150900266,
-                49.15526287822318
-              ],
-              [
-                9.26343436123113,
-                49.155201807670934
-              ],
-              [
-                9.263449150900266,
-                49.155140737118685
-              ],
-              [
-                9.263492072191811,
-                49.155085644577596
-              ],
-              [
-                9.2635589236707,
-                49.15504192288944
-              ],
-              [
-                9.263643161448398,
-                49.15501385183767
-              ],
-              [
-                9.263736539744302,
-                49.15500417921243
-              ],
-              [
-                9.263829918040207,
-                49.15501385183767
-              ],
-              [
-                9.263914155817904,
-                49.15504192288944
-              ],
-              [
-                9.263981007296794,
-                49.155085644577596
-              ],
-              [
-                9.264023928588339,
-                49.155140737118685
-              ],
-              [
-                9.264038718257474,
-                49.155201807670934
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.333,
           "support_count": 2,
           "radius_m": 22.0,
@@ -11887,7 +6426,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3304,
+          "score": 0.3237,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -11897,400 +6436,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.293479329469422,
-                49.15133519491188
+                9.286429569337711,
+                49.150380304643335
               ],
               [
-                9.293464540954627,
-                49.15139626546413
+                9.28641478110795,
+                49.150441375195584
               ],
               [
-                9.293421623013106,
-                49.15145135800522
+                9.286371863993635,
+                49.15049646773667
               ],
               [
-                9.293354776752004,
-                49.151495079693376
+                9.286305019020933,
+                49.15054018942483
               ],
               [
-                9.293270545549102,
-                49.15152315074514
+                9.286220789441511,
+                49.1505682604766
               ],
               [
-                9.293177174541412,
-                49.15153282337038
+                9.286127420233463,
+                49.150577933101836
               ],
               [
-                9.293083803533722,
-                49.15152315074514
+                9.286034051025414,
+                49.1505682604766
               ],
               [
-                9.292999572330821,
-                49.151495079693376
+                9.285949821445993,
+                49.15054018942483
               ],
               [
-                9.292932726069719,
-                49.15145135800522
+                9.28588297647329,
+                49.15049646773667
               ],
               [
-                9.292889808128198,
-                49.15139626546413
+                9.285840059358975,
+                49.150441375195584
               ],
               [
-                9.292875019613403,
-                49.15133519491188
+                9.285825271129214,
+                49.150380304643335
               ],
               [
-                9.292889808128198,
-                49.15127412435963
+                9.285840059358975,
+                49.150319234091086
               ],
               [
-                9.292932726069719,
-                49.15121903181854
+                9.28588297647329,
+                49.15026414155
               ],
               [
-                9.292999572330821,
-                49.151175310130384
+                9.285949821445993,
+                49.15022041986184
               ],
               [
-                9.293083803533722,
-                49.15114723907862
+                9.286034051025414,
+                49.15019234881007
               ],
               [
-                9.293177174541412,
-                49.15113756645338
+                9.286127420233463,
+                49.15018267618483
               ],
               [
-                9.293270545549102,
-                49.15114723907862
+                9.286220789441511,
+                49.15019234881007
               ],
               [
-                9.293354776752004,
-                49.151175310130384
+                9.286305019020933,
+                49.15022041986184
               ],
               [
-                9.293421623013106,
-                49.15121903181854
+                9.286371863993635,
+                49.15026414155
               ],
               [
-                9.293464540954627,
-                49.15127412435963
+                9.28641478110795,
+                49.150319234091086
               ],
               [
-                9.293479329469422,
-                49.15133519491188
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3267,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.260705779039908,
-                49.153957756531405
-              ],
-              [
-                9.260690989742198,
-                49.154018827083654
-              ],
-              [
-                9.260648069528575,
-                49.15407391962474
-              ],
-              [
-                9.260581219728587,
-                49.1541176413129
-              ],
-              [
-                9.260496984066432,
-                49.15414571236467
-              ],
-              [
-                9.26040360811562,
-                49.154155384989906
-              ],
-              [
-                9.260310232164809,
-                49.15414571236467
-              ],
-              [
-                9.260225996502653,
-                49.1541176413129
-              ],
-              [
-                9.260159146702666,
-                49.15407391962474
-              ],
-              [
-                9.260116226489043,
-                49.154018827083654
-              ],
-              [
-                9.260101437191333,
-                49.153957756531405
-              ],
-              [
-                9.260116226489043,
-                49.153896685979156
-              ],
-              [
-                9.260159146702666,
-                49.15384159343807
-              ],
-              [
-                9.260225996502653,
-                49.15379787174991
-              ],
-              [
-                9.260310232164809,
-                49.15376980069814
-              ],
-              [
-                9.26040360811562,
-                49.1537601280729
-              ],
-              [
-                9.260496984066432,
-                49.15376980069814
-              ],
-              [
-                9.260581219728587,
-                49.15379787174991
-              ],
-              [
-                9.260648069528575,
-                49.15384159343807
-              ],
-              [
-                9.260690989742198,
-                49.153896685979156
-              ],
-              [
-                9.260705779039908,
-                49.153957756531405
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3241,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.270462810225778,
-                49.1390898877154
-              ],
-              [
-                9.270447958161155,
-                49.139151235861064
-              ],
-              [
-                9.270404855790854,
-                49.1392065788228
-              ],
-              [
-                9.270337722275192,
-                49.139250499245904
-              ],
-              [
-                9.27025312911043,
-                49.13927869789336
-              ],
-              [
-                9.270159356864925,
-                49.13928841448507
-              ],
-              [
-                9.27006558461942,
-                49.13927869789336
-              ],
-              [
-                9.269980991454657,
-                49.139250499245904
-              ],
-              [
-                9.269913857938995,
-                49.1392065788228
-              ],
-              [
-                9.269870755568695,
-                49.139151235861064
-              ],
-              [
-                9.269855903504071,
-                49.1390898877154
-              ],
-              [
-                9.269870755568695,
-                49.139028539569736
-              ],
-              [
-                9.269913857938995,
-                49.138973196608
-              ],
-              [
-                9.269980991454657,
-                49.138929276184896
-              ],
-              [
-                9.27006558461942,
-                49.13890107753744
-              ],
-              [
-                9.270159356864925,
-                49.13889136094573
-              ],
-              [
-                9.27025312911043,
-                49.13890107753744
-              ],
-              [
-                9.270337722275192,
-                49.138929276184896
-              ],
-              [
-                9.270404855790854,
-                49.138973196608
-              ],
-              [
-                9.270447958161155,
-                49.139028539569736
-              ],
-              [
-                9.270462810225778,
-                49.1390898877154
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3232,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.290102793650952,
-                49.150429478877314
-              ],
-              [
-                9.290088005406513,
-                49.15049054942956
-              ],
-              [
-                9.2900450882496,
-                49.15054564197065
-              ],
-              [
-                9.28997824321055,
-                49.15058936365881
-              ],
-              [
-                9.289894013547526,
-                49.150617434710576
-              ],
-              [
-                9.289800644246803,
-                49.150627107335815
-              ],
-              [
-                9.28970727494608,
-                49.150617434710576
-              ],
-              [
-                9.289623045283056,
-                49.15058936365881
-              ],
-              [
-                9.289556200244006,
-                49.15054564197065
-              ],
-              [
-                9.289513283087093,
-                49.15049054942956
-              ],
-              [
-                9.289498494842654,
-                49.150429478877314
-              ],
-              [
-                9.289513283087093,
-                49.150368408325065
-              ],
-              [
-                9.289556200244006,
-                49.150313315783976
-              ],
-              [
-                9.289623045283056,
-                49.15026959409582
-              ],
-              [
-                9.28970727494608,
-                49.15024152304405
-              ],
-              [
-                9.289800644246803,
-                49.15023185041881
-              ],
-              [
-                9.289894013547526,
-                49.15024152304405
-              ],
-              [
-                9.28997824321055,
-                49.15026959409582
-              ],
-              [
-                9.2900450882496,
-                49.150313315783976
-              ],
-              [
-                9.290088005406513,
-                49.150368408325065
-              ],
-              [
-                9.290102793650952,
-                49.150429478877314
+                9.286429569337711,
+                49.150380304643335
               ]
             ]
           ]
@@ -12407,7 +6634,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3223,
+          "score": 0.3225,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -12417,88 +6644,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.291253867886159,
-                49.1543071687087
+                9.289520846484443,
+                49.15116294246232
               ],
               [
-                9.29123907848413,
-                49.15436823926095
+                9.289506058021066,
+                49.15122401301457
               ],
               [
-                9.291196157967763,
-                49.154423331802036
+                9.289463140228769,
+                49.15127910555566
               ],
               [
-                9.29112930769624,
-                49.154467053490194
+                9.289396294200085,
+                49.15132282724382
               ],
               [
-                9.291045071439914,
-                49.15449512454196
+                9.289312063290048,
+                49.15135089829558
               ],
               [
-                9.290951694830461,
-                49.1545047971672
+                9.289218692607003,
+                49.15136057092082
               ],
               [
-                9.290858318221009,
-                49.15449512454196
+                9.289125321923958,
+                49.15135089829558
               ],
               [
-                9.290774081964683,
-                49.154467053490194
+                9.289041091013921,
+                49.15132282724382
               ],
               [
-                9.29070723169316,
-                49.154423331802036
+                9.288974244985237,
+                49.15127910555566
               ],
               [
-                9.290664311176792,
-                49.15436823926095
+                9.28893132719294,
+                49.15122401301457
               ],
               [
-                9.290649521774764,
-                49.1543071687087
+                9.288916538729563,
+                49.15116294246232
               ],
               [
-                9.290664311176792,
-                49.15424609815645
+                9.28893132719294,
+                49.15110187191007
               ],
               [
-                9.29070723169316,
-                49.15419100561536
+                9.288974244985237,
+                49.15104677936898
               ],
               [
-                9.290774081964683,
-                49.1541472839272
+                9.289041091013921,
+                49.151003057680825
               ],
               [
-                9.290858318221009,
-                49.154119212875436
+                9.289125321923958,
+                49.15097498662906
               ],
               [
-                9.290951694830461,
-                49.1541095402502
+                9.289218692607003,
+                49.15096531400382
               ],
               [
-                9.291045071439914,
-                49.154119212875436
+                9.289312063290048,
+                49.15097498662906
               ],
               [
-                9.29112930769624,
-                49.1541472839272
+                9.289396294200085,
+                49.151003057680825
               ],
               [
-                9.291196157967763,
-                49.15419100561536
+                9.289463140228769,
+                49.15104677936898
               ],
               [
-                9.29123907848413,
-                49.15424609815645
+                9.289506058021066,
+                49.15110187191007
               ],
               [
-                9.291253867886159,
-                49.1543071687087
+                9.289520846484443,
+                49.15116294246232
               ]
             ]
           ]
@@ -13239,214 +7466,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3146,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.293330820172825,
-                49.15095016430535
-              ],
-              [
-                9.293316031772964,
-                49.1510112348576
-              ],
-              [
-                9.293273114164993,
-                49.15106632739869
-              ],
-              [
-                9.293206268423408,
-                49.151110049086846
-              ],
-              [
-                9.293122037875134,
-                49.15113812013861
-              ],
-              [
-                9.293028667593108,
-                49.15114779276385
-              ],
-              [
-                9.29293529731108,
-                49.15113812013861
-              ],
-              [
-                9.292851066762807,
-                49.151110049086846
-              ],
-              [
-                9.292784221021222,
-                49.15106632739869
-              ],
-              [
-                9.292741303413251,
-                49.1510112348576
-              ],
-              [
-                9.29272651501339,
-                49.15095016430535
-              ],
-              [
-                9.292741303413251,
-                49.1508890937531
-              ],
-              [
-                9.292784221021222,
-                49.15083400121201
-              ],
-              [
-                9.292851066762807,
-                49.150790279523854
-              ],
-              [
-                9.29293529731108,
-                49.15076220847209
-              ],
-              [
-                9.293028667593108,
-                49.15075253584685
-              ],
-              [
-                9.293122037875134,
-                49.15076220847209
-              ],
-              [
-                9.293206268423408,
-                49.150790279523854
-              ],
-              [
-                9.293273114164993,
-                49.15083400121201
-              ],
-              [
-                9.293316031772964,
-                49.1508890937531
-              ],
-              [
-                9.293330820172825,
-                49.15095016430535
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3144,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.289092651295498,
-                49.15087631099114
-              ],
-              [
-                9.289077862917681,
-                49.150937381543386
-              ],
-              [
-                9.28903494537369,
-                49.150992474084475
-              ],
-              [
-                9.288968099731752,
-                49.15103619577263
-              ],
-              [
-                9.288883869309043,
-                49.1510642668244
-              ],
-              [
-                9.288790499166204,
-                49.15107393944964
-              ],
-              [
-                9.288697129023365,
-                49.1510642668244
-              ],
-              [
-                9.288612898600656,
-                49.15103619577263
-              ],
-              [
-                9.288546052958718,
-                49.150992474084475
-              ],
-              [
-                9.288503135414727,
-                49.150937381543386
-              ],
-              [
-                9.28848834703691,
-                49.15087631099114
-              ],
-              [
-                9.288503135414727,
-                49.15081524043889
-              ],
-              [
-                9.288546052958718,
-                49.1507601478978
-              ],
-              [
-                9.288612898600656,
-                49.15071642620964
-              ],
-              [
-                9.288697129023365,
-                49.150688355157875
-              ],
-              [
-                9.288790499166204,
-                49.150678682532636
-              ],
-              [
-                9.288883869309043,
-                49.150688355157875
-              ],
-              [
-                9.288968099731752,
-                49.15071642620964
-              ],
-              [
-                9.28903494537369,
-                49.1507601478978
-              ],
-              [
-                9.289077862917681,
-                49.15081524043889
-              ],
-              [
-                9.289092651295498,
-                49.15087631099114
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.3106,
           "support_count": 1,
           "radius_m": 22.0,
@@ -13551,111 +7570,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.3092,
-          "support_count": 1,
-          "radius_m": 22.1,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.274095883291492,
-                49.13676964922578
-              ],
-              [
-                9.274081031922112,
-                49.13683099737145
-              ],
-              [
-                9.274037931569483,
-                49.136886340333184
-              ],
-              [
-                9.273970801196414,
-                49.13693026075629
-              ],
-              [
-                9.273886211991552,
-                49.13695845940374
-              ],
-              [
-                9.273792444135632,
-                49.136968175995456
-              ],
-              [
-                9.273698676279711,
-                49.13695845940374
-              ],
-              [
-                9.273614087074849,
-                49.13693026075629
-              ],
-              [
-                9.27354695670178,
-                49.136886340333184
-              ],
-              [
-                9.273503856349151,
-                49.13683099737145
-              ],
-              [
-                9.273489004979771,
-                49.13676964922578
-              ],
-              [
-                9.273503856349151,
-                49.13670830108012
-              ],
-              [
-                9.27354695670178,
-                49.13665295811838
-              ],
-              [
-                9.273614087074849,
-                49.13660903769528
-              ],
-              [
-                9.273698676279711,
-                49.136580839047824
-              ],
-              [
-                9.273792444135632,
-                49.13657112245611
-              ],
-              [
-                9.273886211991552,
-                49.136580839047824
-              ],
-              [
-                9.273970801196414,
-                49.13660903769528
-              ],
-              [
-                9.274037931569483,
-                49.13665295811838
-              ],
-              [
-                9.274081031922112,
-                49.13670830108012
-              ],
-              [
-                9.274095883291492,
-                49.13676964922578
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3083,
+          "score": 0.3088,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -13665,88 +7580,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.296335763914865,
-                49.14901712373961
+                9.292226694757813,
+                49.15134921364442
               ],
               [
-                9.29632097609199,
-                49.14907819429186
+                9.292211906238833,
+                49.15141028419667
               ],
               [
-                9.296278060158496,
-                49.14913328683295
+                9.29216898828517,
+                49.15146537673776
               ],
               [
-                9.29621121702497,
-                49.14917700852111
+                9.29210214200515,
+                49.15150909842592
               ],
               [
-                9.296126989763042,
-                49.14920507957287
+                9.292017910778412,
+                49.151537169477685
               ],
               [
-                9.296033623123959,
-                49.14921475219811
+                9.291924539744302,
+                49.151546842102924
               ],
               [
-                9.295940256484876,
-                49.14920507957287
+                9.291831168710193,
+                49.151537169477685
               ],
               [
-                9.295856029222948,
-                49.14917700852111
+                9.291746937483454,
+                49.15150909842592
               ],
               [
-                9.295789186089422,
-                49.14913328683295
+                9.291680091203435,
+                49.15146537673776
               ],
               [
-                9.295746270155929,
-                49.14907819429186
+                9.291637173249772,
+                49.15141028419667
               ],
               [
-                9.295731482333053,
-                49.14901712373961
+                9.291622384730791,
+                49.15134921364442
               ],
               [
-                9.295746270155929,
-                49.14895605318736
+                9.291637173249772,
+                49.151288143092174
               ],
               [
-                9.295789186089422,
-                49.14890096064627
+                9.291680091203435,
+                49.151233050551085
               ],
               [
-                9.295856029222948,
-                49.148857238958115
+                9.291746937483454,
+                49.15118932886293
               ],
               [
-                9.295940256484876,
-                49.14882916790635
+                9.291831168710193,
+                49.15116125781116
               ],
               [
-                9.296033623123959,
-                49.14881949528111
+                9.291924539744302,
+                49.15115158518592
               ],
               [
-                9.296126989763042,
-                49.14882916790635
+                9.292017910778412,
+                49.15116125781116
               ],
               [
-                9.29621121702497,
-                49.148857238958115
+                9.29210214200515,
+                49.15118932886293
               ],
               [
-                9.296278060158496,
-                49.14890096064627
+                9.29216898828517,
+                49.151233050551085
               ],
               [
-                9.29632097609199,
-                49.14895605318736
+                9.292211906238833,
+                49.151288143092174
               ],
               [
-                9.296335763914865,
-                49.14901712373961
+                9.292226694757813,
+                49.15134921364442
               ]
             ]
           ]
@@ -13967,214 +7882,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.304,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.284686706450975,
-                49.14688610413481
-              ],
-              [
-                9.284671919264108,
-                49.14694717468706
-              ],
-              [
-                9.284629005176381,
-                49.147002267228146
-              ],
-              [
-                9.284562164917704,
-                49.147045988916304
-              ],
-              [
-                9.284477941278297,
-                49.14707405996807
-              ],
-              [
-                9.284384578654809,
-                49.14708373259331
-              ],
-              [
-                9.28429121603132,
-                49.14707405996807
-              ],
-              [
-                9.284206992391914,
-                49.147045988916304
-              ],
-              [
-                9.284140152133237,
-                49.147002267228146
-              ],
-              [
-                9.28409723804551,
-                49.14694717468706
-              ],
-              [
-                9.284082450858643,
-                49.14688610413481
-              ],
-              [
-                9.28409723804551,
-                49.14682503358256
-              ],
-              [
-                9.284140152133237,
-                49.14676994104147
-              ],
-              [
-                9.284206992391914,
-                49.14672621935331
-              ],
-              [
-                9.28429121603132,
-                49.146698148301546
-              ],
-              [
-                9.284384578654809,
-                49.14668847567631
-              ],
-              [
-                9.284477941278297,
-                49.146698148301546
-              ],
-              [
-                9.284562164917704,
-                49.14672621935331
-              ],
-              [
-                9.284629005176381,
-                49.14676994104147
-              ],
-              [
-                9.284671919264108,
-                49.14682503358256
-              ],
-              [
-                9.284686706450975,
-                49.14688610413481
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
-          "score": 0.3038,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.28510751761694,
-                49.151378703438795
-              ],
-              [
-                9.285092729089158,
-                49.151439773991044
-              ],
-              [
-                9.285049811109944,
-                49.15149486653213
-              ],
-              [
-                9.284982964790135,
-                49.15153858822029
-              ],
-              [
-                9.28489873351326,
-                49.151566659272056
-              ],
-              [
-                9.284805362423569,
-                49.151576331897296
-              ],
-              [
-                9.284711991333879,
-                49.151566659272056
-              ],
-              [
-                9.284627760057003,
-                49.15153858822029
-              ],
-              [
-                9.284560913737193,
-                49.15149486653213
-              ],
-              [
-                9.28451799575798,
-                49.151439773991044
-              ],
-              [
-                9.284503207230198,
-                49.151378703438795
-              ],
-              [
-                9.28451799575798,
-                49.151317632886546
-              ],
-              [
-                9.284560913737193,
-                49.151262540345456
-              ],
-              [
-                9.284627760057003,
-                49.1512188186573
-              ],
-              [
-                9.284711991333879,
-                49.15119074760553
-              ],
-              [
-                9.284805362423569,
-                49.15118107498029
-              ],
-              [
-                9.28489873351326,
-                49.15119074760553
-              ],
-              [
-                9.284982964790135,
-                49.1512188186573
-              ],
-              [
-                9.285049811109944,
-                49.151262540345456
-              ],
-              [
-                9.285092729089158,
-                49.151317632886546
-              ],
-              [
-                9.28510751761694,
-                49.151378703438795
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_medium",
           "score": 0.3029,
           "support_count": 1,
           "radius_m": 22.0,
@@ -14267,6 +7974,110 @@ window.UXO_ANALYSIS_DATA = {
               [
                 9.288346086980823,
                 49.152042698904125
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.3022,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285827871599563,
+                49.15072383106914
+              ],
+              [
+                9.28581308326726,
+                49.15078490162139
+              ],
+              [
+                9.285770165855359,
+                49.15083999416248
+              ],
+              [
+                9.285703320419158,
+                49.15088371585064
+              ],
+              [
+                9.28561909025569,
+                49.150911786902405
+              ],
+              [
+                9.285525720400223,
+                49.150921459527645
+              ],
+              [
+                9.285432350544756,
+                49.150911786902405
+              ],
+              [
+                9.285348120381288,
+                49.15088371585064
+              ],
+              [
+                9.285281274945087,
+                49.15083999416248
+              ],
+              [
+                9.285238357533185,
+                49.15078490162139
+              ],
+              [
+                9.285223569200882,
+                49.15072383106914
+              ],
+              [
+                9.285238357533185,
+                49.150662760516894
+              ],
+              [
+                9.285281274945087,
+                49.150607667975805
+              ],
+              [
+                9.285348120381288,
+                49.15056394628765
+              ],
+              [
+                9.285432350544756,
+                49.15053587523588
+              ],
+              [
+                9.285525720400223,
+                49.15052620261064
+              ],
+              [
+                9.28561909025569,
+                49.15053587523588
+              ],
+              [
+                9.285703320419158,
+                49.15056394628765
+              ],
+              [
+                9.285770165855359,
+                49.150607667975805
+              ],
+              [
+                9.28581308326726,
+                49.150662760516894
+              ],
+              [
+                9.285827871599563,
+                49.15072383106914
               ]
             ]
           ]
@@ -14383,6 +8194,110 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
+          "score": 0.3004,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.273682932740497,
+                49.1514522781942
+              ],
+              [
+                9.27366814419075,
+                49.15151334874645
+              ],
+              [
+                9.2736252261478,
+                49.15156844128754
+              ],
+              [
+                9.273558379728717,
+                49.151612162975695
+              ],
+              [
+                9.273474148326747,
+                49.15164023402746
+              ],
+              [
+                9.273380777098389,
+                49.1516499066527
+              ],
+              [
+                9.27328740587003,
+                49.15164023402746
+              ],
+              [
+                9.27320317446806,
+                49.151612162975695
+              ],
+              [
+                9.273136328048977,
+                49.15156844128754
+              ],
+              [
+                9.273093410006027,
+                49.15151334874645
+              ],
+              [
+                9.27307862145628,
+                49.1514522781942
+              ],
+              [
+                9.273093410006027,
+                49.15139120764195
+              ],
+              [
+                9.273136328048977,
+                49.15133611510086
+              ],
+              [
+                9.27320317446806,
+                49.1512923934127
+              ],
+              [
+                9.27328740587003,
+                49.15126432236094
+              ],
+              [
+                9.273380777098389,
+                49.1512546497357
+              ],
+              [
+                9.273474148326747,
+                49.15126432236094
+              ],
+              [
+                9.273558379728717,
+                49.1512923934127
+              ],
+              [
+                9.2736252261478,
+                49.15133611510086
+              ],
+              [
+                9.27366814419075,
+                49.15139120764195
+              ],
+              [
+                9.273682932740497,
+                49.1514522781942
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
           "score": 0.3002,
           "support_count": 1,
           "radius_m": 22.0,
@@ -14487,8 +8402,8 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2972,
-          "support_count": 1,
+          "score": 0.2995,
+          "support_count": 2,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
         },
@@ -14497,88 +8412,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.29543826778307,
-                49.1545271917834
+                9.288102692943976,
+                49.150368422793065
               ],
               [
-                9.295423478315353,
-                49.15458826233565
+                9.288087904717761,
+                49.150429493345314
               ],
               [
-                9.295380557608345,
-                49.15464335487674
+                9.288044987613738,
+                49.1504845858864
               ],
               [
-                9.295313707039893,
-                49.1546870765649
+                9.287978142657067,
+                49.15052830757456
               ],
               [
-                9.295229470409415,
-                49.15471514761666
+                9.287893913097847,
+                49.15055637862633
               ],
               [
-                9.295136093385214,
-                49.1547248202419
+                9.28780054391219,
+                49.150566051251566
               ],
               [
-                9.295042716361012,
-                49.15471514761666
+                9.287707174726535,
+                49.15055637862633
               ],
               [
-                9.294958479730534,
-                49.1546870765649
+                9.287622945167314,
+                49.15052830757456
               ],
               [
-                9.294891629162082,
-                49.15464335487674
+                9.287556100210644,
+                49.1504845858864
               ],
               [
-                9.294848708455074,
-                49.15458826233565
+                9.28751318310662,
+                49.150429493345314
               ],
               [
-                9.294833918987358,
-                49.1545271917834
+                9.287498394880405,
+                49.150368422793065
               ],
               [
-                9.294848708455074,
-                49.15446612123115
+                9.28751318310662,
+                49.150307352240816
               ],
               [
-                9.294891629162082,
-                49.15441102869006
+                9.287556100210644,
+                49.15025225969973
               ],
               [
-                9.294958479730534,
-                49.154367307001905
+                9.287622945167314,
+                49.15020853801157
               ],
               [
-                9.295042716361012,
-                49.15433923595014
+                9.287707174726535,
+                49.1501804669598
               ],
               [
-                9.295136093385214,
-                49.1543295633249
+                9.28780054391219,
+                49.150170794334564
               ],
               [
-                9.295229470409415,
-                49.15433923595014
+                9.287893913097847,
+                49.1501804669598
               ],
               [
-                9.295313707039893,
-                49.154367307001905
+                9.287978142657067,
+                49.15020853801157
               ],
               [
-                9.295380557608345,
-                49.15441102869006
+                9.288044987613738,
+                49.15025225969973
               ],
               [
-                9.295423478315353,
-                49.15446612123115
+                9.288087904717761,
+                49.150307352240816
               ],
               [
-                9.29543826778307,
-                49.1545271917834
+                9.288102692943976,
+                49.150368422793065
               ]
             ]
           ]
@@ -14591,8 +8506,8 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2881,
-          "support_count": 1,
+          "score": 0.2993,
+          "support_count": 2,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
         },
@@ -14601,88 +8516,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.288835147005601,
-                49.15277036700582
+                9.28444802875701,
+                49.15086638329119
               ],
               [
-                9.288820358062377,
-                49.15283143755807
+                9.284433240382157,
+                49.15092745384344
               ],
               [
-                9.288777438877512,
-                49.15288653009916
+                9.284390322846765,
+                49.150982546384526
               ],
               [
-                9.288710590679852,
-                49.15293025178732
+                9.284323477218223,
+                49.151026268072684
               ],
               [
-                9.288626357036744,
-                49.15295832283908
+                9.284239246812392,
+                49.15105433912445
               ],
               [
-                9.288532983324068,
-                49.15296799546432
+                9.284145876688264,
+                49.15106401174969
               ],
               [
-                9.288439609611391,
-                49.15295832283908
+                9.284052506564135,
+                49.15105433912445
               ],
               [
-                9.288355375968283,
-                49.15293025178732
+                9.283968276158305,
+                49.151026268072684
               ],
               [
-                9.288288527770623,
-                49.15288653009916
+                9.283901430529763,
+                49.150982546384526
               ],
               [
-                9.288245608585758,
-                49.15283143755807
+                9.283858512994371,
+                49.15092745384344
               ],
               [
-                9.288230819642534,
-                49.15277036700582
+                9.283843724619517,
+                49.15086638329119
               ],
               [
-                9.288245608585758,
-                49.15270929645357
+                9.283858512994371,
+                49.15080531273894
               ],
               [
-                9.288288527770623,
-                49.15265420391248
+                9.283901430529763,
+                49.15075022019785
               ],
               [
-                9.288355375968283,
-                49.152610482224325
+                9.283968276158305,
+                49.15070649850969
               ],
               [
-                9.288439609611391,
-                49.15258241117256
+                9.284052506564135,
+                49.150678427457926
               ],
               [
-                9.288532983324068,
-                49.15257273854732
+                9.284145876688264,
+                49.15066875483269
               ],
               [
-                9.288626357036744,
-                49.15258241117256
+                9.284239246812392,
+                49.150678427457926
               ],
               [
-                9.288710590679852,
-                49.152610482224325
+                9.284323477218223,
+                49.15070649850969
               ],
               [
-                9.288777438877512,
-                49.15265420391248
+                9.284390322846765,
+                49.15075022019785
               ],
               [
-                9.288820358062377,
-                49.15270929645357
+                9.284433240382157,
+                49.15080531273894
               ],
               [
-                9.288835147005601,
-                49.15277036700582
+                9.28444802875701,
+                49.15086638329119
               ]
             ]
           ]
@@ -14695,8 +8610,8 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2879,
-          "support_count": 1,
+          "score": 0.2987,
+          "support_count": 2,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
         },
@@ -14705,88 +8620,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.291437371898244,
-                49.15400807217895
+                9.28477083295875,
+                49.14694242056149
               ],
               [
-                9.291422582585515,
-                49.154069142731196
+                9.284756045755076,
+                49.147003491113736
               ],
               [
-                9.291379662328294,
-                49.154124235272285
+                9.284713131618574,
+                49.147058583654825
               ],
               [
-                9.291312812460408,
-                49.15416795696044
+                9.284646291283927,
+                49.14710230534298
               ],
               [
-                9.29122857671269,
-                49.15419602801221
+                9.284562067548794,
+                49.14713037639475
               ],
               [
-                9.291135200667036,
-                49.15420570063745
+                9.284468704819192,
+                49.14714004901999
               ],
               [
-                9.29104182462138,
-                49.15419602801221
+                9.28437534208959,
+                49.14713037639475
               ],
               [
-                9.290957588873663,
-                49.15416795696044
+                9.284291118354457,
+                49.14710230534298
               ],
               [
-                9.290890739005777,
-                49.154124235272285
+                9.28422427801981,
+                49.147058583654825
               ],
               [
-                9.290847818748556,
-                49.154069142731196
+                9.284181363883308,
+                49.147003491113736
               ],
               [
-                9.290833029435827,
-                49.15400807217895
+                9.284166576679633,
+                49.14694242056149
               ],
               [
-                9.290847818748556,
-                49.1539470016267
+                9.284181363883308,
+                49.14688135000924
               ],
               [
-                9.290890739005777,
-                49.15389190908561
+                9.28422427801981,
+                49.14682625746815
               ],
               [
-                9.290957588873663,
-                49.15384818739745
+                9.284291118354457,
+                49.14678253577999
               ],
               [
-                9.29104182462138,
-                49.153820116345685
+                9.28437534208959,
+                49.146754464728225
               ],
               [
-                9.291135200667036,
-                49.153810443720445
+                9.284468704819192,
+                49.146744792102986
               ],
               [
-                9.29122857671269,
-                49.153820116345685
+                9.284562067548794,
+                49.146754464728225
               ],
               [
-                9.291312812460408,
-                49.15384818739745
+                9.284646291283927,
+                49.14678253577999
               ],
               [
-                9.291379662328294,
-                49.15389190908561
+                9.284713131618574,
+                49.14682625746815
               ],
               [
-                9.291422582585515,
-                49.1539470016267
+                9.284756045755076,
+                49.14688135000924
               ],
               [
-                9.291437371898244,
-                49.15400807217895
+                9.28477083295875,
+                49.14694242056149
               ]
             ]
           ]
@@ -14799,8 +8714,8 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2838,
-          "support_count": 1,
+          "score": 0.2977,
+          "support_count": 3,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
         },
@@ -14809,88 +8724,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.288079665462302,
-                49.15028260997941
+                9.289393531412198,
+                49.153234653529985
               ],
               [
-                9.288064877261702,
-                49.15034368053166
+                9.289378742330369,
+                49.153295724082234
               ],
               [
-                9.288021960232015,
-                49.15039877307275
+                9.289335822743253,
+                49.15335081662332
               ],
               [
-                9.287955115391124,
-                49.15044249476091
+                9.289268973919071,
+                49.15339453831148
               ],
               [
-                9.287870885977796,
-                49.150470565812675
+                9.289184739486503,
+                49.15342260936325
               ],
               [
-                9.287777516953863,
-                49.150480238437915
+                9.2890913648987,
+                49.153432281988486
               ],
               [
-                9.28768414792993,
-                49.150470565812675
+                9.288997990310898,
+                49.15342260936325
               ],
               [
-                9.287599918516602,
-                49.15044249476091
+                9.28891375587833,
+                49.15339453831148
               ],
               [
-                9.28753307367571,
-                49.15039877307275
+                9.288846907054149,
+                49.15335081662332
               ],
               [
-                9.287490156646024,
-                49.15034368053166
+                9.288803987467032,
+                49.153295724082234
               ],
               [
-                9.287475368445424,
-                49.15028260997941
+                9.288789198385203,
+                49.153234653529985
               ],
               [
-                9.287490156646024,
-                49.150221539427164
+                9.288803987467032,
+                49.153173582977736
               ],
               [
-                9.28753307367571,
-                49.150166446886075
+                9.288846907054149,
+                49.15311849043665
               ],
               [
-                9.287599918516602,
-                49.15012272519792
+                9.28891375587833,
+                49.15307476874849
               ],
               [
-                9.28768414792993,
-                49.15009465414615
+                9.288997990310898,
+                49.15304669769672
               ],
               [
-                9.287777516953863,
-                49.15008498152091
+                9.2890913648987,
+                49.153037025071484
               ],
               [
-                9.287870885977796,
-                49.15009465414615
+                9.289184739486503,
+                49.15304669769672
               ],
               [
-                9.287955115391124,
-                49.15012272519792
+                9.289268973919071,
+                49.15307476874849
               ],
               [
-                9.288021960232015,
-                49.150166446886075
+                9.289335822743253,
+                49.15311849043665
               ],
               [
-                9.288064877261702,
-                49.150221539427164
+                9.289378742330369,
+                49.153173582977736
               ],
               [
-                9.288079665462302,
-                49.15028260997941
+                9.289393531412198,
+                49.153234653529985
               ]
             ]
           ]
@@ -14903,7 +8818,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2824,
+          "score": 0.2955,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -14913,88 +8828,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.292159555789535,
-                49.15089315155323
+                9.291387637080767,
+                49.1516444114175
               ],
               [
-                9.292144767406691,
-                49.150954222105476
+                9.291372848473667,
+                49.15170548196975
               ],
               [
-                9.29210184984811,
-                49.151009314646565
+                9.291329930264268,
+                49.15176057451084
               ],
               [
-                9.29203500418345,
-                49.15105303633472
+                9.291263083585935,
+                49.151804296198996
               ],
               [
-                9.29195077373211,
-                49.15108110738649
+                9.291178851857293,
+                49.15183236725076
               ],
               [
-                9.291857403557533,
-                49.15109078001173
+                9.291085480266815,
+                49.151842039876
               ],
               [
-                9.291764033382956,
-                49.15108110738649
+                9.290992108676338,
+                49.15183236725076
               ],
               [
-                9.291679802931615,
-                49.15105303633472
+                9.290907876947696,
+                49.151804296198996
               ],
               [
-                9.291612957266954,
-                49.151009314646565
+                9.290841030269362,
+                49.15176057451084
               ],
               [
-                9.291570039708374,
-                49.150954222105476
+                9.290798112059964,
+                49.15170548196975
               ],
               [
-                9.29155525132553,
-                49.15089315155323
+                9.290783323452864,
+                49.1516444114175
               ],
               [
-                9.291570039708374,
-                49.15083208100098
+                9.290798112059964,
+                49.15158334086525
               ],
               [
-                9.291612957266954,
-                49.15077698845989
+                9.290841030269362,
+                49.15152824832416
               ],
               [
-                9.291679802931615,
-                49.15073326677173
+                9.290907876947696,
+                49.151484526636004
               ],
               [
-                9.291764033382956,
-                49.150705195719965
+                9.290992108676338,
+                49.15145645558424
               ],
               [
-                9.291857403557533,
-                49.150695523094726
+                9.291085480266815,
+                49.151446782959
               ],
               [
-                9.29195077373211,
-                49.150705195719965
+                9.291178851857293,
+                49.15145645558424
               ],
               [
-                9.29203500418345,
-                49.15073326677173
+                9.291263083585935,
+                49.151484526636004
               ],
               [
-                9.29210184984811,
-                49.15077698845989
+                9.291329930264268,
+                49.15152824832416
               ],
               [
-                9.292144767406691,
-                49.15083208100098
+                9.291372848473667,
+                49.15158334086525
               ],
               [
-                9.292159555789535,
-                49.15089315155323
+                9.291387637080767,
+                49.1516444114175
               ]
             ]
           ]
@@ -15007,7 +8922,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2797,
+          "score": 0.2955,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -15017,88 +8932,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.294764800895637,
-                49.14505419465017
+                9.291368177012027,
+                49.14784686608489
               ],
               [
-                9.294750014255447,
-                49.14511526520242
+                9.291353389538425,
+                49.14790793663714
               ],
               [
-                9.29470710175424,
-                49.14517035774351
+                9.29131047461857,
+                49.14796302917823
               ],
               [
-                9.294640263966626,
-                49.14521407943167
+                9.29124363306382,
+                49.14800675086639
               ],
               [
-                9.294556043440942,
-                49.14524215048343
+                9.291159407791268,
+                49.14803482191815
               ],
               [
-                9.294462684269039,
-                49.14525182310867
+                9.291066043357421,
+                49.14804449454339
               ],
               [
-                9.294369325097136,
-                49.14524215048343
+                9.290972678923575,
+                49.14803482191815
               ],
               [
-                9.294285104571452,
-                49.14521407943167
+                9.290888453651023,
+                49.14800675086639
               ],
               [
-                9.294218266783838,
-                49.14517035774351
+                9.290821612096273,
+                49.14796302917823
               ],
               [
-                9.29417535428263,
-                49.14511526520242
+                9.290778697176417,
+                49.14790793663714
               ],
               [
-                9.294160567642441,
-                49.14505419465017
+                9.290763909702816,
+                49.14784686608489
               ],
               [
-                9.29417535428263,
-                49.14499312409792
+                9.290778697176417,
+                49.14778579553264
               ],
               [
-                9.294218266783838,
-                49.14493803155683
+                9.290821612096273,
+                49.14773070299155
               ],
               [
-                9.294285104571452,
-                49.144894309868675
+                9.290888453651023,
+                49.147686981303394
               ],
               [
-                9.294369325097136,
-                49.14486623881691
+                9.290972678923575,
+                49.14765891025163
               ],
               [
-                9.294462684269039,
-                49.14485656619167
+                9.291066043357421,
+                49.14764923762639
               ],
               [
-                9.294556043440942,
-                49.14486623881691
+                9.291159407791268,
+                49.14765891025163
               ],
               [
-                9.294640263966626,
-                49.144894309868675
+                9.29124363306382,
+                49.147686981303394
               ],
               [
-                9.29470710175424,
-                49.14493803155683
+                9.29131047461857,
+                49.14773070299155
               ],
               [
-                9.294750014255447,
-                49.14499312409792
+                9.291353389538425,
+                49.14778579553264
               ],
               [
-                9.294764800895637,
-                49.14505419465017
+                9.291368177012027,
+                49.14784686608489
               ]
             ]
           ]
@@ -15111,7 +9026,4687 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.272,
+          "score": 0.2954,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.288090466167413,
+                49.1507810288379
+              ],
+              [
+                9.288075677818039,
+                49.15084209939015
+              ],
+              [
+                9.288032760356588,
+                49.150897191931236
+              ],
+              [
+                9.28796591484321,
+                49.150940913619394
+              ],
+              [
+                9.287881684582498,
+                49.15096898467116
+              ],
+              [
+                9.287788314619233,
+                49.1509786572964
+              ],
+              [
+                9.287694944655968,
+                49.15096898467116
+              ],
+              [
+                9.287610714395255,
+                49.150940913619394
+              ],
+              [
+                9.287543868881878,
+                49.150897191931236
+              ],
+              [
+                9.287500951420427,
+                49.15084209939015
+              ],
+              [
+                9.287486163071053,
+                49.1507810288379
+              ],
+              [
+                9.287500951420427,
+                49.15071995828565
+              ],
+              [
+                9.287543868881878,
+                49.15066486574456
+              ],
+              [
+                9.287610714395255,
+                49.1506211440564
+              ],
+              [
+                9.287694944655968,
+                49.150593073004636
+              ],
+              [
+                9.287788314619233,
+                49.150583400379396
+              ],
+              [
+                9.287881684582498,
+                49.150593073004636
+              ],
+              [
+                9.28796591484321,
+                49.1506211440564
+              ],
+              [
+                9.288032760356588,
+                49.15066486574456
+              ],
+              [
+                9.288075677818039,
+                49.15071995828565
+              ],
+              [
+                9.288090466167413,
+                49.1507810288379
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.295,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291479808114333,
+                49.15207178824504
+              ],
+              [
+                9.291465019379656,
+                49.15213285879729
+              ],
+              [
+                9.291422100800007,
+                49.15218795133838
+              ],
+              [
+                9.291355253544998,
+                49.152231673026535
+              ],
+              [
+                9.291271021089699,
+                49.1522597440783
+              ],
+              [
+                9.291177648693719,
+                49.15226941670354
+              ],
+              [
+                9.291084276297738,
+                49.1522597440783
+              ],
+              [
+                9.29100004384244,
+                49.152231673026535
+              ],
+              [
+                9.29093319658743,
+                49.15218795133838
+              ],
+              [
+                9.290890278007781,
+                49.15213285879729
+              ],
+              [
+                9.290875489273104,
+                49.15207178824504
+              ],
+              [
+                9.290890278007781,
+                49.15201071769279
+              ],
+              [
+                9.29093319658743,
+                49.1519556251517
+              ],
+              [
+                9.29100004384244,
+                49.15191190346354
+              ],
+              [
+                9.291084276297738,
+                49.15188383241178
+              ],
+              [
+                9.291177648693719,
+                49.15187415978654
+              ],
+              [
+                9.291271021089699,
+                49.15188383241178
+              ],
+              [
+                9.291355253544998,
+                49.15191190346354
+              ],
+              [
+                9.291422100800007,
+                49.1519556251517
+              ],
+              [
+                9.291465019379656,
+                49.15201071769279
+              ],
+              [
+                9.291479808114333,
+                49.15207178824504
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2945,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291832011573737,
+                49.14833696793074
+              ],
+              [
+                9.291817223953863,
+                49.14839803848299
+              ],
+              [
+                9.291774308609506,
+                49.14845313102408
+              ],
+              [
+                9.291707466393579,
+                49.148496852712235
+              ],
+              [
+                9.291623240287896,
+                49.148524923764
+              ],
+              [
+                9.291529874930518,
+                49.14853459638924
+              ],
+              [
+                9.29143650957314,
+                49.148524923764
+              ],
+              [
+                9.291352283467457,
+                49.148496852712235
+              ],
+              [
+                9.29128544125153,
+                49.14845313102408
+              ],
+              [
+                9.291242525907172,
+                49.14839803848299
+              ],
+              [
+                9.291227738287299,
+                49.14833696793074
+              ],
+              [
+                9.291242525907172,
+                49.14827589737849
+              ],
+              [
+                9.29128544125153,
+                49.1482208048374
+              ],
+              [
+                9.291352283467457,
+                49.14817708314924
+              ],
+              [
+                9.29143650957314,
+                49.14814901209748
+              ],
+              [
+                9.291529874930518,
+                49.14813933947224
+              ],
+              [
+                9.291623240287896,
+                49.14814901209748
+              ],
+              [
+                9.291707466393579,
+                49.14817708314924
+              ],
+              [
+                9.291774308609506,
+                49.1482208048374
+              ],
+              [
+                9.291817223953863,
+                49.14827589737849
+              ],
+              [
+                9.291832011573737,
+                49.14833696793074
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.294,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.290111524467067,
+                49.15095247383498
+              ],
+              [
+                9.290096736066515,
+                49.151013544387226
+              ],
+              [
+                9.290053818456544,
+                49.151068636928315
+              ],
+              [
+                9.289986972711842,
+                49.15111235861647
+              ],
+              [
+                9.289902742159642,
+                49.15114042966824
+              ],
+              [
+                9.289809371873263,
+                49.15115010229348
+              ],
+              [
+                9.289716001586884,
+                49.15114042966824
+              ],
+              [
+                9.289631771034683,
+                49.15111235861647
+              ],
+              [
+                9.289564925289982,
+                49.151068636928315
+              ],
+              [
+                9.289522007680011,
+                49.151013544387226
+              ],
+              [
+                9.289507219279459,
+                49.15095247383498
+              ],
+              [
+                9.289522007680011,
+                49.15089140328273
+              ],
+              [
+                9.289564925289982,
+                49.15083631074164
+              ],
+              [
+                9.289631771034683,
+                49.15079258905348
+              ],
+              [
+                9.289716001586884,
+                49.150764518001715
+              ],
+              [
+                9.289809371873263,
+                49.150754845376476
+              ],
+              [
+                9.289902742159642,
+                49.150764518001715
+              ],
+              [
+                9.289986972711842,
+                49.15079258905348
+              ],
+              [
+                9.290053818456544,
+                49.15083631074164
+              ],
+              [
+                9.290096736066515,
+                49.15089140328273
+              ],
+              [
+                9.290111524467067,
+                49.15095247383498
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2864,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.29082477546597,
+                49.14719720469851
+              ],
+              [
+                9.290809988186258,
+                49.147258275250756
+              ],
+              [
+                9.290767073829088,
+                49.147313367791845
+              ],
+              [
+                9.29070023315074,
+                49.14735708948
+              ],
+              [
+                9.290616008982521,
+                49.14738516053177
+              ],
+              [
+                9.290522645772839,
+                49.14739483315701
+              ],
+              [
+                9.290429282563156,
+                49.14738516053177
+              ],
+              [
+                9.290345058394937,
+                49.14735708948
+              ],
+              [
+                9.29027821771659,
+                49.147313367791845
+              ],
+              [
+                9.29023530335942,
+                49.147258275250756
+              ],
+              [
+                9.290220516079708,
+                49.14719720469851
+              ],
+              [
+                9.29023530335942,
+                49.14713613414626
+              ],
+              [
+                9.29027821771659,
+                49.14708104160517
+              ],
+              [
+                9.290345058394937,
+                49.14703731991701
+              ],
+              [
+                9.290429282563156,
+                49.147009248865245
+              ],
+              [
+                9.290522645772839,
+                49.146999576240006
+              ],
+              [
+                9.290616008982521,
+                49.147009248865245
+              ],
+              [
+                9.29070023315074,
+                49.14703731991701
+              ],
+              [
+                9.290767073829088,
+                49.14708104160517
+              ],
+              [
+                9.290809988186258,
+                49.14713613414626
+              ],
+              [
+                9.29082477546597,
+                49.14719720469851
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2856,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.292009363398352,
+                49.151065250454444
+              ],
+              [
+                9.291994574964136,
+                49.15112632100669
+              ],
+              [
+                9.291951657256469,
+                49.15118141354778
+              ],
+              [
+                9.2918848113596,
+                49.15122513523594
+              ],
+              [
+                9.291800580615659,
+                49.151253206287706
+              ],
+              [
+                9.291707210116732,
+                49.151262878912945
+              ],
+              [
+                9.291613839617805,
+                49.151253206287706
+              ],
+              [
+                9.291529608873864,
+                49.15122513523594
+              ],
+              [
+                9.291462762976995,
+                49.15118141354778
+              ],
+              [
+                9.291419845269328,
+                49.15112632100669
+              ],
+              [
+                9.291405056835112,
+                49.151065250454444
+              ],
+              [
+                9.291419845269328,
+                49.151004179902195
+              ],
+              [
+                9.291462762976995,
+                49.150949087361106
+              ],
+              [
+                9.291529608873864,
+                49.15090536567295
+              ],
+              [
+                9.291613839617805,
+                49.15087729462118
+              ],
+              [
+                9.291707210116732,
+                49.15086762199594
+              ],
+              [
+                9.291800580615659,
+                49.15087729462118
+              ],
+              [
+                9.2918848113596,
+                49.15090536567295
+              ],
+              [
+                9.291951657256469,
+                49.150949087361106
+              ],
+              [
+                9.291994574964136,
+                49.151004179902195
+              ],
+              [
+                9.292009363398352,
+                49.151065250454444
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2823,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285568193359154,
+                49.14751947051926
+              ],
+              [
+                9.285553405983265,
+                49.14758054107151
+              ],
+              [
+                9.285510491346976,
+                49.1476356336126
+              ],
+              [
+                9.28544365023389,
+                49.14767935530076
+              ],
+              [
+                9.28535942551787,
+                49.147707426352525
+              ],
+              [
+                9.285266061700945,
+                49.147717098977765
+              ],
+              [
+                9.28517269788402,
+                49.147707426352525
+              ],
+              [
+                9.285088473167999,
+                49.14767935530076
+              ],
+              [
+                9.285021632054914,
+                49.1476356336126
+              ],
+              [
+                9.284978717418625,
+                49.14758054107151
+              ],
+              [
+                9.284963930042736,
+                49.14751947051926
+              ],
+              [
+                9.284978717418625,
+                49.147458399967014
+              ],
+              [
+                9.285021632054914,
+                49.147403307425925
+              ],
+              [
+                9.285088473167999,
+                49.14735958573777
+              ],
+              [
+                9.28517269788402,
+                49.147331514686
+              ],
+              [
+                9.285266061700945,
+                49.14732184206076
+              ],
+              [
+                9.28535942551787,
+                49.147331514686
+              ],
+              [
+                9.28544365023389,
+                49.14735958573777
+              ],
+              [
+                9.285510491346976,
+                49.147403307425925
+              ],
+              [
+                9.285553405983265,
+                49.147458399967014
+              ],
+              [
+                9.285568193359154,
+                49.14751947051926
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2809,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291416698711972,
+                49.15436691354192
+              ],
+              [
+                9.291401909292107,
+                49.15442798409417
+              ],
+              [
+                9.291358988723973,
+                49.15448307663526
+              ],
+              [
+                9.291292138371823,
+                49.15452679832342
+              ],
+              [
+                9.291207902013902,
+                49.15455486937518
+              ],
+              [
+                9.291114525291828,
+                49.15456454200042
+              ],
+              [
+                9.291021148569754,
+                49.15455486937518
+              ],
+              [
+                9.290936912211833,
+                49.15452679832342
+              ],
+              [
+                9.290870061859684,
+                49.15448307663526
+              ],
+              [
+                9.29082714129155,
+                49.15442798409417
+              ],
+              [
+                9.290812351871685,
+                49.15436691354192
+              ],
+              [
+                9.29082714129155,
+                49.15430584298967
+              ],
+              [
+                9.290870061859684,
+                49.15425075044858
+              ],
+              [
+                9.290936912211833,
+                49.154207028760425
+              ],
+              [
+                9.291021148569754,
+                49.15417895770866
+              ],
+              [
+                9.291114525291828,
+                49.15416928508342
+              ],
+              [
+                9.291207902013902,
+                49.15417895770866
+              ],
+              [
+                9.291292138371823,
+                49.154207028760425
+              ],
+              [
+                9.291358988723973,
+                49.15425075044858
+              ],
+              [
+                9.291401909292107,
+                49.15430584298967
+              ],
+              [
+                9.291416698711972,
+                49.15436691354192
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2806,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.290656342563052,
+                49.15083897285287
+              ],
+              [
+                9.29064155419638,
+                49.150900043405116
+              ],
+              [
+                9.290598636684734,
+                49.150955135946205
+              ],
+              [
+                9.290531791093175,
+                49.15099885763436
+              ],
+              [
+                9.290447560733947,
+                49.15102692868613
+              ],
+              [
+                9.290354190661478,
+                49.15103660131137
+              ],
+              [
+                9.29026082058901,
+                49.15102692868613
+              ],
+              [
+                9.290176590229782,
+                49.15099885763436
+              ],
+              [
+                9.290109744638222,
+                49.150955135946205
+              ],
+              [
+                9.290066827126576,
+                49.150900043405116
+              ],
+              [
+                9.290052038759905,
+                49.15083897285287
+              ],
+              [
+                9.290066827126576,
+                49.15077790230062
+              ],
+              [
+                9.290109744638222,
+                49.15072280975953
+              ],
+              [
+                9.290176590229782,
+                49.15067908807137
+              ],
+              [
+                9.29026082058901,
+                49.150651017019605
+              ],
+              [
+                9.290354190661478,
+                49.150641344394366
+              ],
+              [
+                9.290447560733947,
+                49.150651017019605
+              ],
+              [
+                9.290531791093175,
+                49.15067908807137
+              ],
+              [
+                9.290598636684734,
+                49.15072280975953
+              ],
+              [
+                9.29064155419638,
+                49.15077790230062
+              ],
+              [
+                9.290656342563052,
+                49.15083897285287
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2786,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291930514219246,
+                49.15173300887622
+              ],
+              [
+                9.291915725585698,
+                49.15179407942847
+              ],
+              [
+                9.291872807299546,
+                49.15184917196956
+              ],
+              [
+                9.291805960501666,
+                49.15189289365772
+              ],
+              [
+                9.291721728622385,
+                49.15192096470948
+              ],
+              [
+                9.291628356864924,
+                49.15193063733472
+              ],
+              [
+                9.291534985107464,
+                49.15192096470948
+              ],
+              [
+                9.291450753228183,
+                49.15189289365772
+              ],
+              [
+                9.291383906430303,
+                49.15184917196956
+              ],
+              [
+                9.291340988144151,
+                49.15179407942847
+              ],
+              [
+                9.291326199510603,
+                49.15173300887622
+              ],
+              [
+                9.291340988144151,
+                49.15167193832397
+              ],
+              [
+                9.291383906430303,
+                49.15161684578288
+              ],
+              [
+                9.291450753228183,
+                49.151573124094725
+              ],
+              [
+                9.291534985107464,
+                49.15154505304296
+              ],
+              [
+                9.291628356864924,
+                49.15153538041772
+              ],
+              [
+                9.291721728622385,
+                49.15154505304296
+              ],
+              [
+                9.291805960501666,
+                49.151573124094725
+              ],
+              [
+                9.291872807299546,
+                49.15161684578288
+              ],
+              [
+                9.291915725585698,
+                49.15167193832397
+              ],
+              [
+                9.291930514219246,
+                49.15173300887622
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2779,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285677163134881,
+                49.15094913777866
+              ],
+              [
+                9.285662374735326,
+                49.15101020833091
+              ],
+              [
+                9.285619457128245,
+                49.151065300872
+              ],
+              [
+                9.285552611388043,
+                49.151109022560156
+              ],
+              [
+                9.285468380841516,
+                49.15113709361192
+              ],
+              [
+                9.285375010561424,
+                49.15114676623716
+              ],
+              [
+                9.285281640281331,
+                49.15113709361192
+              ],
+              [
+                9.285197409734804,
+                49.151109022560156
+              ],
+              [
+                9.285130563994603,
+                49.151065300872
+              ],
+              [
+                9.285087646387522,
+                49.15101020833091
+              ],
+              [
+                9.285072857987966,
+                49.15094913777866
+              ],
+              [
+                9.285087646387522,
+                49.15088806722641
+              ],
+              [
+                9.285130563994603,
+                49.15083297468532
+              ],
+              [
+                9.285197409734804,
+                49.150789252997164
+              ],
+              [
+                9.285281640281331,
+                49.1507611819454
+              ],
+              [
+                9.285375010561424,
+                49.15075150932016
+              ],
+              [
+                9.285468380841516,
+                49.1507611819454
+              ],
+              [
+                9.285552611388043,
+                49.150789252997164
+              ],
+              [
+                9.285619457128245,
+                49.15083297468532
+              ],
+              [
+                9.285662374735326,
+                49.15088806722641
+              ],
+              [
+                9.285677163134881,
+                49.15094913777866
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2769,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.28510943059398,
+                49.151875014006606
+              ],
+              [
+                9.285094641918041,
+                49.151936084558855
+              ],
+              [
+                9.285051723508866,
+                49.151991177099944
+              ],
+              [
+                9.284984876519374,
+                49.1520348987881
+              ],
+              [
+                9.284900644398647,
+                49.15206296983987
+              ],
+              [
+                9.284807272373541,
+                49.15207264246511
+              ],
+              [
+                9.284713900348436,
+                49.15206296983987
+              ],
+              [
+                9.284629668227709,
+                49.1520348987881
+              ],
+              [
+                9.284562821238216,
+                49.151991177099944
+              ],
+              [
+                9.284519902829041,
+                49.151936084558855
+              ],
+              [
+                9.284505114153102,
+                49.151875014006606
+              ],
+              [
+                9.284519902829041,
+                49.15181394345436
+              ],
+              [
+                9.284562821238216,
+                49.15175885091327
+              ],
+              [
+                9.284629668227709,
+                49.15171512922511
+              ],
+              [
+                9.284713900348436,
+                49.151687058173344
+              ],
+              [
+                9.284807272373541,
+                49.151677385548105
+              ],
+              [
+                9.284900644398647,
+                49.151687058173344
+              ],
+              [
+                9.284984876519374,
+                49.15171512922511
+              ],
+              [
+                9.285051723508866,
+                49.15175885091327
+              ],
+              [
+                9.285094641918041,
+                49.15181394345436
+              ],
+              [
+                9.28510943059398,
+                49.151875014006606
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2765,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.286324527886634,
+                49.15064095764493
+              ],
+              [
+                9.28630973957907,
+                49.15070202819718
+              ],
+              [
+                9.286266822238959,
+                49.15075712073827
+              ],
+              [
+                9.286199976914574,
+                49.15080084242643
+              ],
+              [
+                9.286115746892005,
+                49.15082891347819
+              ],
+              [
+                9.286022377192724,
+                49.15083858610343
+              ],
+              [
+                9.285929007493444,
+                49.15082891347819
+              ],
+              [
+                9.285844777470874,
+                49.15080084242643
+              ],
+              [
+                9.28577793214649,
+                49.15075712073827
+              ],
+              [
+                9.285735014806379,
+                49.15070202819718
+              ],
+              [
+                9.285720226498814,
+                49.15064095764493
+              ],
+              [
+                9.285735014806379,
+                49.15057988709268
+              ],
+              [
+                9.28577793214649,
+                49.15052479455159
+              ],
+              [
+                9.285844777470874,
+                49.150481072863435
+              ],
+              [
+                9.285929007493444,
+                49.15045300181167
+              ],
+              [
+                9.286022377192724,
+                49.15044332918643
+              ],
+              [
+                9.286115746892005,
+                49.15045300181167
+              ],
+              [
+                9.286199976914574,
+                49.150481072863435
+              ],
+              [
+                9.286266822238959,
+                49.15052479455159
+              ],
+              [
+                9.28630973957907,
+                49.15057988709268
+              ],
+              [
+                9.286324527886634,
+                49.15064095764493
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2747,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.295465573387665,
+                49.150132924459605
+              ],
+              [
+                9.295450785231745,
+                49.150193995011854
+              ],
+              [
+                9.295407868331724,
+                49.15024908755294
+              ],
+              [
+                9.295341023692792,
+                49.1502928092411
+              ],
+              [
+                9.295256794533945,
+                49.15032088029287
+              ],
+              [
+                9.295163425792108,
+                49.150330552918106
+              ],
+              [
+                9.295070057050271,
+                49.15032088029287
+              ],
+              [
+                9.294985827891423,
+                49.1502928092411
+              ],
+              [
+                9.294918983252492,
+                49.15024908755294
+              ],
+              [
+                9.29487606635247,
+                49.150193995011854
+              ],
+              [
+                9.294861278196551,
+                49.150132924459605
+              ],
+              [
+                9.29487606635247,
+                49.150071853907356
+              ],
+              [
+                9.294918983252492,
+                49.15001676136627
+              ],
+              [
+                9.294985827891423,
+                49.14997303967811
+              ],
+              [
+                9.295070057050271,
+                49.14994496862634
+              ],
+              [
+                9.295163425792108,
+                49.149935296001104
+              ],
+              [
+                9.295256794533945,
+                49.14994496862634
+              ],
+              [
+                9.295341023692792,
+                49.14997303967811
+              ],
+              [
+                9.295407868331724,
+                49.15001676136627
+              ],
+              [
+                9.295450785231745,
+                49.150071853907356
+              ],
+              [
+                9.295465573387665,
+                49.150132924459605
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2738,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.282627860451372,
+                49.152176988813196
+              ],
+              [
+                9.282613071685288,
+                49.152238059365445
+              ],
+              [
+                9.2825701530145,
+                49.152293151906534
+              ],
+              [
+                9.282503305617537,
+                49.15233687359469
+              ],
+              [
+                9.282419072983366,
+                49.15236494464646
+              ],
+              [
+                9.282325700389105,
+                49.1523746172717
+              ],
+              [
+                9.282232327794844,
+                49.15236494464646
+              ],
+              [
+                9.282148095160673,
+                49.15233687359469
+              ],
+              [
+                9.28208124776371,
+                49.152293151906534
+              ],
+              [
+                9.282038329092922,
+                49.152238059365445
+              ],
+              [
+                9.282023540326838,
+                49.152176988813196
+              ],
+              [
+                9.282038329092922,
+                49.15211591826095
+              ],
+              [
+                9.28208124776371,
+                49.15206082571986
+              ],
+              [
+                9.282148095160673,
+                49.1520171040317
+              ],
+              [
+                9.282232327794844,
+                49.151989032979934
+              ],
+              [
+                9.282325700389105,
+                49.151979360354694
+              ],
+              [
+                9.282419072983366,
+                49.151989032979934
+              ],
+              [
+                9.282503305617537,
+                49.1520171040317
+              ],
+              [
+                9.2825701530145,
+                49.15206082571986
+              ],
+              [
+                9.282613071685288,
+                49.15211591826095
+              ],
+              [
+                9.282627860451372,
+                49.152176988813196
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2736,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.288891890917565,
+                49.15315604303173
+              ],
+              [
+                9.288877101859203,
+                49.15321711358398
+              ],
+              [
+                9.288834182340194,
+                49.15327220612507
+              ],
+              [
+                9.288767333622094,
+                49.153315927813225
+              ],
+              [
+                9.288683099323194,
+                49.15334399886499
+              ],
+              [
+                9.288589724883565,
+                49.15335367149023
+              ],
+              [
+                9.288496350443936,
+                49.15334399886499
+              ],
+              [
+                9.288412116145036,
+                49.153315927813225
+              ],
+              [
+                9.288345267426935,
+                49.15327220612507
+              ],
+              [
+                9.288302347907926,
+                49.15321711358398
+              ],
+              [
+                9.288287558849564,
+                49.15315604303173
+              ],
+              [
+                9.288302347907926,
+                49.15309497247948
+              ],
+              [
+                9.288345267426935,
+                49.15303987993839
+              ],
+              [
+                9.288412116145036,
+                49.15299615825023
+              ],
+              [
+                9.288496350443936,
+                49.15296808719847
+              ],
+              [
+                9.288589724883565,
+                49.15295841457323
+              ],
+              [
+                9.288683099323194,
+                49.15296808719847
+              ],
+              [
+                9.288767333622094,
+                49.15299615825023
+              ],
+              [
+                9.288834182340194,
+                49.15303987993839
+              ],
+              [
+                9.288877101859203,
+                49.15309497247948
+              ],
+              [
+                9.288891890917565,
+                49.15315604303173
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.273,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291405306083153,
+                49.14722689098787
+              ],
+              [
+                9.29139051879458,
+                49.147287961540115
+              ],
+              [
+                9.2913476044117,
+                49.147343054081205
+              ],
+              [
+                9.291280763693306,
+                49.14738677576936
+              ],
+              [
+                9.291196539474626,
+                49.14741484682113
+              ],
+              [
+                9.291103176209006,
+                49.14742451944637
+              ],
+              [
+                9.291009812943386,
+                49.14741484682113
+              ],
+              [
+                9.290925588724706,
+                49.14738677576936
+              ],
+              [
+                9.290858748006313,
+                49.147343054081205
+              ],
+              [
+                9.290815833623432,
+                49.147287961540115
+              ],
+              [
+                9.29080104633486,
+                49.14722689098787
+              ],
+              [
+                9.290815833623432,
+                49.14716582043562
+              ],
+              [
+                9.290858748006313,
+                49.14711072789453
+              ],
+              [
+                9.290925588724706,
+                49.14706700620637
+              ],
+              [
+                9.291009812943386,
+                49.147038935154605
+              ],
+              [
+                9.291103176209006,
+                49.147029262529365
+              ],
+              [
+                9.291196539474626,
+                49.147038935154605
+              ],
+              [
+                9.291280763693306,
+                49.14706700620637
+              ],
+              [
+                9.2913476044117,
+                49.14711072789453
+              ],
+              [
+                9.29139051879458,
+                49.14716582043562
+              ],
+              [
+                9.291405306083153,
+                49.14722689098787
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2714,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291101178767208,
+                49.15105144917641
+              ],
+              [
+                9.291086390337112,
+                49.151112519728656
+              ],
+              [
+                9.2910434726414,
+                49.151167612269745
+              ],
+              [
+                9.290976626763154,
+                49.1512113339579
+              ],
+              [
+                9.290892396042677,
+                49.15123940500967
+              ],
+              [
+                9.290799025569761,
+                49.15124907763491
+              ],
+              [
+                9.290705655096845,
+                49.15123940500967
+              ],
+              [
+                9.290621424376369,
+                49.1512113339579
+              ],
+              [
+                9.290554578498122,
+                49.151167612269745
+              ],
+              [
+                9.29051166080241,
+                49.151112519728656
+              ],
+              [
+                9.290496872372314,
+                49.15105144917641
+              ],
+              [
+                9.29051166080241,
+                49.15099037862416
+              ],
+              [
+                9.290554578498122,
+                49.15093528608307
+              ],
+              [
+                9.290621424376369,
+                49.15089156439491
+              ],
+              [
+                9.290705655096845,
+                49.150863493343145
+              ],
+              [
+                9.290799025569761,
+                49.150853820717906
+              ],
+              [
+                9.290892396042677,
+                49.150863493343145
+              ],
+              [
+                9.290976626763154,
+                49.15089156439491
+              ],
+              [
+                9.2910434726414,
+                49.15093528608307
+              ],
+              [
+                9.291086390337112,
+                49.15099037862416
+              ],
+              [
+                9.291101178767208,
+                49.15105144917641
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2707,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.286095519175332,
+                49.15035823638665
+              ],
+              [
+                9.286080730952158,
+                49.1504193069389
+              ],
+              [
+                9.286037813856959,
+                49.15047439947999
+              ],
+              [
+                9.285970968914032,
+                49.15051812116815
+              ],
+              [
+                9.28588673937213,
+                49.15054619221991
+              ],
+              [
+                9.28579337020567,
+                49.15055586484515
+              ],
+              [
+                9.285700001039212,
+                49.15054619221991
+              ],
+              [
+                9.285615771497309,
+                49.15051812116815
+              ],
+              [
+                9.285548926554382,
+                49.15047439947999
+              ],
+              [
+                9.285506009459183,
+                49.1504193069389
+              ],
+              [
+                9.28549122123601,
+                49.15035823638665
+              ],
+              [
+                9.285506009459183,
+                49.1502971658344
+              ],
+              [
+                9.285548926554382,
+                49.15024207329331
+              ],
+              [
+                9.285615771497309,
+                49.150198351605155
+              ],
+              [
+                9.285700001039212,
+                49.15017028055339
+              ],
+              [
+                9.28579337020567,
+                49.15016060792815
+              ],
+              [
+                9.28588673937213,
+                49.15017028055339
+              ],
+              [
+                9.285970968914032,
+                49.150198351605155
+              ],
+              [
+                9.286037813856959,
+                49.15024207329331
+              ],
+              [
+                9.286080730952158,
+                49.1502971658344
+              ],
+              [
+                9.286095519175332,
+                49.15035823638665
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2667,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.289222396219056,
+                49.15343881078952
+              ],
+              [
+                9.289207607076277,
+                49.153499881341766
+              ],
+              [
+                9.289164687312278,
+                49.153554973882855
+              ],
+              [
+                9.289097838212598,
+                49.15359869557101
+              ],
+              [
+                9.289013603432878,
+                49.15362676662278
+              ],
+              [
+                9.288920228460256,
+                49.15363643924802
+              ],
+              [
+                9.288826853487635,
+                49.15362676662278
+              ],
+              [
+                9.288742618707914,
+                49.15359869557101
+              ],
+              [
+                9.288675769608234,
+                49.153554973882855
+              ],
+              [
+                9.288632849844236,
+                49.153499881341766
+              ],
+              [
+                9.288618060701456,
+                49.15343881078952
+              ],
+              [
+                9.288632849844236,
+                49.15337774023727
+              ],
+              [
+                9.288675769608234,
+                49.15332264769618
+              ],
+              [
+                9.288742618707914,
+                49.15327892600802
+              ],
+              [
+                9.288826853487635,
+                49.153250854956255
+              ],
+              [
+                9.288920228460256,
+                49.153241182331016
+              ],
+              [
+                9.289013603432878,
+                49.153250854956255
+              ],
+              [
+                9.289097838212598,
+                49.15327892600802
+              ],
+              [
+                9.289164687312278,
+                49.15332264769618
+              ],
+              [
+                9.289207607076277,
+                49.15337774023727
+              ],
+              [
+                9.289222396219056,
+                49.15343881078952
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2657,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.289919838923835,
+                49.15602904802927
+              ],
+              [
+                9.289905049007704,
+                49.15609011858152
+              ],
+              [
+                9.289862126999346,
+                49.156145211122606
+              ],
+              [
+                9.289795274403994,
+                49.156188932810764
+              ],
+              [
+                9.289711035219474,
+                49.15621700386253
+              ],
+              [
+                9.289617655364092,
+                49.15622667648777
+              ],
+              [
+                9.28952427550871,
+                49.15621700386253
+              ],
+              [
+                9.289440036324189,
+                49.156188932810764
+              ],
+              [
+                9.289373183728838,
+                49.156145211122606
+              ],
+              [
+                9.28933026172048,
+                49.15609011858152
+              ],
+              [
+                9.289315471804349,
+                49.15602904802927
+              ],
+              [
+                9.28933026172048,
+                49.15596797747702
+              ],
+              [
+                9.289373183728838,
+                49.15591288493593
+              ],
+              [
+                9.289440036324189,
+                49.15586916324777
+              ],
+              [
+                9.28952427550871,
+                49.155841092196006
+              ],
+              [
+                9.289617655364092,
+                49.15583141957077
+              ],
+              [
+                9.289711035219474,
+                49.155841092196006
+              ],
+              [
+                9.289795274403994,
+                49.15586916324777
+              ],
+              [
+                9.289862126999346,
+                49.15591288493593
+              ],
+              [
+                9.289905049007704,
+                49.15596797747702
+              ],
+              [
+                9.289919838923835,
+                49.15602904802927
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2642,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.287264831720302,
+                49.15311682548949
+              ],
+              [
+                9.287250042673648,
+                49.15317789604174
+              ],
+              [
+                9.287207123188615,
+                49.15323298858283
+              ],
+              [
+                9.287140274523438,
+                49.15327671027099
+              ],
+              [
+                9.287056040291223,
+                49.15330478132275
+              ],
+              [
+                9.286962665925515,
+                49.15331445394799
+              ],
+              [
+                9.286869291559807,
+                49.15330478132275
+              ],
+              [
+                9.286785057327592,
+                49.15327671027099
+              ],
+              [
+                9.286718208662414,
+                49.15323298858283
+              ],
+              [
+                9.286675289177381,
+                49.15317789604174
+              ],
+              [
+                9.286660500130727,
+                49.15311682548949
+              ],
+              [
+                9.286675289177381,
+                49.15305575493724
+              ],
+              [
+                9.286718208662414,
+                49.15300066239615
+              ],
+              [
+                9.286785057327592,
+                49.152956940707995
+              ],
+              [
+                9.286869291559807,
+                49.15292886965623
+              ],
+              [
+                9.286962665925515,
+                49.15291919703099
+              ],
+              [
+                9.287056040291223,
+                49.15292886965623
+              ],
+              [
+                9.287140274523438,
+                49.152956940707995
+              ],
+              [
+                9.287207123188615,
+                49.15300066239615
+              ],
+              [
+                9.287250042673648,
+                49.15305575493724
+              ],
+              [
+                9.287264831720302,
+                49.15311682548949
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2618,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.288560015665192,
+                49.15073969633738
+              ],
+              [
+                9.288545227328155,
+                49.15080076688963
+              ],
+              [
+                9.28850230990251,
+                49.15085585943072
+              ],
+              [
+                9.288435464444902,
+                49.15089958111888
+              ],
+              [
+                9.28835123425446,
+                49.150927652170644
+              ],
+              [
+                9.288257864369093,
+                49.15093732479588
+              ],
+              [
+                9.288164494483727,
+                49.150927652170644
+              ],
+              [
+                9.288080264293285,
+                49.15089958111888
+              ],
+              [
+                9.288013418835677,
+                49.15085585943072
+              ],
+              [
+                9.287970501410031,
+                49.15080076688963
+              ],
+              [
+                9.287955713072995,
+                49.15073969633738
+              ],
+              [
+                9.287970501410031,
+                49.15067862578513
+              ],
+              [
+                9.288013418835677,
+                49.150623533244044
+              ],
+              [
+                9.288080264293285,
+                49.150579811555886
+              ],
+              [
+                9.288164494483727,
+                49.15055174050412
+              ],
+              [
+                9.288257864369093,
+                49.15054206787888
+              ],
+              [
+                9.28835123425446,
+                49.15055174050412
+              ],
+              [
+                9.288435464444902,
+                49.150579811555886
+              ],
+              [
+                9.28850230990251,
+                49.150623533244044
+              ],
+              [
+                9.288545227328155,
+                49.15067862578513
+              ],
+              [
+                9.288560015665192,
+                49.15073969633738
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2617,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.287584661134103,
+                49.15340073423009
+              ],
+              [
+                9.28756987200269,
+                49.15346180478234
+              ],
+              [
+                9.287526952271682,
+                49.15351689732343
+              ],
+              [
+                9.287460103223383,
+                49.153560619011586
+              ],
+              [
+                9.28737586850841,
+                49.15358869006335
+              ],
+              [
+                9.28728249360756,
+                49.15359836268859
+              ],
+              [
+                9.28718911870671,
+                49.15358869006335
+              ],
+              [
+                9.287104883991736,
+                49.153560619011586
+              ],
+              [
+                9.287038034943437,
+                49.15351689732343
+              ],
+              [
+                9.286995115212429,
+                49.15346180478234
+              ],
+              [
+                9.286980326081016,
+                49.15340073423009
+              ],
+              [
+                9.286995115212429,
+                49.15333966367784
+              ],
+              [
+                9.287038034943437,
+                49.15328457113675
+              ],
+              [
+                9.287104883991736,
+                49.15324084944859
+              ],
+              [
+                9.28718911870671,
+                49.15321277839683
+              ],
+              [
+                9.28728249360756,
+                49.15320310577159
+              ],
+              [
+                9.28737586850841,
+                49.15321277839683
+              ],
+              [
+                9.287460103223383,
+                49.15324084944859
+              ],
+              [
+                9.287526952271682,
+                49.15328457113675
+              ],
+              [
+                9.28756987200269,
+                49.15333966367784
+              ],
+              [
+                9.287584661134103,
+                49.15340073423009
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2606,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.287186911481768,
+                49.153343820014264
+              ],
+              [
+                9.287172122367348,
+                49.15340489056651
+              ],
+              [
+                9.28712920268565,
+                49.1534599831076
+              ],
+              [
+                9.287062353714155,
+                49.15350370479576
+              ],
+              [
+                9.28697811909596,
+                49.153531775847526
+              ],
+              [
+                9.286884744302387,
+                49.153541448472765
+              ],
+              [
+                9.286791369508816,
+                49.153531775847526
+              ],
+              [
+                9.28670713489062,
+                49.15350370479576
+              ],
+              [
+                9.286640285919125,
+                49.1534599831076
+              ],
+              [
+                9.286597366237427,
+                49.15340489056651
+              ],
+              [
+                9.286582577123006,
+                49.153343820014264
+              ],
+              [
+                9.286597366237427,
+                49.153282749462015
+              ],
+              [
+                9.286640285919125,
+                49.153227656920926
+              ],
+              [
+                9.28670713489062,
+                49.15318393523277
+              ],
+              [
+                9.286791369508816,
+                49.153155864181
+              ],
+              [
+                9.286884744302387,
+                49.15314619155576
+              ],
+              [
+                9.28697811909596,
+                49.153155864181
+              ],
+              [
+                9.287062353714155,
+                49.15318393523277
+              ],
+              [
+                9.28712920268565,
+                49.153227656920926
+              ],
+              [
+                9.287172122367348,
+                49.153282749462015
+              ],
+              [
+                9.287186911481768,
+                49.153343820014264
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2576,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.274815655329558,
+                49.15354267856363
+              ],
+              [
+                9.27480086615577,
+                49.15360374911588
+              ],
+              [
+                9.274757946301778,
+                49.15365884165697
+              ],
+              [
+                9.274691097061933,
+                49.15370256334513
+              ],
+              [
+                9.274606862105593,
+                49.153730634396894
+              ],
+              [
+                9.274513486937188,
+                49.15374030702213
+              ],
+              [
+                9.274420111768784,
+                49.153730634396894
+              ],
+              [
+                9.274335876812444,
+                49.15370256334513
+              ],
+              [
+                9.274269027572599,
+                49.15365884165697
+              ],
+              [
+                9.274226107718606,
+                49.15360374911588
+              ],
+              [
+                9.274211318544818,
+                49.15354267856363
+              ],
+              [
+                9.274226107718606,
+                49.15348160801138
+              ],
+              [
+                9.274269027572599,
+                49.153426515470294
+              ],
+              [
+                9.274335876812444,
+                49.153382793782136
+              ],
+              [
+                9.274420111768784,
+                49.15335472273037
+              ],
+              [
+                9.274513486937188,
+                49.15334505010513
+              ],
+              [
+                9.274606862105593,
+                49.15335472273037
+              ],
+              [
+                9.274691097061933,
+                49.153382793782136
+              ],
+              [
+                9.274757946301778,
+                49.153426515470294
+              ],
+              [
+                9.27480086615577,
+                49.15348160801138
+              ],
+              [
+                9.274815655329558,
+                49.15354267856363
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2563,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.28943919392042,
+                49.152533399247496
+              ],
+              [
+                9.28942440504794,
+                49.152594469799745
+              ],
+              [
+                9.289381486068375,
+                49.152649562340834
+              ],
+              [
+                9.28931463819048,
+                49.15269328402899
+              ],
+              [
+                9.289230404950299,
+                49.15272135508076
+              ],
+              [
+                9.28913703168427,
+                49.152731027706
+              ],
+              [
+                9.28904365841824,
+                49.15272135508076
+              ],
+              [
+                9.28895942517806,
+                49.15269328402899
+              ],
+              [
+                9.288892577300164,
+                49.152649562340834
+              ],
+              [
+                9.288849658320599,
+                49.152594469799745
+              ],
+              [
+                9.288834869448118,
+                49.152533399247496
+              ],
+              [
+                9.288849658320599,
+                49.15247232869525
+              ],
+              [
+                9.288892577300164,
+                49.15241723615416
+              ],
+              [
+                9.28895942517806,
+                49.152373514466
+              ],
+              [
+                9.28904365841824,
+                49.152345443414234
+              ],
+              [
+                9.28913703168427,
+                49.152335770788994
+              ],
+              [
+                9.289230404950299,
+                49.152345443414234
+              ],
+              [
+                9.28931463819048,
+                49.152373514466
+              ],
+              [
+                9.289381486068375,
+                49.15241723615416
+              ],
+              [
+                9.28942440504794,
+                49.15247232869525
+              ],
+              [
+                9.28943919392042,
+                49.152533399247496
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2553,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.290099769665867,
+                49.15353881740815
+              ],
+              [
+                9.290084980493232,
+                49.1535998879604
+              ],
+              [
+                9.290042060642586,
+                49.153654980501486
+              ],
+              [
+                9.289975211407949,
+                49.153698702189644
+              ],
+              [
+                9.289890976458176,
+                49.15372677324141
+              ],
+              [
+                9.28979760129705,
+                49.15373644586665
+              ],
+              [
+                9.289704226135923,
+                49.15372677324141
+              ],
+              [
+                9.28961999118615,
+                49.153698702189644
+              ],
+              [
+                9.289553141951513,
+                49.153654980501486
+              ],
+              [
+                9.289510222100867,
+                49.1535998879604
+              ],
+              [
+                9.289495432928232,
+                49.15353881740815
+              ],
+              [
+                9.289510222100867,
+                49.1534777468559
+              ],
+              [
+                9.289553141951513,
+                49.15342265431481
+              ],
+              [
+                9.28961999118615,
+                49.15337893262665
+              ],
+              [
+                9.289704226135923,
+                49.153350861574886
+              ],
+              [
+                9.28979760129705,
+                49.153341188949646
+              ],
+              [
+                9.289890976458176,
+                49.153350861574886
+              ],
+              [
+                9.289975211407949,
+                49.15337893262665
+              ],
+              [
+                9.290042060642586,
+                49.15342265431481
+              ],
+              [
+                9.290084980493232,
+                49.1534777468559
+              ],
+              [
+                9.290099769665867,
+                49.15353881740815
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2523,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.290586920859633,
+                49.15260299259671
+              ],
+              [
+                9.290572131966377,
+                49.15266406314896
+              ],
+              [
+                9.290529212926518,
+                49.15271915569005
+              ],
+              [
+                9.290462364954713,
+                49.15276287737821
+              ],
+              [
+                9.290378131596201,
+                49.152790948429974
+              ],
+              [
+                9.290284758199,
+                49.15280062105521
+              ],
+              [
+                9.2901913848018,
+                49.152790948429974
+              ],
+              [
+                9.290107151443287,
+                49.15276287737821
+              ],
+              [
+                9.290040303471482,
+                49.15271915569005
+              ],
+              [
+                9.289997384431624,
+                49.15266406314896
+              ],
+              [
+                9.289982595538367,
+                49.15260299259671
+              ],
+              [
+                9.289997384431624,
+                49.15254192204446
+              ],
+              [
+                9.290040303471482,
+                49.152486829503374
+              ],
+              [
+                9.290107151443287,
+                49.152443107815216
+              ],
+              [
+                9.2901913848018,
+                49.15241503676345
+              ],
+              [
+                9.290284758199,
+                49.15240536413821
+              ],
+              [
+                9.290378131596201,
+                49.15241503676345
+              ],
+              [
+                9.290462364954713,
+                49.152443107815216
+              ],
+              [
+                9.290529212926518,
+                49.152486829503374
+              ],
+              [
+                9.290572131966377,
+                49.15254192204446
+              ],
+              [
+                9.290586920859633,
+                49.15260299259671
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2491,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291094178074031,
+                49.15002635442889
+              ],
+              [
+                9.291079389949921,
+                49.15008742498114
+              ],
+              [
+                9.291036473142215,
+                49.15014251752223
+              ],
+              [
+                9.290969628647069,
+                49.150186239210385
+              ],
+              [
+                9.290885399669401,
+                49.15021431026215
+              ],
+              [
+                9.290792031128404,
+                49.15022398288739
+              ],
+              [
+                9.290698662587408,
+                49.15021431026215
+              ],
+              [
+                9.29061443360974,
+                49.150186239210385
+              ],
+              [
+                9.290547589114594,
+                49.15014251752223
+              ],
+              [
+                9.290504672306888,
+                49.15008742498114
+              ],
+              [
+                9.290489884182778,
+                49.15002635442889
+              ],
+              [
+                9.290504672306888,
+                49.14996528387664
+              ],
+              [
+                9.290547589114594,
+                49.14991019133555
+              ],
+              [
+                9.29061443360974,
+                49.14986646964739
+              ],
+              [
+                9.290698662587408,
+                49.14983839859563
+              ],
+              [
+                9.290792031128404,
+                49.14982872597039
+              ],
+              [
+                9.290885399669401,
+                49.14983839859563
+              ],
+              [
+                9.290969628647069,
+                49.14986646964739
+              ],
+              [
+                9.291036473142215,
+                49.14991019133555
+              ],
+              [
+                9.291079389949921,
+                49.14996528387664
+              ],
+              [
+                9.291094178074031,
+                49.15002635442889
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2471,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.286846201498916,
+                49.152773417439
+              ],
+              [
+                9.286831412554783,
+                49.15283448799125
+              ],
+              [
+                9.286788493367272,
+                49.15288958053234
+              ],
+              [
+                9.286721645165496,
+                49.1529333022205
+              ],
+              [
+                9.286637411517203,
+                49.15296137327226
+              ],
+              [
+                9.286544037798777,
+                49.1529710458975
+              ],
+              [
+                9.28645066408035,
+                49.15296137327226
+              ],
+              [
+                9.286366430432057,
+                49.1529333022205
+              ],
+              [
+                9.286299582230281,
+                49.15288958053234
+              ],
+              [
+                9.28625666304277,
+                49.15283448799125
+              ],
+              [
+                9.286241874098637,
+                49.152773417439
+              ],
+              [
+                9.28625666304277,
+                49.15271234688675
+              ],
+              [
+                9.286299582230281,
+                49.15265725434566
+              ],
+              [
+                9.286366430432057,
+                49.152613532657504
+              ],
+              [
+                9.28645066408035,
+                49.15258546160574
+              ],
+              [
+                9.286544037798777,
+                49.1525757889805
+              ],
+              [
+                9.286637411517203,
+                49.15258546160574
+              ],
+              [
+                9.286721645165496,
+                49.152613532657504
+              ],
+              [
+                9.286788493367272,
+                49.15265725434566
+              ],
+              [
+                9.286831412554783,
+                49.15271234688675
+              ],
+              [
+                9.286846201498916,
+                49.152773417439
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2445,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.295910137853095,
+                49.150267210118884
+              ],
+              [
+                9.295895349657092,
+                49.15032828067113
+              ],
+              [
+                9.295852432640745,
+                49.15038337321222
+              ],
+              [
+                9.295785587820633,
+                49.15042709490038
+              ],
+              [
+                9.295701358433487,
+                49.150455165952145
+              ],
+              [
+                9.295607989438576,
+                49.150464838577385
+              ],
+              [
+                9.295514620443665,
+                49.150455165952145
+              ],
+              [
+                9.295430391056518,
+                49.15042709490038
+              ],
+              [
+                9.295363546236407,
+                49.15038337321222
+              ],
+              [
+                9.29532062922006,
+                49.15032828067113
+              ],
+              [
+                9.295305841024057,
+                49.150267210118884
+              ],
+              [
+                9.29532062922006,
+                49.150206139566635
+              ],
+              [
+                9.295363546236407,
+                49.150151047025545
+              ],
+              [
+                9.295430391056518,
+                49.15010732533739
+              ],
+              [
+                9.295514620443665,
+                49.15007925428562
+              ],
+              [
+                9.295607989438576,
+                49.15006958166038
+              ],
+              [
+                9.295701358433487,
+                49.15007925428562
+              ],
+              [
+                9.295785587820633,
+                49.15010732533739
+              ],
+              [
+                9.295852432640745,
+                49.150151047025545
+              ],
+              [
+                9.295895349657092,
+                49.150206139566635
+              ],
+              [
+                9.295910137853095,
+                49.150267210118884
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2442,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291887053536042,
+                49.14938432347165
+              ],
+              [
+                9.291872265603567,
+                49.1494453940239
+              ],
+              [
+                9.291829349352005,
+                49.14950048656499
+              ],
+              [
+                9.291762505723073,
+                49.14954420825315
+              ],
+              [
+                9.291678277836901,
+                49.14957227930491
+              ],
+              [
+                9.291584910505835,
+                49.14958195193015
+              ],
+              [
+                9.291491543174768,
+                49.14957227930491
+              ],
+              [
+                9.291407315288597,
+                49.14954420825315
+              ],
+              [
+                9.291340471659664,
+                49.14950048656499
+              ],
+              [
+                9.291297555408102,
+                49.1494453940239
+              ],
+              [
+                9.291282767475627,
+                49.14938432347165
+              ],
+              [
+                9.291297555408102,
+                49.1493232529194
+              ],
+              [
+                9.291340471659664,
+                49.14926816037831
+              ],
+              [
+                9.291407315288597,
+                49.149224438690155
+              ],
+              [
+                9.291491543174768,
+                49.14919636763839
+              ],
+              [
+                9.291584910505835,
+                49.14918669501315
+              ],
+              [
+                9.291678277836901,
+                49.14919636763839
+              ],
+              [
+                9.291762505723073,
+                49.149224438690155
+              ],
+              [
+                9.291829349352005,
+                49.14926816037831
+              ],
+              [
+                9.291872265603567,
+                49.1493232529194
+              ],
+              [
+                9.291887053536042,
+                49.14938432347165
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2377,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.280273753664812,
+                49.15462754153086
+              ],
+              [
+                9.280258964167134,
+                49.154688612083106
+              ],
+              [
+                9.280216043373176,
+                49.154743704624195
+              ],
+              [
+                9.280149192669299,
+                49.15478742631235
+              ],
+              [
+                9.280064955868173,
+                49.15481549736412
+              ],
+              [
+                9.279971578654807,
+                49.15482516998936
+              ],
+              [
+                9.279878201441441,
+                49.15481549736412
+              ],
+              [
+                9.279793964640316,
+                49.15478742631235
+              ],
+              [
+                9.279727113936438,
+                49.154743704624195
+              ],
+              [
+                9.279684193142481,
+                49.154688612083106
+              ],
+              [
+                9.279669403644803,
+                49.15462754153086
+              ],
+              [
+                9.279684193142481,
+                49.15456647097861
+              ],
+              [
+                9.279727113936438,
+                49.15451137843752
+              ],
+              [
+                9.279793964640316,
+                49.15446765674936
+              ],
+              [
+                9.279878201441441,
+                49.154439585697595
+              ],
+              [
+                9.279971578654807,
+                49.154429913072356
+              ],
+              [
+                9.280064955868173,
+                49.154439585697595
+              ],
+              [
+                9.280149192669299,
+                49.15446765674936
+              ],
+              [
+                9.280216043373176,
+                49.15451137843752
+              ],
+              [
+                9.280258964167134,
+                49.15456647097861
+              ],
+              [
+                9.280273753664812,
+                49.15462754153086
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2363,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.286540906183863,
+                49.1532954358128
+              ],
+              [
+                9.286526117083888,
+                49.15335650636505
+              ],
+              [
+                9.286483197444108,
+                49.15341159890614
+              ],
+              [
+                9.286416348537905,
+                49.1534553205943
+              ],
+              [
+                9.286332114001983,
+                49.15348339164606
+              ],
+              [
+                9.28623873929961,
+                49.1534930642713
+              ],
+              [
+                9.286145364597239,
+                49.15348339164606
+              ],
+              [
+                9.286061130061317,
+                49.1534553205943
+              ],
+              [
+                9.285994281155114,
+                49.15341159890614
+              ],
+              [
+                9.285951361515334,
+                49.15335650636505
+              ],
+              [
+                9.285936572415359,
+                49.1532954358128
+              ],
+              [
+                9.285951361515334,
+                49.15323436526055
+              ],
+              [
+                9.285994281155114,
+                49.15317927271946
+              ],
+              [
+                9.286061130061317,
+                49.153135551031305
+              ],
+              [
+                9.286145364597239,
+                49.15310747997954
+              ],
+              [
+                9.28623873929961,
+                49.1530978073543
+              ],
+              [
+                9.286332114001983,
+                49.15310747997954
+              ],
+              [
+                9.286416348537905,
+                49.153135551031305
+              ],
+              [
+                9.286483197444108,
+                49.15317927271946
+              ],
+              [
+                9.286526117083888,
+                49.15323436526055
+              ],
+              [
+                9.286540906183863,
+                49.1532954358128
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2351,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.27512710127088,
+                49.151833796601835
+              ],
+              [
+                9.275112312607245,
+                49.151894867154084
+              ],
+              [
+                9.275069394233777,
+                49.15194995969517
+              ],
+              [
+                9.2750025472999,
+                49.15199368138333
+              ],
+              [
+                9.274918315249254,
+                49.1520217524351
+              ],
+              [
+                9.274824943301834,
+                49.152031425060336
+              ],
+              [
+                9.274731571354414,
+                49.1520217524351
+              ],
+              [
+                9.274647339303767,
+                49.15199368138333
+              ],
+              [
+                9.274580492369891,
+                49.15194995969517
+              ],
+              [
+                9.274537573996422,
+                49.151894867154084
+              ],
+              [
+                9.274522785332788,
+                49.151833796601835
+              ],
+              [
+                9.274537573996422,
+                49.151772726049586
+              ],
+              [
+                9.274580492369891,
+                49.1517176335085
+              ],
+              [
+                9.274647339303767,
+                49.15167391182034
+              ],
+              [
+                9.274731571354414,
+                49.15164584076857
+              ],
+              [
+                9.274824943301834,
+                49.151636168143334
+              ],
+              [
+                9.274918315249254,
+                49.15164584076857
+              ],
+              [
+                9.2750025472999,
+                49.15167391182034
+              ],
+              [
+                9.275069394233777,
+                49.1517176335085
+              ],
+              [
+                9.275112312607245,
+                49.151772726049586
+              ],
+              [
+                9.27512710127088,
+                49.151833796601835
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2334,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.289755301623241,
+                49.153422601715604
+              ],
+              [
+                9.289740512485302,
+                49.15348367226785
+              ],
+              [
+                9.289697592735346,
+                49.15353876480894
+              ],
+              [
+                9.28963074365754,
+                49.1535824864971
+              ],
+              [
+                9.289546508905381,
+                49.153610557548866
+              ],
+              [
+                9.289453133963313,
+                49.153620230174106
+              ],
+              [
+                9.289359759021245,
+                49.153610557548866
+              ],
+              [
+                9.289275524269087,
+                49.1535824864971
+              ],
+              [
+                9.289208675191281,
+                49.15353876480894
+              ],
+              [
+                9.289165755441324,
+                49.15348367226785
+              ],
+              [
+                9.289150966303385,
+                49.153422601715604
+              ],
+              [
+                9.289165755441324,
+                49.153361531163355
+              ],
+              [
+                9.289208675191281,
+                49.153306438622266
+              ],
+              [
+                9.289275524269087,
+                49.15326271693411
+              ],
+              [
+                9.289359759021245,
+                49.15323464588234
+              ],
+              [
+                9.289453133963313,
+                49.1532249732571
+              ],
+              [
+                9.289546508905381,
+                49.15323464588234
+              ],
+              [
+                9.28963074365754,
+                49.15326271693411
+              ],
+              [
+                9.289697592735346,
+                49.153306438622266
+              ],
+              [
+                9.289740512485302,
+                49.153361531163355
+              ],
+              [
+                9.289755301623241,
+                49.153422601715604
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2299,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.28943539387192,
+                49.15287175202115
+              ],
+              [
+                9.28942060489843,
+                49.1529328225734
+              ],
+              [
+                9.289377685625725,
+                49.15298791511449
+              ],
+              [
+                9.289310837291255,
+                49.153031636802645
+              ],
+              [
+                9.289226603475758,
+                49.15305970785441
+              ],
+              [
+                9.289133229571984,
+                49.15306938047965
+              ],
+              [
+                9.28903985566821,
+                49.15305970785441
+              ],
+              [
+                9.288955621852713,
+                49.153031636802645
+              ],
+              [
+                9.288888773518243,
+                49.15298791511449
+              ],
+              [
+                9.288845854245539,
+                49.1529328225734
+              ],
+              [
+                9.28883106527205,
+                49.15287175202115
+              ],
+              [
+                9.288845854245539,
+                49.1528106814689
+              ],
+              [
+                9.288888773518243,
+                49.15275558892781
+              ],
+              [
+                9.288955621852713,
+                49.15271186723965
+              ],
+              [
+                9.28903985566821,
+                49.15268379618789
+              ],
+              [
+                9.289133229571984,
+                49.15267412356265
+              ],
+              [
+                9.289226603475758,
+                49.15268379618789
+              ],
+              [
+                9.289310837291255,
+                49.15271186723965
+              ],
+              [
+                9.289377685625725,
+                49.15275558892781
+              ],
+              [
+                9.28942060489843,
+                49.1528106814689
+              ],
+              [
+                9.28943539387192,
+                49.15287175202115
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2278,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.288269379141727,
+                49.14990975859419
+              ],
+              [
+                9.28825459105242,
+                49.14997082914644
+              ],
+              [
+                9.288211674345714,
+                49.15002592168753
+              ],
+              [
+                9.288144830007878,
+                49.15006964337569
+              ],
+              [
+                9.288060601228434,
+                49.15009771442745
+              ],
+              [
+                9.28796723290717,
+                49.15010738705269
+              ],
+              [
+                9.287873864585904,
+                49.15009771442745
+              ],
+              [
+                9.28778963580646,
+                49.15006964337569
+              ],
+              [
+                9.287722791468624,
+                49.15002592168753
+              ],
+              [
+                9.287679874761919,
+                49.14997082914644
+              ],
+              [
+                9.287665086672611,
+                49.14990975859419
+              ],
+              [
+                9.287679874761919,
+                49.14984868804194
+              ],
+              [
+                9.287722791468624,
+                49.14979359550085
+              ],
+              [
+                9.28778963580646,
+                49.149749873812695
+              ],
+              [
+                9.287873864585904,
+                49.14972180276093
+              ],
+              [
+                9.28796723290717,
+                49.14971213013569
+              ],
+              [
+                9.288060601228434,
+                49.14972180276093
+              ],
+              [
+                9.288144830007878,
+                49.149749873812695
+              ],
+              [
+                9.288211674345714,
+                49.14979359550085
+              ],
+              [
+                9.28825459105242,
+                49.14984868804194
+              ],
+              [
+                9.288269379141727,
+                49.14990975859419
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2241,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.267470123590869,
+                49.14829310586544
+              ],
+              [
+                9.267455335984085,
+                49.14835417641769
+              ],
+              [
+                9.267412420677719,
+                49.14840926895878
+              ],
+              [
+                9.267345578520967,
+                49.14845299064694
+              ],
+              [
+                9.267261352489845,
+                49.1484810616987
+              ],
+              [
+                9.267167987215121,
+                49.14849073432394
+              ],
+              [
+                9.267074621940397,
+                49.1484810616987
+              ],
+              [
+                9.266990395909275,
+                49.14845299064694
+              ],
+              [
+                9.266923553752523,
+                49.14840926895878
+              ],
+              [
+                9.266880638446157,
+                49.14835417641769
+              ],
+              [
+                9.266865850839373,
+                49.14829310586544
+              ],
+              [
+                9.266880638446157,
+                49.14823203531319
+              ],
+              [
+                9.266923553752523,
+                49.1481769427721
+              ],
+              [
+                9.266990395909275,
+                49.148133221083945
+              ],
+              [
+                9.267074621940397,
+                49.14810515003218
+              ],
+              [
+                9.267167987215121,
+                49.14809547740694
+              ],
+              [
+                9.267261352489845,
+                49.14810515003218
+              ],
+              [
+                9.267345578520967,
+                49.148133221083945
+              ],
+              [
+                9.267412420677719,
+                49.1481769427721
+              ],
+              [
+                9.267455335984085,
+                49.14823203531319
+              ],
+              [
+                9.267470123590869,
+                49.14829310586544
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2226,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.274921155126725,
+                49.154284002522544
+              ],
+              [
+                9.274906365731614,
+                49.15434507307479
+              ],
+              [
+                9.274863445235317,
+                49.15440016561588
+              ],
+              [
+                9.274796594995058,
+                49.15444388730404
+              ],
+              [
+                9.274712358778126,
+                49.154471958355806
+              ],
+              [
+                9.274618982212342,
+                49.154481630981046
+              ],
+              [
+                9.274525605646557,
+                49.154471958355806
+              ],
+              [
+                9.274441369429626,
+                49.15444388730404
+              ],
+              [
+                9.274374519189367,
+                49.15440016561588
+              ],
+              [
+                9.27433159869307,
+                49.15434507307479
+              ],
+              [
+                9.274316809297959,
+                49.154284002522544
+              ],
+              [
+                9.27433159869307,
+                49.154222931970295
+              ],
+              [
+                9.274374519189367,
+                49.154167839429206
+              ],
+              [
+                9.274441369429626,
+                49.15412411774105
+              ],
+              [
+                9.274525605646557,
+                49.15409604668928
+              ],
+              [
+                9.274618982212342,
+                49.15408637406404
+              ],
+              [
+                9.274712358778126,
+                49.15409604668928
+              ],
+              [
+                9.274796594995058,
+                49.15412411774105
+              ],
+              [
+                9.274863445235317,
+                49.154167839429206
+              ],
+              [
+                9.274906365731614,
+                49.154222931970295
+              ],
+              [
+                9.274921155126725,
+                49.154284002522544
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2193,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291220505769385,
+                49.14861571453351
+              ],
+              [
+                9.291205718066315,
+                49.14867678508576
+              ],
+              [
+                9.291162802480518,
+                49.14873187762685
+              ],
+              [
+                9.291095959888537,
+                49.14877559931501
+              ],
+              [
+                9.291011733308999,
+                49.148803670366775
+              ],
+              [
+                9.290918367426348,
+                49.148813342992014
+              ],
+              [
+                9.290825001543698,
+                49.148803670366775
+              ],
+              [
+                9.29074077496416,
+                49.14877559931501
+              ],
+              [
+                9.29067393237218,
+                49.14873187762685
+              ],
+              [
+                9.290631016786381,
+                49.14867678508576
+              ],
+              [
+                9.290616229083312,
+                49.14861571453351
+              ],
+              [
+                9.290631016786381,
+                49.148554643981264
+              ],
+              [
+                9.29067393237218,
+                49.148499551440175
+              ],
+              [
+                9.29074077496416,
+                49.14845582975202
+              ],
+              [
+                9.290825001543698,
+                49.14842775870025
+              ],
+              [
+                9.290918367426348,
+                49.14841808607501
+              ],
+              [
+                9.291011733308999,
+                49.14842775870025
+              ],
+              [
+                9.291095959888537,
+                49.14845582975202
+              ],
+              [
+                9.291162802480518,
+                49.148499551440175
+              ],
+              [
+                9.291205718066315,
+                49.148554643981264
+              ],
+              [
+                9.291220505769385,
+                49.14861571453351
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2188,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.274547968585448,
+                49.153774813160354
+              ],
+              [
+                9.274533179342358,
+                49.1538358837126
+              ],
+              [
+                9.27449025928724,
+                49.15389097625369
+              ],
+              [
+                9.274423409734135,
+                49.15393469794185
+              ],
+              [
+                9.274339174383066,
+                49.153962768993615
+              ],
+              [
+                9.274245798777098,
+                49.153972441618855
+              ],
+              [
+                9.274152423171131,
+                49.153962768993615
+              ],
+              [
+                9.274068187820061,
+                49.15393469794185
+              ],
+              [
+                9.274001338266956,
+                49.15389097625369
+              ],
+              [
+                9.273958418211839,
+                49.1538358837126
+              ],
+              [
+                9.273943628968748,
+                49.153774813160354
+              ],
+              [
+                9.273958418211839,
+                49.153713742608105
+              ],
+              [
+                9.274001338266956,
+                49.153658650067015
+              ],
+              [
+                9.274068187820061,
+                49.15361492837886
+              ],
+              [
+                9.274152423171131,
+                49.15358685732709
+              ],
+              [
+                9.274245798777098,
+                49.15357718470185
+              ],
+              [
+                9.274339174383066,
+                49.15358685732709
+              ],
+              [
+                9.274423409734135,
+                49.15361492837886
+              ],
+              [
+                9.27449025928724,
+                49.153658650067015
+              ],
+              [
+                9.274533179342358,
+                49.153713742608105
+              ],
+              [
+                9.274547968585448,
+                49.153774813160354
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2164,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.29211725548937,
+                49.150142126972526
+              ],
+              [
+                9.292102467330704,
+                49.150203197524775
+              ],
+              [
+                9.29205955042271,
+                49.150258290065864
+              ],
+              [
+                9.291992705771362,
+                49.15030201175402
+              ],
+              [
+                9.29190847659687,
+                49.15033008280579
+              ],
+              [
+                9.29181510783769,
+                49.15033975543103
+              ],
+              [
+                9.291721739078511,
+                49.15033008280579
+              ],
+              [
+                9.29163750990402,
+                49.15030201175402
+              ],
+              [
+                9.29157066525267,
+                49.150258290065864
+              ],
+              [
+                9.291527748344677,
+                49.150203197524775
+              ],
+              [
+                9.291512960186012,
+                49.150142126972526
+              ],
+              [
+                9.291527748344677,
+                49.15008105642028
+              ],
+              [
+                9.29157066525267,
+                49.15002596387919
+              ],
+              [
+                9.29163750990402,
+                49.14998224219103
+              ],
+              [
+                9.291721739078511,
+                49.149954171139264
+              ],
+              [
+                9.29181510783769,
+                49.149944498514024
+              ],
+              [
+                9.29190847659687,
+                49.149954171139264
+              ],
+              [
+                9.291992705771362,
+                49.14998224219103
+              ],
+              [
+                9.29205955042271,
+                49.15002596387919
+              ],
+              [
+                9.292102467330704,
+                49.15008105642028
+              ],
+              [
+                9.29211725548937,
+                49.150142126972526
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2161,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291390373009122,
+                49.14881299548109
+              ],
+              [
+                9.291375585247172,
+                49.148874066033336
+              ],
+              [
+                9.291332669490492,
+                49.148929158574425
+              ],
+              [
+                9.29126582663236,
+                49.14897288026258
+              ],
+              [
+                9.291181599717449,
+                49.14900095131435
+              ],
+              [
+                9.291088233463036,
+                49.14901062393959
+              ],
+              [
+                9.290994867208623,
+                49.14900095131435
+              ],
+              [
+                9.290910640293712,
+                49.14897288026258
+              ],
+              [
+                9.29084379743558,
+                49.148929158574425
+              ],
+              [
+                9.2908008816789,
+                49.148874066033336
+              ],
+              [
+                9.29078609391695,
+                49.14881299548109
+              ],
+              [
+                9.2908008816789,
+                49.14875192492884
+              ],
+              [
+                9.29084379743558,
+                49.14869683238775
+              ],
+              [
+                9.290910640293712,
+                49.14865311069959
+              ],
+              [
+                9.290994867208623,
+                49.148625039647825
+              ],
+              [
+                9.291088233463036,
+                49.148615367022586
+              ],
+              [
+                9.291181599717449,
+                49.148625039647825
+              ],
+              [
+                9.29126582663236,
+                49.14865311069959
+              ],
+              [
+                9.291332669490492,
+                49.14869683238775
+              ],
+              [
+                9.291375585247172,
+                49.14875192492884
+              ],
+              [
+                9.291390373009122,
+                49.14881299548109
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2156,
           "support_count": 1,
           "radius_m": 22.1,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -15121,88 +13716,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.290351179106725,
-                49.15421049778318
+                9.286536678838676,
+                49.1539399699963
               ],
               [
-                9.290336322509136,
-                49.15427184592885
+                9.286521822322221,
+                49.154001318141965
               ],
               [
-                9.290293206983652,
-                49.15432718889058
+                9.286478707032197,
+                49.1540566611037
               ],
               [
-                9.290226052978312,
-                49.154371109313686
+                9.286411553393595,
+                49.154100581526805
               ],
               [
-                9.290141433995046,
-                49.15439930796114
+                9.286326934872449,
+                49.15412878017426
               ],
               [
-                9.290047633129515,
-                49.154409024552855
+                9.286233134519177,
+                49.154138496765974
               ],
               [
-                9.289953832263983,
-                49.15439930796114
+                9.286139334165906,
+                49.15412878017426
               ],
               [
-                9.289869213280717,
-                49.154371109313686
+                9.28605471564476,
+                49.154100581526805
               ],
               [
-                9.289802059275377,
-                49.15432718889058
+                9.285987562006158,
+                49.1540566611037
               ],
               [
-                9.289758943749893,
-                49.15427184592885
+                9.285944446716133,
+                49.154001318141965
               ],
               [
-                9.289744087152304,
-                49.15421049778318
+                9.285929590199679,
+                49.1539399699963
               ],
               [
-                9.289758943749893,
-                49.15414914963752
+                9.285944446716133,
+                49.15387862185064
               ],
               [
-                9.289802059275377,
-                49.15409380667578
+                9.285987562006158,
+                49.1538232788889
               ],
               [
-                9.289869213280717,
-                49.15404988625268
+                9.28605471564476,
+                49.1537793584658
               ],
               [
-                9.289953832263983,
-                49.15402168760522
+                9.286139334165906,
+                49.15375115981834
               ],
               [
-                9.290047633129515,
-                49.15401197101351
+                9.286233134519177,
+                49.15374144322663
               ],
               [
-                9.290141433995046,
-                49.15402168760522
+                9.286326934872449,
+                49.15375115981834
               ],
               [
-                9.290226052978312,
-                49.15404988625268
+                9.286411553393595,
+                49.1537793584658
               ],
               [
-                9.290293206983652,
-                49.15409380667578
+                9.286478707032197,
+                49.1538232788889
               ],
               [
-                9.290336322509136,
-                49.15414914963752
+                9.286521822322221,
+                49.15387862185064
               ],
               [
-                9.290351179106725,
-                49.15421049778318
+                9.286536678838676,
+                49.1539399699963
               ]
             ]
           ]
@@ -15215,7 +13810,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2607,
+          "score": 0.2132,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -15225,88 +13820,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.29925957153914,
-                49.1499209644287
+                9.289345055101059,
+                49.15064355152776
               ],
               [
-                9.299244783446488,
-                49.14998203498095
+                9.289330266792721,
+                49.150704622080006
               ],
               [
-                9.299201866730074,
-                49.15003712752204
+                9.289287349450364,
+                49.150759714621095
               ],
               [
-                9.29913502237712,
-                49.1500808492102
+                9.28922050412248,
+                49.15080343630925
               ],
               [
-                9.299050793578626,
-                49.150108920261964
+                9.2891362740955,
+                49.15083150736102
               ],
               [
-                9.298957425236242,
-                49.1501185928872
+                9.28904290439133,
+                49.15084117998626
               ],
               [
-                9.298864056893859,
-                49.150108920261964
+                9.288949534687161,
+                49.15083150736102
               ],
               [
-                9.298779828095364,
-                49.1500808492102
+                9.288865304660181,
+                49.15080343630925
               ],
               [
-                9.29871298374241,
-                49.15003712752204
+                9.288798459332297,
+                49.150759714621095
               ],
               [
-                9.298670067025997,
-                49.14998203498095
+                9.28875554198994,
+                49.150704622080006
               ],
               [
-                9.298655278933344,
-                49.1499209644287
+                9.288740753681601,
+                49.15064355152776
               ],
               [
-                9.298670067025997,
-                49.14985989387645
+                9.28875554198994,
+                49.15058248097551
               ],
               [
-                9.29871298374241,
-                49.149804801335364
+                9.288798459332297,
+                49.15052738843442
               ],
               [
-                9.298779828095364,
-                49.149761079647206
+                9.288865304660181,
+                49.15048366674626
               ],
               [
-                9.298864056893859,
-                49.14973300859544
+                9.288949534687161,
+                49.150455595694496
               ],
               [
-                9.298957425236242,
-                49.1497233359702
+                9.28904290439133,
+                49.150445923069256
               ],
               [
-                9.299050793578626,
-                49.14973300859544
+                9.2891362740955,
+                49.150455595694496
               ],
               [
-                9.29913502237712,
-                49.149761079647206
+                9.28922050412248,
+                49.15048366674626
               ],
               [
-                9.299201866730074,
-                49.149804801335364
+                9.289287349450364,
+                49.15052738843442
               ],
               [
-                9.299244783446488,
-                49.14985989387645
+                9.289330266792721,
+                49.15058248097551
               ],
               [
-                9.29925957153914,
-                49.1499209644287
+                9.289345055101059,
+                49.15064355152776
               ]
             ]
           ]
@@ -15319,7 +13914,319 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_medium",
-          "score": 0.2525,
+          "score": 0.2123,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.281217991416138,
+                49.15514886337138
+              ],
+              [
+                9.281203134537114,
+                49.155210211517044
+              ],
+              [
+                9.281160018194873,
+                49.15526555447878
+              ],
+              [
+                9.281092862917403,
+                49.155309474901884
+              ],
+              [
+                9.281008242331161,
+                49.15533767354934
+              ],
+              [
+                9.280914439688717,
+                49.15534739014105
+              ],
+              [
+                9.280820637046272,
+                49.15533767354934
+              ],
+              [
+                9.28073601646003,
+                49.155309474901884
+              ],
+              [
+                9.28066886118256,
+                49.15526555447878
+              ],
+              [
+                9.28062574484032,
+                49.155210211517044
+              ],
+              [
+                9.280610887961295,
+                49.15514886337138
+              ],
+              [
+                9.28062574484032,
+                49.155087515225716
+              ],
+              [
+                9.28066886118256,
+                49.15503217226398
+              ],
+              [
+                9.28073601646003,
+                49.15498825184088
+              ],
+              [
+                9.280820637046272,
+                49.15496005319342
+              ],
+              [
+                9.280914439688717,
+                49.15495033660171
+              ],
+              [
+                9.281008242331161,
+                49.15496005319342
+              ],
+              [
+                9.281092862917403,
+                49.15498825184088
+              ],
+              [
+                9.281160018194873,
+                49.15503217226398
+              ],
+              [
+                9.281203134537114,
+                49.155087515225716
+              ],
+              [
+                9.281217991416138,
+                49.15514886337138
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2046,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.276925904130904,
+                49.14407671347772
+              ],
+              [
+                9.276911050571716,
+                49.14413806162339
+              ],
+              [
+                9.276867943864012,
+                49.144193404585124
+              ],
+              [
+                9.276800803592687,
+                49.14423732500823
+              ],
+              [
+                9.27671620191529,
+                49.14426552365568
+              ],
+              [
+                9.276622420233462,
+                49.144275240247396
+              ],
+              [
+                9.276528638551634,
+                49.14426552365568
+              ],
+              [
+                9.276444036874237,
+                49.14423732500823
+              ],
+              [
+                9.276376896602912,
+                49.144193404585124
+              ],
+              [
+                9.276333789895208,
+                49.14413806162339
+              ],
+              [
+                9.27631893633602,
+                49.14407671347772
+              ],
+              [
+                9.276333789895208,
+                49.14401536533206
+              ],
+              [
+                9.276376896602912,
+                49.14396002237032
+              ],
+              [
+                9.276444036874237,
+                49.14391610194722
+              ],
+              [
+                9.276528638551634,
+                49.14388790329976
+              ],
+              [
+                9.276622420233462,
+                49.14387818670805
+              ],
+              [
+                9.27671620191529,
+                49.14388790329976
+              ],
+              [
+                9.276800803592687,
+                49.14391610194722
+              ],
+              [
+                9.276867943864012,
+                49.14396002237032
+              ],
+              [
+                9.276911050571716,
+                49.14401536533206
+              ],
+              [
+                9.276925904130904,
+                49.14407671347772
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2039,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.274441370436204,
+                49.15540802340995
+              ],
+              [
+                9.27442651347945,
+                49.15546937155561
+              ],
+              [
+                9.274383396911626,
+                49.15552471451735
+              ],
+              [
+                9.274316241282806,
+                49.15556863494045
+              ],
+              [
+                9.274231620253834,
+                49.15559683358791
+              ],
+              [
+                9.274137817120621,
+                49.15560655017962
+              ],
+              [
+                9.274044013987409,
+                49.15559683358791
+              ],
+              [
+                9.273959392958437,
+                49.15556863494045
+              ],
+              [
+                9.273892237329617,
+                49.15552471451735
+              ],
+              [
+                9.273849120761794,
+                49.15546937155561
+              ],
+              [
+                9.273834263805039,
+                49.15540802340995
+              ],
+              [
+                9.273849120761794,
+                49.15534667526428
+              ],
+              [
+                9.273892237329617,
+                49.155291332302546
+              ],
+              [
+                9.273959392958437,
+                49.155247411879444
+              ],
+              [
+                9.274044013987409,
+                49.15521921323199
+              ],
+              [
+                9.274137817120621,
+                49.155209496640275
+              ],
+              [
+                9.274231620253834,
+                49.15521921323199
+              ],
+              [
+                9.274316241282806,
+                49.155247411879444
+              ],
+              [
+                9.274383396911626,
+                49.155291332302546
+              ],
+              [
+                9.27442651347945,
+                49.15534667526428
+              ],
+              [
+                9.274441370436204,
+                49.15540802340995
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2034,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
@@ -15329,88 +14236,4560 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.293817359048186,
-                49.151081113774225
+                9.27863464744714,
+                49.1543463708842
               ],
               [
-                9.293802570609236,
-                49.151142184326474
+                9.278619858033409,
+                49.15440744143645
               ],
               [
-                9.293759652887825,
-                49.15119727686756
+                9.278576937483074,
+                49.15446253397754
               ],
               [
-                9.293692806969553,
-                49.15124099855572
+                9.278510087158647,
+                49.154506255665694
               ],
               [
-                9.29360857619864,
-                49.15126906960749
+                9.278425850835657,
+                49.15453432671746
               ],
               [
-                9.293515205669816,
-                49.151278742232726
+                9.278332474152307,
+                49.1545439993427
               ],
               [
-                9.293421835140993,
-                49.15126906960749
+                9.278239097468958,
+                49.15453432671746
               ],
               [
-                9.29333760437008,
-                49.15124099855572
+                9.278154861145968,
+                49.154506255665694
               ],
               [
-                9.293270758451808,
-                49.15119727686756
+                9.278088010821541,
+                49.15446253397754
               ],
               [
-                9.293227840730397,
-                49.151142184326474
+                9.278045090271206,
+                49.15440744143645
               ],
               [
-                9.293213052291447,
-                49.151081113774225
+                9.278030300857475,
+                49.1543463708842
               ],
               [
-                9.293227840730397,
-                49.151020043221976
+                9.278045090271206,
+                49.15428530033195
               ],
               [
-                9.293270758451808,
-                49.15096495068089
+                9.278088010821541,
+                49.15423020779086
               ],
               [
-                9.29333760437008,
-                49.15092122899273
+                9.278154861145968,
+                49.1541864861027
               ],
               [
-                9.293421835140993,
-                49.15089315794096
+                9.278239097468958,
+                49.15415841505094
               ],
               [
-                9.293515205669816,
-                49.150883485315724
+                9.278332474152307,
+                49.1541487424257
               ],
               [
-                9.29360857619864,
-                49.15089315794096
+                9.278425850835657,
+                49.15415841505094
               ],
               [
-                9.293692806969553,
-                49.15092122899273
+                9.278510087158647,
+                49.1541864861027
               ],
               [
-                9.293759652887825,
-                49.15096495068089
+                9.278576937483074,
+                49.15423020779086
               ],
               [
-                9.293802570609236,
-                49.151020043221976
+                9.278619858033409,
+                49.15428530033195
               ],
               [
-                9.293817359048186,
-                49.151081113774225
+                9.27863464744714,
+                49.1543463708842
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2018,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.275614798007242,
+                49.15278421450247
+              ],
+              [
+                9.275600009059884,
+                49.15284528505472
+              ],
+              [
+                9.275557089863021,
+                49.152900377595806
+              ],
+              [
+                9.275490241646676,
+                49.152944099283964
+              ],
+              [
+                9.275406007980022,
+                49.15297217033573
+              ],
+              [
+                9.275312634241246,
+                49.15298184296097
+              ],
+              [
+                9.27521926050247,
+                49.15297217033573
+              ],
+              [
+                9.275135026835816,
+                49.152944099283964
+              ],
+              [
+                9.27506817861947,
+                49.152900377595806
+              ],
+              [
+                9.275025259422607,
+                49.15284528505472
+              ],
+              [
+                9.27501047047525,
+                49.15278421450247
+              ],
+              [
+                9.275025259422607,
+                49.15272314395022
+              ],
+              [
+                9.27506817861947,
+                49.15266805140913
+              ],
+              [
+                9.275135026835816,
+                49.15262432972097
+              ],
+              [
+                9.27521926050247,
+                49.152596258669206
+              ],
+              [
+                9.275312634241246,
+                49.15258658604397
+              ],
+              [
+                9.275406007980022,
+                49.152596258669206
+              ],
+              [
+                9.275490241646676,
+                49.15262432972097
+              ],
+              [
+                9.275557089863021,
+                49.15266805140913
+              ],
+              [
+                9.275600009059884,
+                49.15272314395022
+              ],
+              [
+                9.275614798007242,
+                49.15278421450247
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2017,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.28551691001491,
+                49.14975629803723
+              ],
+              [
+                9.285502054753028,
+                49.149817646182896
+              ],
+              [
+                9.285458943103919,
+                49.14987298914463
+              ],
+              [
+                9.285391795136173,
+                49.149916909567736
+              ],
+              [
+                9.285307183760722,
+                49.14994510821519
+              ],
+              [
+                9.285213391328515,
+                49.149954824806905
+              ],
+              [
+                9.285119598896308,
+                49.14994510821519
+              ],
+              [
+                9.285034987520858,
+                49.149916909567736
+              ],
+              [
+                9.284967839553111,
+                49.14987298914463
+              ],
+              [
+                9.284924727904002,
+                49.149817646182896
+              ],
+              [
+                9.28490987264212,
+                49.14975629803723
+              ],
+              [
+                9.284924727904002,
+                49.14969494989157
+              ],
+              [
+                9.284967839553111,
+                49.14963960692983
+              ],
+              [
+                9.285034987520858,
+                49.14959568650673
+              ],
+              [
+                9.285119598896308,
+                49.14956748785927
+              ],
+              [
+                9.285213391328515,
+                49.14955777126756
+              ],
+              [
+                9.285307183760722,
+                49.14956748785927
+              ],
+              [
+                9.285391795136173,
+                49.14959568650673
+              ],
+              [
+                9.285458943103919,
+                49.14963960692983
+              ],
+              [
+                9.285502054753028,
+                49.14969494989157
+              ],
+              [
+                9.28551691001491,
+                49.14975629803723
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.2008,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.275288534968992,
+                49.146153061385164
+              ],
+              [
+                9.275273680787393,
+                49.14621440953083
+              ],
+              [
+                9.275230572273387,
+                49.146269752492564
+              ],
+              [
+                9.275163429188677,
+                49.14631367291567
+              ],
+              [
+                9.275078823966211,
+                49.14634187156312
+              ],
+              [
+                9.274985038354641,
+                49.146351588154836
+              ],
+              [
+                9.274891252743071,
+                49.14634187156312
+              ],
+              [
+                9.274806647520606,
+                49.14631367291567
+              ],
+              [
+                9.274739504435896,
+                49.146269752492564
+              ],
+              [
+                9.27469639592189,
+                49.14621440953083
+              ],
+              [
+                9.274681541740291,
+                49.146153061385164
+              ],
+              [
+                9.27469639592189,
+                49.1460917132395
+              ],
+              [
+                9.274739504435896,
+                49.14603637027776
+              ],
+              [
+                9.274806647520606,
+                49.14599244985466
+              ],
+              [
+                9.274891252743071,
+                49.145964251207204
+              ],
+              [
+                9.274985038354641,
+                49.14595453461549
+              ],
+              [
+                9.275078823966211,
+                49.145964251207204
+              ],
+              [
+                9.275163429188677,
+                49.14599244985466
+              ],
+              [
+                9.275230572273387,
+                49.14603637027776
+              ],
+              [
+                9.275273680787393,
+                49.1460917132395
+              ],
+              [
+                9.275288534968992,
+                49.146153061385164
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1999,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.289510967914909,
+                49.15004320904362
+              ],
+              [
+                9.289496112566999,
+                49.15010455718929
+              ],
+              [
+                9.289453000668226,
+                49.150159900151024
+              ],
+              [
+                9.289385852311623,
+                49.15020382057413
+              ],
+              [
+                9.289301240446182,
+                49.15023201922158
+              ],
+              [
+                9.289207447470817,
+                49.150241735813296
+              ],
+              [
+                9.289113654495452,
+                49.15023201922158
+              ],
+              [
+                9.28902904263001,
+                49.15020382057413
+              ],
+              [
+                9.288961894273408,
+                49.150159900151024
+              ],
+              [
+                9.288918782374635,
+                49.15010455718929
+              ],
+              [
+                9.288903927026725,
+                49.15004320904362
+              ],
+              [
+                9.288918782374635,
+                49.14998186089796
+              ],
+              [
+                9.288961894273408,
+                49.14992651793622
+              ],
+              [
+                9.28902904263001,
+                49.14988259751312
+              ],
+              [
+                9.289113654495452,
+                49.14985439886566
+              ],
+              [
+                9.289207447470817,
+                49.14984468227395
+              ],
+              [
+                9.289301240446182,
+                49.14985439886566
+              ],
+              [
+                9.289385852311623,
+                49.14988259751312
+              ],
+              [
+                9.289453000668226,
+                49.14992651793622
+              ],
+              [
+                9.289496112566999,
+                49.14998186089796
+              ],
+              [
+                9.289510967914909,
+                49.15004320904362
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1995,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.292707946126344,
+                49.150932592631136
+              ],
+              [
+                9.29269309051175,
+                49.1509939407768
+              ],
+              [
+                9.292649977839035,
+                49.15104928373854
+              ],
+              [
+                9.292582828276986,
+                49.15109320416164
+              ],
+              [
+                9.292498214892596,
+                49.151121402809096
+              ],
+              [
+                9.292404420233463,
+                49.15113111940081
+              ],
+              [
+                9.29231062557433,
+                49.151121402809096
+              ],
+              [
+                9.292226012189941,
+                49.15109320416164
+              ],
+              [
+                9.292158862627891,
+                49.15104928373854
+              ],
+              [
+                9.292115749955176,
+                49.1509939407768
+              ],
+              [
+                9.292100894340583,
+                49.150932592631136
+              ],
+              [
+                9.292115749955176,
+                49.15087124448547
+              ],
+              [
+                9.292158862627891,
+                49.150815901523735
+              ],
+              [
+                9.292226012189941,
+                49.15077198110063
+              ],
+              [
+                9.29231062557433,
+                49.150743782453176
+              ],
+              [
+                9.292404420233463,
+                49.150734065861464
+              ],
+              [
+                9.292498214892596,
+                49.150743782453176
+              ],
+              [
+                9.292582828276986,
+                49.15077198110063
+              ],
+              [
+                9.292649977839035,
+                49.150815901523735
+              ],
+              [
+                9.29269309051175,
+                49.15087124448547
+              ],
+              [
+                9.292707946126344,
+                49.150932592631136
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1978,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285622725285936,
+                49.151722655664734
+              ],
+              [
+                9.28560786943443,
+                49.1517840038104
+              ],
+              [
+                9.28556475607417,
+                49.151839346772135
+              ],
+              [
+                9.285497605441243,
+                49.15188326719524
+              ],
+              [
+                9.285412990707465,
+                49.151911465842694
+              ],
+              [
+                9.285319194552528,
+                49.15192118243441
+              ],
+              [
+                9.285225398397591,
+                49.151911465842694
+              ],
+              [
+                9.285140783663813,
+                49.15188326719524
+              ],
+              [
+                9.285073633030887,
+                49.151839346772135
+              ],
+              [
+                9.285030519670626,
+                49.1517840038104
+              ],
+              [
+                9.28501566381912,
+                49.151722655664734
+              ],
+              [
+                9.285030519670626,
+                49.15166130751907
+              ],
+              [
+                9.285073633030887,
+                49.15160596455733
+              ],
+              [
+                9.285140783663813,
+                49.15156204413423
+              ],
+              [
+                9.285225398397591,
+                49.151533845486775
+              ],
+              [
+                9.285319194552528,
+                49.15152412889506
+              ],
+              [
+                9.285412990707465,
+                49.151533845486775
+              ],
+              [
+                9.285497605441243,
+                49.15156204413423
+              ],
+              [
+                9.28556475607417,
+                49.15160596455733
+              ],
+              [
+                9.28560786943443,
+                49.15166130751907
+              ],
+              [
+                9.285622725285936,
+                49.151722655664734
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1962,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285968339077655,
+                49.144663873003374
+              ],
+              [
+                9.285953485342466,
+                49.14472522114904
+              ],
+              [
+                9.285910378123988,
+                49.144780564110775
+              ],
+              [
+                9.285843237057113,
+                49.14482448453388
+              ],
+              [
+                9.285758634377267,
+                49.144852683181334
+              ],
+              [
+                9.285664851584214,
+                49.14486239977305
+              ],
+              [
+                9.28557106879116,
+                49.144852683181334
+              ],
+              [
+                9.285486466111314,
+                49.14482448453388
+              ],
+              [
+                9.285419325044439,
+                49.144780564110775
+              ],
+              [
+                9.285376217825961,
+                49.14472522114904
+              ],
+              [
+                9.285361364090772,
+                49.144663873003374
+              ],
+              [
+                9.285376217825961,
+                49.14460252485771
+              ],
+              [
+                9.285419325044439,
+                49.14454718189597
+              ],
+              [
+                9.285486466111314,
+                49.14450326147287
+              ],
+              [
+                9.28557106879116,
+                49.144475062825414
+              ],
+              [
+                9.285664851584214,
+                49.1444653462337
+              ],
+              [
+                9.285758634377267,
+                49.144475062825414
+              ],
+              [
+                9.285843237057113,
+                49.14450326147287
+              ],
+              [
+                9.285910378123988,
+                49.14454718189597
+              ],
+              [
+                9.285953485342466,
+                49.14460252485771
+              ],
+              [
+                9.285968339077655,
+                49.144663873003374
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1955,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.27711220615876,
+                49.152990589449836
+              ],
+              [
+                9.277097417149792,
+                49.153051660002085
+              ],
+              [
+                9.27705449777413,
+                49.153106752543174
+              ],
+              [
+                9.276987649279297,
+                49.15315047423133
+              ],
+              [
+                9.276903415261732,
+                49.1531785452831
+              ],
+              [
+                9.276810041133965,
+                49.15318821790834
+              ],
+              [
+                9.276716667006198,
+                49.1531785452831
+              ],
+              [
+                9.276632432988633,
+                49.15315047423133
+              ],
+              [
+                9.2765655844938,
+                49.153106752543174
+              ],
+              [
+                9.276522665118138,
+                49.153051660002085
+              ],
+              [
+                9.27650787610917,
+                49.152990589449836
+              ],
+              [
+                9.276522665118138,
+                49.15292951889759
+              ],
+              [
+                9.2765655844938,
+                49.1528744263565
+              ],
+              [
+                9.276632432988633,
+                49.15283070466834
+              ],
+              [
+                9.276716667006198,
+                49.152802633616574
+              ],
+              [
+                9.276810041133965,
+                49.152792960991334
+              ],
+              [
+                9.276903415261732,
+                49.152802633616574
+              ],
+              [
+                9.276987649279297,
+                49.15283070466834
+              ],
+              [
+                9.27705449777413,
+                49.1528744263565
+              ],
+              [
+                9.277097417149792,
+                49.15292951889759
+              ],
+              [
+                9.27711220615876,
+                49.152990589449836
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1951,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285270901843795,
+                49.158854754502926
+              ],
+              [
+                9.285256043853154,
+                49.15891610264859
+              ],
+              [
+                9.285212924284874,
+                49.15897144561033
+              ],
+              [
+                9.285145763982731,
+                49.15901536603343
+              ],
+              [
+                9.285061137065032,
+                49.159043564680886
+              ],
+              [
+                9.284967327404113,
+                49.1590532812726
+              ],
+              [
+                9.284873517743193,
+                49.159043564680886
+              ],
+              [
+                9.284788890825494,
+                49.15901536603343
+              ],
+              [
+                9.284721730523351,
+                49.15897144561033
+              ],
+              [
+                9.284678610955071,
+                49.15891610264859
+              ],
+              [
+                9.28466375296443,
+                49.158854754502926
+              ],
+              [
+                9.284678610955071,
+                49.15879340635726
+              ],
+              [
+                9.284721730523351,
+                49.158738063395525
+              ],
+              [
+                9.284788890825494,
+                49.15869414297242
+              ],
+              [
+                9.284873517743193,
+                49.158665944324966
+              ],
+              [
+                9.284967327404113,
+                49.15865622773325
+              ],
+              [
+                9.285061137065032,
+                49.158665944324966
+              ],
+              [
+                9.285145763982731,
+                49.15869414297242
+              ],
+              [
+                9.285212924284874,
+                49.158738063395525
+              ],
+              [
+                9.285256043853154,
+                49.15879340635726
+              ],
+              [
+                9.285270901843795,
+                49.158854754502926
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1915,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.284903449458733,
+                49.15596690708846
+              ],
+              [
+                9.284888592334347,
+                49.156028255234126
+              ],
+              [
+                9.284845475280044,
+                49.15608359819586
+              ],
+              [
+                9.284778318893508,
+                49.156127518618966
+              ],
+              [
+                9.284693696909764,
+                49.15615571726642
+              ],
+              [
+                9.284599892718175,
+                49.156165433858135
+              ],
+              [
+                9.284506088526586,
+                49.15615571726642
+              ],
+              [
+                9.284421466542842,
+                49.156127518618966
+              ],
+              [
+                9.284354310156306,
+                49.15608359819586
+              ],
+              [
+                9.284311193102003,
+                49.156028255234126
+              ],
+              [
+                9.284296335977617,
+                49.15596690708846
+              ],
+              [
+                9.284311193102003,
+                49.1559055589428
+              ],
+              [
+                9.284354310156306,
+                49.15585021598106
+              ],
+              [
+                9.284421466542842,
+                49.15580629555796
+              ],
+              [
+                9.284506088526586,
+                49.1557780969105
+              ],
+              [
+                9.284599892718175,
+                49.15576838031879
+              ],
+              [
+                9.284693696909764,
+                49.1557780969105
+              ],
+              [
+                9.284778318893508,
+                49.15580629555796
+              ],
+              [
+                9.284845475280044,
+                49.15585021598106
+              ],
+              [
+                9.284888592334347,
+                49.1559055589428
+              ],
+              [
+                9.284903449458733,
+                49.15596690708846
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1912,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.276162002497435,
+                49.15277308335494
+              ],
+              [
+                9.2761472135534,
+                49.152834153907186
+              ],
+              [
+                9.27610429436618,
+                49.152889246448275
+              ],
+              [
+                9.276037446164855,
+                49.15293296813643
+              ],
+              [
+                9.275953212517129,
+                49.1529610391882
+              ],
+              [
+                9.275859838799333,
+                49.15297071181344
+              ],
+              [
+                9.275766465081537,
+                49.1529610391882
+              ],
+              [
+                9.27568223143381,
+                49.15293296813643
+              ],
+              [
+                9.275615383232486,
+                49.152889246448275
+              ],
+              [
+                9.275572464045265,
+                49.152834153907186
+              ],
+              [
+                9.275557675101231,
+                49.15277308335494
+              ],
+              [
+                9.275572464045265,
+                49.15271201280269
+              ],
+              [
+                9.275615383232486,
+                49.1526569202616
+              ],
+              [
+                9.27568223143381,
+                49.15261319857344
+              ],
+              [
+                9.275766465081537,
+                49.152585127521675
+              ],
+              [
+                9.275859838799333,
+                49.152575454896436
+              ],
+              [
+                9.275953212517129,
+                49.152585127521675
+              ],
+              [
+                9.276037446164855,
+                49.15261319857344
+              ],
+              [
+                9.27610429436618,
+                49.1526569202616
+              ],
+              [
+                9.2761472135534,
+                49.15271201280269
+              ],
+              [
+                9.276162002497435,
+                49.15277308335494
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1904,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.269569222460195,
+                49.15620963087578
+              ],
+              [
+                9.269554432490143,
+                49.15627070142803
+              ],
+              [
+                9.269511510325303,
+                49.15632579396912
+              ],
+              [
+                9.269444657486227,
+                49.156369515657275
+              ],
+              [
+                9.269360417994594,
+                49.15639758670904
+              ],
+              [
+                9.269267037798777,
+                49.15640725933428
+              ],
+              [
+                9.269173657602959,
+                49.15639758670904
+              ],
+              [
+                9.269089418111326,
+                49.156369515657275
+              ],
+              [
+                9.26902256527225,
+                49.15632579396912
+              ],
+              [
+                9.26897964310741,
+                49.15627070142803
+              ],
+              [
+                9.268964853137359,
+                49.15620963087578
+              ],
+              [
+                9.26897964310741,
+                49.15614856032353
+              ],
+              [
+                9.26902256527225,
+                49.15609346778244
+              ],
+              [
+                9.269089418111326,
+                49.15604974609428
+              ],
+              [
+                9.269173657602959,
+                49.15602167504252
+              ],
+              [
+                9.269267037798777,
+                49.15601200241728
+              ],
+              [
+                9.269360417994594,
+                49.15602167504252
+              ],
+              [
+                9.269444657486227,
+                49.15604974609428
+              ],
+              [
+                9.269511510325303,
+                49.15609346778244
+              ],
+              [
+                9.269554432490143,
+                49.15614856032353
+              ],
+              [
+                9.269569222460195,
+                49.15620963087578
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1889,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.288096559574027,
+                49.15153070480574
+              ],
+              [
+                9.288081703780083,
+                49.1515920529514
+              ],
+              [
+                9.288038590586869,
+                49.15164739591314
+              ],
+              [
+                9.287971440214122,
+                49.15169131633624
+              ],
+              [
+                9.287886825808192,
+                49.1517195149837
+              ],
+              [
+                9.287793030016676,
+                49.15172923157541
+              ],
+              [
+                9.28769923422516,
+                49.1517195149837
+              ],
+              [
+                9.28761461981923,
+                49.15169131633624
+              ],
+              [
+                9.287547469446483,
+                49.15164739591314
+              ],
+              [
+                9.287504356253269,
+                49.1515920529514
+              ],
+              [
+                9.287489500459325,
+                49.15153070480574
+              ],
+              [
+                9.287504356253269,
+                49.15146935666007
+              ],
+              [
+                9.287547469446483,
+                49.151414013698336
+              ],
+              [
+                9.28761461981923,
+                49.15137009327523
+              ],
+              [
+                9.28769923422516,
+                49.15134189462778
+              ],
+              [
+                9.287793030016676,
+                49.151332178036064
+              ],
+              [
+                9.287886825808192,
+                49.15134189462778
+              ],
+              [
+                9.287971440214122,
+                49.15137009327523
+              ],
+              [
+                9.288038590586869,
+                49.151414013698336
+              ],
+              [
+                9.288081703780083,
+                49.15146935666007
+              ],
+              [
+                9.288096559574027,
+                49.15153070480574
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1888,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.276537852966808,
+                49.15350161741268
+              ],
+              [
+                9.276523063805278,
+                49.15356268796493
+              ],
+              [
+                9.276480143986863,
+                49.15361778050602
+              ],
+              [
+                9.276413294802428,
+                49.153661502194176
+              ],
+              [
+                9.27632905991591,
+                49.15368957324594
+              ],
+              [
+                9.276235684824902,
+                49.15369924587118
+              ],
+              [
+                9.276142309733896,
+                49.15368957324594
+              ],
+              [
+                9.276058074847377,
+                49.153661502194176
+              ],
+              [
+                9.275991225662942,
+                49.15361778050602
+              ],
+              [
+                9.275948305844526,
+                49.15356268796493
+              ],
+              [
+                9.275933516682997,
+                49.15350161741268
+              ],
+              [
+                9.275948305844526,
+                49.15344054686043
+              ],
+              [
+                9.275991225662942,
+                49.15338545431934
+              ],
+              [
+                9.276058074847377,
+                49.15334173263118
+              ],
+              [
+                9.276142309733896,
+                49.15331366157942
+              ],
+              [
+                9.276235684824902,
+                49.15330398895418
+              ],
+              [
+                9.27632905991591,
+                49.15331366157942
+              ],
+              [
+                9.276413294802428,
+                49.15334173263118
+              ],
+              [
+                9.276480143986863,
+                49.15338545431934
+              ],
+              [
+                9.276523063805278,
+                49.15344054686043
+              ],
+              [
+                9.276537852966808,
+                49.15350161741268
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1869,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.284131176900583,
+                49.15794421832677
+              ],
+              [
+                9.284116386412578,
+                49.15800528887902
+              ],
+              [
+                9.284073462744576,
+                49.15806038142011
+              ],
+              [
+                9.284006607564274,
+                49.158104103108265
+              ],
+              [
+                9.283922365122523,
+                49.15813217416003
+              ],
+              [
+                9.283828981656473,
+                49.15814184678527
+              ],
+              [
+                9.283735598190423,
+                49.15813217416003
+              ],
+              [
+                9.283651355748672,
+                49.158104103108265
+              ],
+              [
+                9.28358450056837,
+                49.15806038142011
+              ],
+              [
+                9.283541576900369,
+                49.15800528887902
+              ],
+              [
+                9.283526786412363,
+                49.15794421832677
+              ],
+              [
+                9.283541576900369,
+                49.15788314777452
+              ],
+              [
+                9.28358450056837,
+                49.15782805523343
+              ],
+              [
+                9.283651355748672,
+                49.15778433354527
+              ],
+              [
+                9.283735598190423,
+                49.15775626249351
+              ],
+              [
+                9.283828981656473,
+                49.15774658986827
+              ],
+              [
+                9.283922365122523,
+                49.15775626249351
+              ],
+              [
+                9.284006607564274,
+                49.15778433354527
+              ],
+              [
+                9.284073462744576,
+                49.15782805523343
+              ],
+              [
+                9.284116386412578,
+                49.15788314777452
+              ],
+              [
+                9.284131176900583,
+                49.15794421832677
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1864,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.282863690246439,
+                49.15726174625455
+              ],
+              [
+                9.282848899962229,
+                49.1573228168068
+              ],
+              [
+                9.282805976885662,
+                49.157377909347886
+              ],
+              [
+                9.28273912262654,
+                49.157421631036044
+              ],
+              [
+                9.282654881345545,
+                49.15744970208781
+              ],
+              [
+                9.282561499166203,
+                49.15745937471305
+              ],
+              [
+                9.28246811698686,
+                49.15744970208781
+              ],
+              [
+                9.282383875705866,
+                49.157421631036044
+              ],
+              [
+                9.282317021446744,
+                49.157377909347886
+              ],
+              [
+                9.282274098370177,
+                49.1573228168068
+              ],
+              [
+                9.282259308085967,
+                49.15726174625455
+              ],
+              [
+                9.282274098370177,
+                49.1572006757023
+              ],
+              [
+                9.282317021446744,
+                49.15714558316121
+              ],
+              [
+                9.282383875705866,
+                49.15710186147305
+              ],
+              [
+                9.28246811698686,
+                49.157073790421286
+              ],
+              [
+                9.282561499166203,
+                49.15706411779605
+              ],
+              [
+                9.282654881345545,
+                49.157073790421286
+              ],
+              [
+                9.28273912262654,
+                49.15710186147305
+              ],
+              [
+                9.282805976885662,
+                49.15714558316121
+              ],
+              [
+                9.282848899962229,
+                49.1572006757023
+              ],
+              [
+                9.282863690246439,
+                49.15726174625455
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1864,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.287466468174289,
+                49.158126556655986
+              ],
+              [
+                9.287451677631832,
+                49.158187627208235
+              ],
+              [
+                9.287408753805813,
+                49.158242719749325
+              ],
+              [
+                9.28734189837939,
+                49.15828644143748
+              ],
+              [
+                9.287257655627508,
+                49.15831451248925
+              ],
+              [
+                9.287164271817677,
+                49.15832418511449
+              ],
+              [
+                9.287070888007845,
+                49.15831451248925
+              ],
+              [
+                9.286986645255963,
+                49.15828644143748
+              ],
+              [
+                9.28691978982954,
+                49.158242719749325
+              ],
+              [
+                9.28687686600352,
+                49.158187627208235
+              ],
+              [
+                9.286862075461064,
+                49.158126556655986
+              ],
+              [
+                9.28687686600352,
+                49.15806548610374
+              ],
+              [
+                9.28691978982954,
+                49.15801039356265
+              ],
+              [
+                9.286986645255963,
+                49.15796667187449
+              ],
+              [
+                9.287070888007845,
+                49.157938600822725
+              ],
+              [
+                9.287164271817677,
+                49.157928928197485
+              ],
+              [
+                9.287257655627508,
+                49.157938600822725
+              ],
+              [
+                9.28734189837939,
+                49.15796667187449
+              ],
+              [
+                9.287408753805813,
+                49.15801039356265
+              ],
+              [
+                9.287451677631832,
+                49.15806548610374
+              ],
+              [
+                9.287466468174289,
+                49.158126556655986
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1855,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.284795119923919,
+                49.150538990461314
+              ],
+              [
+                9.28478026442735,
+                49.15060033860698
+              ],
+              [
+                9.284737152097154,
+                49.150655681568715
+              ],
+              [
+                9.28467000306859,
+                49.15069960199182
+              ],
+              [
+                9.284585390356428,
+                49.150727800639274
+              ],
+              [
+                9.284491596442468,
+                49.150737517230986
+              ],
+              [
+                9.284397802528508,
+                49.150727800639274
+              ],
+              [
+                9.284313189816347,
+                49.15069960199182
+              ],
+              [
+                9.284246040787782,
+                49.150655681568715
+              ],
+              [
+                9.284202928457585,
+                49.15060033860698
+              ],
+              [
+                9.284188072961017,
+                49.150538990461314
+              ],
+              [
+                9.284202928457585,
+                49.15047764231565
+              ],
+              [
+                9.284246040787782,
+                49.15042229935391
+              ],
+              [
+                9.284313189816347,
+                49.15037837893081
+              ],
+              [
+                9.284397802528508,
+                49.150350180283354
+              ],
+              [
+                9.284491596442468,
+                49.15034046369164
+              ],
+              [
+                9.284585390356428,
+                49.150350180283354
+              ],
+              [
+                9.28467000306859,
+                49.15037837893081
+              ],
+              [
+                9.284737152097154,
+                49.15042229935391
+              ],
+              [
+                9.28478026442735,
+                49.15047764231565
+              ],
+              [
+                9.284795119923919,
+                49.150538990461314
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.184,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.28480292082098,
+                49.152687788358115
+              ],
+              [
+                9.284788131902408,
+                49.152748858910364
+              ],
+              [
+                9.284745212789085,
+                49.15280395145145
+              ],
+              [
+                9.284678364702858,
+                49.15284767313961
+              ],
+              [
+                9.284594131200164,
+                49.15287574419138
+              ],
+              [
+                9.284500757643135,
+                49.152885416816616
+              ],
+              [
+                9.284407384086107,
+                49.15287574419138
+              ],
+              [
+                9.284323150583413,
+                49.15284767313961
+              ],
+              [
+                9.284256302497186,
+                49.15280395145145
+              ],
+              [
+                9.284213383383863,
+                49.152748858910364
+              ],
+              [
+                9.284198594465291,
+                49.152687788358115
+              ],
+              [
+                9.284213383383863,
+                49.152626717805866
+              ],
+              [
+                9.284256302497186,
+                49.15257162526478
+              ],
+              [
+                9.284323150583413,
+                49.15252790357662
+              ],
+              [
+                9.284407384086107,
+                49.15249983252485
+              ],
+              [
+                9.284500757643135,
+                49.152490159899614
+              ],
+              [
+                9.284594131200164,
+                49.15249983252485
+              ],
+              [
+                9.284678364702858,
+                49.15252790357662
+              ],
+              [
+                9.284745212789085,
+                49.15257162526478
+              ],
+              [
+                9.284788131902408,
+                49.152626717805866
+              ],
+              [
+                9.28480292082098,
+                49.152687788358115
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1839,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.278228475153432,
+                49.1521632278361
+              ],
+              [
+                9.278213686391455,
+                49.15222429838835
+              ],
+              [
+                9.27817076773259,
+                49.152279390929436
+              ],
+              [
+                9.278103920354194,
+                49.152323112617594
+              ],
+              [
+                9.278019687743422,
+                49.15235118366936
+              ],
+              [
+                9.277926315175097,
+                49.1523608562946
+              ],
+              [
+                9.277832942606773,
+                49.15235118366936
+              ],
+              [
+                9.277748709996,
+                49.152323112617594
+              ],
+              [
+                9.277681862617605,
+                49.152279390929436
+              ],
+              [
+                9.27763894395874,
+                49.15222429838835
+              ],
+              [
+                9.277624155196763,
+                49.1521632278361
+              ],
+              [
+                9.27763894395874,
+                49.15210215728385
+              ],
+              [
+                9.277681862617605,
+                49.15204706474276
+              ],
+              [
+                9.277748709996,
+                49.1520033430546
+              ],
+              [
+                9.277832942606773,
+                49.15197527200284
+              ],
+              [
+                9.277926315175097,
+                49.1519655993776
+              ],
+              [
+                9.278019687743422,
+                49.15197527200284
+              ],
+              [
+                9.278103920354194,
+                49.1520033430546
+              ],
+              [
+                9.27817076773259,
+                49.15204706474276
+              ],
+              [
+                9.278213686391455,
+                49.15210215728385
+              ],
+              [
+                9.278228475153432,
+                49.1521632278361
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1837,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.28118815097016,
+                49.152417885276876
+              ],
+              [
+                9.281173362132161,
+                49.152478955829125
+              ],
+              [
+                9.281130443252673,
+                49.152534048370214
+              ],
+              [
+                9.281063595530652,
+                49.15257777005837
+              ],
+              [
+                9.280979362486882,
+                49.15260584111014
+              ],
+              [
+                9.280885989438577,
+                49.15261551373538
+              ],
+              [
+                9.280792616390272,
+                49.15260584111014
+              ],
+              [
+                9.280708383346502,
+                49.15257777005837
+              ],
+              [
+                9.280641535624481,
+                49.152534048370214
+              ],
+              [
+                9.280598616744992,
+                49.152478955829125
+              ],
+              [
+                9.280583827906995,
+                49.152417885276876
+              ],
+              [
+                9.280598616744992,
+                49.15235681472463
+              ],
+              [
+                9.280641535624481,
+                49.15230172218354
+              ],
+              [
+                9.280708383346502,
+                49.15225800049538
+              ],
+              [
+                9.280792616390272,
+                49.152229929443614
+              ],
+              [
+                9.280885989438577,
+                49.152220256818374
+              ],
+              [
+                9.280979362486882,
+                49.152229929443614
+              ],
+              [
+                9.281063595530652,
+                49.15225800049538
+              ],
+              [
+                9.281130443252673,
+                49.15230172218354
+              ],
+              [
+                9.281173362132161,
+                49.15235681472463
+              ],
+              [
+                9.28118815097016,
+                49.152417885276876
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1833,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.289472179672712,
+                49.15420729710007
+              ],
+              [
+                9.289457390300504,
+                49.15426836765232
+              ],
+              [
+                9.289414469870668,
+                49.15432346019341
+              ],
+              [
+                9.289347619733924,
+                49.15436718188157
+              ],
+              [
+                9.289263383647429,
+                49.154395252933334
+              ],
+              [
+                9.289170007226236,
+                49.15440492555857
+              ],
+              [
+                9.289076630805043,
+                49.154395252933334
+              ],
+              [
+                9.288992394718548,
+                49.15436718188157
+              ],
+              [
+                9.288925544581804,
+                49.15432346019341
+              ],
+              [
+                9.288882624151968,
+                49.15426836765232
+              ],
+              [
+                9.28886783477976,
+                49.15420729710007
+              ],
+              [
+                9.288882624151968,
+                49.15414622654782
+              ],
+              [
+                9.288925544581804,
+                49.154091134006734
+              ],
+              [
+                9.288992394718548,
+                49.154047412318576
+              ],
+              [
+                9.289076630805043,
+                49.15401934126681
+              ],
+              [
+                9.289170007226236,
+                49.15400966864157
+              ],
+              [
+                9.289263383647429,
+                49.15401934126681
+              ],
+              [
+                9.289347619733924,
+                49.154047412318576
+              ],
+              [
+                9.289414469870668,
+                49.154091134006734
+              ],
+              [
+                9.289457390300504,
+                49.15414622654782
+              ],
+              [
+                9.289472179672712,
+                49.15420729710007
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1827,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285089668033965,
+                49.15653079011903
+              ],
+              [
+                9.285074810740445,
+                49.15659213826469
+              ],
+              [
+                9.285031693195291,
+                49.15664748122643
+              ],
+              [
+                9.284964536044242,
+                49.15669140164953
+              ],
+              [
+                9.284879913097154,
+                49.15671960029699
+              ],
+              [
+                9.284786107837688,
+                49.1567293168887
+              ],
+              [
+                9.284692302578222,
+                49.15671960029699
+              ],
+              [
+                9.284607679631133,
+                49.15669140164953
+              ],
+              [
+                9.284540522480084,
+                49.15664748122643
+              ],
+              [
+                9.28449740493493,
+                49.15659213826469
+              ],
+              [
+                9.28448254764141,
+                49.15653079011903
+              ],
+              [
+                9.28449740493493,
+                49.156469441973364
+              ],
+              [
+                9.284540522480084,
+                49.15641409901163
+              ],
+              [
+                9.284607679631133,
+                49.156370178588524
+              ],
+              [
+                9.284692302578222,
+                49.15634197994107
+              ],
+              [
+                9.284786107837688,
+                49.156332263349356
+              ],
+              [
+                9.284879913097154,
+                49.15634197994107
+              ],
+              [
+                9.284964536044242,
+                49.156370178588524
+              ],
+              [
+                9.285031693195291,
+                49.15641409901163
+              ],
+              [
+                9.285074810740445,
+                49.156469441973364
+              ],
+              [
+                9.285089668033965,
+                49.15653079011903
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1778,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.288254508862996,
+                49.15341506830211
+              ],
+              [
+                9.288239652503963,
+                49.15347641644777
+              ],
+              [
+                9.28819653767079,
+                49.15353175940951
+              ],
+              [
+                9.288129384743751,
+                49.15357567983261
+              ],
+              [
+                9.288044767119224,
+                49.15360387848007
+              ],
+              [
+                9.287950967759866,
+                49.15361359507178
+              ],
+              [
+                9.287857168400507,
+                49.15360387848007
+              ],
+              [
+                9.28777255077598,
+                49.15357567983261
+              ],
+              [
+                9.28770539784894,
+                49.15353175940951
+              ],
+              [
+                9.287662283015768,
+                49.15347641644777
+              ],
+              [
+                9.287647426656735,
+                49.15341506830211
+              ],
+              [
+                9.287662283015768,
+                49.153353720156446
+              ],
+              [
+                9.28770539784894,
+                49.15329837719471
+              ],
+              [
+                9.28777255077598,
+                49.153254456771606
+              ],
+              [
+                9.287857168400507,
+                49.15322625812415
+              ],
+              [
+                9.287950967759866,
+                49.15321654153244
+              ],
+              [
+                9.288044767119224,
+                49.15322625812415
+              ],
+              [
+                9.288129384743751,
+                49.153254456771606
+              ],
+              [
+                9.28819653767079,
+                49.15329837719471
+              ],
+              [
+                9.288239652503963,
+                49.153353720156446
+              ],
+              [
+                9.288254508862996,
+                49.15341506830211
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1768,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.277397835362503,
+                49.15189128873956
+              ],
+              [
+                9.277383046681708,
+                49.15195235929181
+              ],
+              [
+                9.277340128258432,
+                49.1520074518329
+              ],
+              [
+                9.27727328124698,
+                49.15205117352106
+              ],
+              [
+                9.277189049098581,
+                49.152079244572825
+              ],
+              [
+                9.277095677042801,
+                49.152088917198064
+              ],
+              [
+                9.277002304987022,
+                49.152079244572825
+              ],
+              [
+                9.276918072838622,
+                49.15205117352106
+              ],
+              [
+                9.276851225827171,
+                49.1520074518329
+              ],
+              [
+                9.276808307403895,
+                49.15195235929181
+              ],
+              [
+                9.2767935187231,
+                49.15189128873956
+              ],
+              [
+                9.276808307403895,
+                49.151830218187314
+              ],
+              [
+                9.276851225827171,
+                49.151775125646225
+              ],
+              [
+                9.276918072838622,
+                49.15173140395807
+              ],
+              [
+                9.277002304987022,
+                49.1517033329063
+              ],
+              [
+                9.277095677042801,
+                49.15169366028106
+              ],
+              [
+                9.277189049098581,
+                49.1517033329063
+              ],
+              [
+                9.27727328124698,
+                49.15173140395807
+              ],
+              [
+                9.277340128258432,
+                49.151775125646225
+              ],
+              [
+                9.277383046681708,
+                49.151830218187314
+              ],
+              [
+                9.277397835362503,
+                49.15189128873956
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1755,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.275433258757994,
+                49.145391013346
+              ],
+              [
+                9.275418472017295,
+                49.14545208389825
+              ],
+              [
+                9.275375559224399,
+                49.14550717643934
+              ],
+              [
+                9.27530872098247,
+                49.145550898127496
+              ],
+              [
+                9.275224499884313,
+                49.14557896917926
+              ],
+              [
+                9.275131140077821,
+                49.1455886418045
+              ],
+              [
+                9.27503778027133,
+                49.14557896917926
+              ],
+              [
+                9.274953559173174,
+                49.145550898127496
+              ],
+              [
+                9.274886720931244,
+                49.14550717643934
+              ],
+              [
+                9.274843808138348,
+                49.14545208389825
+              ],
+              [
+                9.274829021397649,
+                49.145391013346
+              ],
+              [
+                9.274843808138348,
+                49.14532994279375
+              ],
+              [
+                9.274886720931244,
+                49.14527485025266
+              ],
+              [
+                9.274953559173174,
+                49.145231128564504
+              ],
+              [
+                9.27503778027133,
+                49.14520305751274
+              ],
+              [
+                9.275131140077821,
+                49.1451933848875
+              ],
+              [
+                9.275224499884313,
+                49.14520305751274
+              ],
+              [
+                9.27530872098247,
+                49.145231128564504
+              ],
+              [
+                9.275375559224399,
+                49.14527485025266
+              ],
+              [
+                9.275418472017295,
+                49.14532994279375
+              ],
+              [
+                9.275433258757994,
+                49.145391013346
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1754,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.265038867012805,
+                49.14772727405165
+              ],
+              [
+                9.26502401235927,
+                49.14778862219731
+              ],
+              [
+                9.26498090247565,
+                49.14784396515905
+              ],
+              [
+                9.264913757257718,
+                49.14788788558215
+              ],
+              [
+                9.264829149347234,
+                49.14791608422961
+              ],
+              [
+                9.264735360755974,
+                49.14792580082132
+              ],
+              [
+                9.264641572164715,
+                49.14791608422961
+              ],
+              [
+                9.264556964254231,
+                49.14788788558215
+              ],
+              [
+                9.2644898190363,
+                49.14784396515905
+              ],
+              [
+                9.26444670915268,
+                49.14778862219731
+              ],
+              [
+                9.264431854499144,
+                49.14772727405165
+              ],
+              [
+                9.26444670915268,
+                49.14766592590598
+              ],
+              [
+                9.2644898190363,
+                49.147610582944246
+              ],
+              [
+                9.264556964254231,
+                49.14756666252114
+              ],
+              [
+                9.264641572164715,
+                49.14753846387369
+              ],
+              [
+                9.264735360755974,
+                49.147528747281974
+              ],
+              [
+                9.264829149347234,
+                49.14753846387369
+              ],
+              [
+                9.264913757257718,
+                49.14756666252114
+              ],
+              [
+                9.26498090247565,
+                49.147610582944246
+              ],
+              [
+                9.26502401235927,
+                49.14766592590598
+              ],
+              [
+                9.265038867012805,
+                49.14772727405165
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1744,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.274215916482033,
+                49.15170300205692
+              ],
+              [
+                9.274201127857443,
+                49.15176407260917
+              ],
+              [
+                9.274158209597285,
+                49.15181916515026
+              ],
+              [
+                9.274091362839895,
+                49.151862886838416
+              ],
+              [
+                9.274007131011635,
+                49.15189095789018
+              ],
+              [
+                9.273913759310728,
+                49.15190063051542
+              ],
+              [
+                9.273820387609822,
+                49.15189095789018
+              ],
+              [
+                9.273736155781561,
+                49.151862886838416
+              ],
+              [
+                9.273669309024172,
+                49.15181916515026
+              ],
+              [
+                9.273626390764013,
+                49.15176407260917
+              ],
+              [
+                9.273611602139423,
+                49.15170300205692
+              ],
+              [
+                9.273626390764013,
+                49.15164193150467
+              ],
+              [
+                9.273669309024172,
+                49.15158683896358
+              ],
+              [
+                9.273736155781561,
+                49.15154311727542
+              ],
+              [
+                9.273820387609822,
+                49.15151504622366
+              ],
+              [
+                9.273913759310728,
+                49.15150537359842
+              ],
+              [
+                9.274007131011635,
+                49.15151504622366
+              ],
+              [
+                9.274091362839895,
+                49.15154311727542
+              ],
+              [
+                9.274158209597285,
+                49.15158683896358
+              ],
+              [
+                9.274201127857443,
+                49.15164193150467
+              ],
+              [
+                9.274215916482033,
+                49.15170300205692
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1719,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.291125349963997,
+                49.15369279885991
+              ],
+              [
+                9.29111056074539,
+                49.15375386941216
+              ],
+              [
+                9.291067640761332,
+                49.153808961953246
+              ],
+              [
+                9.291000791318902,
+                49.153852683641404
+              ],
+              [
+                9.290916556107295,
+                49.15388075469317
+              ],
+              [
+                9.29082318065592,
+                49.15389042731841
+              ],
+              [
+                9.290729805204545,
+                49.15388075469317
+              ],
+              [
+                9.290645569992938,
+                49.153852683641404
+              ],
+              [
+                9.290578720550508,
+                49.153808961953246
+              ],
+              [
+                9.29053580056645,
+                49.15375386941216
+              ],
+              [
+                9.290521011347844,
+                49.15369279885991
+              ],
+              [
+                9.29053580056645,
+                49.15363172830766
+              ],
+              [
+                9.290578720550508,
+                49.15357663576657
+              ],
+              [
+                9.290645569992938,
+                49.15353291407841
+              ],
+              [
+                9.290729805204545,
+                49.153504843026646
+              ],
+              [
+                9.29082318065592,
+                49.153495170401406
+              ],
+              [
+                9.290916556107295,
+                49.153504843026646
+              ],
+              [
+                9.291000791318902,
+                49.15353291407841
+              ],
+              [
+                9.291067640761332,
+                49.15357663576657
+              ],
+              [
+                9.29111056074539,
+                49.15363172830766
+              ],
+              [
+                9.291125349963997,
+                49.15369279885991
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.169,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.278483894567469,
+                49.14768832965384
+              ],
+              [
+                9.278469039925609,
+                49.1477496777995
+              ],
+              [
+                9.278425930075873,
+                49.14780502076124
+              ],
+              [
+                9.278358784910719,
+                49.14784894118434
+              ],
+              [
+                9.278274177066736,
+                49.1478771398318
+              ],
+              [
+                9.278180388549194,
+                49.14788685642351
+              ],
+              [
+                9.278086600031651,
+                49.1478771398318
+              ],
+              [
+                9.278001992187669,
+                49.14784894118434
+              ],
+              [
+                9.277934847022514,
+                49.14780502076124
+              ],
+              [
+                9.277891737172778,
+                49.1477496777995
+              ],
+              [
+                9.277876882530919,
+                49.14768832965384
+              ],
+              [
+                9.277891737172778,
+                49.147626981508175
+              ],
+              [
+                9.277934847022514,
+                49.14757163854644
+              ],
+              [
+                9.278001992187669,
+                49.147527718123335
+              ],
+              [
+                9.278086600031651,
+                49.14749951947588
+              ],
+              [
+                9.278180388549194,
+                49.14748980288417
+              ],
+              [
+                9.278274177066736,
+                49.14749951947588
+              ],
+              [
+                9.278358784910719,
+                49.147527718123335
+              ],
+              [
+                9.278425930075873,
+                49.14757163854644
+              ],
+              [
+                9.278469039925609,
+                49.147626981508175
+              ],
+              [
+                9.278483894567469,
+                49.14768832965384
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1687,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.277933796382506,
+                49.153429155249306
+              ],
+              [
+                9.277919007242609,
+                49.153490225801555
+              ],
+              [
+                9.277876087486975,
+                49.153545318342644
+              ],
+              [
+                9.277809238400325,
+                49.1535890400308
+              ],
+              [
+                9.277725003637023,
+                49.15361711108257
+              ],
+              [
+                9.277631628682602,
+                49.15362678370781
+              ],
+              [
+                9.277538253728181,
+                49.15361711108257
+              ],
+              [
+                9.27745401896488,
+                49.1535890400308
+              ],
+              [
+                9.27738716987823,
+                49.153545318342644
+              ],
+              [
+                9.277344250122596,
+                49.153490225801555
+              ],
+              [
+                9.277329460982699,
+                49.153429155249306
+              ],
+              [
+                9.277344250122596,
+                49.15336808469706
+              ],
+              [
+                9.27738716987823,
+                49.15331299215597
+              ],
+              [
+                9.27745401896488,
+                49.15326927046781
+              ],
+              [
+                9.277538253728181,
+                49.153241199416044
+              ],
+              [
+                9.277631628682602,
+                49.153231526790805
+              ],
+              [
+                9.277725003637023,
+                49.153241199416044
+              ],
+              [
+                9.277809238400325,
+                49.15326927046781
+              ],
+              [
+                9.277876087486975,
+                49.15331299215597
+              ],
+              [
+                9.277919007242609,
+                49.15336808469706
+              ],
+              [
+                9.277933796382506,
+                49.153429155249306
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1674,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.266073076427762,
+                49.15268201073353
+              ],
+              [
+                9.266058287510916,
+                49.15274308128578
+              ],
+              [
+                9.266015368402599,
+                49.152798173826866
+              ],
+              [
+                9.265948520324168,
+                49.152841895515024
+              ],
+              [
+                9.265864286831297,
+                49.15286996656679
+              ],
+              [
+                9.26577091328516,
+                49.15287963919203
+              ],
+              [
+                9.265677539739022,
+                49.15286996656679
+              ],
+              [
+                9.265593306246151,
+                49.152841895515024
+              ],
+              [
+                9.26552645816772,
+                49.152798173826866
+              ],
+              [
+                9.265483539059403,
+                49.15274308128578
+              ],
+              [
+                9.265468750142556,
+                49.15268201073353
+              ],
+              [
+                9.265483539059403,
+                49.15262094018128
+              ],
+              [
+                9.26552645816772,
+                49.15256584764019
+              ],
+              [
+                9.265593306246151,
+                49.15252212595203
+              ],
+              [
+                9.265677539739022,
+                49.15249405490027
+              ],
+              [
+                9.26577091328516,
+                49.15248438227503
+              ],
+              [
+                9.265864286831297,
+                49.15249405490027
+              ],
+              [
+                9.265948520324168,
+                49.15252212595203
+              ],
+              [
+                9.266015368402599,
+                49.15256584764019
+              ],
+              [
+                9.266058287510916,
+                49.15262094018128
+              ],
+              [
+                9.266073076427762,
+                49.15268201073353
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1669,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.283565677654172,
+                49.153192922448106
+              ],
+              [
+                9.2835508885848,
+                49.153253993000355
+              ],
+              [
+                9.283507969033838,
+                49.153309085541444
+              ],
+              [
+                9.283441120265971,
+                49.1533528072296
+              ],
+              [
+                9.283356885904363,
+                49.15338087828137
+              ],
+              [
+                9.28326351139522,
+                49.15339055090661
+              ],
+              [
+                9.283170136886076,
+                49.15338087828137
+              ],
+              [
+                9.283085902524467,
+                49.1533528072296
+              ],
+              [
+                9.2830190537566,
+                49.153309085541444
+              ],
+              [
+                9.282976134205638,
+                49.153253993000355
+              ],
+              [
+                9.282961345136266,
+                49.153192922448106
+              ],
+              [
+                9.282976134205638,
+                49.15313185189586
+              ],
+              [
+                9.2830190537566,
+                49.15307675935477
+              ],
+              [
+                9.283085902524467,
+                49.15303303766661
+              ],
+              [
+                9.283170136886076,
+                49.153004966614844
+              ],
+              [
+                9.28326351139522,
+                49.152995293989605
+              ],
+              [
+                9.283356885904363,
+                49.153004966614844
+              ],
+              [
+                9.283441120265971,
+                49.15303303766661
+              ],
+              [
+                9.283507969033838,
+                49.15307675935477
+              ],
+              [
+                9.2835508885848,
+                49.15313185189586
+              ],
+              [
+                9.283565677654172,
+                49.153192922448106
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1651,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.275164104531123,
+                49.13867727644627
+              ],
+              [
+                9.275149252590143,
+                49.13873862459194
+              ],
+              [
+                9.275106150578667,
+                49.138793967553674
+              ],
+              [
+                9.275039017621888,
+                49.13883788797678
+              ],
+              [
+                9.274954425161354,
+                49.13886608662423
+              ],
+              [
+                9.274860653696498,
+                49.138875803215946
+              ],
+              [
+                9.274766882231642,
+                49.13886608662423
+              ],
+              [
+                9.274682289771109,
+                49.13883788797678
+              ],
+              [
+                9.27461515681433,
+                49.138793967553674
+              ],
+              [
+                9.274572054802853,
+                49.13873862459194
+              ],
+              [
+                9.274557202861873,
+                49.13867727644627
+              ],
+              [
+                9.274572054802853,
+                49.13861592830061
+              ],
+              [
+                9.27461515681433,
+                49.13856058533887
+              ],
+              [
+                9.274682289771109,
+                49.13851666491577
+              ],
+              [
+                9.274766882231642,
+                49.13848846626831
+              ],
+              [
+                9.274860653696498,
+                49.1384787496766
+              ],
+              [
+                9.274954425161354,
+                49.13848846626831
+              ],
+              [
+                9.275039017621888,
+                49.13851666491577
+              ],
+              [
+                9.275106150578667,
+                49.13856058533887
+              ],
+              [
+                9.275149252590143,
+                49.13861592830061
+              ],
+              [
+                9.275164104531123,
+                49.13867727644627
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1646,
+          "support_count": 1,
+          "radius_m": 22.1,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.285429645459462,
+                49.15320977865722
+              ],
+              [
+                9.285414789161994,
+                49.153271126802885
+              ],
+              [
+                9.285371674507493,
+                49.15332646976462
+              ],
+              [
+                9.285304521858741,
+                49.153370390187725
+              ],
+              [
+                9.285219904584876,
+                49.15339858883518
+              ],
+              [
+                9.28512610561423,
+                49.15340830542689
+              ],
+              [
+                9.285032306643584,
+                49.15339858883518
+              ],
+              [
+                9.28494768936972,
+                49.153370390187725
+              ],
+              [
+                9.284880536720967,
+                49.15332646976462
+              ],
+              [
+                9.284837422066467,
+                49.153271126802885
+              ],
+              [
+                9.284822565768998,
+                49.15320977865722
+              ],
+              [
+                9.284837422066467,
+                49.15314843051156
+              ],
+              [
+                9.284880536720967,
+                49.15309308754982
+              ],
+              [
+                9.28494768936972,
+                49.15304916712672
+              ],
+              [
+                9.285032306643584,
+                49.15302096847926
+              ],
+              [
+                9.28512610561423,
+                49.15301125188755
+              ],
+              [
+                9.285219904584876,
+                49.15302096847926
+              ],
+              [
+                9.285304521858741,
+                49.15304916712672
+              ],
+              [
+                9.285371674507493,
+                49.15309308754982
+              ],
+              [
+                9.285414789161994,
+                49.15314843051156
+              ],
+              [
+                9.285429645459462,
+                49.15320977865722
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1631,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.286840755911816,
+                49.156362654665465
+              ],
+              [
+                9.286825965896073,
+                49.156423725217714
+              ],
+              [
+                9.286783043598632,
+                49.1564788177588
+              ],
+              [
+                9.286716190553022,
+                49.15652253944696
+              ],
+              [
+                9.286631950801144,
+                49.156550610498726
+              ],
+              [
+                9.286538570316843,
+                49.156560283123966
+              ],
+              [
+                9.286445189832541,
+                49.156550610498726
+              ],
+              [
+                9.286360950080663,
+                49.15652253944696
+              ],
+              [
+                9.286294097035054,
+                49.1564788177588
+              ],
+              [
+                9.286251174737613,
+                49.156423725217714
+              ],
+              [
+                9.28623638472187,
+                49.156362654665465
+              ],
+              [
+                9.286251174737613,
+                49.156301584113216
+              ],
+              [
+                9.286294097035054,
+                49.156246491572126
+              ],
+              [
+                9.286360950080663,
+                49.15620276988397
+              ],
+              [
+                9.286445189832541,
+                49.1561746988322
+              ],
+              [
+                9.286538570316843,
+                49.15616502620696
+              ],
+              [
+                9.286631950801144,
+                49.1561746988322
+              ],
+              [
+                9.286716190553022,
+                49.15620276988397
+              ],
+              [
+                9.286783043598632,
+                49.156246491572126
+              ],
+              [
+                9.286825965896073,
+                49.156301584113216
+              ],
+              [
+                9.286840755911816,
+                49.156362654665465
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1607,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.282573281773118,
+                49.155362601471204
+              ],
+              [
+                9.282558492055974,
+                49.15542367202345
+              ],
+              [
+                9.282515570625103,
+                49.15547876456454
+              ],
+              [
+                9.282448718929206,
+                49.1555224862527
+              ],
+              [
+                9.282364480878064,
+                49.155550557304466
+              ],
+              [
+                9.282271102279044,
+                49.155560229929705
+              ],
+              [
+                9.282177723680023,
+                49.155550557304466
+              ],
+              [
+                9.28209348562888,
+                49.1555224862527
+              ],
+              [
+                9.282026633932984,
+                49.15547876456454
+              ],
+              [
+                9.281983712502113,
+                49.15542367202345
+              ],
+              [
+                9.28196892278497,
+                49.155362601471204
+              ],
+              [
+                9.281983712502113,
+                49.155301530918955
+              ],
+              [
+                9.282026633932984,
+                49.155246438377866
+              ],
+              [
+                9.28209348562888,
+                49.15520271668971
+              ],
+              [
+                9.282177723680023,
+                49.15517464563794
+              ],
+              [
+                9.282271102279044,
+                49.1551649730127
+              ],
+              [
+                9.282364480878064,
+                49.15517464563794
+              ],
+              [
+                9.282448718929206,
+                49.15520271668971
+              ],
+              [
+                9.282515570625103,
+                49.155246438377866
+              ],
+              [
+                9.282558492055974,
+                49.155301530918955
+              ],
+              [
+                9.282573281773118,
+                49.155362601471204
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1605,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.275753557963721,
+                49.15170533125932
+              ],
+              [
+                9.275738769338437,
+                49.15176640181157
+              ],
+              [
+                9.27569585107626,
+                49.15182149435266
+              ],
+              [
+                9.275629004315729,
+                49.15186521604082
+              ],
+              [
+                9.275544772483507,
+                49.151893287092584
+              ],
+              [
+                9.275451400778211,
+                49.15190295971782
+              ],
+              [
+                9.275358029072915,
+                49.151893287092584
+              ],
+              [
+                9.275273797240693,
+                49.15186521604082
+              ],
+              [
+                9.275206950480161,
+                49.15182149435266
+              ],
+              [
+                9.275164032217985,
+                49.15176640181157
+              ],
+              [
+                9.2751492435927,
+                49.15170533125932
+              ],
+              [
+                9.275164032217985,
+                49.15164426070707
+              ],
+              [
+                9.275206950480161,
+                49.151589168165984
+              ],
+              [
+                9.275273797240693,
+                49.151545446477826
+              ],
+              [
+                9.275358029072915,
+                49.15151737542606
+              ],
+              [
+                9.275451400778211,
+                49.15150770280082
+              ],
+              [
+                9.275544772483507,
+                49.15151737542606
+              ],
+              [
+                9.275629004315729,
+                49.151545446477826
+              ],
+              [
+                9.27569585107626,
+                49.151589168165984
+              ],
+              [
+                9.275738769338437,
+                49.15164426070707
+              ],
+              [
+                9.275753557963721,
+                49.15170533125932
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1557,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.27566208354229,
+                49.14117729229165
+              ],
+              [
+                9.27564729805886,
+                49.1412383628439
+              ],
+              [
+                9.275604388914703,
+                49.14129345538499
+              ],
+              [
+                9.275537556355816,
+                49.14133717707315
+              ],
+              [
+                9.275453342418711,
+                49.14136524812491
+              ],
+              [
+                9.275359990550307,
+                49.14137492075015
+              ],
+              [
+                9.275266638681902,
+                49.14136524812491
+              ],
+              [
+                9.275182424744797,
+                49.14133717707315
+              ],
+              [
+                9.27511559218591,
+                49.14129345538499
+              ],
+              [
+                9.275072683041753,
+                49.1412383628439
+              ],
+              [
+                9.275057897558323,
+                49.14117729229165
+              ],
+              [
+                9.275072683041753,
+                49.1411162217394
+              ],
+              [
+                9.27511559218591,
+                49.14106112919831
+              ],
+              [
+                9.275182424744797,
+                49.141017407510155
+              ],
+              [
+                9.275266638681902,
+                49.14098933645839
+              ],
+              [
+                9.275359990550307,
+                49.14097966383315
+              ],
+              [
+                9.275453342418711,
+                49.14098933645839
+              ],
+              [
+                9.275537556355816,
+                49.141017407510155
+              ],
+              [
+                9.275604388914703,
+                49.14106112919831
+              ],
+              [
+                9.27564729805886,
+                49.1411162217394
+              ],
+              [
+                9.27566208354229,
+                49.14117729229165
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.155,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.273266144139068,
+                49.144096407934306
+              ],
+              [
+                9.273251357784677,
+                49.144157478486555
+              ],
+              [
+                9.273208446112896,
+                49.144212571027644
+              ],
+              [
+                9.27314160961714,
+                49.1442562927158
+              ],
+              [
+                9.273057390719293,
+                49.14428436376757
+              ],
+              [
+                9.272964033351862,
+                49.14429403639281
+              ],
+              [
+                9.27287067598443,
+                49.14428436376757
+              ],
+              [
+                9.272786457086584,
+                49.1442562927158
+              ],
+              [
+                9.272719620590827,
+                49.144212571027644
+              ],
+              [
+                9.272676708919047,
+                49.144157478486555
+              ],
+              [
+                9.272661922564655,
+                49.144096407934306
+              ],
+              [
+                9.272676708919047,
+                49.14403533738206
+              ],
+              [
+                9.272719620590827,
+                49.14398024484097
+              ],
+              [
+                9.272786457086584,
+                49.14393652315281
+              ],
+              [
+                9.27287067598443,
+                49.143908452101044
+              ],
+              [
+                9.272964033351862,
+                49.143898779475805
+              ],
+              [
+                9.273057390719293,
+                49.143908452101044
+              ],
+              [
+                9.27314160961714,
+                49.14393652315281
+              ],
+              [
+                9.273208446112896,
+                49.14398024484097
+              ],
+              [
+                9.273251357784677,
+                49.14403533738206
+              ],
+              [
+                9.273266144139068,
+                49.144096407934306
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1549,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.275247840660642,
+                49.14692650616904
+              ],
+              [
+                9.275233053461715,
+                49.14698757672129
+              ],
+              [
+                9.275190139338997,
+                49.147042669262376
+              ],
+              [
+                9.275123299025818,
+                49.147086390950534
+              ],
+              [
+                9.275039075317737,
+                49.1471144620023
+              ],
+              [
+                9.274945712618122,
+                49.14712413462754
+              ],
+              [
+                9.274852349918506,
+                49.1471144620023
+              ],
+              [
+                9.274768126210425,
+                49.147086390950534
+              ],
+              [
+                9.274701285897246,
+                49.147042669262376
+              ],
+              [
+                9.274658371774528,
+                49.14698757672129
+              ],
+              [
+                9.274643584575601,
+                49.14692650616904
+              ],
+              [
+                9.274658371774528,
+                49.14686543561679
+              ],
+              [
+                9.274701285897246,
+                49.1468103430757
+              ],
+              [
+                9.274768126210425,
+                49.14676662138754
+              ],
+              [
+                9.274852349918506,
+                49.146738550335776
+              ],
+              [
+                9.274945712618122,
+                49.14672887771054
+              ],
+              [
+                9.275039075317737,
+                49.146738550335776
+              ],
+              [
+                9.275123299025818,
+                49.14676662138754
+              ],
+              [
+                9.275190139338997,
+                49.1468103430757
+              ],
+              [
+                9.275233053461715,
+                49.14686543561679
+              ],
+              [
+                9.275247840660642,
+                49.14692650616904
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1488,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.270663239976676,
+                49.150424007972134
+              ],
+              [
+                9.27064845173387,
+                49.15048507852438
+              ],
+              [
+                9.270605534581696,
+                49.15054017106547
+              ],
+              [
+                9.270538689550028,
+                49.15058389275363
+              ],
+              [
+                9.270454459896303,
+                49.150611963805396
+              ],
+              [
+                9.270361090605892,
+                49.150621636430635
+              ],
+              [
+                9.27026772131548,
+                49.150611963805396
+              ],
+              [
+                9.270183491661756,
+                49.15058389275363
+              ],
+              [
+                9.270116646630088,
+                49.15054017106547
+              ],
+              [
+                9.270073729477915,
+                49.15048507852438
+              ],
+              [
+                9.270058941235108,
+                49.150424007972134
+              ],
+              [
+                9.270073729477915,
+                49.150362937419885
+              ],
+              [
+                9.270116646630088,
+                49.150307844878796
+              ],
+              [
+                9.270183491661756,
+                49.15026412319064
+              ],
+              [
+                9.27026772131548,
+                49.15023605213887
+              ],
+              [
+                9.270361090605892,
+                49.15022637951363
+              ],
+              [
+                9.270454459896303,
+                49.15023605213887
+              ],
+              [
+                9.270538689550028,
+                49.15026412319064
+              ],
+              [
+                9.270605534581696,
+                49.150307844878796
+              ],
+              [
+                9.27064845173387,
+                49.150362937419885
+              ],
+              [
+                9.270663239976676,
+                49.150424007972134
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_medium",
+          "score": 0.1397,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Nicht in der Baseline sichtbar, aber bislang nur begrenzt abgesichert."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.27169394969841,
+                49.145938187972064
+              ],
+              [
+                9.271679162794426,
+                49.14599925852431
+              ],
+              [
+                9.27163624952766,
+                49.1460543510654
+              ],
+              [
+                9.271569410547658,
+                49.14609807275356
+              ],
+              [
+                9.271485188519476,
+                49.146126143805326
+              ],
+              [
+                9.271391827682045,
+                49.146135816430565
+              ],
+              [
+                9.271298466844614,
+                49.146126143805326
+              ],
+              [
+                9.271214244816433,
+                49.14609807275356
+              ],
+              [
+                9.27114740583643,
+                49.1460543510654
+              ],
+              [
+                9.271104492569664,
+                49.14599925852431
+              ],
+              [
+                9.27108970566568,
+                49.145938187972064
+              ],
+              [
+                9.271104492569664,
+                49.145877117419815
+              ],
+              [
+                9.27114740583643,
+                49.145822024878726
+              ],
+              [
+                9.271214244816433,
+                49.14577830319057
+              ],
+              [
+                9.271298466844614,
+                49.1457502321388
+              ],
+              [
+                9.271391827682045,
+                49.14574055951356
+              ],
+              [
+                9.271485188519476,
+                49.1457502321388
+              ],
+              [
+                9.271569410547658,
+                49.14577830319057
+              ],
+              [
+                9.27163624952766,
+                49.145822024878726
+              ],
+              [
+                9.271679162794426,
+                49.145877117419815
+              ],
+              [
+                9.27169394969841,
+                49.145938187972064
               ]
             ]
           ]
@@ -16139,110 +19518,6 @@ window.UXO_ANALYSIS_DATA = {
               [
                 9.272066157710482,
                 49.15577192756028
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
-          "score": 0.4074,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.272155044343918,
-                49.154178918924444
-              ],
-              [
-                9.272140254980181,
-                49.15423998947669
-              ],
-              [
-                9.272097334574934,
-                49.15429508201778
-              ],
-              [
-                9.272030484476486,
-                49.15433880370594
-              ],
-              [
-                9.271946248438248,
-                49.154366874757706
-              ],
-              [
-                9.271852872070548,
-                49.154376547382945
-              ],
-              [
-                9.271759495702849,
-                49.154366874757706
-              ],
-              [
-                9.27167525966461,
-                49.15433880370594
-              ],
-              [
-                9.271608409566163,
-                49.15429508201778
-              ],
-              [
-                9.271565489160915,
-                49.15423998947669
-              ],
-              [
-                9.271550699797178,
-                49.154178918924444
-              ],
-              [
-                9.271565489160915,
-                49.154117848372195
-              ],
-              [
-                9.271608409566163,
-                49.154062755831106
-              ],
-              [
-                9.27167525966461,
-                49.15401903414295
-              ],
-              [
-                9.271759495702849,
-                49.15399096309118
-              ],
-              [
-                9.271852872070548,
-                49.15398129046594
-              ],
-              [
-                9.271946248438248,
-                49.15399096309118
-              ],
-              [
-                9.272030484476486,
-                49.15401903414295
-              ],
-              [
-                9.272097334574934,
-                49.154062755831106
-              ],
-              [
-                9.272140254980181,
-                49.154117848372195
-              ],
-              [
-                9.272155044343918,
-                49.154178918924444
               ]
             ]
           ]
@@ -17087,110 +20362,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3856,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.294227876210252,
-                49.14418585602278
-              ],
-              [
-                9.294213089829173,
-                49.14424692657503
-              ],
-              [
-                9.294170178079932,
-                49.14430201911612
-              ],
-              [
-                9.294103341463531,
-                49.144345740804276
-              ],
-              [
-                9.294019122413664,
-                49.14437381185604
-              ],
-              [
-                9.293925764877716,
-                49.14438348448128
-              ],
-              [
-                9.29383240734177,
-                49.14437381185604
-              ],
-              [
-                9.293748188291902,
-                49.144345740804276
-              ],
-              [
-                9.2936813516755,
-                49.14430201911612
-              ],
-              [
-                9.29363843992626,
-                49.14424692657503
-              ],
-              [
-                9.29362365354518,
-                49.14418585602278
-              ],
-              [
-                9.29363843992626,
-                49.14412478547053
-              ],
-              [
-                9.2936813516755,
-                49.14406969292944
-              ],
-              [
-                9.293748188291902,
-                49.144025971241284
-              ],
-              [
-                9.29383240734177,
-                49.14399790018952
-              ],
-              [
-                9.293925764877716,
-                49.14398822756428
-              ],
-              [
-                9.294019122413664,
-                49.14399790018952
-              ],
-              [
-                9.294103341463531,
-                49.144025971241284
-              ],
-              [
-                9.294170178079932,
-                49.14406969292944
-              ],
-              [
-                9.294213089829173,
-                49.14412478547053
-              ],
-              [
-                9.294227876210252,
-                49.14418585602278
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
           "score": 0.3823,
           "support_count": 1,
           "radius_m": 22.0,
@@ -17295,7 +20466,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3603,
+          "score": 0.382,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
@@ -17305,88 +20476,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.271852906849068,
-                49.158821581685956
+                9.272286318366538,
+                49.152616100071654
               ],
               [
-                9.27183811609906,
-                49.158882652238205
+                9.272271529469368,
+                49.1526771706239
               ],
               [
-                9.271795191670698,
-                49.158937744779294
+                9.272228610418153,
+                49.15273226316499
               ],
               [
-                9.271728335306104,
-                49.15898146646745
+                9.272161762428663,
+                49.15277598485315
               ],
               [
-                9.27164409137206,
-                49.15900953751922
+                9.272077529047863,
+                49.152804055904916
               ],
               [
-                9.27155070625179,
-                49.15901921014446
+                9.271984155625956,
+                49.152813728530155
               ],
               [
-                9.271457321131521,
-                49.15900953751922
+                9.27189078220405,
+                49.152804055904916
               ],
               [
-                9.271373077197477,
-                49.15898146646745
+                9.27180654882325,
+                49.15277598485315
               ],
               [
-                9.271306220832884,
-                49.158937744779294
+                9.27173970083376,
+                49.15273226316499
               ],
               [
-                9.271263296404522,
-                49.158882652238205
+                9.271696781782545,
+                49.1526771706239
               ],
               [
-                9.271248505654514,
-                49.158821581685956
+                9.271681992885375,
+                49.152616100071654
               ],
               [
-                9.271263296404522,
-                49.15876051113371
+                9.271696781782545,
+                49.152555029519405
               ],
               [
-                9.271306220832884,
-                49.15870541859262
+                9.27173970083376,
+                49.152499936978316
               ],
               [
-                9.271373077197477,
-                49.15866169690446
+                9.27180654882325,
+                49.15245621529016
               ],
               [
-                9.271457321131521,
-                49.158633625852694
+                9.27189078220405,
+                49.15242814423839
               ],
               [
-                9.27155070625179,
-                49.158623953227455
+                9.271984155625956,
+                49.15241847161315
               ],
               [
-                9.27164409137206,
-                49.158633625852694
+                9.272077529047863,
+                49.15242814423839
               ],
               [
-                9.271728335306104,
-                49.15866169690446
+                9.272161762428663,
+                49.15245621529016
               ],
               [
-                9.271795191670698,
-                49.15870541859262
+                9.272228610418153,
+                49.152499936978316
               ],
               [
-                9.27183811609906,
-                49.15876051113371
+                9.272271529469368,
+                49.152555029519405
               ],
               [
-                9.271852906849068,
-                49.158821581685956
+                9.272286318366538,
+                49.152616100071654
               ]
             ]
           ]
@@ -17595,6 +20766,110 @@ window.UXO_ANALYSIS_DATA = {
               [
                 9.29111823092133,
                 49.1581111248742
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.3392,
+          "support_count": 1,
+          "radius_m": 22.0,
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.294139330631184,
+                49.1441833910254
+              ],
+              [
+                9.29412454425084,
+                49.14424446157765
+              ],
+              [
+                9.294081632503733,
+                49.14429955411874
+              ],
+              [
+                9.294014795890659,
+                49.1443432758069
+              ],
+              [
+                9.29393057684498,
+                49.14437134685866
+              ],
+              [
+                9.293837219313676,
+                49.1443810194839
+              ],
+              [
+                9.293743861782373,
+                49.14437134685866
+              ],
+              [
+                9.293659642736694,
+                49.1443432758069
+              ],
+              [
+                9.29359280612362,
+                49.14429955411874
+              ],
+              [
+                9.293549894376513,
+                49.14424446157765
+              ],
+              [
+                9.293535107996169,
+                49.1441833910254
+              ],
+              [
+                9.293549894376513,
+                49.14412232047315
+              ],
+              [
+                9.29359280612362,
+                49.14406722793206
+              ],
+              [
+                9.293659642736694,
+                49.144023506243904
+              ],
+              [
+                9.293743861782373,
+                49.14399543519214
+              ],
+              [
+                9.293837219313676,
+                49.1439857625669
+              ],
+              [
+                9.29393057684498,
+                49.14399543519214
+              ],
+              [
+                9.294014795890659,
+                49.144023506243904
+              ],
+              [
+                9.294081632503733,
+                49.14406722793206
+              ],
+              [
+                9.29412454425084,
+                49.14412232047315
+              ],
+              [
+                9.294139330631184,
+                49.1441833910254
               ]
             ]
           ]
@@ -17919,110 +21194,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3318,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.27373649281821,
-                49.158274563807765
-              ],
-              [
-                9.273721702231558,
-                49.158335634360014
-              ],
-              [
-                9.27367877827727,
-                49.158390726901104
-              ],
-              [
-                9.273611922651064,
-                49.15843444858926
-              ],
-              [
-                9.273527679647442,
-                49.15846251964103
-              ],
-              [
-                9.273434295558554,
-                49.15847219226627
-              ],
-              [
-                9.273340911469665,
-                49.15846251964103
-              ],
-              [
-                9.273256668466043,
-                49.15843444858926
-              ],
-              [
-                9.273189812839837,
-                49.158390726901104
-              ],
-              [
-                9.273146888885549,
-                49.158335634360014
-              ],
-              [
-                9.273132098298897,
-                49.158274563807765
-              ],
-              [
-                9.273146888885549,
-                49.158213493255516
-              ],
-              [
-                9.273189812839837,
-                49.15815840071443
-              ],
-              [
-                9.273256668466043,
-                49.15811467902627
-              ],
-              [
-                9.273340911469665,
-                49.158086607974504
-              ],
-              [
-                9.273434295558554,
-                49.158076935349264
-              ],
-              [
-                9.273527679647442,
-                49.158086607974504
-              ],
-              [
-                9.273611922651064,
-                49.15811467902627
-              ],
-              [
-                9.27367877827727,
-                49.15815840071443
-              ],
-              [
-                9.273721702231558,
-                49.158213493255516
-              ],
-              [
-                9.27373649281821,
-                49.158274563807765
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
           "score": 0.3263,
           "support_count": 2,
           "radius_m": 22.0,
@@ -18115,110 +21286,6 @@ window.UXO_ANALYSIS_DATA = {
               [
                 9.292414666554963,
                 49.15816171016225
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
-          "score": 0.3262,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.287251932183118,
-                49.14392396521259
-              ],
-              [
-                9.287237145880182,
-                49.14398503576484
-              ],
-              [
-                9.287194234357727,
-                49.14404012830593
-              ],
-              [
-                9.287127398094555,
-                49.14408384999409
-              ],
-              [
-                9.287043179489778,
-                49.144111921045855
-              ],
-              [
-                9.28694982244722,
-                49.144121593671095
-              ],
-              [
-                9.28685646540466,
-                49.144111921045855
-              ],
-              [
-                9.286772246799885,
-                49.14408384999409
-              ],
-              [
-                9.286705410536712,
-                49.14404012830593
-              ],
-              [
-                9.286662499014257,
-                49.14398503576484
-              ],
-              [
-                9.286647712711321,
-                49.14392396521259
-              ],
-              [
-                9.286662499014257,
-                49.143862894660344
-              ],
-              [
-                9.286705410536712,
-                49.143807802119255
-              ],
-              [
-                9.286772246799885,
-                49.1437640804311
-              ],
-              [
-                9.28685646540466,
-                49.14373600937933
-              ],
-              [
-                9.28694982244722,
-                49.14372633675409
-              ],
-              [
-                9.287043179489778,
-                49.14373600937933
-              ],
-              [
-                9.287127398094555,
-                49.1437640804311
-              ],
-              [
-                9.287194234357727,
-                49.143807802119255
-              ],
-              [
-                9.287237145880182,
-                49.143862894660344
-              ],
-              [
-                9.287251932183118,
-                49.14392396521259
               ]
             ]
           ]
@@ -18531,6 +21598,110 @@ window.UXO_ANALYSIS_DATA = {
               [
                 9.292236302850256,
                 49.15842271688088
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.322,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.287412159599013,
+                49.14392842571788
+              ],
+              [
+                9.287397373294745,
+                49.14398949627013
+              ],
+              [
+                9.287354461768428,
+                49.14404458881122
+              ],
+              [
+                9.28728762549924,
+                49.14408831049938
+              ],
+              [
+                9.287203406886883,
+                49.14411638155114
+              ],
+              [
+                9.28711004983592,
+                49.14412605417638
+              ],
+              [
+                9.287016692784958,
+                49.14411638155114
+              ],
+              [
+                9.286932474172602,
+                49.14408831049938
+              ],
+              [
+                9.286865637903412,
+                49.14404458881122
+              ],
+              [
+                9.286822726377096,
+                49.14398949627013
+              ],
+              [
+                9.286807940072828,
+                49.14392842571788
+              ],
+              [
+                9.286822726377096,
+                49.14386735516563
+              ],
+              [
+                9.286865637903412,
+                49.14381226262454
+              ],
+              [
+                9.286932474172602,
+                49.143768540936385
+              ],
+              [
+                9.287016692784958,
+                49.14374046988462
+              ],
+              [
+                9.28711004983592,
+                49.14373079725938
+              ],
+              [
+                9.287203406886883,
+                49.14374046988462
+              ],
+              [
+                9.28728762549924,
+                49.143768540936385
+              ],
+              [
+                9.287354461768428,
+                49.14381226262454
+              ],
+              [
+                9.287397373294745,
+                49.14386735516563
+              ],
+              [
+                9.287412159599013,
+                49.14392842571788
               ]
             ]
           ]
@@ -18959,110 +22130,6 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3172,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.28912614721471,
-                49.14397614071588
-              ],
-              [
-                9.289111360896205,
-                49.14403721126813
-              ],
-              [
-                9.28906844932857,
-                49.14409230380922
-              ],
-              [
-                9.289001612995024,
-                49.144136025497374
-              ],
-              [
-                9.288917394301574,
-                49.14416409654914
-              ],
-              [
-                9.28882403716072,
-                49.14417376917438
-              ],
-              [
-                9.288730680019867,
-                49.14416409654914
-              ],
-              [
-                9.288646461326417,
-                49.144136025497374
-              ],
-              [
-                9.288579624992872,
-                49.14409230380922
-              ],
-              [
-                9.288536713425236,
-                49.14403721126813
-              ],
-              [
-                9.288521927106732,
-                49.14397614071588
-              ],
-              [
-                9.288536713425236,
-                49.14391507016363
-              ],
-              [
-                9.288579624992872,
-                49.14385997762254
-              ],
-              [
-                9.288646461326417,
-                49.14381625593438
-              ],
-              [
-                9.288730680019867,
-                49.14378818488262
-              ],
-              [
-                9.28882403716072,
-                49.14377851225738
-              ],
-              [
-                9.288917394301574,
-                49.14378818488262
-              ],
-              [
-                9.289001612995024,
-                49.14381625593438
-              ],
-              [
-                9.28906844932857,
-                49.14385997762254
-              ],
-              [
-                9.289111360896205,
-                49.14391507016363
-              ],
-              [
-                9.28912614721471,
-                49.14397614071588
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
           "score": 0.3171,
           "support_count": 1,
           "radius_m": 22.0,
@@ -19271,7 +22338,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3145,
+          "score": 0.315,
           "support_count": 2,
           "radius_m": 22.0,
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
@@ -19281,192 +22348,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.293390738184607,
-                49.15829677540986
+                9.289287325240002,
+                49.1439806276848
               ],
               [
-                9.29337594759132,
-                49.15835784596211
+                9.289272538920159,
+                49.14404169823705
               ],
               [
-                9.293333023617784,
-                49.1584129385032
+                9.289229627348638,
+                49.144096790778136
               ],
               [
-                9.293266167961596,
-                49.158456660191355
+                9.289162791009042,
+                49.144140512466294
               ],
               [
-                9.293181924920194,
-                49.15848473124312
+                9.289078572307966,
+                49.14416858351806
               ],
               [
-                9.293088540789428,
-                49.15849440386836
+                9.28898521515866,
+                49.1441782561433
               ],
               [
-                9.292995156658662,
-                49.15848473124312
+                9.288891858009352,
+                49.14416858351806
               ],
               [
-                9.292910913617261,
-                49.158456660191355
+                9.288807639308276,
+                49.144140512466294
               ],
               [
-                9.292844057961073,
-                49.1584129385032
+                9.28874080296868,
+                49.144096790778136
               ],
               [
-                9.292801133987536,
-                49.15835784596211
+                9.28869789139716,
+                49.14404169823705
               ],
               [
-                9.29278634339425,
-                49.15829677540986
+                9.288683105077316,
+                49.1439806276848
               ],
               [
-                9.292801133987536,
-                49.15823570485761
+                9.28869789139716,
+                49.14391955713255
               ],
               [
-                9.292844057961073,
-                49.15818061231652
+                9.28874080296868,
+                49.14386446459146
               ],
               [
-                9.292910913617261,
-                49.15813689062836
+                9.288807639308276,
+                49.1438207429033
               ],
               [
-                9.292995156658662,
-                49.1581088195766
+                9.288891858009352,
+                49.143792671851536
               ],
               [
-                9.293088540789428,
-                49.15809914695136
+                9.28898521515866,
+                49.143782999226296
               ],
               [
-                9.293181924920194,
-                49.1581088195766
+                9.289078572307966,
+                49.143792671851536
               ],
               [
-                9.293266167961596,
-                49.15813689062836
+                9.289162791009042,
+                49.1438207429033
               ],
               [
-                9.293333023617784,
-                49.15818061231652
+                9.289229627348638,
+                49.14386446459146
               ],
               [
-                9.29337594759132,
-                49.15823570485761
+                9.289272538920159,
+                49.14391955713255
               ],
               [
-                9.293390738184607,
-                49.15829677540986
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "feature_type": "impact_candidate_zone",
-          "objektklasse": "bombenkrater_verdachtsflaeche",
-          "analysis_profile": "crater_v1",
-          "analysis_status": "candidate_low",
-          "score": 0.3136,
-          "support_count": 1,
-          "radius_m": 22.0,
-          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
-        },
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                9.286779060589348,
-                49.1439204710263
-              ],
-              [
-                9.286764274287455,
-                49.14398154157855
-              ],
-              [
-                9.286721362768025,
-                49.14403663411964
-              ],
-              [
-                9.286654526509565,
-                49.144080355807795
-              ],
-              [
-                9.286570307910727,
-                49.14410842685956
-              ],
-              [
-                9.286476950874752,
-                49.1441180994848
-              ],
-              [
-                9.286383593838776,
-                49.14410842685956
-              ],
-              [
-                9.286299375239938,
-                49.144080355807795
-              ],
-              [
-                9.286232538981478,
-                49.14403663411964
-              ],
-              [
-                9.286189627462049,
-                49.14398154157855
-              ],
-              [
-                9.286174841160156,
-                49.1439204710263
-              ],
-              [
-                9.286189627462049,
-                49.14385940047405
-              ],
-              [
-                9.286232538981478,
-                49.14380430793296
-              ],
-              [
-                9.286299375239938,
-                49.1437605862448
-              ],
-              [
-                9.286383593838776,
-                49.14373251519304
-              ],
-              [
-                9.286476950874752,
-                49.1437228425678
-              ],
-              [
-                9.286570307910727,
-                49.14373251519304
-              ],
-              [
-                9.286654526509565,
-                49.1437605862448
-              ],
-              [
-                9.286721362768025,
-                49.14380430793296
-              ],
-              [
-                9.286764274287455,
-                49.14385940047405
-              ],
-              [
-                9.286779060589348,
-                49.1439204710263
+                9.289287325240002,
+                49.1439806276848
               ]
             ]
           ]
@@ -19583,6 +22546,110 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
+          "score": 0.3124,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.286889312787123,
+                49.143923540294374
+              ],
+              [
+                9.286874526484313,
+                49.14398461084662
+              ],
+              [
+                9.286831614962226,
+                49.14403970338771
+              ],
+              [
+                9.286764778699627,
+                49.14408342507587
+              ],
+              [
+                9.286680560095572,
+                49.144111496127636
+              ],
+              [
+                9.286587203053815,
+                49.144121168752875
+              ],
+              [
+                9.286493846012057,
+                49.144111496127636
+              ],
+              [
+                9.286409627408002,
+                49.14408342507587
+              ],
+              [
+                9.286342791145403,
+                49.14403970338771
+              ],
+              [
+                9.286299879623316,
+                49.14398461084662
+              ],
+              [
+                9.286285093320506,
+                49.143923540294374
+              ],
+              [
+                9.286299879623316,
+                49.143862469742125
+              ],
+              [
+                9.286342791145403,
+                49.143807377201036
+              ],
+              [
+                9.286409627408002,
+                49.14376365551288
+              ],
+              [
+                9.286493846012057,
+                49.14373558446111
+              ],
+              [
+                9.286587203053815,
+                49.14372591183587
+              ],
+              [
+                9.286680560095572,
+                49.14373558446111
+              ],
+              [
+                9.286764778699627,
+                49.14376365551288
+              ],
+              [
+                9.286831614962226,
+                49.143807377201036
+              ],
+              [
+                9.286874526484313,
+                49.143862469742125
+              ],
+              [
+                9.286889312787123,
+                49.143923540294374
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
           "score": 0.3111,
           "support_count": 1,
           "radius_m": 22.0,
@@ -19687,7 +22754,7 @@ window.UXO_ANALYSIS_DATA = {
           "objektklasse": "bombenkrater_verdachtsflaeche",
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
-          "score": 0.3099,
+          "score": 0.308,
           "support_count": 1,
           "radius_m": 22.0,
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
@@ -19697,88 +22764,192 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.275238618667947,
-                49.143599201150295
+                9.2811838334518,
+                49.158105008687734
               ],
               [
-                9.275223832461915,
-                49.143660271702544
+                9.28116904291578,
+                49.15816607923998
               ],
               [
-                9.275180921220688,
-                49.14371536424363
+                9.281126119108434,
+                49.15822117178107
               ],
               [
-                9.275114085395536,
-                49.14375908593179
+                9.281059263711096,
+                49.15826489346923
               ],
               [
-                9.275029867342697,
-                49.14378715698356
+                9.280975020995864,
+                49.158292964520996
               ],
               [
-                9.274936510911967,
-                49.143796829608796
+                9.28088163722666,
+                49.158302637146235
               ],
               [
-                9.274843154481237,
-                49.14378715698356
+                9.280788253457455,
+                49.158292964520996
               ],
               [
-                9.274758936428398,
-                49.14375908593179
+                9.280704010742223,
+                49.15826489346923
               ],
               [
-                9.274692100603247,
-                49.14371536424363
+                9.280637155344886,
+                49.15822117178107
               ],
               [
-                9.27464918936202,
-                49.143660271702544
+                9.28059423153754,
+                49.15816607923998
               ],
               [
-                9.274634403155988,
-                49.143599201150295
+                9.28057944100152,
+                49.158105008687734
               ],
               [
-                9.27464918936202,
-                49.143538130598046
+                9.28059423153754,
+                49.158043938135485
               ],
               [
-                9.274692100603247,
-                49.14348303805696
+                9.280637155344886,
+                49.157988845594396
               ],
               [
-                9.274758936428398,
-                49.1434393163688
+                9.280704010742223,
+                49.15794512390624
               ],
               [
-                9.274843154481237,
-                49.14341124531703
+                9.280788253457455,
+                49.15791705285447
               ],
               [
-                9.274936510911967,
-                49.14340157269179
+                9.28088163722666,
+                49.15790738022923
               ],
               [
-                9.275029867342697,
-                49.14341124531703
+                9.280975020995864,
+                49.15791705285447
               ],
               [
-                9.275114085395536,
-                49.1434393163688
+                9.281059263711096,
+                49.15794512390624
               ],
               [
-                9.275180921220688,
-                49.14348303805696
+                9.281126119108434,
+                49.157988845594396
               ],
               [
-                9.275223832461915,
-                49.143538130598046
+                9.28116904291578,
+                49.158043938135485
               ],
               [
-                9.275238618667947,
-                49.143599201150295
+                9.2811838334518,
+                49.158105008687734
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.3059,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.273739221767134,
+                49.15833659845797
+              ],
+              [
+                9.273724431161954,
+                49.15839766901022
+              ],
+              [
+                9.273681507153906,
+                49.15845276155131
+              ],
+              [
+                9.273614651443964,
+                49.15849648323947
+              ],
+              [
+                9.273530408334828,
+                49.15852455429123
+              ],
+              [
+                9.273437024128977,
+                49.15853422691647
+              ],
+              [
+                9.273343639923127,
+                49.15852455429123
+              ],
+              [
+                9.273259396813991,
+                49.15849648323947
+              ],
+              [
+                9.273192541104049,
+                49.15845276155131
+              ],
+              [
+                9.273149617096001,
+                49.15839766901022
+              ],
+              [
+                9.273134826490821,
+                49.15833659845797
+              ],
+              [
+                9.273149617096001,
+                49.15827552790572
+              ],
+              [
+                9.273192541104049,
+                49.15822043536463
+              ],
+              [
+                9.273259396813991,
+                49.158176713676475
+              ],
+              [
+                9.273343639923127,
+                49.15814864262471
+              ],
+              [
+                9.273437024128977,
+                49.15813896999947
+              ],
+              [
+                9.273530408334828,
+                49.15814864262471
+              ],
+              [
+                9.273614651443964,
+                49.158176713676475
+              ],
+              [
+                9.273681507153906,
+                49.15822043536463
+              ],
+              [
+                9.273724431161954,
+                49.15827552790572
+              ],
+              [
+                9.273739221767134,
+                49.15833659845797
               ]
             ]
           ]
@@ -19792,7 +22963,7 @@ window.UXO_ANALYSIS_DATA = {
           "analysis_profile": "crater_v1",
           "analysis_status": "candidate_low",
           "score": 0.3051,
-          "support_count": 1,
+          "support_count": 2,
           "radius_m": 22.0,
           "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
         },
@@ -19801,88 +22972,88 @@ window.UXO_ANALYSIS_DATA = {
           "coordinates": [
             [
               [
-                9.29336814308502,
-                49.15943093949606
+                9.275340302032015,
+                49.143602031873925
               ],
               [
-                9.293353352153035,
-                49.15949201004831
+                9.27532551582514,
+                49.143663102426174
               ],
               [
-                9.293310427196557,
-                49.1595471025894
+                9.275282604581461,
+                49.14371819496726
               ],
               [
-                9.2932435700094,
-                49.15959082427756
+                9.27521576875249,
+                49.14376191665542
               ],
               [
-                9.293159325038864,
-                49.159618895329324
+                9.27513155069484,
+                49.14378998770719
               ],
               [
-                9.293065938769638,
-                49.15962856795456
+                9.275038194258778,
+                49.14379966033243
               ],
               [
-                9.292972552500412,
-                49.159618895329324
+                9.274944837822716,
+                49.14378998770719
               ],
               [
-                9.292888307529877,
-                49.15959082427756
+                9.274860619765066,
+                49.14376191665542
               ],
               [
-                9.29282145034272,
-                49.1595471025894
+                9.274793783936095,
+                49.14371819496726
               ],
               [
-                9.292778525386241,
-                49.15949201004831
+                9.274750872692417,
+                49.143663102426174
               ],
               [
-                9.292763734454256,
-                49.15943093949606
+                9.274736086485541,
+                49.143602031873925
               ],
               [
-                9.292778525386241,
-                49.15936986894381
+                9.274750872692417,
+                49.143540961321676
               ],
               [
-                9.29282145034272,
-                49.159314776402724
+                9.274793783936095,
+                49.14348586878059
               ],
               [
-                9.292888307529877,
-                49.159271054714566
+                9.274860619765066,
+                49.14344214709243
               ],
               [
-                9.292972552500412,
-                49.1592429836628
+                9.274944837822716,
+                49.14341407604066
               ],
               [
-                9.293065938769638,
-                49.15923331103756
+                9.275038194258778,
+                49.143404403415424
               ],
               [
-                9.293159325038864,
-                49.1592429836628
+                9.27513155069484,
+                49.14341407604066
               ],
               [
-                9.2932435700094,
-                49.159271054714566
+                9.27521576875249,
+                49.14344214709243
               ],
               [
-                9.293310427196557,
-                49.159314776402724
+                9.275282604581461,
+                49.14348586878059
               ],
               [
-                9.293353352153035,
-                49.15936986894381
+                9.27532551582514,
+                49.143540961321676
               ],
               [
-                9.29336814308502,
-                49.15943093949606
+                9.275340302032015,
+                49.143602031873925
               ]
             ]
           ]
@@ -19987,6 +23158,110 @@ window.UXO_ANALYSIS_DATA = {
               [
                 9.274404022053536,
                 49.14357596713961
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "feature_type": "impact_candidate_zone",
+          "objektklasse": "bombenkrater_verdachtsflaeche",
+          "analysis_profile": "crater_v1",
+          "analysis_status": "candidate_low",
+          "score": 0.2923,
+          "support_count": 2,
+          "radius_m": 22.0,
+          "interpretation": "Schwacher oder nur einbildiger Kandidat; fachliche Nachpruefung erforderlich."
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.272212605796874,
+                49.15423020265231
+              ],
+              [
+                9.272197816417826,
+                49.15429127320456
+              ],
+              [
+                9.272154895968145,
+                49.154346365745646
+              ],
+              [
+                9.272088045800489,
+                49.154390087433804
+              ],
+              [
+                9.272003809675043,
+                49.15441815848557
+              ],
+              [
+                9.271910433210673,
+                49.15442783111081
+              ],
+              [
+                9.271817056746302,
+                49.15441815848557
+              ],
+              [
+                9.271732820620857,
+                49.154390087433804
+              ],
+              [
+                9.271665970453201,
+                49.154346365745646
+              ],
+              [
+                9.27162305000352,
+                49.15429127320456
+              ],
+              [
+                9.271608260624472,
+                49.15423020265231
+              ],
+              [
+                9.27162305000352,
+                49.15416913210006
+              ],
+              [
+                9.271665970453201,
+                49.15411403955897
+              ],
+              [
+                9.271732820620857,
+                49.15407031787081
+              ],
+              [
+                9.271817056746302,
+                49.154042246819046
+              ],
+              [
+                9.271910433210673,
+                49.154032574193806
+              ],
+              [
+                9.272003809675043,
+                49.154042246819046
+              ],
+              [
+                9.272088045800489,
+                49.15407031787081
+              ],
+              [
+                9.272154895968145,
+                49.15411403955897
+              ],
+              [
+                9.272197816417826,
+                49.15416913210006
+              ],
+              [
+                9.272212605796874,
+                49.15423020265231
               ]
             ]
           ]

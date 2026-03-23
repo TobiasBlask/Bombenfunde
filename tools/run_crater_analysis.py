@@ -5,6 +5,7 @@ import argparse
 import json
 import math
 import re
+from collections import deque
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,6 +34,10 @@ PROFILES = {
         "area_buffer_m": 22.0,
         "min_cluster_score_high": 0.18,
         "min_cluster_score_medium": 0.11,
+        "edge_exclusion_px": 96,
+        "edge_exclusion_ratio": 0.06,
+        "border_dark_threshold": 0.06,
+        "border_bright_threshold": 0.94,
     }
 }
 
@@ -275,6 +280,54 @@ def select_local_maxima(score: np.ndarray, threshold: float, suppress_radius: in
     return chosen
 
 
+def build_edge_exclusion_mask(array: np.ndarray, profile: dict) -> np.ndarray:
+    height, width = array.shape
+    edge_margin = max(
+        int(profile.get("edge_exclusion_px", 0)),
+        int(round(min(width, height) * profile.get("edge_exclusion_ratio", 0.0))),
+    )
+    excluded = np.zeros_like(array, dtype=bool)
+    if edge_margin > 0:
+        excluded[:edge_margin, :] = True
+        excluded[-edge_margin:, :] = True
+        excluded[:, :edge_margin] = True
+        excluded[:, -edge_margin:] = True
+    return excluded
+
+
+def build_border_artifact_mask(array: np.ndarray, profile: dict) -> np.ndarray:
+    height, width = array.shape
+    extreme = (array <= profile["border_dark_threshold"]) | (array >= profile["border_bright_threshold"])
+    visited = np.zeros_like(extreme, dtype=bool)
+    connected = np.zeros_like(extreme, dtype=bool)
+    queue: deque[tuple[int, int]] = deque()
+
+    def enqueue(y: int, x: int) -> None:
+        if y < 0 or y >= height or x < 0 or x >= width:
+            return
+        if visited[y, x] or not extreme[y, x]:
+            return
+        visited[y, x] = True
+        queue.append((y, x))
+
+    for x in range(width):
+        enqueue(0, x)
+        enqueue(height - 1, x)
+    for y in range(height):
+        enqueue(y, 0)
+        enqueue(y, width - 1)
+
+    while queue:
+        y, x = queue.popleft()
+        connected[y, x] = True
+        enqueue(y - 1, x)
+        enqueue(y + 1, x)
+        enqueue(y, x - 1)
+        enqueue(y, x + 1)
+
+    return connected
+
+
 def bilinear_latlon(corners: list[list[float]], u: float, v: float) -> tuple[float, float]:
     nw, ne, sw, se = corners
     top_lat = nw[0] * (1 - u) + ne[0] * u
@@ -310,10 +363,15 @@ def detect_candidates_for_image(source: ImageSource, profile: dict) -> tuple[lis
     integral = build_integral(array)
     candidates: list[Candidate] = []
     width, height = working_size
+    excluded_mask = build_edge_exclusion_mask(array, profile) | build_border_artifact_mask(array, profile)
 
     for radius in profile["blur_radii"]:
         dog = np.maximum(0.0, blur_array(inverted, radius) - blur_array(inverted, radius * 1.75))
-        threshold = max(float(np.quantile(dog, profile["dog_quantile"])), profile["min_dog"])
+        dog[excluded_mask] = 0.0
+        valid_dog = dog[~excluded_mask]
+        if valid_dog.size == 0:
+            continue
+        threshold = max(float(np.quantile(valid_dog, profile["dog_quantile"])), profile["min_dog"])
         picks = select_local_maxima(
             dog,
             threshold=threshold,
@@ -321,6 +379,8 @@ def detect_candidates_for_image(source: ImageSource, profile: dict) -> tuple[lis
             limit=profile["per_scale_limit"],
         )
         for x, y, dog_score in picks:
+            if excluded_mask[y, x]:
+                continue
             center_mean, ring_mean = annulus_means(
                 integral,
                 x,
