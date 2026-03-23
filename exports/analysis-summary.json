@@ -1,0 +1,45 @@
+{
+  "schema_version": "uxopro.analysis-result.v1",
+  "created_at": "2026-03-23T08:26:56Z",
+  "profile": "crater_v1",
+  "project_root": "/Users/tobias-benediktblask/Downloads/Weinsberg",
+  "handoff": "handoff/web-calibration.json",
+  "candidate_count": 153,
+  "area_count": 153,
+  "baseline_date": "1944-12-24",
+  "images_processed": 3,
+  "per_image": [
+    {
+      "image": "Historisch 1944-12-24",
+      "date": "1944-12-24",
+      "path": "1944-12-24 Weinsberg 106G-3896_3149 M900_preview.png",
+      "candidate_count": 55,
+      "preview": "preview/analysis/1944-12-24 Weinsberg 106G-3896_3149 M900_preview_analysis_preview.png"
+    },
+    {
+      "image": "Historisch 1945-03-19",
+      "date": "1945-03-19",
+      "path": "1945-03-19 Weinsberg US34-3594_4160 M100_preview.png",
+      "candidate_count": 73,
+      "preview": "preview/analysis/1945-03-19 Weinsberg US34-3594_4160 M100_preview_analysis_preview.png"
+    },
+    {
+      "image": "Historisch 1945-04-09",
+      "date": "1945-04-09",
+      "path": "1945-04-09 Weinsberg US34-3762_3166 M100_preview.png",
+      "candidate_count": 50,
+      "preview": "preview/analysis/1945-04-09 Weinsberg US34-3762_3166 M100_preview_analysis_preview.png"
+    }
+  ],
+  "status_counts": {
+    "candidate_high": 1,
+    "candidate_medium": 107,
+    "candidate_low": 45
+  },
+  "outputs": {
+    "findings_geojson": "exports/findings.auto.geojson",
+    "areas_geojson": "exports/areas.auto.geojson",
+    "summary_json": "exports/analysis-summary.json",
+    "preview_dir": "preview/analysis"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": "uxopro.web-calibration.v1",
+  "exported_at": "2026-03-23T08:26:27.731Z",
+  "source": "uxopro.web-app",
+  "project": {
+    "id": "gut-weinsberg-001",
+    "name": "Weinsberg – Innenstadt / Bahntrasse",
+    "location": "Weinsberg",
+    "scope": "TIFF-Serie 1943–1947 · Audit v4",
+    "stage": "analysis",
+    "local_root": "./"
+  },
+  "calibration": {
+    "source": "web-map-calibration",
+    "master_image": "Historisch 1945-04-09",
+    "selected_image": "Historisch 1945-04-09",
+    "direct_mode": "",
+    "calibrated_images": 0,
+    "images": [
+      {
+        "name": "Historisch 1944-12-24",
+        "file": "1944-12-24 Weinsberg 106G-3896_3149 M900_preview.png",
+        "note": "dichte Winteraufnahme, Ortskern zentral",
+        "changed": false,
+        "average_shift_meters": 0,
+        "corners": [
+          [
+            49.159318,
+            9.267852
+          ],
+          [
+            49.160058,
+            9.2944
+          ],
+          [
+            49.141954,
+            9.268982
+          ],
+          [
+            49.142693,
+            9.295531
+          ]
+        ],
+        "original_corners": [
+          [
+            49.159318,
+            9.267852
+          ],
+          [
+            49.160058,
+            9.2944
+          ],
+          [
+            49.141954,
+            9.268982
+          ],
+          [
+            49.142693,
+            9.295531
+          ]
+        ]
+      },
+      {
+        "name": "Historisch 1945-03-19",
+        "file": "1945-03-19 Weinsberg US34-3594_4160 M100_preview.png",
+        "note": "breite Westabdeckung, Ortslage rechts",
+        "changed": false,
+        "average_shift_meters": 0,
+        "corners": [
+          [
+            49.153052,
+            9.257977
+          ],
+          [
+            49.162868,
+            9.284275
+          ],
+          [
+            49.135848,
+            9.272988
+          ],
+          [
+            49.145668,
+            9.299286
+          ]
+        ],
+        "original_corners": [
+          [
+            49.153052,
+            9.257977
+          ],
+          [
+            49.162868,
+            9.284275
+          ],
+          [
+            49.135848,
+            9.272988
+          ],
+          [
+            49.145668,
+            9.299286
+          ]
+        ]
+      },
+      {
+        "name": "Historisch 1945-04-09",
+        "file": "1945-04-09 Weinsberg US34-3762_3166 M100_preview.png",
+        "note": "fruehe Nachkriegsnaehe, gute Gesamtabdeckung",
+        "changed": false,
+        "average_shift_meters": 0,
+        "corners": [
+          [
+            49.1549,
+            9.261919
+          ],
+          [
+            49.164072,
+            9.287643
+          ],
+          [
+            49.138073,
+            9.275944
+          ],
+          [
+            49.147248,
+            9.301668
+          ]
+        ],
+        "original_corners": [
+          [
+            49.1549,
+            9.261919
+          ],
+          [
+            49.164072,
+            9.287643
+          ],
+          [
+            49.138073,
+            9.275944
+          ],
+          [
+            49.147248,
+            9.301668
+          ]
+        ]
+      }
+    ],
+    "geo_targets": [
+      {
+        "id": "GCP01",
+        "lat": 49.1518076,
+        "lon": 9.2854796
+      },
+      {
+        "id": "GCP02",
+        "lat": 49.1539224,
+        "lon": 9.2829791
+      },
+      {
+        "id": "GCP03",
+        "lat": 49.1482139,
+        "lon": 9.2862174
+      },
+      {
+        "id": "GCP04",
+        "lat": 49.1527027,
+        "lon": 9.2858491
+      },
+      {
+        "id": "GCP05",
+        "lat": 49.1518781,
+        "lon": 9.2858971
+      },
+      {
+        "id": "GCP06",
+        "lat": 49.1522932,
+        "lon": 9.2887481
+      }
+    ]
+  },
+  "next_steps": [
+    "1. Datei lokal in <projekt>/handoff/web-calibration.json uebernehmen.",
+    "2. Lokalen Worker / QGIS mit dieser Kalibrierung starten.",
+    "3. Georeferenzierte Raster und Analyse-Ergebnisse nach exports/ und preview/ schreiben.",
+    "4. Danach uxopro-project-package.json neu erzeugen und in die App zurueck importieren."
+  ]
+}

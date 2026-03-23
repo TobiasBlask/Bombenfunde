@@ -12,11 +12,11 @@
   "web_calibration_status": "vorhanden",
   "web_calibration_exported_at": "2026-03-22T09:00:00Z",
   "images_web_calibrated": 3,
-  "analysis_status": "audit-v4",
-  "export_status": "html_ready",
+  "analysis_status": "candidates_generated",
+  "export_status": "analysis_outputs_ready",
   "review_status": "intern",
-  "findings_points": 63,
-  "area_features": 9,
+  "findings_points": 153,
+  "area_features": 153,
   "note": "Lokales QGIS-/Analyseprojekt fuer die App freigeben.",
-  "pipeline_note": "Erzeugt mit dem lokalen Codex-Exporter."
+  "pipeline_note": "Erzeugt mit dem lokalen Codex-Exporter. Automatische Kandidatenanalyse am 2026-03-23T08:26:56Z erzeugt."
 }
