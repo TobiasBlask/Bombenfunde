@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kampfmittel-Luftbildauswertung – Weinsberg | Audit v4 Punktprüfung</title>
+  <title>Kampfmittel-Luftbildauswertung – Weinsberg | Autoanalyse Kandidaten</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/vendor.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/leaflet.distortableimage.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="./supabase-config.js"></script>
+  <script src="./exports/analysis-bundle.js"></script>
   <script src="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/vendor.js"></script>
   <script src="https://unpkg.com/leaflet-distortableimage@0.21.9/dist/leaflet.distortableimage.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/IvanSanchez/Leaflet.ImageOverlay.Rotated/Leaflet.ImageOverlay.Rotated.js"></script>
@@ -445,14 +446,14 @@
       </div>
       <div class="workspace-topline">
         <h1><span id="workspaceProjectHeading">Kampfmittel-Luftbildauswertung – Weinsberg (Heilbronn-Kreis)</span>
-          <span class="badge" id="badgeText">Audit v4 · Punktprüfung läuft</span></h1>
+          <span class="badge" id="badgeText">Autoanalyse · Kandidaten werden geladen</span></h1>
       </div>
       <div class="sub" id="workspaceSubtitle">Digitale Luftbildauswertung, Projektsteuerung und Freigabe in einer Oberflaeche</div>
       <div class="workspace-nav-hint" id="workspaceNavHint"><strong>Workspace aktiv</strong><span>Mit „Zurueck zur Uebersicht“ kommst du jederzeit ins Dashboard zurück.</span></div>
     </div>
   </div>
   <div class="meta"><strong>Projekt:</strong> <span id="workspaceProjectMeta">Weinsberg – Initialprojekt</span> &nbsp;|&nbsp; <strong>Workflow:</strong> <span id="workspaceStageMeta">Analyse</span><br/>
-  <span id="metaText">Alle 15 TIFF-Dateien werden als Punktquelle, Baseline oder Kontextbild ausgewiesen.</span></div>
+  <span id="metaText">Die aktuelle Kandidatenansicht folgt der lokalen Autoanalyse und der Web-Kalibrierung.</span></div>
 </header>
 
 <div class="main">
@@ -462,34 +463,29 @@
   <div class="sb">
     <h2>Auswertungsübersicht</h2>
     <div class="stats">
-      <div class="sc"><div class="n orange" id="statTotal">0</div><div class="l">Kartierte Punkte</div></div>
-      <div class="sc"><div class="n green" id="statConfirmed">0</div><div class="l">Bestätigt</div></div>
-      <div class="sc"><div class="n blue" id="statPlausible">0</div><div class="l">Plausibel</div></div>
-      <div class="sc"><div class="n gray" id="statWeak">0</div><div class="l">Nicht hinr. belegt</div></div>
-      <div class="sc"><div class="n red" id="statOpenFiles">0</div><div class="l">Kontext-/Kontrollbilder</div></div>
+      <div class="sc"><div class="n orange" id="statTotal">0</div><div class="l">Kandidaten</div></div>
+      <div class="sc"><div class="n green" id="statConfirmed">0</div><div class="l">Hohe Kandidaten</div></div>
+      <div class="sc"><div class="n blue" id="statPlausible">0</div><div class="l">Mittlere Kandidaten</div></div>
+      <div class="sc"><div class="n gray" id="statWeak">0</div><div class="l">Niedrige Kandidaten</div></div>
+      <div class="sc"><div class="n red" id="statOpenFiles">0</div><div class="l">Noch nicht gerechnet</div></div>
     </div>
     <div class="audit-note" style="margin-top:8px;">
-      <strong>Audit-Hinweis:</strong> Die Vorarbeit ist formal gut strukturiert, die Punktdaten werden hier aber ausdrücklich als Hypothese behandelt. <span id="auditSummaryText">Die Nachweisqualität wird pro Punkt ausgewiesen.</span>
+      <strong>Analyse-Hinweis:</strong> Es werden nur noch automatisch neu gerechnete Kandidaten aus der aktuellen Web-Kalibrierung gezeigt. <span id="auditSummaryText">Die Kandidatenqualität wird pro Punkt ausgewiesen.</span>
     </div>
   </div>
 
   <!-- GROUP FILTER -->
   <div class="sb collapsible-panel" id="groupFilterPanel" data-default-expanded="true" data-summary-collapsed="8 Gruppen vorhanden. Bei Bedarf einblenden." data-summary-expanded="Gruppenfilter sichtbar. Per Klick blendest du die Punktgruppen ein oder aus.">
     <div class="sb-head">
-      <h2>Gruppen ein-/ausblenden</h2>
+      <h2>Kandidatengruppen</h2>
       <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="groupFilterPanelContent">Einklappen</button>
     </div>
-    <div class="sb-meta" data-disclosure-meta>Gruppenfilter sichtbar. Per Klick blendest du die Punktgruppen ein oder aus.</div>
+    <div class="sb-meta" data-disclosure-meta>Die automatisch gerechneten Kandidaten lassen sich nach Stärke ein- oder ausblenden.</div>
     <div class="sb-panel-content" id="groupFilterPanelContent" data-disclosure-content>
       <div class="filters">
-        <button class="filter-btn on" data-grp="HL"  style="background:#c0392b;color:#fff;"  onclick="toggleGrp('HL',this)">● HL – Großkrater</button>
-        <button class="filter-btn on" data-grp="FE"  style="background:#27ae60;color:#fff;"  onclick="toggleGrp('FE',this)">● FE – Waldrand / Persistenz</button>
-        <button class="filter-btn on" data-grp="SE"  style="background:#f39c12;color:#fff;"  onclick="toggleGrp('SE',this)">● SE – Sep.1944 Rauch</button>
-        <button class="filter-btn on" data-grp="NW"  style="background:#e67e22;color:#fff;"  onclick="toggleGrp('NW',this)">● NW – Felder NW</button>
-        <button class="filter-btn on" data-grp="NE"  style="background:#9b59b6;color:#fff;"  onclick="toggleGrp('NE',this)">● NE – Felder NO</button>
-        <button class="filter-btn on" data-grp="W"   style="background:#e74c3c;color:#fff;"  onclick="toggleGrp('W', this)">● W – Bahnkorridor</button>
-        <button class="filter-btn on" data-grp="BHE" style="background:#1abc9c;color:#fff;"  onclick="toggleGrp('BHE',this)">● BHE – Bhf-Ost / Persistenz</button>
-        <button class="filter-btn on" data-grp="M"   style="background:#3498db;color:#fff;"  onclick="toggleGrp('M', this)">● M – Ortskernrand S</button>
+        <button class="filter-btn on" data-grp="candidate_high" style="background:#c0392b;color:#fff;" onclick="toggleGrp('candidate_high',this)">● Hoch – multitemporal</button>
+        <button class="filter-btn on" data-grp="candidate_medium" style="background:#e67e22;color:#fff;" onclick="toggleGrp('candidate_medium',this)">● Mittel – Einzelbild</button>
+        <button class="filter-btn on" data-grp="candidate_low" style="background:#7f8c8d;color:#fff;" onclick="toggleGrp('candidate_low',this)">● Niedrig – schwach</button>
       </div>
     </div>
   </div>
@@ -507,25 +503,25 @@
         <button class="filter-btn on" data-gcp="on" style="background:#2c3e50;color:#fff;" onclick="toggleGcp(this)">● GCP-Anker</button>
       </div>
       <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
-        Kontext-/Kontrollbilder ohne eigene Punktzuweisung bleiben in der Quellabdeckung dokumentiert und werden nicht künstlich als Kartenelemente erzeugt. Historische Hauptaufnahmen lassen sich zusätzlich als transparente Bildlayer einblenden.
+        Mehrdatig oder persistente Kandidaten laufen im Vergleichs-Layer, Einzelbildkandidaten im Primär-Layer. Historische Hauptaufnahmen lassen sich zusätzlich als transparente Bildlayer einblenden.
       </div>
     </div>
   </div>
 
-  <div class="sb collapsible-panel" id="areasPanel" data-default-expanded="true" data-summary-collapsed="3 Flächenarten verfügbar." data-summary-expanded="Direktzonen, Korridore und indirekte Verdachtsflächen lassen sich getrennt steuern.">
+  <div class="sb collapsible-panel" id="areasPanel" data-default-expanded="true" data-summary-collapsed="3 Flächenarten verfügbar." data-summary-expanded="Hohe, mittlere und niedrige Kandidatenflächen lassen sich getrennt steuern.">
     <div class="sb-head">
-      <h2>Verdachtsflächen</h2>
+      <h2>Kandidatenflächen</h2>
       <button class="sb-toggle-btn" type="button" data-disclosure-toggle aria-controls="areasPanelContent">Einklappen</button>
     </div>
-    <div class="sb-meta" data-disclosure-meta>Direktzonen, Korridore und indirekte Verdachtsflächen lassen sich getrennt steuern.</div>
+    <div class="sb-meta" data-disclosure-meta>Die automatisch berechneten Verdachtsflächen lassen sich nach Stärke getrennt steuern.</div>
     <div class="sb-panel-content" id="areasPanelContent" data-disclosure-content>
       <div class="filters">
-        <button class="filter-btn on" data-area="direct" style="background:#c0392b;color:#fff;" onclick="toggleArea('direct',this)">● Direkte Trefferzonen</button>
-        <button class="filter-btn on" data-area="corridor" style="background:#e67e22;color:#fff;" onclick="toggleArea('corridor',this)">● Angriffskorridore</button>
-        <button class="filter-btn on" data-area="indirect" style="background:#f1c40f;color:#111;" onclick="toggleArea('indirect',this)">● Indirekter Verdacht</button>
+        <button class="filter-btn on" data-area="candidate_high" style="background:#c0392b;color:#fff;" onclick="toggleArea('candidate_high',this)">● Hohe Verdachtsflächen</button>
+        <button class="filter-btn on" data-area="candidate_medium" style="background:#e67e22;color:#fff;" onclick="toggleArea('candidate_medium',this)">● Mittlere Verdachtsflächen</button>
+        <button class="filter-btn on" data-area="candidate_low" style="background:#7f8c8d;color:#fff;" onclick="toggleArea('candidate_low',this)">● Niedrige Verdachtsflächen</button>
       </div>
       <div style="margin-top:8px;font-size:.66rem;color:#666;line-height:1.45;">
-        Direkte Trefferzonen basieren auf verdichteten Kraterclustern. Angriffskorridore bilden das rekonstruktive Trefferband. Indirekter Verdacht markiert Lücken- und Randbereiche, in denen ein Blindgänger eher flächenhaft als punktgenau zu vermuten ist.
+        Diese Flächen stammen direkt aus der aktuellen Autoanalyse. Hohe Kandidaten sind multitemporal oder persistent gestützt, mittlere Kandidaten überwiegend Einzelbildtreffer, niedrige Kandidaten bleiben schwache Hinweise.
       </div>
     </div>
   </div>
@@ -533,13 +529,13 @@
   <!-- IMPACT TABLE -->
   <div class="sb audit-panel collapsed" id="auditPanel" style="padding-bottom:14px;padding-top:8px;">
     <div class="sb-head">
-      <h2>Punkt-Auditliste (Klick → Karte)</h2>
+      <h2>Kandidatenliste (Klick → Karte)</h2>
       <button id="auditToggleBtn" class="sb-toggle-btn" type="button" aria-expanded="false" aria-controls="auditTableWrap">Ausklappen</button>
     </div>
     <div class="sb-meta" id="auditToggleMeta">Liste eingeklappt, damit mehr Platz für Karte und Steuerung bleibt.</div>
     <div class="audit-table-wrap" id="auditTableWrap" hidden>
       <table>
-        <thead><tr><th>ID</th><th>Gruppe</th><th>Audit</th><th>Quelle</th></tr></thead>
+        <thead><tr><th>ID</th><th>Klasse</th><th>Status</th><th>Quelle</th></tr></thead>
         <tbody id="tbl"></tbody>
       </table>
     </div>
@@ -553,26 +549,21 @@
     </div>
     <div class="sb-meta" data-disclosure-meta>Legende ausgeblendet. Bei Bedarf öffnen.</div>
     <div class="sb-panel-content" id="legendPanelContent" data-disclosure-content>
-    <div class="lg-row"><div class="lg-dot" style="background:#c0392b;border:2px solid #922b21"></div><div class="lg-text"><strong>HL – Großkrater / Blockbuster</strong><span>Massiver Einschlag N/NE Altstadt, Blastwelle sichtbar</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:#e67e22;border:2px solid #a05010"></div><div class="lg-text"><strong>NW – Streueinschläge Felder NW</strong><span>~15 Einzelkrater in Ackerflächen NW (1944_R1C1)</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:#9b59b6;border:2px solid #6c3483"></div><div class="lg-text"><strong>NE – Einzelkrater Felder NO</strong><span>2–3 klare Einzelkrater NO, bestätigt 1945-04-09</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:#e74c3c;border:2px solid #922b21"></div><div class="lg-text"><strong>W – Bahnkorridor West</strong><span>Primärziel Eisenbahn, mehrfach bombardiert</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:#3498db;border:2px solid #1a5276"></div><div class="lg-text"><strong>M – Ortskernrand / Südbereich</strong><span>Einschläge S/SW der Bebauung, entlang Bahntrasse</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:#27ae60;border:2px solid #1e8449"></div><div class="lg-text"><strong>FE – Waldrand / Persistenz</strong><span>Persistente Kraternarben am Waldrand, 1943↔1947 Vergleich</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:#f39c12;border:2px solid #b7770d"></div><div class="lg-text"><strong>SE – September 1944 Rauch</strong><span>Frühangriff mit Rauch-/Brandmarken in der 1944-09-10-Aufnahme</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:#1abc9c;border:2px solid #148f77"></div><div class="lg-text"><strong>BHE – Bahnhof-Ost / Persistenz</strong><span>Persistente Störzone östlich des Bahnhofs</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:rgba(192,57,43,.2);border:2px solid #c0392b;border-radius:3px"></div><div class="lg-text"><strong>Direkte Trefferzone</strong><span>Flächenhafte Verdichtung klarer Kratercluster oder persistenter Trefferzonen</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:rgba(230,126,34,.18);border:2px dashed #e67e22;border-radius:3px"></div><div class="lg-text"><strong>Angriffskorridor</strong><span>Rekonstruierte Abwurf- bzw. Trefferachse entlang des Primärziels</span></div></div>
-    <div class="lg-row"><div class="lg-dot" style="background:rgba(241,196,15,.12);border:2px dashed #f1c40f;border-radius:3px"></div><div class="lg-text"><strong>Indirekter / statistischer Verdacht</strong><span>Fehlstellen, Randlagen und Lücken innerhalb des Trefferbandes</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#c0392b;border:2px solid #922b21"></div><div class="lg-text"><strong>Hoch – multitemporaler Kandidat</strong><span>Nicht in der Baseline sichtbar und in mehreren Bilddaten gestützt</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#e67e22;border:2px solid #a05010"></div><div class="lg-text"><strong>Mittel – Einzelbildkandidat</strong><span>Automatisch erkannt, aber bislang nur begrenzt abgesichert</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:#7f8c8d;border:2px solid #5d6763"></div><div class="lg-text"><strong>Niedrig – schwacher Kandidat</strong><span>Schwacher Hinweis, derzeit ohne starke zeitliche Absicherung</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:rgba(192,57,43,.2);border:2px solid #c0392b;border-radius:3px"></div><div class="lg-text"><strong>Hohe Verdachtsfläche</strong><span>Automatisch abgeleitete Zone um hoch priorisierte Kandidaten</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:rgba(230,126,34,.18);border:2px dashed #e67e22;border-radius:3px"></div><div class="lg-text"><strong>Mittlere Verdachtsfläche</strong><span>Automatisch abgeleitete Zone um mittlere Kandidaten</span></div></div>
+    <div class="lg-row"><div class="lg-dot" style="background:rgba(127,140,141,.12);border:2px dashed #7f8c8d;border-radius:3px"></div><div class="lg-text"><strong>Niedrige Verdachtsfläche</strong><span>Automatisch abgeleitete Zone um schwächere Kandidaten</span></div></div>
     <div class="lg-row" style="margin-top:6px;">
       <div class="lg-dot" style="background:rgba(192,57,43,.3);border:1.5px dashed #c0392b;border-radius:50%"></div>
       <div class="lg-text"><strong>50m-Puffer</strong><span>Blindgänger-Suchradius je Einschlag</span></div>
     </div>
-    <div class="lg-row"><span class="pill ok">bestätigt</span><div class="lg-text"><strong>Bestätigt</strong><span>Mehrdatig, persistierend oder morphologisch eindeutig</span></div></div>
-    <div class="lg-row"><span class="pill warn">plausibel</span><div class="lg-text"><strong>Plausibel, aber unsicher</strong><span>Einzelbildhinweis, Zielnähe oder Randlage ohne harte Zweitbestätigung</span></div></div>
-    <div class="lg-row"><span class="pill bad">schwach</span><div class="lg-text"><strong>Nicht hinreichend belegt</strong><span>Niedrige Konfidenz oder nur schwacher Streuhinweis</span></div></div>
-    <div class="lg-row"><span class="pill direct">Primärquellen</span><div class="lg-text"><strong>Primärquellen-Layer</strong><span>Punkte aus direkt treffersensitiven Aufnahmen 1944/1945</span></div></div>
-    <div class="lg-row"><span class="pill base">Vergleich / Persistenz</span><div class="lg-text"><strong>Vergleichs-/Persistenz-Layer</strong><span>Punkte, deren Tragfähigkeit aus Vor-/Nachvergleich oder Persistenz stammt</span></div></div>
+    <div class="lg-row"><span class="pill ok">hoch</span><div class="lg-text"><strong>Hohe Kandidaten</strong><span>Mehrdatig oder persistent, aktuell höchste Priorität</span></div></div>
+    <div class="lg-row"><span class="pill warn">mittel</span><div class="lg-text"><strong>Mittlere Kandidaten</strong><span>Einzelbildtreffer ohne starke Zweitbestätigung</span></div></div>
+    <div class="lg-row"><span class="pill bad">niedrig</span><div class="lg-text"><strong>Niedrige Kandidaten</strong><span>Schwächere Hinweise, vorerst nur als Arbeitsverdacht</span></div></div>
+    <div class="lg-row"><span class="pill direct">Einzelbild</span><div class="lg-text"><strong>Primär-Layer</strong><span>Kandidaten aus einer einzelnen automatisch ausgewerteten Aufnahme</span></div></div>
+    <div class="lg-row"><span class="pill base">Mehrdatig</span><div class="lg-text"><strong>Vergleichs-Layer</strong><span>Kandidaten mit Mehrfachbeleg oder Persistenz</span></div></div>
     <div class="lg-row"><span class="pill" style="color:#ecf0f1;background:rgba(44,62,80,.28);border-color:rgba(44,62,80,.55)">GCP</span><div class="lg-text"><strong>GCP-Anker</strong><span>Stabile Zielpunkte zur Georeferenzierung der historischen TIFFs</span></div></div>
     <div class="lg-row"><div class="lg-dot" style="background:transparent;border:2px dashed #2ecc71;border-radius:3px"></div><div class="lg-text"><strong>Grüne Außenlinie</strong><span>Gesamter ausgewerteter Untersuchungsraum</span></div></div>
     <div class="lg-row"><div class="lg-dot" style="background:transparent;border:2px dashed #3498db;border-radius:3px"></div><div class="lg-text"><strong>Blaue Innenlinie</strong><span>Siedlungsnaher Hauptprüfbereich / baulich relevanter Kernraum</span></div></div>
@@ -581,7 +572,7 @@
 
   <!-- NOTE -->
   <div class="sb">
-    <div class="note"><strong>Methodischer Hinweis:</strong> Diese Audit-Fassung trennt bewusst zwischen <strong>direkten Punktquellen</strong>, <strong>Baseline</strong> und <strong>Kontext-/Kontrollbildern ohne eigene Punktzuweisung</strong>. Neu hinzugekommen ist eine <strong>flächenhafte 4-Ebenen-Darstellung</strong>: rote Direktzonen, orange Angriffskorridore und gelbe indirekte Verdachtsflächen werden sauber von den Einzelpunkten getrennt. Zusätzlich wurde die bisherige Kartenlage über <strong>3 reale GCP-Anker</strong> (Marktplatz, Bahnhof, Burg Weibertreu) affinkorrigiert. Das verbessert die Lage deutlich, ersetzt aber keine vollständige TIFF-Georeferenzierung mit 4–6 manuell gesetzten GCPs in QGIS.</div>
+    <div class="note"><strong>Methodischer Hinweis:</strong> Diese Fassung zeigt bewusst nur noch die <strong>automatisch neu gerechneten Kandidaten</strong> aus der aktuellen Web-Kalibrierung. Die alte manuelle Auditliste wurde aus der Primärdarstellung entfernt. Mehrdatige Kandidaten, Einzelbildtreffer und noch nicht gerechnete Serienbilder werden sauber getrennt ausgewiesen. Die Bildlage basiert weiterhin auf der Web-Kalibrierung und ersetzt keine vollständige TIFF-Georeferenzierung mit 4–6 manuell gesetzten GCPs in QGIS.</div>
   </div>
 
 </div><!-- /sidebar -->
@@ -591,140 +582,33 @@
 
 <script>
 // ═══════════════════════════════════════════════════════
-// IMPACT DATABASE – 49 individual impacts
-// Identified via systematic 3×3 grid analysis of:
-//   1944-12-24 M1:9000, 1945-03-19 M1:10000, 1945-04-09 M1:10000
-// Georeferencing: manual landmark anchoring (Burgberg + Altstadt)
-// Accuracy: ±100–200m
+// AUTO ANALYSIS DATA – generated by local worker
 // ═══════════════════════════════════════════════════════
-const IMPACTS = [
+const AUTO_ANALYSIS = window.UXO_ANALYSIS_DATA || {};
+const AUTO_ANALYSIS_SUMMARY = AUTO_ANALYSIS.summary || {};
+const AUTO_FINDING_FEATURES = Array.isArray(AUTO_ANALYSIS.findings?.features) ? AUTO_ANALYSIS.findings.features : [];
+const AUTO_AREA_FEATURES = Array.isArray(AUTO_ANALYSIS.areas?.features) ? AUTO_ANALYSIS.areas.features : [];
 
-  // ─── GROUP HL: Haupt-Großkrater / Blockbuster-Zone ───────────────────────
-  // Visible in 1944_R1C2 as massive dark oval with blast rings.
-  // Confirmed in 1945a_R2C3 as large disturbed crater zone.
-  // Location: N/NE of Altstadt, south edge of Weinsberger Wald.
-  // Likely a 4000lb HC bomb or tightly packed cluster.
-  {id:"HL01",grp:"HL",lat:49.1518,lon:9.3672,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Zentrum Großkrater"},
-  {id:"HL02",grp:"HL",lat:49.1524,lon:9.3660,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Großkrater NW-Rand"},
-  {id:"HL03",grp:"HL",lat:49.1512,lon:9.3665,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Großkrater S-Rand"},
-  {id:"HL04",grp:"HL",lat:49.1520,lon:9.3688,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Großkrater O-Rand"},
-  {id:"HL05",grp:"HL",lat:49.1528,lon:9.3675,conf:"mittel",src:"1944-12-24",             note:"Großkrater N-Rand"},
-  {id:"HL06",grp:"HL",lat:49.1508,lon:9.3680,conf:"mittel",src:"1945-03-19",             note:"Blastwelle SE"},
-  {id:"HL07",grp:"HL",lat:49.1532,lon:9.3658,conf:"mittel",src:"1944-12-24",             note:"Sekundäreinschlag N"},
-  {id:"HL08",grp:"HL",lat:49.1510,lon:9.3645,conf:"mittel",src:"1944-12-24, 1945-04-09",note:"Sekundäreinschlag SW"},
-  {id:"HL09",grp:"HL",lat:49.1525,lon:9.3648,conf:"niedrig",src:"1945-03-19",            note:"Streubereich W"},
-  {id:"HL10",grp:"HL",lat:49.1503,lon:9.3662,conf:"niedrig",src:"1945-04-09",            note:"Streubereich S"},
-
-  // ─── GROUP NW: Streueinschläge Felder NW ─────────────────────────────────
-  // Clearly visible in 1944_R1C1 as ~15 scattered small dark dots
-  // in agricultural strip-fields NW of Weinsberg.
-  // Pattern consistent with bombs falling short/left of railway target.
-  {id:"NW01",grp:"NW",lat:49.1572,lon:9.3478,conf:"hoch",  src:"1944-12-24",note:"Feld NW, Krater klar"},
-  {id:"NW02",grp:"NW",lat:49.1558,lon:9.3462,conf:"hoch",  src:"1944-12-24",note:"Feld NW, Krater klar"},
-  {id:"NW03",grp:"NW",lat:49.1565,lon:9.3495,conf:"hoch",  src:"1944-12-24",note:"Feld NW, Krater klar"},
-  {id:"NW04",grp:"NW",lat:49.1580,lon:9.3468,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
-  {id:"NW05",grp:"NW",lat:49.1548,lon:9.3472,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
-  {id:"NW06",grp:"NW",lat:49.1562,lon:9.3510,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
-  {id:"NW07",grp:"NW",lat:49.1575,lon:9.3490,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
-  {id:"NW08",grp:"NW",lat:49.1540,lon:9.3458,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
-  {id:"NW09",grp:"NW",lat:49.1585,lon:9.3455,conf:"mittel",src:"1944-12-24",note:"Feld NW äußerer Rand"},
-  {id:"NW10",grp:"NW",lat:49.1554,lon:9.3480,conf:"mittel",src:"1944-12-24",note:"Feld NW"},
-  {id:"NW11",grp:"NW",lat:49.1568,lon:9.3505,conf:"niedrig",src:"1944-12-24",note:"Feld NW, unsicher"},
-  {id:"NW12",grp:"NW",lat:49.1590,lon:9.3475,conf:"niedrig",src:"1944-12-24",note:"Feld NW, äußerster Rand"},
-  {id:"NW13",grp:"NW",lat:49.1535,lon:9.3465,conf:"niedrig",src:"1944-12-24",note:"Feld NW, Übergangslage"},
-  {id:"NW14",grp:"NW",lat:49.1578,lon:9.3515,conf:"niedrig",src:"1944-12-24",note:"Feld NW"},
-  {id:"NW15",grp:"NW",lat:49.1545,lon:9.3490,conf:"niedrig",src:"1944-12-24",note:"Feld NW"},
-
-  // ─── GROUP NE: Einzelkrater Felder NE ────────────────────────────────────
-  // Clearly visible in 1945b_R1C3 as 2-3 distinct circular dark spots
-  // with lighter ejecta rings – unmistakable crater morphology.
-  // Location: fields NE of town, toward Ellhofen direction.
-  {id:"NE01",grp:"NE",lat:49.1538,lon:9.3765,conf:"hoch",  src:"1945-04-09",note:"Krater klar, klassische Morphologie"},
-  {id:"NE02",grp:"NE",lat:49.1522,lon:9.3748,conf:"hoch",  src:"1945-04-09",note:"Krater klar"},
-  {id:"NE03",grp:"NE",lat:49.1545,lon:9.3780,conf:"mittel",src:"1945-04-09",note:"Dritter Krater NE"},
-
-  // ─── GROUP W: Bahnkorridor West ───────────────────────────────────────────
-  // Primary bombing target: Kraichgau/Kocher railway through Weinsberg.
-  // Visible in 1944_R2C1, 1944_R3C3, 1945a/b_R2C1, 1945b_R1C1.
-  // Multiple attack sorties: Sep 1944, Dec 1944, Mar–Apr 1945.
-  {id:"W01",grp:"W",lat:49.1490,lon:9.3348,conf:"hoch",  src:"1944-09-10, 1945-03-19",note:"Bahn W, Einfahrt"},
-  {id:"W02",grp:"W",lat:49.1475,lon:9.3365,conf:"hoch",  src:"1945-03-19",             note:"Bahn W, S-Seite"},
-  {id:"W03",grp:"W",lat:49.1484,lon:9.3390,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Bahn W"},
-  {id:"W04",grp:"W",lat:49.1468,lon:9.3408,conf:"mittel",src:"1945-03-19",             note:"Bahn W, Feld S"},
-  {id:"W05",grp:"W",lat:49.1492,lon:9.3422,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"Bahn W"},
-  {id:"W06",grp:"W",lat:49.1478,lon:9.3440,conf:"mittel",src:"1945-03-19",             note:"Bahn W"},
-  {id:"W07",grp:"W",lat:49.1463,lon:9.3455,conf:"mittel",src:"1945-03-19",             note:"Bahn W, S-Rand"},
-  {id:"W08",grp:"W",lat:49.1495,lon:9.3468,conf:"hoch",  src:"1944-12-24, 1945-03-19",note:"Bahnhofsvorfeld N"},
-  {id:"W09",grp:"W",lat:49.1480,lon:9.3482,conf:"hoch",  src:"1944-12-24",             note:"Bahnhof Bereich"},
-  {id:"W10",grp:"W",lat:49.1460,lon:9.3495,conf:"mittel",src:"1945-04-09",             note:"Bahnhof S-Rand"},
-  {id:"W11",grp:"W",lat:49.1488,lon:9.3510,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"Bahnhof Ostausfahrt"},
-  {id:"W12",grp:"W",lat:49.1500,lon:9.3528,conf:"mittel",src:"1945-03-19",             note:"Bahn O, Böschung N"},
-
-  // ─── GROUP M: Ortskernrand Süd / Bahntrasse O ─────────────────────────────
-  {id:"M01",grp:"M",lat:49.1468,lon:9.3538,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"S Bebauungsrand"},
-  {id:"M02",grp:"M",lat:49.1455,lon:9.3550,conf:"hoch",  src:"1944-12-24, 1945-04-09",note:"S Ortsrand"},
-  {id:"M03",grp:"M",lat:49.1474,lon:9.3562,conf:"mittel",src:"1945-04-09",             note:"S Zufahrt"},
-  {id:"M04",grp:"M",lat:49.1458,lon:9.3575,conf:"mittel",src:"1945-03-19, 1945-04-09",note:"S Garten-/Wiesenzone"},
-  {id:"M05",grp:"M",lat:49.1465,lon:9.3592,conf:"mittel",src:"1945-04-09",             note:"SO Ortsrand"},
-  {id:"M06",grp:"M",lat:49.1448,lon:9.3545,conf:"mittel",src:"1945-04-09",             note:"S äußerer Rand"},
-  {id:"M07",grp:"M",lat:49.1442,lon:9.3562,conf:"niedrig",src:"1945-04-09",            note:"S Streuung"},
-  {id:"M08",grp:"M",lat:49.1452,lon:9.3580,conf:"niedrig",src:"1945-04-09",            note:"S Streuung"},
-  {id:"M09",grp:"M",lat:49.1478,lon:9.3610,conf:"mittel",src:"1944-12-24",             note:"SO Rand Altstadt"},
-  {id:"M10",grp:"M",lat:49.1488,lon:9.3640,conf:"mittel",src:"1944-12-24, 1945-03-19",note:"O-Zufahrt Bahnhof"},
-  {id:"M11",grp:"M",lat:49.1502,lon:9.3655,conf:"mittel",src:"1945-03-19",             note:"NO Randbereich"},
-  {id:"M12",grp:"M",lat:49.1445,lon:9.3530,conf:"niedrig",src:"1945-04-09",            note:"SW Streubereich"},
-
-  // ─── GROUP FE: Waldrand – Persistente Kraternarben (NEU v3) ───────────────
-  // Confirmed by 1943↔1947 comparison: features at southern forest edge
-  // are NOT in 1943 reference but clearly visible in both 1947a_R1C2 and
-  // 1947b_R1C1 as persistent dark irregular depressions. Methodologically
-  // most reliable group – 2-year persistence proves genuine terrain alteration.
-  {id:"FE01",grp:"FE",lat:49.1558,lon:9.3625,conf:"hoch",  src:"1947-07-23 (beide), Vorher/Nachher bestätigt",note:"Persistente Narbe Waldrand, kein 1943-Äquivalent"},
-  {id:"FE02",grp:"FE",lat:49.1548,lon:9.3642,conf:"hoch",  src:"1947-07-23 (beide), Vorher/Nachher bestätigt",note:"Persistente Narbe Waldrand"},
-  {id:"FE03",grp:"FE",lat:49.1565,lon:9.3610,conf:"hoch",  src:"1947-07-23a_R1C2, bestätigt",                 note:"Persistente Narbe Waldrand N-Rand"},
-  {id:"FE04",grp:"FE",lat:49.1542,lon:9.3658,conf:"mittel",src:"1947-07-23b_R1C1",                            note:"Waldrand-Übergangszone"},
-  {id:"FE05",grp:"FE",lat:49.1572,lon:9.3598,conf:"mittel",src:"1947-07-23a_R1C2",                            note:"Waldrand äußerer N-Bereich"},
-
-  // ─── GROUP SE: September 1944 Frühangriff – Rauchfahnen (NEU v3) ──────────
-  // 1944-09-10 image (M1:14250) taken DURING or immediately after an attack.
-  // Active smoke/burn marks visible in tiles R2C2 and R2C3 in forest-field
-  // transition. Proves bombing started Sep 1944, 3 months before Christmas attack.
-  {id:"SE01",grp:"SE",lat:49.1538,lon:9.3668,conf:"hoch",  src:"1944-09-10 R2C2, aktiver Rauch sichtbar",note:"Frischer Einschlag Sep.1944, Rauch/Brandmark"},
-  {id:"SE02",grp:"SE",lat:49.1525,lon:9.3682,conf:"hoch",  src:"1944-09-10 R2C2+R2C3, Rauchfahne",       note:"Frischer Einschlag Sep.1944"},
-  {id:"SE03",grp:"SE",lat:49.1548,lon:9.3695,conf:"mittel",src:"1944-09-10 R2C3",                         note:"Sep.1944 Streueinschlag"},
-
-  // ─── GROUP BHE: Bahnhof-Ost – Persistente Störzone (NEU v3) ──────────────
-  // 1947b_R2C2 shows disturbed terrain east of the Bahnhof that is clean in
-  // the 1943 reference. Consistent with bomb damage to eastern rail approaches
-  // (Ausfahrt Richtung Öhringen). Still uncleared in 1947.
-  {id:"BHE01",grp:"BHE",lat:49.1508,lon:9.3572,conf:"mittel",src:"1947b_R2C2, 1943 clean, Persistenz best.",note:"Bhf-Ost, persistente Störzone"},
-  {id:"BHE02",grp:"BHE",lat:49.1495,lon:9.3558,conf:"mittel",src:"1947b_R2C2",                             note:"Bhf-Ost Südrand"},
-  {id:"BHE03",grp:"BHE",lat:49.1518,lon:9.3588,conf:"niedrig",src:"1947b_R2C2",                            note:"Bhf-Ost Nordrand"},
-];
-
-// ═══════════════════════════════════════════════════════
-// AUDIT CONFIG + DYNAMIC SUMMARY
-// ═══════════════════════════════════════════════════════
-const GROUP_ORDER = ["HL","FE","SE","NW","NE","W","BHE","M"];
+const GROUP_ORDER = ["candidate_high","candidate_medium","candidate_low"];
 const GRP = {
-  HL:  {color:"#c0392b", fill:"rgba(192,57,43,.38)",  label:"HL – Großkrater"},
-  FE:  {color:"#27ae60", fill:"rgba(39,174,96,.34)",  label:"FE – Waldrand / Persistenz"},
-  SE:  {color:"#f39c12", fill:"rgba(243,156,18,.32)", label:"SE – September 1944 Rauch"},
-  NW:  {color:"#e67e22", fill:"rgba(230,126,34,.30)", label:"NW – Felder NW"},
-  NE:  {color:"#9b59b6", fill:"rgba(155,89,182,.30)", label:"NE – Felder NO"},
-  W:   {color:"#e74c3c", fill:"rgba(231,76,60,.30)",  label:"W – Bahnkorridor"},
-  BHE: {color:"#1abc9c", fill:"rgba(26,188,156,.30)", label:"BHE – Bahnhof-Ost / Persistenz"},
-  M:   {color:"#3498db", fill:"rgba(52,152,219,.30)", label:"M – Ortskernrand"},
+  candidate_high:   {color:"#c0392b", fill:"rgba(192,57,43,.38)", label:"Hoch – multitemporal"},
+  candidate_medium: {color:"#e67e22", fill:"rgba(230,126,34,.30)", label:"Mittel – Einzelbild"},
+  candidate_low:    {color:"#7f8c8d", fill:"rgba(127,140,141,.28)", label:"Niedrig – schwach"},
 };
 const CONF_STAR = {hoch:"★★★",mittel:"★★☆",niedrig:"★☆☆"};
 const STATUS = {
-  confirmed: {label:"bestätigt", short:"bestätigt", className:"ok"},
-  plausible: {label:"plausibel, aber unsicher", short:"plausibel", className:"warn"},
-  weak: {label:"nicht hinreichend belegt", short:"schwach", className:"bad"},
+  confirmed: {label:"hoher Kandidat", short:"hoch", className:"ok"},
+  plausible: {label:"mittlerer Kandidat", short:"mittel", className:"warn"},
+  weak: {label:"niedriger Kandidat", short:"niedrig", className:"bad"},
 };
 const EVIDENCE = {
-  primary: {label:"Primärquellen", short:"primär", className:"direct"},
-  comparison: {label:"Vergleich / Persistenz", short:"vergleich", className:"base"},
+  primary: {label:"Einzelbild", short:"einzel", className:"direct"},
+  comparison: {label:"Mehrdatig / Persistenz", short:"mehrdatig", className:"base"},
+};
+const AUTO_STATUS_META = {
+  candidate_high: {conf:"hoch", statusKey:"confirmed"},
+  candidate_medium: {conf:"mittel", statusKey:"plausible"},
+  candidate_low: {conf:"niedrig", statusKey:"weak"},
 };
 const GEOREF_USED_ANCHORS = [
   {id:"GCP01", name:"Marktplatz Weinsberg", raw:[49.1476,9.3628], target:[49.1518076,9.2854796], used:true, note:"zentraler Platz / Straßenraum"},
@@ -756,6 +640,45 @@ const SERIES_FILES = [
   {id:"w19470723a", label:"1947-07-23 Weinsberg 2-3675_3195", role:"review", matchers:["1947-07-23 (beide)","1947a","3195"]},
   {id:"w19470723b", label:"1947-07-23 Weinsberg 2-3675_3196", role:"review", matchers:["1947-07-23 (beide)","1947b","3196"]},
 ];
+
+function normalizeAutoImpactFeature(feature, index) {
+  const props = feature?.properties || {};
+  const geometry = feature?.geometry || {};
+  const coordinates = Array.isArray(geometry.coordinates) ? geometry.coordinates : [0, 0];
+  const statusKey = AUTO_STATUS_META[props.analysis_status] ? props.analysis_status : "candidate_medium";
+  const statusMeta = AUTO_STATUS_META[statusKey];
+  const images = String(props.images || "").trim();
+  const dates = String(props.dates || "").trim();
+  const src = [dates, images].filter(Boolean).join(" · ");
+  const score = Number.isFinite(Number(props.score)) ? Number(props.score) : 0;
+  const supportCount = Number.isFinite(Number(props.support_count)) ? Number(props.support_count) : 1;
+  const radiusM = Number.isFinite(Number(props.radius_m)) ? Number(props.radius_m) : 10;
+  const pointId = `K${String(index + 1).padStart(3, "0")}`;
+  return {
+    id: pointId,
+    grp: statusKey,
+    conf: statusMeta.conf,
+    lat: Number(coordinates[1]) || 0,
+    lon: Number(coordinates[0]) || 0,
+    rawLat: Number(coordinates[1]) || 0,
+    rawLon: Number(coordinates[0]) || 0,
+    georeferenced: true,
+    src,
+    note: props.interpretation || "Automatisch gerechneter Kandidat.",
+    analysisStatus: statusKey,
+    supportCount,
+    score,
+    radiusM,
+    firstSeen: props.first_seen || "",
+    lastSeen: props.last_seen || "",
+    dateText: dates,
+    persistence: props.persistence || "nein",
+    sourceRecords: props.source_records || "",
+    objectClass: props.objektklasse || "bombenkrater_kandidat",
+  };
+}
+
+const IMPACTS = AUTO_FINDING_FEATURES.map(normalizeAutoImpactFeature);
 
 function escapeHtml(str) {
   return String(str)
@@ -862,7 +785,22 @@ function extractIsoDates(text) {
   return [...new Set((String(text).match(/19\d{2}-\d{2}-\d{2}/g) || []))].sort();
 }
 
-function buildTemporalProfile(sourceText, noteText = "") {
+function buildTemporalProfile(sourceText, noteText = "", metadata = null) {
+  if (metadata && (metadata.firstSeen || metadata.lastSeen || metadata.supportCount)) {
+    const dates = extractIsoDates(metadata.dateText || sourceText);
+    let confidence = "niedrig";
+    if ((metadata.supportCount || 0) >= 2 || metadata.persistence === "ja") confidence = "hoch";
+    else if ((metadata.supportCount || 0) >= 1) confidence = "mittel";
+    return {
+      dates,
+      firstSeen: metadata.firstSeen || dates[0] || "",
+      lastSeen: metadata.lastSeen || dates[dates.length - 1] || metadata.firstSeen || "",
+      dateCount: dates.length || (metadata.supportCount || 0),
+      persistent: metadata.persistence || "nein",
+      confidence,
+      interpretation: metadata.note || "Automatisch gerechneter Kandidat aus der aktuellen Web-Kalibrierung.",
+    };
+  }
   const haystack = `${sourceText} ${noteText}`.toLowerCase();
   const dates = extractIsoDates(sourceText);
   const firstSeen = dates[0] || "";
@@ -898,6 +836,33 @@ function buildTemporalProfile(sourceText, noteText = "") {
 }
 
 function classifyImpact(imp) {
+  if (imp.analysisStatus) {
+    if (imp.analysisStatus === "candidate_high") {
+      return {
+        key: "confirmed",
+        label: STATUS.confirmed.label,
+        short: STATUS.confirmed.short,
+        className: STATUS.confirmed.className,
+        reason: "Mehrdatig oder persistent gestützter Kandidat aus der aktuellen Autoanalyse."
+      };
+    }
+    if (imp.analysisStatus === "candidate_low") {
+      return {
+        key: "weak",
+        label: STATUS.weak.label,
+        short: STATUS.weak.short,
+        className: STATUS.weak.className,
+        reason: "Schwächerer Autoanalyse-Kandidat mit geringerer zeitlicher oder morphologischer Absicherung."
+      };
+    }
+    return {
+      key: "plausible",
+      label: STATUS.plausible.label,
+      short: STATUS.plausible.short,
+      className: STATUS.plausible.className,
+      reason: "Einzelbildkandidat aus der Autoanalyse, derzeit ohne starke Mehrfachbestätigung."
+    };
+  }
   const haystack = `${imp.note} ${imp.src}`.toLowerCase();
   const dates = [...new Set((imp.src.match(/19\d{2}-\d{2}-\d{2}/g) || []))];
   const multiDate = dates.length >= 2 || /beide|vorher\/nachher|persistenz|r2c2\+r2c3/.test(haystack);
@@ -934,6 +899,24 @@ function classifyImpact(imp) {
 }
 
 function classifyEvidence(imp) {
+  if (imp.analysisStatus) {
+    if ((imp.supportCount || 0) >= 2 || imp.persistence === "ja") {
+      return {
+        key: "comparison",
+        label: EVIDENCE.comparison.label,
+        short: EVIDENCE.comparison.short,
+        className: EVIDENCE.comparison.className,
+        reason: "Kandidat wird durch Mehrfachbeleg oder Persistenz über mehrere Bilder gestützt.",
+      };
+    }
+    return {
+      key: "primary",
+      label: EVIDENCE.primary.label,
+      short: EVIDENCE.primary.short,
+      className: EVIDENCE.primary.className,
+      reason: "Kandidat basiert derzeit auf einem einzelnen automatisch ausgewerteten Bild.",
+    };
+  }
   const haystack = `${imp.note} ${imp.src}`.toLowerCase();
   if (/1947|1943 clean|vorher\/nachher|persistenz/.test(haystack)) {
     return {
@@ -968,13 +951,13 @@ function evidencePill(evidence) {
 
 const AUDITED_IMPACTS = IMPACTS.map((imp) => ({
   ...imp,
-  rawLat: imp.lat,
-  rawLon: imp.lon,
-  lat: transformLatLon(imp.lat, imp.lon)[0],
-  lon: transformLatLon(imp.lat, imp.lon)[1],
+  rawLat: imp.rawLat ?? imp.lat,
+  rawLon: imp.rawLon ?? imp.lon,
+  lat: imp.georeferenced ? imp.lat : transformLatLon(imp.lat, imp.lon)[0],
+  lon: imp.georeferenced ? imp.lon : transformLatLon(imp.lat, imp.lon)[1],
   audit: classifyImpact(imp),
   evidence: classifyEvidence(imp),
-  temporal: buildTemporalProfile(imp.src, imp.note),
+  temporal: buildTemporalProfile(imp.src, imp.note, imp),
 }));
 const groupCounts = GROUP_ORDER.reduce((acc, key) => {
   acc[key] = AUDITED_IMPACTS.filter((imp) => imp.grp === key).length;
@@ -988,9 +971,17 @@ const auditCounts = AUDITED_IMPACTS.reduce((acc, imp) => {
   acc[imp.audit.key] += 1;
   return acc;
 }, {confirmed:0, plausible:0, weak:0});
+const processedMatchers = new Set(
+  (AUTO_ANALYSIS_SUMMARY.per_image || []).flatMap((entry) => [
+    String(entry.image || "").toLowerCase(),
+    String(entry.date || "").toLowerCase(),
+    String(entry.path || "").toLowerCase(),
+  ].filter(Boolean))
+);
 const fileAudit = SERIES_FILES.map((file) => {
   const linkedImpacts = AUDITED_IMPACTS.filter((imp) => impactMatchesFile(imp, file));
-  const status = file.role === "baseline" ? "baseline" : (linkedImpacts.length ? "direct" : "context");
+  const processed = file.matchers.some((matcher) => [...processedMatchers].some((value) => value.includes(matcher.toLowerCase())));
+  const status = file.role === "baseline" ? "baseline" : (processed ? "direct" : "pending");
   return {...file, status, linkedImpacts};
 });
 const summary = {
@@ -998,20 +989,20 @@ const summary = {
   confirmed: auditCounts.confirmed,
   plausible: auditCounts.plausible,
   weak: auditCounts.weak,
-  openFiles: fileAudit.filter((file) => file.status === "context").length,
+  openFiles: fileAudit.filter((file) => file.status === "pending").length,
   directFiles: fileAudit.filter((file) => file.status === "direct").length,
   baselineFiles: fileAudit.filter((file) => file.status === "baseline").length
 };
 
-document.title = `Kampfmittel-Luftbildauswertung – Weinsberg | Audit v4 · ${summary.total} Punkte`;
-document.getElementById("badgeText").textContent = `Audit v4 · ${summary.total} Punkte · Flächenlogik`;
-document.getElementById("metaText").textContent = `${summary.directFiles}/15 TIFF-Dateien sind direkte Punktquellen, ${summary.baselineFiles}/15 dienen als Baseline und ${summary.openFiles}/15 als Kontext-/Kontrollbilder. Die Kartenlage wird per 3-GCP-Affinkorrektur stabilisiert.`;
+document.title = `Kampfmittel-Luftbildauswertung – Weinsberg | Autoanalyse · ${summary.total} Kandidaten`;
+document.getElementById("badgeText").textContent = `Autoanalyse · ${summary.total} Kandidaten · aktuelle Kalibrierung`;
+document.getElementById("metaText").textContent = `${summary.directFiles}/15 TIFF-Dateien sind aktuell als Kandidatenquelle gerechnet, ${summary.baselineFiles}/15 dienen als Baseline und ${summary.openFiles}/15 stehen noch aus. Die Kartenlage folgt der aktuellen Web-Kalibrierung.`;
 document.getElementById("statTotal").textContent = summary.total;
 document.getElementById("statConfirmed").textContent = summary.confirmed;
 document.getElementById("statPlausible").textContent = summary.plausible;
 document.getElementById("statWeak").textContent = summary.weak;
 document.getElementById("statOpenFiles").textContent = summary.openFiles;
-document.getElementById("auditSummaryText").innerHTML = `${summary.confirmed} Punkte sind <strong>bestätigt</strong>, ${summary.plausible} <strong>plausibel</strong> und ${summary.weak} <strong>nicht hinreichend belegt</strong>. ${evidenceCounts.primary} Punkte liegen im <strong>Primärquellen-Layer</strong>, ${evidenceCounts.comparison} im <strong>Vergleichs-/Persistenz-Layer</strong>.`;
+document.getElementById("auditSummaryText").innerHTML = `${summary.confirmed} <strong>hohe</strong>, ${summary.plausible} <strong>mittlere</strong> und ${summary.weak} <strong>niedrige</strong> Kandidaten sind aktuell sichtbar. ${evidenceCounts.primary} liegen im <strong>Einzelbild-Layer</strong>, ${evidenceCounts.comparison} im <strong>Mehrdatig-/Persistenz-Layer</strong>.`;
 
 const APP_STORAGE_KEY = "blindgaenger_suite_v1";
 const SUPABASE_PUBLIC_CONFIG = window.SUPABASE_PUBLIC_CONFIG || {};
@@ -1265,7 +1256,7 @@ function createDefaultProjects() {
       id: "gut-weinsberg-001",
       name: "Weinsberg – Innenstadt / Bahntrasse",
       location: "Weinsberg",
-      scope: "TIFF-Serie 1943–1947 · Audit v4",
+      scope: "TIFF-Serie 1943–1947 · Autoanalyse",
       stage: "analysis",
       owner: "Lokal",
       updatedAt: todayIso(),
@@ -1286,11 +1277,11 @@ function createDefaultProjects() {
         georefStatus: "teilweise",
         webCalibrationStatus: "vorhanden",
         webCalibrationExportedAt: todayIso(),
-        analysisStatus: "audit-v4",
+        analysisStatus: "candidates_generated",
         exportStatus: "html-bereit",
         reviewStatus: "intern",
         lastRunAt: `${todayIso()}T08:00:00Z`,
-        note: "Historische TIFF-Serie lokal ausgewertet; Web-App dient als Review- und Freigabelayer.",
+        note: "Historische TIFF-Serie lokal ausgewertet; die App zeigt nur die neu gerechneten Kandidaten und dient als Review- und Freigabelayer.",
       },
       stats: {
         imagesTotal: 15,
@@ -1980,7 +1971,7 @@ function updateWorkspaceProjectContext(project) {
   document.getElementById("workspaceSubtitle").textContent = `${project.location} · ${project.scope} · ${projectOutputSummary(project)}`;
   document.getElementById("workspaceProjectMeta").textContent = `${project.location} · ${project.scope}`;
   document.getElementById("workspaceStageMeta").textContent = stage.label;
-  document.getElementById("badgeText").textContent = `${stage.label} · ${summary.total} Punkte · Flächenlogik`;
+  document.getElementById("badgeText").textContent = `${stage.label} · ${summary.total} Kandidaten · Autoanalyse`;
   document.getElementById("workspaceNavHint").innerHTML = currentRole() === "nutzer"
     ? `<strong>Gutachtenansicht</strong><span>Mit „Zurueck zu meinen Vorgängen“ kommst du jederzeit auf dein Dashboard zurueck.</span>`
     : `<strong>Workspace aktiv</strong><span>Mit „Zurueck zur Uebersicht“ wechselst du jederzeit zurück ins Board und in die Projektliste.</span>`;
@@ -2113,7 +2104,7 @@ function initSidebarDisclosures(root = document) {
 
 function renderSidebarPanels() {
   const contextFiles = fileAudit
-    .filter((file) => file.status === "context")
+    .filter((file) => file.status === "pending")
     .map((file) => file.label)
     .join(" · ");
   const qgisLayerHtml = QGIS_SCHEMA.layers.map((layer) => `
@@ -2135,10 +2126,10 @@ function renderSidebarPanels() {
 
   const coverageHtml = fileAudit.map((file) => {
     const pillClass = file.status === "direct" ? "direct" : (file.status === "baseline" ? "base" : "ctx");
-    const pillLabel = file.status === "direct" ? "direkt" : (file.status === "baseline" ? "Baseline" : "Kontext");
+    const pillLabel = file.status === "direct" ? "gerechnet" : (file.status === "baseline" ? "Baseline" : "offen");
     const meta = file.status === "direct"
-      ? `${file.linkedImpacts.length} Punkt${file.linkedImpacts.length === 1 ? "" : "e"} verknüpft`
-      : (file.status === "baseline" ? `${file.linkedImpacts.length} Verweis${file.linkedImpacts.length === 1 ? "" : "e"} auf Vorzustand` : "berücksichtigt als Kontroll- oder Kontextbild");
+      ? `${file.linkedImpacts.length} Kandidat${file.linkedImpacts.length === 1 ? "" : "en"} verknüpft`
+      : (file.status === "baseline" ? `${file.linkedImpacts.length} Verweis${file.linkedImpacts.length === 1 ? "" : "e"} auf Vorzustand` : "noch nicht in die aktuelle Kandidatenrechnung übernommen");
     return `
       <div class="src-item">
         <div class="left">
@@ -2166,23 +2157,23 @@ function renderSidebarPanels() {
     <div class="sb">
       <h2>Vorläufige Bauentscheidung</h2>
       <div class="decision red">
-        <strong>Rot – nicht ohne Kampfmitteluntersuchung bauen</strong>
-        Großkrater N/NE, Bahnhofsvorfeld und westlicher Bahnkorridor, klar ausgeprägte NO-Krater sowie die belastbaren Persistenzzonen am Waldrand. Diese Lagen sind als direkte Trefferzonen zusammengefasst.
+        <strong>Rot – hohe Kandidaten priorisiert prüfen</strong>
+        Mehrdatig oder persistent gestützte Kandidatenzonen aus der aktuellen Autoanalyse. Diese Lagen sollten zuerst sondiert oder fachlich geprüft werden.
       </div>
       <div class="decision yellow">
-        <strong>Gelb – weitere Prüfung erforderlich</strong>
-        Südlicher Ortsrand, Bahnhof-Ost, die rekonstruierten Angriffskorridore und alle indirekten Verdachtsflächen. Hier folgt der Verdacht eher aus Trefferband, Fehlstellen und Zielnähe als aus einem harten Einzelkrater.
+        <strong>Gelb – mittlere Kandidaten nacharbeiten</strong>
+        Einzelbildkandidaten ohne starke Zweitbestätigung. Hier sind Bildvergleich, Nachkalibrierung oder fachliche Prüfung erforderlich.
       </div>
       <div class="decision green">
-        <strong>Grün – keine konkreten Luftbildanhalte</strong>
-        Nur außerhalb der markierten 50m-Puffer, außerhalb der Angriffskorridore und außerhalb der verdichteten Randstörzonen. Die Aussage bleibt zonenhaft und nicht parzellenscharf.
+        <strong>Grün – außerhalb aktueller Kandidatenflächen</strong>
+        Außerhalb der automatisch gerechneten Kandidaten und Puffer. Die Aussage bleibt zonenhaft und ist keine amtliche Freigabe.
       </div>
     </div>
 
     <div class="sb">
       <h2>Darstellungslogik</h2>
       <div class="audit-note">
-        <strong>Methodisch sauber getrennt:</strong> Sichtbare Krater und persistente Bodenstörungen bleiben als Einzelpunkte und rote Direktzonen dargestellt. Typische Bombenlauf- bzw. Trefferbänder entlang der Bahn und am Waldrand werden als orange Korridore geführt. Dort, wo das Muster eine Fortsetzung nahelegt, im Bild aber kein sicherer Krater erkennbar ist, wird nur ein gelber <strong>indirekter / statistischer Blindgängerverdacht</strong> ausgewiesen, ausdrücklich nicht ein harter Punkt.
+        <strong>Methodisch sauber getrennt:</strong> Die aktuelle Oberfläche zeigt nur noch automatisch gerechnete Kandidaten und die daraus abgeleiteten Puffer- bzw. Verdachtsflächen. Hohe Kandidaten beruhen auf Mehrfachbeleg oder Persistenz, mittlere Kandidaten meist auf Einzelbildtreffern, niedrige Kandidaten bleiben schwächere Arbeitshinweise.
       </div>
     </div>
 
@@ -2362,14 +2353,14 @@ function renderSidebarPanels() {
     <div class="sb">
       <h2>Qualität der Vorarbeit</h2>
       <div class="audit-note">
-        <strong>Form gut, Vollständigkeit konservativ gelöst:</strong> Die bisherige HTML-Struktur eignet sich als Präsentationsoberfläche. Inhaltlich wurden hier die Widersprüche zu Zählstand, Quellenumfang und Punktnachweis offengelegt. Als Kontext-/Kontrollbilder berücksichtigt sind derzeit: ${escapeHtml(contextFiles)}.
+        <strong>Arbeitsstand sauber getrennt:</strong> Die bisherige HTML-Struktur eignet sich weiter als Präsentationsoberfläche. Inhaltlich basiert die Punktdarstellung jetzt nur noch auf den neu gerechneten Kandidaten. Noch nicht gerechnete TIFFs sind derzeit: ${escapeHtml(contextFiles || "keine weiteren offenen Dateien gelistet")}.
       </div>
     </div>
 
     <div class="sb" style="background:#0d1a0d;">
       <h2 style="color:#27ae60">Export / QGIS</h2>
       <button id="exportBtn" style="background:#27ae60;color:#fff;border:none;border-radius:3px;padding:7px 14px;font-size:.75rem;font-weight:700;cursor:pointer;width:100%;margin-bottom:6px;">
-        ⬇ GeoJSON exportieren (${summary.total} Punkte + ${AREA_FEATURES.length} Flächen)
+        ⬇ GeoJSON exportieren (${summary.total} Kandidaten + ${AREA_FEATURES.length} Flächen)
       </button>
       <button id="exportGcpBtn" style="background:#2c3e50;color:#fff;border:none;border-radius:3px;padding:7px 14px;font-size:.75rem;font-weight:700;cursor:pointer;width:100%;margin-bottom:6px;">
         ⬇ GCP-Zielpunkte exportieren
@@ -2378,7 +2369,7 @@ function renderSidebarPanels() {
         ⬇ QGIS-Schema exportieren
       </button>
       <div style="font-size:.65rem;color:#555;line-height:1.5;">
-        GeoJSON enthält korrigierte und rohe Koordinaten. Die GCP-Datei liefert moderne WGS84-Zielpunkte für die manuelle Georeferenzierung der TIFFs in QGIS. Der Schema-Export dokumentiert Layernamen, Objektklassen und das empfohlene Attributmodell.
+        GeoJSON enthält die aktuell neu gerechneten Kandidaten und Flächen. Die GCP-Datei liefert moderne WGS84-Zielpunkte für die manuelle Georeferenzierung der TIFFs in QGIS. Der Schema-Export dokumentiert Layernamen, Objektklassen und das empfohlene Attributmodell.
       </div>
       <div style="font-size:.65rem;color:#6d8ba7;line-height:1.5;margin-top:6px;">
         Verwendete Affin-Anker: Marktplatz, Bahnhof Weinsberg, Burg Weibertreu.
@@ -2612,16 +2603,16 @@ function buildPrintableReportHtml(project) {
         <h2>Vorläufige Bewertung</h2>
         <div class="decision-grid">
           <div class="decision-card red">
-            <strong>Rot – nicht ohne Kampfmitteluntersuchung bauen</strong>
-            Großkrater N/NE, Bahnhofsvorfeld und westlicher Bahnkorridor, klar ausgeprägte NO-Krater sowie belastbare Persistenzzonen am Waldrand.
+            <strong>Rot – hohe Kandidaten priorisiert prüfen</strong>
+            Mehrdatig oder persistent gestützte Kandidatenzonen aus der aktuellen Autoanalyse. Diese Bereiche sollten zuerst sondiert oder fachlich geprüft werden.
           </div>
           <div class="decision-card yellow">
-            <strong>Gelb – weitere Prüfung erforderlich</strong>
-            Südlicher Ortsrand, Bahnhof-Ost, rekonstruierte Angriffskorridore und indirekte Verdachtsflächen.
+            <strong>Gelb – mittlere Kandidaten nacharbeiten</strong>
+            Einzelbildkandidaten ohne starke Zweitbestätigung. Hier ist Gutachterprüfung, Bildvergleich oder weitere Georeferenzierung erforderlich.
           </div>
           <div class="decision-card green">
-            <strong>Grün – keine konkreten Luftbildanhalte</strong>
-            Nur außerhalb der markierten Puffer, Korridore und verdichteten Randstörzonen; weiterhin keine amtliche Freigabe.
+            <strong>Grün – außerhalb aktueller Kandidatenflächen</strong>
+            Außerhalb der automatisch gerechneten Kandidaten und Puffer. Weiterhin keine amtliche Freigabe, sondern nur fehlender aktueller Trefferhinweis.
           </div>
         </div>
       </section>
@@ -2696,7 +2687,7 @@ function exportGeoJSON() {
       puffer_m: 50,
       genauigkeit_m: 150,
       analysedatum: "2026-03-20",
-      methode: "Audit v4 der vorhandenen Punktdaten gegen verfügbare TIFF-Serie mit 3-GCP-Affinkorrektur"
+      methode: "Automatisch gerechnete Kandidaten auf Basis der aktuellen Web-Kalibrierung"
     },
     geometry: { type:"Point", coordinates:[imp.lon, imp.lat] }
   }));
@@ -2722,11 +2713,11 @@ function exportGeoJSON() {
         zeitinterpretation: temporal.interpretation,
         herleitung: area.note,
         analysedatum: "2026-03-20",
-        methode: "Flächenhafte Ableitung aus Punktclustern, Angriffskorridoren und indirekten Verdachtsbereichen"
+        methode: "Automatisch gerechnete Kandidatenfläche aus der aktuellen Autoanalyse"
       },
       geometry: {
         type:"Polygon",
-        coordinates: transformPolygon(area.rawPath)
+        coordinates: area.georeferenced ? area.pathLonLat : transformPolygon(area.rawPath)
       }
     };
   });
@@ -2735,7 +2726,7 @@ function exportGeoJSON() {
     type:"FeatureCollection",
     crs:{type:"name",properties:{name:"urn:ogc:def:crs:OGC:1.3:CRS84"}},
     metadata:{
-      title:"Kampfmittel-Luftbildauswertung Weinsberg – Audit v4 mit Flächenlogik",
+      title:"Kampfmittel-Luftbildauswertung Weinsberg – Autoanalyse Kandidaten",
       count: features.length,
       point_features: pointFeatures.length,
       area_features: areaFeatures.length,
@@ -2744,14 +2735,14 @@ function exportGeoJSON() {
       context_files: summary.openFiles,
       qgis_project_crs: QGIS_SCHEMA.projectCrs,
       qgis_exchange_crs: QGIS_SCHEMA.exchangeCrs,
-      georef:"3-GCP affine Korrektur aus Marktplatz, Bahnhof und Burg Weibertreu",
-      disclaimer:"Audit-Fassung – kein amtliches Gutachten. Punkte und Flächen sind fachliche Vorbewertung; Geolage gegenüber der Vorversion verbessert, aber keine vollständige TIFF-Georeferenzierung."
+      georef:"Aktuelle Web-Kalibrierung und lokale Autoanalyse",
+      disclaimer:"Autoanalyse-Fassung – kein amtliches Gutachten. Punkte und Flächen stammen aus dem aktuellen Kandidatenlauf und ersetzen keine vollständige TIFF-Georeferenzierung."
     },
     features
   }, null, 2);
   const a = document.createElement("a");
   a.href = "data:application/json;charset=utf-8," + encodeURIComponent(gj);
-  a.download = "Weinsberg_Einschlaege_und_Flaechen_Audit_v4.geojson";
+  a.download = "Weinsberg_Kandidaten_und_Flaechen_Autoanalyse.geojson";
   a.click();
 }
 
@@ -2786,16 +2777,11 @@ function exportQgisSchema() {
 }
 
 function inferPointObjectClass(imp) {
-  if (["HL","NW","NE","W","M"].includes(imp.grp)) return "sprengbombenkrater";
-  if (["FE","BHE"].includes(imp.grp)) return "sonstige_bodenstoerung";
-  if (imp.grp === "SE") return "brand_rauchspur";
-  return "sonstige_punktanomalie";
+  return imp.objectClass || "bombenkrater_kandidat";
 }
 
 function inferAreaObjectClass(area) {
-  if (area.type === "direct") return "direkte_trefferzone";
-  if (area.type === "corridor") return "angriffskorridor";
-  return "blindgaengerverdacht_flaeche";
+  return area.objectClass || "bombenkrater_verdachtsflaeche";
 }
 
 const HISTORICAL_IMAGE_LAYERS = cloneHistoricalImageLayers();
@@ -2850,135 +2836,64 @@ const directEditState = {name:null, mode:null, layer:null};
 const workflowState = {lastTarget:null};
 
 const AREA_LAYER_CONFIG = {
-  direct: {
-    label:"Direkte Trefferzonen",
+  candidate_high: {
+    label:"Hohe Verdachtsflächen",
     color:"#c0392b",
     fillColor:"rgba(192,57,43,.18)",
     dashArray:"10,4",
     weight:2.2,
   },
-  corridor: {
-    label:"Angriffskorridore",
+  candidate_medium: {
+    label:"Mittlere Verdachtsflächen",
     color:"#e67e22",
     fillColor:"rgba(230,126,34,.12)",
-    dashArray:"14,6",
+    dashArray:"10,5",
     weight:2.0,
   },
-  indirect: {
-    label:"Indirekter / statistischer Blindgängerverdacht",
-    color:"#f1c40f",
-    fillColor:"rgba(241,196,15,.10)",
+  candidate_low: {
+    label:"Niedrige Verdachtsflächen",
+    color:"#7f8c8d",
+    fillColor:"rgba(127,140,141,.10)",
     dashArray:"6,6",
     weight:1.8,
   },
 };
 
-const AREA_FEATURES = [
-  {
-    id:"DZ-01",
-    type:"direct",
-    label:"Direkte Trefferzone Nordost / Waldrand",
-    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09, 1947-07-23",
-    note:"Verdichteter Cluster aus HL-, SE- und FE-Befunden mit klarer Krater- und Persistenzlage am südlichen Waldrand.",
-    rawPath:[
-      [49.1578,9.3592],[49.1582,9.3660],[49.1565,9.3714],[49.1532,9.3726],
-      [49.1502,9.3700],[49.1499,9.3644],[49.1522,9.3594],[49.1556,9.3588]
-    ],
-  },
-  {
-    id:"DZ-02",
-    type:"direct",
-    label:"Direkte Trefferzone Felder Nordwest",
-    source:"1944-12-24",
-    note:"Zusammenhängender Streukrater-Cluster westlich/nordwestlich des Bahnkorridors mit dichter Punktlage in den Ackerstreifen.",
-    rawPath:[
-      [49.1596,9.3447],[49.1598,9.3522],[49.1567,9.3530],[49.1532,9.3520],
-      [49.1529,9.3457],[49.1561,9.3440]
-    ],
-  },
-  {
-    id:"DZ-03",
-    type:"direct",
-    label:"Direkte Trefferzone Bahnhof / Westanschnitt",
-    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09",
-    note:"Verdichtete Trefferlage am Primärziel Bahn mit mehrfach belegten Einschlägen im Bahnhofsvorfeld und westlichen Zulauf.",
-    rawPath:[
-      [49.1503,9.3394],[49.1505,9.3536],[49.1479,9.3547],[49.1455,9.3524],
-      [49.1456,9.3421],[49.1474,9.3380]
-    ],
-  },
-  {
-    id:"DZ-04",
-    type:"direct",
-    label:"Direkte Trefferzone Felder Nordost",
-    source:"1945-04-09",
-    note:"Kleiner, aber klarer Einzelkrater-Cluster in den nordöstlichen Freiflächen Richtung Ellhofen.",
-    rawPath:[
-      [49.1552,9.3740],[49.1554,9.3788],[49.1536,9.3792],[49.1515,9.3781],
-      [49.1513,9.3743],[49.1528,9.3734]
-    ],
-  },
-  {
-    id:"AK-01",
-    type:"corridor",
-    label:"Angriffskorridor Bahnlinie West–Bahnhof–Ost",
-    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09",
-    note:"Rekonstruiertes Trefferband entlang des Primärziels Eisenbahn. Dient der flächenhaften Einordnung von Punktlücken innerhalb des Bombenlaufs.",
-    rawPath:[
-      [49.1509,9.3326],[49.1512,9.3544],[49.1506,9.3624],[49.1493,9.3661],[49.1465,9.3658],
-      [49.1438,9.3620],[49.1437,9.3520],[49.1449,9.3332],[49.1469,9.3318]
-    ],
-  },
-  {
-    id:"AK-02",
-    type:"corridor",
-    label:"Angriffskorridor Nordkante / Waldrand",
-    source:"1944-09-10, 1944-12-24, 1945-03-19, 1945-04-09, 1947-07-23",
-    note:"Nordöstliches Streu- und Weiterlaufband zwischen NW-Streuung, Waldrandtreffern und den nordöstlichen Einzelkratern.",
-    rawPath:[
-      [49.1594,9.3496],[49.1596,9.3595],[49.1578,9.3689],[49.1550,9.3753],[49.1526,9.3796],
-      [49.1514,9.3789],[49.1518,9.3704],[49.1534,9.3604],[49.1556,9.3490]
-    ],
-  },
-  {
-    id:"IV-01",
-    type:"indirect",
-    label:"Indirekter Verdacht Südrand / Bahnhof-Ost",
-    source:"1944-12-24, 1945-03-19, 1945-04-09, 1947-07-23",
-    note:"Lücken- und Randzone zwischen M- und BHE-Befunden. Hier ist eher ein flächenhafter Blindgängerverdacht als ein harter Einzelpunkt anzunehmen.",
-    rawPath:[
-      [49.1504,9.3520],[49.1507,9.3596],[49.1496,9.3654],[49.1458,9.3662],
-      [49.1435,9.3621],[49.1437,9.3550],[49.1450,9.3514],[49.1480,9.3508]
-    ],
-  },
-  {
-    id:"IV-02",
-    type:"indirect",
-    label:"Indirekter Verdacht Nordzentrum zwischen NW und HL",
-    source:"1944-12-24, 1945-03-19",
-    note:"Zwischenraum zweier direkter Cluster mit plausibler Weiterführung des Trefferbandes, aber ohne gleich dichte Punktlage.",
-    rawPath:[
-      [49.1585,9.3515],[49.1588,9.3592],[49.1577,9.3638],[49.1547,9.3640],
-      [49.1529,9.3610],[49.1531,9.3540],[49.1552,9.3504]
-    ],
-  },
-  {
-    id:"IV-03",
-    type:"indirect",
-    label:"Indirekter Verdacht Ostanschluss Richtung NE-Felder",
-    source:"1945-03-19, 1945-04-09, 1947-07-23",
-    note:"Östlicher Übergangsraum zwischen Bahnhof-Ost, südlichem Ortsrand und den nordöstlichen Kratern; geeignet als separater Prüf-Layer für spätere Baufelder.",
-    rawPath:[
-      [49.1532,9.3590],[49.1538,9.3664],[49.1536,9.3792],[49.1504,9.3795],
-      [49.1482,9.3710],[49.1487,9.3612],[49.1506,9.3585]
-    ],
-  },
-];
+function normalizeAreaPath(feature) {
+  const coordinates = feature?.geometry?.coordinates;
+  const ring = Array.isArray(coordinates?.[0]) ? coordinates[0] : [];
+  return ring.map(([lon, lat]) => [lat, lon]);
+}
+
+function normalizeAutoAreaFeature(feature, index) {
+  const props = feature?.properties || {};
+  const type = AREA_LAYER_CONFIG[props.analysis_status] ? props.analysis_status : "candidate_medium";
+  const path = normalizeAreaPath(feature);
+  const pathLonLat = path.map(([lat, lon]) => [lon, lat]);
+  return {
+    id:`A${String(index + 1).padStart(3, "0")}`,
+    type,
+    label:`${AREA_LAYER_CONFIG[type].label} ${String(index + 1).padStart(3, "0")}`,
+    source: props.interpretation || "",
+    note: props.interpretation || "Automatisch abgeleitete Verdachtsfläche.",
+    georeferenced: true,
+    path,
+    pathLonLat: path.length && pathLonLat.length && (pathLonLat[0][0] !== pathLonLat[pathLonLat.length - 1][0] || pathLonLat[0][1] !== pathLonLat[pathLonLat.length - 1][1])
+      ? [...pathLonLat, [...pathLonLat[0]]]
+      : pathLonLat,
+    objectClass: props.objektklasse || "bombenkrater_verdachtsflaeche",
+    score: Number.isFinite(Number(props.score)) ? Number(props.score) : 0,
+    supportCount: Number.isFinite(Number(props.support_count)) ? Number(props.support_count) : 1,
+    radiusM: Number.isFinite(Number(props.radius_m)) ? Number(props.radius_m) : 0,
+  };
+}
+
+const AREA_FEATURES = AUTO_AREA_FEATURES.map(normalizeAutoAreaFeature);
 
 const areaCounts = AREA_FEATURES.reduce((acc, area) => {
   acc[area.type] += 1;
   return acc;
-}, {direct:0, corridor:0, indirect:0});
+}, {candidate_high:0, candidate_medium:0, candidate_low:0});
 
 const QGIS_SCHEMA = {
   projectCrs: "EPSG:25832",
@@ -3008,7 +2923,7 @@ const QGIS_SCHEMA = {
       name: "11_verdachtsflaechen",
       geometry: "Polygon",
       classes: ["direkte_trefferzone", "angriffskorridor", "blindgaengerverdacht_flaeche", "unsicherheitszone"],
-      purpose: "Flächenhafte Zusammenfassung direkter Trefferzonen, Korridore und indirekter Verdachtslagen.",
+        purpose: "Flächenhafte Zusammenfassung automatisch gerechneter Kandidatenzonen.",
     },
     {
       name: "12_linearstrukturen",
@@ -3033,8 +2948,8 @@ const QGIS_SCHEMA = {
     {name:"obj_id", type:"TEXT", note:"eindeutige Objekt-ID"},
     {name:"objektklasse", type:"TEXT", note:"standardisierte Objektklasse"},
     {name:"subklasse", type:"TEXT", note:"optionale Unterkategorie"},
-    {name:"nachweisstatus", type:"TEXT", note:"bestätigt | plausibel | schwach"},
-    {name:"evidenztyp", type:"TEXT", note:"direkt | vergleich | indirekt | textquelle"},
+    {name:"nachweisstatus", type:"TEXT", note:"hoch | mittel | niedrig"},
+    {name:"evidenztyp", type:"TEXT", note:"einzelbild | mehrdatig | persistenz | textquelle"},
     {name:"quelle_primary", type:"TEXT", note:"wichtigste Primärquelle"},
     {name:"quellen_all", type:"TEXT", note:"alle referenzierten Quellen"},
     {name:"datum_von", type:"TEXT", note:"frühestes relevantes Datum"},
@@ -3933,20 +3848,20 @@ const pointEntries = [];
 
 AREA_FEATURES.forEach((area) => {
   const cfg = AREA_LAYER_CONFIG[area.type];
-  const polygon = L.polygon(transformPath(area.rawPath), {
+  const polygon = L.polygon(area.georeferenced ? area.path : transformPath(area.rawPath), {
     color: cfg.color,
     weight: cfg.weight,
     opacity: 0.92,
     fillColor: cfg.fillColor,
-    fillOpacity: area.type === "direct" ? 0.28 : (area.type === "corridor" ? 0.16 : 0.12),
+    fillOpacity: area.type === "candidate_high" ? 0.28 : (area.type === "candidate_medium" ? 0.16 : 0.12),
     dashArray: cfg.dashArray,
   }).bindPopup(`<div style="font-size:.82rem;min-width:240px">
       <b style="color:${cfg.color};font-size:.92rem">${escapeHtml(area.id)} · ${escapeHtml(area.label)}</b><br/>
       <span style="color:#888;font-size:.72rem">${escapeHtml(cfg.label)}</span>
       <hr style="margin:6px 0;border-color:#333"/>
-      <b>Bildquellen:</b> ${escapeHtml(area.source)}<br/>
-      <b>Herleitung:</b> ${escapeHtml(area.note)}<br/>
-      <span style="color:#cfa33b;font-size:.68rem">Flächenhafte Vorbewertung; kein punktgenauer Blindgängernachweis.</span>
+      <b>Stützung:</b> ${escapeHtml(area.note)}<br/>
+      <b>Score:</b> ${area.score.toFixed(3)} · <b>Belege:</b> ${area.supportCount}<br/>
+      <span style="color:#cfa33b;font-size:.68rem">Automatisch abgeleitete Verdachtsfläche; kein punktgenauer Blindgängernachweis.</span>
     </div>`)
     .bindTooltip(area.label, {sticky:true});
   polygon.addTo(areaLayers[area.type]);
@@ -4018,9 +3933,10 @@ AUDITED_IMPACTS.forEach((imp) => {
     <div style="color:#9aa2aa;font-size:.68rem;line-height:1.45">${escapeHtml(imp.audit.reason)} ${escapeHtml(imp.evidence.reason)}</div>
     <hr style="margin:6px 0;border-color:#333"/>
     <b>Bildquellen:</b> ${escapeHtml(imp.src)}<br/>
+    <b>Score:</b> ${Number.isFinite(imp.score) ? imp.score.toFixed(3) : "0.000"} · <b>Belege:</b> ${imp.supportCount || 1}<br/>
     <b>Koordinaten:</b> ${imp.lat.toFixed(4)}°N, ${imp.lon.toFixed(4)}°E<br/>
-    <b>Suchradius:</b> 50m (≈ 7.850 m²)<br/>
-    <span style="color:#c0392b;font-size:.68rem">⚠ Audit-Fassung, keine amtliche Freigabe, Lagegenauigkeit ±100–200m</span>
+    <b>Kandidatenradius:</b> ${Number.isFinite(imp.radiusM) ? imp.radiusM.toFixed(1) : "10.0"}m · <b>Suchradius:</b> 50m<br/>
+    <span style="color:#c0392b;font-size:.68rem">⚠ Autoanalyse-Fassung, keine amtliche Freigabe, Lagegenauigkeit abhängig von der aktuellen Web-Kalibrierung</span>
   </div>`;
 
   dot.bindPopup(popup);
@@ -4085,24 +4001,24 @@ legCtrl.onAdd = () => {
   d.innerHTML = `
     <div class="map-leg-shell">
       <div class="map-leg-head">
-        <b style="color:#eee">Auditkarte v4 · ${summary.total} Punkte</b>
+        <b style="color:#eee">Autoanalyse · ${summary.total} Kandidaten</b>
         <button type="button" class="map-leg-toggle" title="Legende ausblenden" aria-label="Legende ausblenden">×</button>
       </div>
-      ${GROUP_ORDER.map((key) => `<span style="color:${GRP[key].color}">●</span> ${escapeHtml(key)} (${groupCounts[key]})`).join("<br/>")}
+      ${GROUP_ORDER.map((key) => `<span style="color:${GRP[key].color}">●</span> ${escapeHtml(GRP[key].label)} (${groupCounts[key]})`).join("<br/>")}
       <hr style="margin:6px 0;border-color:#333"/>
-      <span class="pill ok">bestätigt ${summary.confirmed}</span>
-      <span class="pill warn">plausibel ${summary.plausible}</span>
-      <span class="pill bad">schwach ${summary.weak}</span><br/>
-      <span class="pill direct">primär ${evidenceCounts.primary}</span>
-      <span class="pill base">vergleich ${evidenceCounts.comparison}</span><br/>
-      <span style="color:#c0392b">▧</span> Direktzonen (${areaCounts.direct}) ·
-      <span style="color:#e67e22">▧</span> Korridore (${areaCounts.corridor}) ·
-      <span style="color:#f1c40f">▧</span> indirekt (${areaCounts.indirect})<br/>
+      <span class="pill ok">hoch ${summary.confirmed}</span>
+      <span class="pill warn">mittel ${summary.plausible}</span>
+      <span class="pill bad">niedrig ${summary.weak}</span><br/>
+      <span class="pill direct">einzel ${evidenceCounts.primary}</span>
+      <span class="pill base">mehrdatig ${evidenceCounts.comparison}</span><br/>
+      <span style="color:#c0392b">▧</span> hoch (${areaCounts.candidate_high}) ·
+      <span style="color:#e67e22">▧</span> mittel (${areaCounts.candidate_medium}) ·
+      <span style="color:#7f8c8d">▧</span> niedrig (${areaCounts.candidate_low})<br/>
       <span style="color:#2c3e50">●</span> GCP-Anker (${GEOREF_TARGETS.length})<br/>
       <span style="color:#2ecc71">╌</span> Außenraum ·
       <span style="color:#3498db">╌</span> Hauptprüfbereich ·
       <span style="color:#f1c40f">╌</span> Bahnlinie<br/>
-      <span class="map-leg-line">◌ = 50m Suchradius · rote Flächen = direkte Kratercluster · orange Flächen = Angriffskorridore · gelbe Flächen = indirekter Verdacht · ${summary.openFiles}/15 TIFF-Dateien als Kontext/Kontrolle berücksichtigt</span>
+      <span class="map-leg-line">◌ = 50m Suchradius · rote Flächen = hohe Kandidaten · orange Flächen = mittlere Kandidaten · graue Flächen = niedrige Kandidaten · ${summary.openFiles}/15 TIFF-Dateien noch nicht gerechnet</span>
     </div>
     <button type="button" class="map-leg-reopen" title="Legende einblenden" aria-label="Legende einblenden">Legende</button>`;
   const toggleBtn = d.querySelector(".map-leg-toggle");
@@ -4133,8 +4049,8 @@ function syncAuditPanelState() {
   auditToggleBtn.setAttribute("aria-expanded", auditPanelExpanded ? "true" : "false");
   if (auditToggleMeta) {
     auditToggleMeta.textContent = auditPanelExpanded
-      ? `${summary.total} Punkte sichtbar. Zeilen klicken, um direkt zur Karte zu springen.`
-      : `${summary.total} Punkte vorhanden. Bei Bedarf ausklappen.`;
+      ? `${summary.total} Kandidaten sichtbar. Zeilen klicken, um direkt zur Karte zu springen.`
+      : `${summary.total} Kandidaten vorhanden. Bei Bedarf ausklappen.`;
   }
 }
 
@@ -4153,7 +4069,7 @@ AUDITED_IMPACTS.forEach((imp) => {
   const tr = document.createElement("tr");
   tr.innerHTML = `
     <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${c.color};margin-right:4px;vertical-align:middle"></span>${escapeHtml(imp.id)}</td>
-    <td style="color:${c.color};font-weight:600">${escapeHtml(imp.grp)}</td>
+    <td style="color:${c.color};font-weight:600">${escapeHtml(c.label)}</td>
     <td style="font-size:.66rem">${statusPill(imp.audit)} ${evidencePill(imp.evidence)}</td>
     <td style="color:#666;font-size:.65rem">${escapeHtml(imp.src.split(",")[0])}</td>`;
   tr.title = `${imp.note} | ${imp.audit.label} | ${imp.evidence.label}`;

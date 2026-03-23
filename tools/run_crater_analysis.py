@@ -100,6 +100,23 @@ def save_json(path: Path, payload: dict) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
 
 
+def save_analysis_bundle(path: Path, summary: dict, findings: list[dict], areas: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "summary": summary,
+        "findings": {
+            "type": "FeatureCollection",
+            "features": findings,
+        },
+        "areas": {
+            "type": "FeatureCollection",
+            "features": areas,
+        },
+    }
+    content = "window.UXO_ANALYSIS_DATA = " + json.dumps(payload, indent=2, ensure_ascii=True) + ";\n"
+    path.write_text(content, encoding="utf-8")
+
+
 def load_config(root: Path, config_arg: str) -> tuple[Path, dict]:
     path = resolve_path(root, config_arg) if config_arg else root / DEFAULT_CONFIG_NAME
     if not path.exists():
@@ -547,8 +564,9 @@ def run_analysis(root: Path, handoff_path: Path, config_path: Path, config: dict
     findings_path = exports_dir / "findings.auto.geojson"
     areas_path = exports_dir / "areas.auto.geojson"
     summary_path = exports_dir / "analysis-summary.json"
+    bundle_path = exports_dir / "analysis-bundle.js"
     if not overwrite:
-        for path in (findings_path, areas_path, summary_path):
+        for path in (findings_path, areas_path, summary_path, bundle_path):
             if path.exists():
                 raise SystemExit(f"Datei existiert bereits: {path}. Fuer Ueberschreiben --overwrite setzen.")
 
@@ -574,10 +592,12 @@ def run_analysis(root: Path, handoff_path: Path, config_path: Path, config: dict
             "findings_geojson": str(findings_path.relative_to(root)),
             "areas_geojson": str(areas_path.relative_to(root)),
             "summary_json": str(summary_path.relative_to(root)),
+            "bundle_js": str(bundle_path.relative_to(root)),
             "preview_dir": str(preview_dir.relative_to(root)),
         },
     }
     save_json(summary_path, summary_payload)
+    save_analysis_bundle(bundle_path, summary_payload, point_features, area_features)
 
     updated_config = update_project_config(config, summary_payload)
     save_config(config_path, updated_config)
